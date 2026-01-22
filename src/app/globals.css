@@ -1,26 +1,260 @@
+/* Google Fonts - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Italiana&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Design System Theme */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Primary Colors */
+  --color-primary-dark: #1a1a1a;
+  --color-primary-gold: #c9a871;
+  --color-primary-cream: #f5f1e8;
+
+  /* Neutrals */
+  --color-white: #ffffff;
+  --color-off-white: #fafaf9;
+  --color-gray-light: #e5e5e5;
+  --color-gray-medium: #6b6b6b;
+  --color-gray-dark: #333333;
+
+  /* Nature-Inspired Accents */
+  --color-earth-brown: #8b7355;
+  --color-sage-green: #7a8c6f;
+  --color-warm-beige: #d4c5b0;
+
+  /* Fonts */
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-accent: 'Italiana', serif;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+
+  /* Container Sizes */
+  --container-max: 1400px;
+  --container-narrow: 1100px;
+
+  /* Spacing */
+  --spacing-section-y: clamp(4rem, 8vw, 8rem);
+  --spacing-section-x: clamp(1.5rem, 5vw, 3rem);
+
+  /* Transitions */
+  --transition-fast: 200ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 400ms ease-out;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  --shadow-gold: 0 8px 16px rgba(201, 168, 113, 0.3);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-primary-dark);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary-gold);
+  color: var(--color-white);
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: 2px solid var(--color-primary-gold);
+  outline-offset: 2px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gray-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-medium);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
+
+/* Utility Classes */
+.container-max {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--spacing-section-x);
+}
+
+.container-narrow {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  padding-inline: var(--spacing-section-x);
+}
+
+.section-padding {
+  padding-block: var(--spacing-section-y);
+}
+
+/* Gradient Placeholders for Images */
+.placeholder-safari {
+  background: linear-gradient(135deg, var(--color-earth-brown) 0%, var(--color-warm-beige) 100%);
+}
+
+.placeholder-hero {
+  background: linear-gradient(180deg, var(--color-primary-dark) 0%, var(--color-earth-brown) 50%, var(--color-warm-beige) 100%);
+}
+
+.placeholder-room {
+  background: linear-gradient(135deg, var(--color-warm-beige) 0%, var(--color-primary-cream) 100%);
+}
+
+.placeholder-nature {
+  background: linear-gradient(135deg, var(--color-sage-green) 0%, var(--color-earth-brown) 100%);
+}
+
+.placeholder-gold {
+  background: linear-gradient(135deg, var(--color-primary-gold) 0%, var(--color-earth-brown) 100%);
+}
+
+/* Animation Utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-base) ease forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--transition-base) ease forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--transition-slow) ease forwards;
+}
+
+/* Accordion Animations */
+@keyframes accordion-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 300ms ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 300ms ease-out;
+}
+
+/* Fade Out Animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-fade-out {
+  animation: fadeOut var(--transition-base) ease forwards;
 }
