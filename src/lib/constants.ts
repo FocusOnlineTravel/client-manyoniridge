@@ -21,10 +21,16 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const NAV_LINKS = [
+  { href: '/accommodations', label: 'Accommodation' },
+  { href: '/activities', label: 'Experiences' },
+  { href: '/reserve', label: 'Reserve' },
+] as const;
+
+export const MOBILE_NAV_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/accommodations', label: 'Accommodations' },
-  { href: '/activities', label: 'Activities' },
-  { href: '/reserve', label: 'The Reserve' },
+  { href: '/accommodations', label: 'Accommodation' },
+  { href: '/activities', label: 'Experiences' },
+  { href: '/reserve', label: 'Reserve' },
   { href: '/dining', label: 'Dining' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/about', label: 'About' },

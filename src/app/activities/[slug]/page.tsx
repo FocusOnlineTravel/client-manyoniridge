@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Users, Check, AlertCircle } from 'lucide-react';
 import { HeroImage } from '@/components/sections/HeroImage';
@@ -156,22 +157,30 @@ export default async function ActivityDetailPage({ params }: PageProps) {
         </div>
       </Section>
 
-      {/* Image Gallery Placeholder */}
-      <Section background="off-white">
-        <h2 className="font-heading text-3xl font-medium text-primary-dark mb-8 text-center">
-          Gallery
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[1, 2, 3, 4].map((i) => (
-            <div
-              key={i}
-              className={`aspect-square ${activity.placeholderClass}`}
-              role="img"
-              aria-label={`${activity.title} gallery image ${i}`}
-            />
-          ))}
-        </div>
-      </Section>
+      {/* Image Gallery */}
+      {activity.images && activity.images.length > 0 && (
+        <Section background="off-white">
+          <h2 className="font-heading text-3xl font-medium text-primary-dark mb-8 text-center">
+            Gallery
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {activity.images.map((image, i) => (
+              <div
+                key={i}
+                className="aspect-square relative overflow-hidden"
+              >
+                <Image
+                  src={image}
+                  alt={`${activity.title} gallery image ${i + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
 
       {/* Other Activities */}
       {otherActivities.length > 0 && (

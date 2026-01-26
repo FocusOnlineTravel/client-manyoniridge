@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { HeroImage } from '@/components/sections/HeroImage';
 import { SplitContent } from '@/components/sections/SplitContent';
 import { TextBlock } from '@/components/sections/TextBlock';
@@ -38,7 +39,7 @@ export default function AboutPage() {
         subtitle="The Beginning"
         title="A Dream Realized"
         description="Manyoni Ridge emerged from years of planning and a deep love for the African bush. Set within the renowned Manyoni Private Game Reserve, our lodge represents a new chapter in sustainable luxury tourism in KwaZulu-Natal. Every aspect of our design and operation reflects our commitment to conservation, community, and unforgettable guest experiences."
-        imagePlaceholder="placeholder-nature"
+        imageSrc="/images/2-bed 1.jpg"
         imagePosition="left"
       />
 
@@ -97,7 +98,7 @@ export default function AboutPage() {
           'Dedicated conservation team',
           'Professional hospitality training',
         ]}
-        imagePlaceholder="placeholder-safari"
+        imageSrc="/images/Birds and Wildlife/Secretarybird Kgalagadi Transfrontier NP SA AR-061 Edited.jpg"
         imagePosition="right"
         background="cream"
       />
@@ -116,11 +117,15 @@ export default function AboutPage() {
             welcome its first guests in July 2026. We invite you to register your
             interest and be among the first to experience our new lodge.
           </p>
-          <div
-            className="aspect-video placeholder-room max-w-2xl mx-auto"
-            role="img"
-            aria-label="Lodge construction render"
-          />
+          <div className="aspect-video max-w-2xl mx-auto relative overflow-hidden">
+            <Image
+              src="/images/2-bed 6.jpg"
+              alt="Lodge construction render"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 672px"
+            />
+          </div>
         </div>
       </Section>
 

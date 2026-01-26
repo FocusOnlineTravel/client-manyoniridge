@@ -81,7 +81,7 @@ export default function ReservePage() {
         ]}
         ctaText="View Activities"
         ctaHref="/activities"
-        imagePlaceholder="placeholder-safari"
+        imageSrc="/images/Birds and Wildlife/Leopard Kruger SA AR-072 Edited.jpg"
         imagePosition="left"
       />
 
@@ -122,7 +122,7 @@ export default function ReservePage() {
         ]}
         ctaText="Conservation Experiences"
         ctaHref="/activities/rhino-conservation"
-        imagePlaceholder="placeholder-safari"
+        imageSrc="/images/Birds and Wildlife/DSC00814.jpeg"
         imagePosition="right"
         background="cream"
       />
@@ -189,7 +189,7 @@ export default function ReservePage() {
         secondaryCtaText="View Accommodations"
         secondaryCtaHref="/accommodations"
         background="image"
-        placeholderClass="placeholder-nature"
+        imageSrc="/images/Birds and Wildlife/AR- BY8T9786(EDITED v2).jpg"
       />
     </>
   );

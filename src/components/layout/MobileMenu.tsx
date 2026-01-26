@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { X, Phone, Mail, Instagram, Facebook } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { NAV_LINKS, CONTACT, SOCIAL_LINKS, SITE_CONFIG } from '@/lib/constants';
+import { MOBILE_NAV_LINKS, CONTACT, SOCIAL_LINKS, SITE_CONFIG } from '@/lib/constants';
 import { Button } from '@/components/ui/Button';
 
 interface MobileMenuProps {
@@ -69,7 +69,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               {/* Navigation */}
               <nav className="flex-1">
                 <ul className="space-y-1">
-                  {NAV_LINKS.map((link, index) => (
+                  {MOBILE_NAV_LINKS.map((link, index) => (
                     <motion.li
                       key={link.href}
                       initial={{ opacity: 0, x: 20 }}

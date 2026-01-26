@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -12,6 +13,7 @@ interface SplitContentProps {
   ctaText?: string;
   ctaHref?: string;
   imagePlaceholder?: string;
+  imageSrc?: string;
   imagePosition?: 'left' | 'right';
   background?: 'white' | 'cream' | 'dark';
   features?: string[];
@@ -30,6 +32,7 @@ export function SplitContent({
   ctaText,
   ctaHref,
   imagePlaceholder = 'placeholder-safari',
+  imageSrc,
   imagePosition = 'left',
   background = 'white',
   features,
@@ -46,9 +49,19 @@ export function SplitContent({
       transition={{ duration: 0.8 }}
       className={cn(
         'relative aspect-[4/3] lg:aspect-auto lg:absolute lg:inset-0',
-        imagePlaceholder
+        !imageSrc && imagePlaceholder
       )}
-    />
+    >
+      {imageSrc && (
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+      )}
+    </motion.div>
   );
 
   const textContent = (

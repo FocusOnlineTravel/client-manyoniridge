@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ArrowRight, Clock, Binoculars, Shield, Search, Sparkles, Users } from 'lucide-react';
@@ -75,9 +76,18 @@ export function ActivityCard({ activity, index = 0, variant = 'default' }: Activ
         <div
           className={cn(
             'relative aspect-square overflow-hidden',
-            activity.placeholderClass
+            !activity.images || activity.images.length === 0 ? activity.placeholderClass : ''
           )}
         >
+          {activity.images && activity.images.length > 0 && (
+            <Image
+              src={activity.images[0]}
+              alt={activity.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          )}
           {/* Icon Overlay */}
           <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
             <div className="p-4 bg-white/10 backdrop-blur-sm rounded-full">

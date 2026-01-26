@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Users, Bed, Bath, Maximize, Check } from 'lucide-react';
 import { HeroImage } from '@/components/sections/HeroImage';
@@ -161,22 +162,30 @@ export default async function RoomDetailPage({ params }: PageProps) {
         </div>
       </Section>
 
-      {/* Image Gallery Placeholder */}
-      <Section background="off-white">
-        <h2 className="font-heading text-3xl font-medium text-primary-dark mb-8 text-center">
-          Gallery
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[1, 2, 3, 4].map((i) => (
-            <div
-              key={i}
-              className={`aspect-square ${room.placeholderClass}`}
-              role="img"
-              aria-label={`${room.title} gallery image ${i}`}
-            />
-          ))}
-        </div>
-      </Section>
+      {/* Image Gallery */}
+      {room.images && room.images.length > 0 && (
+        <Section background="off-white">
+          <h2 className="font-heading text-3xl font-medium text-primary-dark mb-8 text-center">
+            Gallery
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {room.images.slice(0, 8).map((image, i) => (
+              <div
+                key={i}
+                className="aspect-square relative overflow-hidden"
+              >
+                <Image
+                  src={image}
+                  alt={`${room.title} gallery image ${i + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
 
       {/* Other Rooms */}
       {otherRooms.length > 0 && (
@@ -192,10 +201,20 @@ export default async function RoomDetailPage({ params }: PageProps) {
                 className="group block bg-white overflow-hidden border border-gray-light hover:shadow-lg transition-all"
               >
                 <div
-                  className={`aspect-video ${otherRoom.placeholderClass}`}
-                  role="img"
-                  aria-label={otherRoom.title}
-                />
+                  className={`aspect-video relative overflow-hidden ${
+                    !otherRoom.images || otherRoom.images.length === 0 ? otherRoom.placeholderClass : ''
+                  }`}
+                >
+                  {otherRoom.images && otherRoom.images.length > 0 && (
+                    <Image
+                      src={otherRoom.images[0]}
+                      alt={otherRoom.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  )}
+                </div>
                 <div className="p-6">
                   <p className="text-primary-gold text-xs uppercase tracking-wider mb-1">
                     {otherRoom.subtitle}
