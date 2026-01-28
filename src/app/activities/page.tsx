@@ -135,7 +135,7 @@ export default function ActivitiesPage() {
         secondaryCtaText="View Accommodations"
         secondaryCtaHref="/accommodations"
         background="image"
-        placeholderClass="placeholder-safari"
+        imageSrc="/images/Birds and Wildlife/Roller, Lilac-breasted Kruger SA AR-042 Edited.jpg"
       />
     </>
   );

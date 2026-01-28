@@ -28,6 +28,9 @@ export default function HomePage() {
         secondaryCtaText="Explore"
         secondaryCtaHref="/accommodations"
         scrollToId="intro"
+        videoSrc="/videos/renders.mp4"
+        verticalAlign="bottom"
+        textBackground={true}
       />
 
       {/* Introduction Section */}
@@ -54,7 +57,7 @@ export default function HomePage() {
         ]}
         ctaText="View Accommodations"
         ctaHref="/accommodations"
-        imagePlaceholder="placeholder-nature"
+        imageSrc="/images/Birds and Wildlife/DSC00748.jpeg"
         imagePosition="left"
       />
 
@@ -161,7 +164,7 @@ export default function HomePage() {
         description="At Manyoni Ridge, conservation is at the heart of everything we do. The reserve is home to critical populations of rhino and the elusive pangolin. By staying with us, you directly support anti-poaching efforts, habitat restoration, and community development initiatives."
         ctaText="Learn About Conservation"
         ctaHref="/reserve"
-        imagePlaceholder="placeholder-safari"
+        imageSrc="/images/Birds and Wildlife/DSC00470.jpeg"
         imagePosition="right"
         background="cream"
       />
@@ -181,7 +184,7 @@ export default function HomePage() {
         secondaryCtaText="View FAQ"
         secondaryCtaHref="/faq"
         background="image"
-        placeholderClass="placeholder-hero"
+        imageSrc="/images/Birds and Wildlife/DSC00631.jpeg"
       />
     </>
   );

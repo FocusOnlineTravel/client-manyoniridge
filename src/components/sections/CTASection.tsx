@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -14,6 +15,7 @@ interface CTASectionProps {
   secondaryCtaHref?: string;
   background?: 'gold' | 'dark' | 'image';
   placeholderClass?: string;
+  imageSrc?: string;
 }
 
 export function CTASection({
@@ -25,6 +27,7 @@ export function CTASection({
   secondaryCtaHref,
   background = 'gold',
   placeholderClass = 'placeholder-safari',
+  imageSrc,
 }: CTASectionProps) {
   const { ref, inView } = useInView({
     threshold: 0.2,
@@ -37,9 +40,18 @@ export function CTASection({
         ref={ref}
         className={cn(
           'relative py-20 md:py-32',
-          placeholderClass
+          !imageSrc && placeholderClass
         )}
       >
+        {imageSrc && (
+          <Image
+            src={imageSrc}
+            alt={title}
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        )}
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 container-max text-center">
           <motion.div

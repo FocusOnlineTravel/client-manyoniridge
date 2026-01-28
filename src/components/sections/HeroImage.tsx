@@ -14,11 +14,14 @@ interface HeroImageProps {
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
   placeholderClass?: string;
+  videoSrc?: string;
   showScrollIndicator?: boolean;
   scrollToId?: string;
   size?: 'full' | 'large' | 'medium';
   overlay?: 'dark' | 'light' | 'gradient';
   textAlign?: 'center' | 'left';
+  verticalAlign?: 'center' | 'bottom';
+  textBackground?: boolean;
 }
 
 const sizeStyles = {
@@ -42,11 +45,14 @@ export function HeroImage({
   secondaryCtaText,
   secondaryCtaHref,
   placeholderClass = 'placeholder-hero',
+  videoSrc,
   showScrollIndicator = true,
   scrollToId,
   size = 'full',
   overlay = 'gradient',
   textAlign = 'center',
+  verticalAlign = 'center',
+  textBackground = false,
 }: HeroImageProps) {
   const handleScrollClick = () => {
     if (scrollToId) {
@@ -60,22 +66,43 @@ export function HeroImage({
   return (
     <section
       className={cn(
-        'relative flex items-center justify-center',
+        'relative flex overflow-hidden',
+        verticalAlign === 'center' ? 'items-center' : 'items-end',
+        'justify-center',
         sizeStyles[size],
-        placeholderClass
+        !videoSrc && placeholderClass
       )}
     >
+      {/* Video Background */}
+      {videoSrc && (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={videoSrc} type="video/mp4" />
+        </video>
+      )}
+
       {/* Overlay */}
       <div className={cn('absolute inset-0', overlayStyles[overlay])} />
 
       {/* Content */}
       <div
         className={cn(
-          'relative z-10 container-max py-20',
-          textAlign === 'center' && 'text-center',
-          textAlign === 'left' && 'text-left'
+          'relative z-10 w-full py-20',
+          verticalAlign === 'bottom' && 'mb-0'
         )}
       >
+        <div
+          className={cn(
+            'container-max',
+            textAlign === 'center' && 'text-center',
+            textAlign === 'left' && 'text-left'
+          )}
+        >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -97,7 +124,11 @@ export function HeroImage({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="font-heading text-4xl md:text-6xl lg:text-7xl text-white font-medium leading-tight mb-6"
+            className={cn(
+              'font-heading text-4xl md:text-6xl lg:text-7xl font-medium leading-tight mb-6',
+              textBackground && 'bg-primary-gold/90 inline-block px-6 py-4'
+            )}
+            style={{ color: 'white' }}
           >
             {title}
           </motion.h1>
@@ -136,6 +167,7 @@ export function HeroImage({
             </motion.div>
           )}
         </motion.div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}

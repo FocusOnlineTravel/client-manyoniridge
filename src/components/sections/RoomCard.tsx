@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Users, ArrowRight, Bed, Bath } from 'lucide-react';
@@ -39,9 +40,18 @@ export function RoomCard({ room, index = 0, variant = 'default' }: RoomCardProps
           className={cn(
             'relative overflow-hidden',
             variant === 'default' ? 'aspect-[4/3]' : 'aspect-[4/3] lg:aspect-auto lg:min-h-[400px]',
-            room.placeholderClass
+            !room.images || room.images.length === 0 ? room.placeholderClass : ''
           )}
         >
+          {room.images && room.images.length > 0 && (
+            <Image
+              src={room.images[0]}
+              alt={room.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          )}
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
         </div>

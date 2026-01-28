@@ -51,7 +51,7 @@ export default function DiningPage() {
           'Accommodations for all dietary requirements',
           'À la carte and set menu options',
         ]}
-        imagePlaceholder="placeholder-room"
+        imageSrc="/images/2-bed 7.jpg"
         imagePosition="left"
       />
 

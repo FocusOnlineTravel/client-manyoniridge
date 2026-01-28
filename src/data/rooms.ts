@@ -36,7 +36,12 @@ The spacious bedroom features a king-size bed dressed in premium linens, positio
       'Twice-daily housekeeping',
       'Turn-down service',
     ],
-    images: [],
+    images: [
+      '/images/1-bed 1.jpg',
+      '/images/1-bed 2.jpg',
+      '/images/1-bed 3.jpg',
+      '/images/1-bed 4.jpg',
+    ],
     placeholderClass: 'placeholder-room',
   },
   {
@@ -74,7 +79,16 @@ The master bedroom includes a king-size bed, while the second bedroom can be con
       'Ideal for families',
       'Twice-daily housekeeping',
     ],
-    images: [],
+    images: [
+      '/images/2-bed 1.jpg',
+      '/images/2-bed 2.jpg',
+      '/images/2-bed 3.jpg',
+      '/images/2-bed 4.jpg',
+      '/images/2-bed 5.jpg',
+      '/images/2-bed 6.jpg',
+      '/images/2-bed 7.jpg',
+      '/images/2-bed 8.jpg',
+    ],
     placeholderClass: 'placeholder-room',
   },
 ];
