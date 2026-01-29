@@ -40,19 +40,24 @@ export const MOBILE_NAV_LINKS = [
 ] as const;
 
 export const FOOTER_LINKS = {
-  explore: [
+  experience: [
     { href: '/accommodations', label: 'Accommodations' },
-    { href: '/activities', label: 'Activities' },
     { href: '/main-lodge', label: 'Main Lodge' },
-    { href: '/reserve', label: 'The Reserve' },
+    { href: '/activities', label: 'Activities' },
     { href: '/dining', label: 'Dining' },
-    { href: '/gallery', label: 'Gallery' },
+    { href: '/reserve', label: 'The Reserve' },
   ],
-  information: [
+  discover: [
     { href: '/about', label: 'About Us' },
+    { href: '/gallery', label: 'Gallery' },
     { href: '/offers', label: 'Special Offers' },
     { href: '/faq', label: 'FAQ' },
-    { href: '/contact', label: 'Contact' },
+  ],
+  plan: [
+    { href: '/contact', label: 'Contact Us' },
+    { href: '/contact#rates', label: 'Rates & Packages' },
+    { href: '/contact#bookings', label: 'Bookings' },
+    { href: '/contact#directions', label: 'Getting Here' },
   ],
   legal: [
     { href: '/privacy', label: 'Privacy Policy' },

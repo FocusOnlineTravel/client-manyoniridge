@@ -44,7 +44,7 @@ export function Header() {
             : 'bg-transparent py-5'
         )}
       >
-        <div className="container-max">
+        <div className="w-full px-6 md:px-12 lg:px-16">
           {/* Single Row: Logo, Navigation, and Actions */}
           <div className={cn(
             "flex items-center justify-between",
