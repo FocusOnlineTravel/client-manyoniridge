@@ -22,7 +22,7 @@ export const mainLodgePage: PageDefinition = {
         description:
           'Where comfort meets elegance in the heart of the African bush. Our Main Lodge offers beautifully designed spaces for relaxation, dining, and connection.',
         size: 'large',
-        imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 1.jpg',
+        imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 7.jpg',
         showScrollIndicator: false,
       },
     },
@@ -54,7 +54,7 @@ export const mainLodgePage: PageDefinition = {
           'Curated book library',
           'Wi-Fi available',
         ],
-        imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 7.jpg',
+        imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 1.jpg',
         imagePosition: 'right',
         background: 'white',
       },
