@@ -112,9 +112,9 @@ export const aboutPage: PageDefinition = {
       type: 'opening_info',
       props: {
         subtitle: 'Coming Soon',
-        title: 'Opening July 2026',
+        title: 'Opening September 2026',
         description:
-          'Manyoni Ridge Safari Lodge is currently under construction and will welcome its first guests in July 2026. We invite you to register your interest and be among the first to experience our new lodge.',
+          'Manyoni Ridge Safari Lodge is currently under construction and will welcome its first guests in September 2026. We invite you to register your interest and be among the first to experience our new lodge.',
         imageSrc: '/images/2-bed 6.jpg',
         background: 'white',
       },

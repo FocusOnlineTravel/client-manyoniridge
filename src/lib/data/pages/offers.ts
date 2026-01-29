@@ -55,7 +55,7 @@ export const offersPage: PageDefinition = {
               'Complimentary spa treatment',
               'Priority room selection',
             ],
-            validUntil: 'Valid for stays from July 2026',
+            validUntil: 'Valid for stays from September 2026',
             imageSrc: '/images/Birds and Wildlife/DSC00569.jpeg',
           },
           {

@@ -19,7 +19,7 @@ export const homePage: PageDefinition = {
     {
       type: 'hero_image',
       props: {
-        subtitle: 'Opening July 2026',
+        subtitle: 'Opening September 2026',
         title: 'Intimate Luxury in the Wild',
         description:
           'Experience the magic of the African bush at our boutique safari lodge in Manyoni Private Game Reserve. Big 5 encounters, exceptional service, and unforgettable moments await.',
