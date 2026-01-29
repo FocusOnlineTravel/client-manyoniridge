@@ -24,6 +24,7 @@ export const mainLodgePage: PageDefinition = {
         size: 'large',
         imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 7.jpg',
         showScrollIndicator: false,
+        verticalAlign: 'bottom',
       },
     },
 

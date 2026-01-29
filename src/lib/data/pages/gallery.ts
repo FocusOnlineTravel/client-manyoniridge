@@ -26,6 +26,7 @@ export const galleryPage: PageDefinition = {
         imageSrc:
           '/images/Birds and Wildlife/Roller, Lilac-breasted Kruger SA AR-016 Edited.jpg',
         showScrollIndicator: false,
+        verticalAlign: 'bottom',
       },
     },
 

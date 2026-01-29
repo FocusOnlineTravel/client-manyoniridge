@@ -22,6 +22,7 @@ export const accommodationsPage: PageDefinition = {
         size: 'large',
         imageSrc: '/images/2-bed 1.jpg',
         showScrollIndicator: false,
+        verticalAlign: 'bottom',
       },
     },
 

@@ -24,6 +24,7 @@ export const faqPage: PageDefinition = {
         size: 'large',
         imageSrc: '/images/Birds and Wildlife/DSC00595.jpeg',
         showScrollIndicator: false,
+        verticalAlign: 'bottom',
       },
     },
 

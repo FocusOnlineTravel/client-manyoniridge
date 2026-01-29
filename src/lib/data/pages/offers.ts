@@ -22,6 +22,7 @@ export const offersPage: PageDefinition = {
         imageSrc:
           '/images/Birds and Wildlife/Sunbird, Scarlet-chested Cape Vidal SA AR-2 Edited.jpg',
         showScrollIndicator: false,
+        verticalAlign: 'bottom',
       },
     },
 

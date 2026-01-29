@@ -22,6 +22,7 @@ export const diningPage: PageDefinition = {
         size: 'large',
         imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS dark.jpg',
         showScrollIndicator: false,
+        verticalAlign: 'bottom',
       },
     },
 

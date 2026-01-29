@@ -22,6 +22,7 @@ export const reservePage: PageDefinition = {
         size: 'large',
         imageSrc: '/images/Birds and Wildlife/DSC00814.jpeg',
         showScrollIndicator: false,
+        verticalAlign: 'bottom',
       },
     },
 

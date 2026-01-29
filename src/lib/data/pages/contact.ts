@@ -24,6 +24,7 @@ export const contactPage: PageDefinition = {
         size: 'medium',
         imageSrc: '/images/2-bed 8.jpg',
         showScrollIndicator: false,
+        verticalAlign: 'bottom',
       },
     },
 
