@@ -65,7 +65,7 @@ export const homePage: PageDefinition = {
         ],
         ctaText: 'View Accommodations',
         ctaHref: '/accommodations',
-        imageSrc: '/images/Birds and Wildlife/DSC00844.png',
+        imageSrc: '/images/Birds and Wildlife/DSC00844.jpeg',
         imagePosition: 'left',
       },
     },
