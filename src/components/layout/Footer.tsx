@@ -64,7 +64,9 @@ export function Footer() {
 
           {/* Experience Links */}
           <div>
-            <h3 className="font-heading text-lg font-semibold mb-4">Experience</h3>
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 text-primary-gold uppercase tracking-wider">
+              Experience
+            </h3>
             <ul className="space-y-3">
               {FOOTER_LINKS.experience.map((link) => (
                 <li key={link.href}>
@@ -81,7 +83,9 @@ export function Footer() {
 
           {/* Discover Links */}
           <div>
-            <h3 className="font-heading text-lg font-semibold mb-4">Discover</h3>
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 text-primary-gold uppercase tracking-wider">
+              Discover
+            </h3>
             <ul className="space-y-3">
               {FOOTER_LINKS.discover.map((link) => (
                 <li key={link.href}>
@@ -98,7 +102,9 @@ export function Footer() {
 
           {/* Plan Links */}
           <div>
-            <h3 className="font-heading text-lg font-semibold mb-4">Plan</h3>
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 text-primary-gold uppercase tracking-wider">
+              Plan
+            </h3>
             <ul className="space-y-3">
               {FOOTER_LINKS.plan.map((link) => (
                 <li key={link.href}>
@@ -115,7 +121,9 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-heading text-lg font-semibold mb-4">Contact</h3>
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 text-primary-gold uppercase tracking-wider">
+              Contact
+            </h3>
             <ul className="space-y-3">
               <li>
                 <a
