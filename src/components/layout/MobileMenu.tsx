@@ -112,14 +112,14 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     href={CONTACT.phoneLink}
                     className="flex items-center gap-3 text-white hover:text-primary-gold transition-colors text-sm"
                   >
-                    <Phone className="w-4 h-4 flex-shrink-0" />
+                    <Phone className="w-4 h-4 flex-shrink-0" style={{ color: 'white' }} />
                     <span className="text-white">{CONTACT.phone}</span>
                   </a>
                   <a
                     href={CONTACT.emailLink}
                     className="flex items-center gap-3 text-white hover:text-primary-gold transition-colors text-sm"
                   >
-                    <Mail className="w-4 h-4 flex-shrink-0" />
+                    <Mail className="w-4 h-4 flex-shrink-0" style={{ color: 'white' }} />
                     <span className="text-white break-all">{CONTACT.email}</span>
                   </a>
                 </div>
