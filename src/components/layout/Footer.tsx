@@ -29,20 +29,16 @@ export function Footer() {
           <div className="md:col-span-2 lg:col-span-1">
             <Link
               href="/"
-              className="inline-block mb-4"
+              className="inline-block mb-6"
             >
               <Image
                 src="/images/manyoni-logo-dark.png"
                 alt={SITE_CONFIG.name}
-                width={200}
-                height={67}
-                className="w-auto h-16 brightness-0 invert"
+                width={280}
+                height={93}
+                className="w-auto h-24 brightness-0 invert"
               />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              {SITE_CONFIG.tagline}. Experience the magic of the African bush at
-              our intimate luxury lodge in Manyoni Private Game Reserve.
-            </p>
             {/* Social Links */}
             <div className="flex items-center gap-4">
               <a
