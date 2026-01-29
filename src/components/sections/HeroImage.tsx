@@ -33,9 +33,9 @@ const sizeStyles = {
 };
 
 const overlayStyles = {
-  dark: 'bg-black/50',
-  light: 'bg-black/30',
-  gradient: 'bg-gradient-to-b from-black/60 via-black/40 to-black/60',
+  dark: 'bg-black/40',
+  light: 'bg-black/20',
+  gradient: 'bg-gradient-to-b from-black/45 via-black/30 to-black/45',
 };
 
 export function HeroImage({
