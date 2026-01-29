@@ -45,7 +45,7 @@ export function ContactInfoSection({ background = 'white' }: ContactInfoSectionP
             <MapPin className="w-6 h-6 text-primary-gold" />
           </div>
           <h3 className="font-heading text-lg font-medium text-primary-dark mb-2">Location</h3>
-          <p className="text-gray-600">{CONTACT.address}</p>
+          <p className="text-gray-600">{CONTACT.location}</p>
         </div>
 
         <div className="text-center">
