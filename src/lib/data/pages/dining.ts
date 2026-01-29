@@ -53,7 +53,7 @@ export const diningPage: PageDefinition = {
           'Accommodations for all dietary requirements',
           'À la carte and set menu options',
         ],
-        imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 12.jpg',
+        imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 32.jpg',
         imagePosition: 'left',
       },
     },
