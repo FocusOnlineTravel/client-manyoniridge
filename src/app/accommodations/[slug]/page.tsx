@@ -51,6 +51,7 @@ export default async function RoomDetailPage({ params }: PageProps) {
         subtitle={room.subtitle}
         title={room.title}
         size="large"
+        imageSrc={room.heroImage}
         placeholderClass={room.placeholderClass}
         showScrollIndicator={false}
       />

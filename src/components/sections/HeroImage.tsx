@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -15,6 +16,7 @@ interface HeroImageProps {
   secondaryCtaHref?: string;
   placeholderClass?: string;
   videoSrc?: string;
+  imageSrc?: string;
   showScrollIndicator?: boolean;
   scrollToId?: string;
   size?: 'full' | 'large' | 'medium';
@@ -46,6 +48,7 @@ export function HeroImage({
   secondaryCtaHref,
   placeholderClass = 'placeholder-hero',
   videoSrc,
+  imageSrc,
   showScrollIndicator = true,
   scrollToId,
   size = 'full',
@@ -70,9 +73,21 @@ export function HeroImage({
         verticalAlign === 'center' ? 'items-center' : 'items-end',
         'justify-center',
         sizeStyles[size],
-        !videoSrc && placeholderClass
+        !videoSrc && !imageSrc && placeholderClass
       )}
     >
+      {/* Image Background */}
+      {imageSrc && !videoSrc && (
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+        />
+      )}
+
       {/* Video Background */}
       {videoSrc && (
         <video

@@ -57,7 +57,7 @@ export default function GalleryPage() {
         title="Capturing the Magic"
         description="Explore the beauty of Manyoni Ridge through our collection of images showcasing wildlife, accommodation, and unforgettable moments."
         size="large"
-        placeholderClass="placeholder-safari"
+        imageSrc="/images/Birds and Wildlife/Roller, Lilac-breasted Kruger SA AR-016 Edited.jpg"
         showScrollIndicator={false}
       />
 
