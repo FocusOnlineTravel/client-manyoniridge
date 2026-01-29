@@ -43,7 +43,7 @@ export const FOOTER_LINKS = {
   experience: [
     { href: '/accommodations', label: 'Accommodations' },
     { href: '/main-lodge', label: 'Main Lodge' },
-    { href: '/activities', label: 'Activities' },
+    { href: '/activities', label: 'Experiences' },
     { href: '/dining', label: 'Dining' },
     { href: '/reserve', label: 'The Reserve' },
   ],
