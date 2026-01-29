@@ -58,7 +58,7 @@ Learn about the challenges facing rhinos today and the innovative approaches bei
       'Educational insights',
     ],
     images: [
-      '/images/Birds and Wildlife/DSC00453.jpeg',
+      '/images/rhino.jpg',
       '/images/Birds and Wildlife/DSC00470.jpeg',
       '/images/Birds and Wildlife/DSC00814.jpeg',
       '/images/Birds and Wildlife/Eagle, Martial Kruger SA AR-010 Edited.jpg',
@@ -91,7 +91,7 @@ Our specialized guides will take you into the reserve during optimal viewing tim
       'Unforgettable experience',
     ],
     images: [
-      '/images/Birds and Wildlife/Owl, African Scops Kruger SA AR-001 Edited copy.jpg',
+      '/images/pangolin.jpg',
       '/images/Birds and Wildlife/Owl, African Scops Kruger SA AR-003 Edited.jpg',
       '/images/Birds and Wildlife/Nightjar, Fiery-necked Phinda SA AR-1 Edited.jpg',
       '/images/Birds and Wildlife/oldenemies-7326-2.jpeg',
@@ -123,7 +123,7 @@ Watch training demonstrations, learn about the specialized skills these remarkab
       'Unique experience',
     ],
     images: [
-      '/images/Birds and Wildlife/DSC00595.jpeg',
+      '/images/k9.jpg',
       '/images/Birds and Wildlife/DSC00631.jpeg',
       '/images/Birds and Wildlife/DSC00748.jpeg',
       '/images/Birds and Wildlife/AR- BY8T9735(EDITED).jpg',
