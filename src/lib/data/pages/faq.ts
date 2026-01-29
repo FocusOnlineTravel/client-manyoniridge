@@ -21,7 +21,7 @@ export const faqPage: PageDefinition = {
         subtitle: 'FAQ',
         title: 'Frequently Asked Questions',
         description: 'Find answers to common questions about your stay at Manyoni Ridge Safari Lodge.',
-        size: 'medium',
+        size: 'large',
         imageSrc: '/images/Birds and Wildlife/DSC00595.jpeg',
         showScrollIndicator: false,
       },
