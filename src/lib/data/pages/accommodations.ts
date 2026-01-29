@@ -16,7 +16,7 @@ export const accommodationsPage: PageDefinition = {
       type: 'hero_image',
       props: {
         subtitle: 'Accommodations',
-        title: 'Luxury Suites in the Heart of the Bush',
+        title: 'Suites in the Heart of the Bush',
         description:
           'Experience unparalleled comfort in our intimate collection of suites, each offering private pools, breathtaking views, and seamless harmony with the African wilderness.',
         size: 'large',
