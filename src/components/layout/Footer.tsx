@@ -13,7 +13,7 @@ export function Footer() {
       <div className="border-b border-white/10">
         <div className="w-full px-6 md:px-12 lg:px-16 py-12">
           <div className="max-w-2xl mx-auto text-center">
-            <h3 className="font-heading text-2xl font-semibold mb-3">Stay Updated</h3>
+            <h3 className="font-heading text-2xl font-semibold mb-3" style={{ color: 'white !important' } as React.CSSProperties}>Stay Updated</h3>
             <p className="text-gray-400 text-sm mb-6">
               Subscribe to receive exclusive offers, news from the bush, and updates on our opening.
             </p>
@@ -64,7 +64,7 @@ export function Footer() {
 
           {/* Experience Links */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white' }}>
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white !important' } as React.CSSProperties}>
               Experience
             </h3>
             <ul className="space-y-3">
@@ -83,7 +83,7 @@ export function Footer() {
 
           {/* Discover Links */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white' }}>
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white !important' } as React.CSSProperties}>
               Discover
             </h3>
             <ul className="space-y-3">
@@ -102,7 +102,7 @@ export function Footer() {
 
           {/* Plan Links */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white' }}>
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white !important' } as React.CSSProperties}>
               Plan
             </h3>
             <ul className="space-y-3">
@@ -121,7 +121,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white' }}>
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white !important' } as React.CSSProperties}>
               Contact
             </h3>
             <ul className="space-y-3">
