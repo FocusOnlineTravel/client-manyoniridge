@@ -150,9 +150,22 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="w-full px-6 md:px-12 lg:px-16 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-gray-400 text-sm text-center md:text-left">
-              &copy; {currentYear} {SITE_CONFIG.name}. All rights reserved.
-            </p>
+            <div className="flex flex-col items-center md:items-start gap-1">
+              <p className="text-gray-400 text-sm text-center md:text-left">
+                &copy; {currentYear} {SITE_CONFIG.name}. All rights reserved.
+              </p>
+              <p className="text-gray-500 text-xs">
+                Website by{' '}
+                <a
+                  href="https://focusonlinetravel.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary-gold transition-colors"
+                >
+                  Focus Online Travel
+                </a>
+              </p>
+            </div>
             <div className="flex items-center gap-6">
               {FOOTER_LINKS.legal.map((link) => (
                 <Link
