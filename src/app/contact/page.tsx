@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { HeroImage } from '@/components/sections/HeroImage';
 import { Section } from '@/components/ui/Section';
@@ -36,7 +37,7 @@ export default function ContactPage() {
         title="Get in Touch"
         description="We'd love to hear from you. Reach out to start planning your safari adventure."
         size="medium"
-        placeholderClass="placeholder-gold"
+        imageSrc="/images/2-bed 8.jpg"
         showScrollIndicator={false}
       />
 
@@ -106,10 +107,16 @@ export default function ContactPage() {
             {/* Map Placeholder */}
             <div className="mt-8">
               <div
-                className="aspect-video placeholder-nature"
-                role="img"
-                aria-label="Location map"
-              />
+                className="aspect-video relative overflow-hidden"
+              >
+                <Image
+                  src="/images/Birds and Wildlife/DSC00595.jpeg"
+                  alt="Location map"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
+              </div>
               <p className="text-sm text-gray-medium mt-2">
                 Detailed directions will be provided upon booking confirmation.
               </p>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react';
 import { SITE_CONFIG, CONTACT, SOCIAL_LINKS, FOOTER_LINKS } from '@/lib/constants';
 import { NewsletterForm } from '@/components/forms/NewsletterForm';
@@ -8,21 +9,36 @@ export function Footer() {
 
   return (
     <footer className="bg-primary-dark text-white">
+      {/* Newsletter Section */}
+      <div className="border-b border-white/10">
+        <div className="w-full px-6 md:px-12 lg:px-16 py-12">
+          <div className="max-w-2xl mx-auto text-center">
+            <h3 className="font-heading text-2xl font-semibold mb-3" style={{ color: 'white !important' } as React.CSSProperties}>Stay Updated</h3>
+            <p className="text-gray-400 text-sm mb-6">
+              Subscribe to receive exclusive offers, news from the bush, and updates on our opening.
+            </p>
+            <NewsletterForm variant="footer" />
+          </div>
+        </div>
+      </div>
+
       {/* Main Footer */}
-      <div className="container-max section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+      <div className="w-full px-6 md:px-12 lg:px-16 section-padding">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand Column */}
-          <div className="lg:col-span-1">
+          <div className="md:col-span-2 lg:col-span-1">
             <Link
               href="/"
-              className="inline-block font-heading text-2xl font-semibold tracking-wide mb-4"
+              className="inline-block mb-6"
             >
-              {SITE_CONFIG.name}
+              <Image
+                src="/images/manyoni-logo-dark.png"
+                alt={SITE_CONFIG.name}
+                width={280}
+                height={93}
+                className="w-auto h-24 brightness-0 invert"
+              />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              {SITE_CONFIG.tagline}. Experience the magic of the African bush at
-              our intimate luxury lodge in Manyoni Private Game Reserve.
-            </p>
             {/* Social Links */}
             <div className="flex items-center gap-4">
               <a
@@ -46,11 +62,13 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Explore Links */}
+          {/* Experience Links */}
           <div>
-            <h3 className="font-heading text-lg font-semibold mb-4">Explore</h3>
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white !important' } as React.CSSProperties}>
+              Experience
+            </h3>
             <ul className="space-y-3">
-              {FOOTER_LINKS.explore.map((link) => (
+              {FOOTER_LINKS.experience.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -63,11 +81,13 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Information Links */}
+          {/* Discover Links */}
           <div>
-            <h3 className="font-heading text-lg font-semibold mb-4">Information</h3>
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white !important' } as React.CSSProperties}>
+              Discover
+            </h3>
             <ul className="space-y-3">
-              {FOOTER_LINKS.information.map((link) => (
+              {FOOTER_LINKS.discover.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -80,10 +100,31 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact & Newsletter */}
+          {/* Plan Links */}
           <div>
-            <h3 className="font-heading text-lg font-semibold mb-4">Contact</h3>
-            <ul className="space-y-3 mb-6">
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white !important' } as React.CSSProperties}>
+              Plan
+            </h3>
+            <ul className="space-y-3">
+              {FOOTER_LINKS.plan.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 text-sm hover:text-primary-gold transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white !important' } as React.CSSProperties}>
+              Contact
+            </h3>
+            <ul className="space-y-3">
               <li>
                 <a
                   href={CONTACT.phoneLink}
@@ -105,27 +146,34 @@ export function Footer() {
               <li>
                 <div className="flex items-start gap-3 text-gray-400 text-sm">
                   <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                  <span>{CONTACT.location}</span>
+                  <span className="leading-snug">{CONTACT.location}</span>
                 </div>
               </li>
             </ul>
-
-            {/* Newsletter */}
-            <div className="pt-4 border-t border-white/10">
-              <h4 className="text-sm font-medium mb-3">Stay Updated</h4>
-              <NewsletterForm variant="footer" />
-            </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="container-max py-6">
+        <div className="w-full px-6 md:px-12 lg:px-16 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-gray-400 text-sm text-center md:text-left">
-              &copy; {currentYear} {SITE_CONFIG.name}. All rights reserved.
-            </p>
+            <div className="flex flex-col items-center md:items-start gap-1">
+              <p className="text-gray-400 text-sm text-center md:text-left">
+                &copy; {currentYear} {SITE_CONFIG.name}. All rights reserved.
+              </p>
+              <p className="text-gray-500 text-xs">
+                Website by{' '}
+                <a
+                  href="https://focusonlinetravel.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary-gold transition-colors"
+                >
+                  Focus Online Travel
+                </a>
+              </p>
+            </div>
             <div className="flex items-center gap-6">
               {FOOTER_LINKS.legal.map((link) => (
                 <Link

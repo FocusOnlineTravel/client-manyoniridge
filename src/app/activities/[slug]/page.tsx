@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Clock, Users, Check, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Clock, Users, Check } from 'lucide-react';
 import { HeroImage } from '@/components/sections/HeroImage';
 import { ActivityCard } from '@/components/sections/ActivityCard';
 import { CTASection } from '@/components/sections/CTASection';
@@ -116,12 +116,6 @@ export default async function ActivityDetailPage({ params }: PageProps) {
                   <Clock className="w-5 h-5 text-primary-gold" />
                   <span>Duration: {activity.duration}</span>
                 </li>
-                {activity.difficulty && (
-                  <li className="flex items-center gap-3 text-gray-medium">
-                    <AlertCircle className="w-5 h-5 text-primary-gold" />
-                    <span>Difficulty: {activity.difficulty}</span>
-                  </li>
-                )}
                 {activity.minAge && (
                   <li className="flex items-center gap-3 text-gray-medium">
                     <Users className="w-5 h-5 text-primary-gold" />

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -15,6 +16,7 @@ interface HeroImageProps {
   secondaryCtaHref?: string;
   placeholderClass?: string;
   videoSrc?: string;
+  imageSrc?: string;
   showScrollIndicator?: boolean;
   scrollToId?: string;
   size?: 'full' | 'large' | 'medium';
@@ -31,9 +33,9 @@ const sizeStyles = {
 };
 
 const overlayStyles = {
-  dark: 'bg-black/50',
-  light: 'bg-black/30',
-  gradient: 'bg-gradient-to-b from-black/60 via-black/40 to-black/60',
+  dark: 'bg-black/40',
+  light: 'bg-black/20',
+  gradient: 'bg-gradient-to-b from-black/45 via-black/30 to-black/45',
 };
 
 export function HeroImage({
@@ -46,6 +48,7 @@ export function HeroImage({
   secondaryCtaHref,
   placeholderClass = 'placeholder-hero',
   videoSrc,
+  imageSrc,
   showScrollIndicator = true,
   scrollToId,
   size = 'full',
@@ -70,9 +73,21 @@ export function HeroImage({
         verticalAlign === 'center' ? 'items-center' : 'items-end',
         'justify-center',
         sizeStyles[size],
-        !videoSrc && placeholderClass
+        !videoSrc && !imageSrc && placeholderClass
       )}
     >
+      {/* Image Background */}
+      {imageSrc && !videoSrc && (
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+        />
+      )}
+
       {/* Video Background */}
       {videoSrc && (
         <video
@@ -107,7 +122,7 @@ export function HeroImage({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className={cn(textAlign === 'center' && 'max-w-4xl mx-auto')}
+          className={cn(textAlign === 'center' && 'max-w-5xl mx-auto')}
         >
           {subtitle && (
             <motion.p

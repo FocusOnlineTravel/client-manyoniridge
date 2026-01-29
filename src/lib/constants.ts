@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
   name: 'Manyoni Ridge',
   tagline: 'Intimate Luxury in the Wild',
-  description: 'Experience intimate luxury at Manyoni Ridge Safari Lodge. Boutique accommodation in the heart of Manyoni Private Game Reserve, KwaZulu-Natal. Opening July 2026.',
-  opening: 'July 2026',
+  description: 'Experience intimate luxury at Manyoni Ridge Safari Lodge. Boutique accommodation in the heart of Manyoni Private Game Reserve, KwaZulu-Natal. Opening September 2026.',
+  opening: 'September 2026',
   url: 'https://www.manyoniridge.co.za',
 } as const;
 
@@ -23,6 +23,7 @@ export const SOCIAL_LINKS = {
 export const NAV_LINKS = [
   { href: '/accommodations', label: 'Accommodation' },
   { href: '/activities', label: 'Experiences' },
+  { href: '/main-lodge', label: 'Facilities' },
   { href: '/reserve', label: 'Reserve' },
 ] as const;
 
@@ -30,6 +31,7 @@ export const MOBILE_NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/accommodations', label: 'Accommodation' },
   { href: '/activities', label: 'Experiences' },
+  { href: '/main-lodge', label: 'Facilities' },
   { href: '/reserve', label: 'Reserve' },
   { href: '/dining', label: 'Dining' },
   { href: '/gallery', label: 'Gallery' },
@@ -38,18 +40,24 @@ export const MOBILE_NAV_LINKS = [
 ] as const;
 
 export const FOOTER_LINKS = {
-  explore: [
+  experience: [
     { href: '/accommodations', label: 'Accommodations' },
-    { href: '/activities', label: 'Activities' },
-    { href: '/reserve', label: 'The Reserve' },
+    { href: '/main-lodge', label: 'Main Lodge' },
+    { href: '/activities', label: 'Experiences' },
     { href: '/dining', label: 'Dining' },
-    { href: '/gallery', label: 'Gallery' },
+    { href: '/reserve', label: 'The Reserve' },
   ],
-  information: [
+  discover: [
     { href: '/about', label: 'About Us' },
+    { href: '/gallery', label: 'Gallery' },
     { href: '/offers', label: 'Special Offers' },
     { href: '/faq', label: 'FAQ' },
-    { href: '/contact', label: 'Contact' },
+  ],
+  plan: [
+    { href: '/contact', label: 'Contact Us' },
+    { href: '/contact#rates', label: 'Rates & Packages' },
+    { href: '/contact#bookings', label: 'Bookings' },
+    { href: '/contact#directions', label: 'Getting Here' },
   ],
   legal: [
     { href: '/privacy', label: 'Privacy Policy' },

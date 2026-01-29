@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, Phone } from 'lucide-react';
-import { NAV_LINKS, CONTACT, SITE_CONFIG } from '@/lib/constants';
+import { NAV_LINKS, CONTACT } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { MobileMenu } from './MobileMenu';
 import { Button } from '@/components/ui/Button';
@@ -43,53 +44,68 @@ export function Header() {
             : 'bg-transparent py-5'
         )}
       >
-        <div className="container-max flex items-center justify-between">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="font-heading text-2xl md:text-3xl font-semibold tracking-wide transition-colors"
-            style={{ color: 'white' }}
-          >
-            {SITE_CONFIG.name}
-          </Link>
+        <div className="w-full px-6 md:px-12 lg:px-16">
+          {/* Single Row: Logo, Navigation, and Actions */}
+          <div className={cn(
+            "flex items-center justify-between",
+            isScrolled ? "" : "pt-4"
+          )}>
+            {/* Logo */}
+            <Link
+              href="/"
+              className="transition-all duration-300 hover:opacity-80"
+            >
+              <Image
+                src={isScrolled ? "/images/manyoni-logo-dark-icon.png" : "/images/manyoni-logo-dark.png"}
+                alt="Manyoni Ridge Safari Lodge"
+                width={540}
+                height={180}
+                className={cn(
+                  "w-auto brightness-0 invert transition-all duration-300",
+                  isScrolled ? "h-12 md:h-14" : "h-36 md:h-42"
+                )}
+                priority
+              />
+            </Link>
 
-          {/* Desktop Navigation - Only show main items */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium uppercase tracking-wider transition-colors hover:text-primary-gold"
+            {/* Desktop Navigation - Center aligned */}
+            <nav className="hidden lg:flex items-center justify-center gap-8 flex-1">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-medium uppercase tracking-wider transition-colors hover:text-primary-gold"
+                  style={{ color: 'white' }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Actions + Menu - Center aligned */}
+            <div className="flex items-center gap-6">
+              <a
+                href={CONTACT.phoneLink}
+                className="hidden lg:flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary-gold"
                 style={{ color: 'white' }}
               >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+                <Phone className="w-4 h-4" />
+                <span className="hidden xl:inline">{CONTACT.phone}</span>
+              </a>
+              <Button href="/contact" size="sm" className="hidden lg:inline-flex">
+                Enquire Now
+              </Button>
 
-          {/* Actions + Menu */}
-          <div className="flex items-center gap-6">
-            <a
-              href={CONTACT.phoneLink}
-              className="hidden lg:flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary-gold"
-              style={{ color: 'white' }}
-            >
-              <Phone className="w-4 h-4" />
-              <span className="hidden xl:inline">{CONTACT.phone}</span>
-            </a>
-            <Button href="/contact" size="sm" className="hidden lg:inline-flex">
-              Enquire Now
-            </Button>
-
-            {/* Menu Button - Always visible */}
-            <button
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="p-2 -m-2 transition-colors hover:text-primary-gold"
-              style={{ color: 'white' }}
-              aria-label="Open menu"
-            >
-              <Menu className="w-8 h-8" strokeWidth={2} style={{ color: 'white' }} />
-            </button>
+              {/* Menu Button - Always visible */}
+              <button
+                onClick={() => setIsMobileMenuOpen(true)}
+                className="p-2 -m-2 transition-colors hover:text-primary-gold"
+                style={{ color: 'white' }}
+                aria-label="Open menu"
+              >
+                <Menu className="w-8 h-8" strokeWidth={2} style={{ color: 'white' }} />
+              </button>
+            </div>
           </div>
         </div>
       </header>

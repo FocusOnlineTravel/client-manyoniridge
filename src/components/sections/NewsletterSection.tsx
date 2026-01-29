@@ -14,7 +14,7 @@ interface NewsletterSectionProps {
 export function NewsletterSection({
   background = 'cream',
   title = 'Stay Connected',
-  description = 'Subscribe to receive exclusive offers, news from the bush, and updates on our opening in July 2026.',
+  description = 'Subscribe to receive exclusive offers, news from the bush, and updates on our opening in September 2026.',
 }: NewsletterSectionProps) {
   const { ref, inView } = useInView({
     threshold: 0.2,

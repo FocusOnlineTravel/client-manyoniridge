@@ -1,3 +1,7 @@
+'use client';
+
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface SectionProps {
@@ -8,6 +12,7 @@ interface SectionProps {
   size?: 'default' | 'narrow' | 'full';
   noPadding?: boolean;
   id?: string;
+  animate?: boolean;
 }
 
 const backgroundStyles = {
@@ -25,10 +30,18 @@ export function Section({
   size = 'default',
   noPadding = false,
   id,
+  animate = true,
 }: SectionProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
-    <section
+    <motion.section
+      ref={ref}
       id={id}
+      initial={animate ? { opacity: 0, y: 40 } : false}
+      animate={animate && isInView ? { opacity: 1, y: 0 } : false}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
       className={cn(
         backgroundStyles[background],
         !noPadding && 'section-padding',
@@ -45,6 +58,6 @@ export function Section({
       >
         {children}
       </div>
-    </section>
+    </motion.section>
   );
 }

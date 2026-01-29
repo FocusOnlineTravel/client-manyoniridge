@@ -39,7 +39,7 @@ export function CTASection({
       <section
         ref={ref}
         className={cn(
-          'relative py-20 md:py-32',
+          'relative py-28 md:py-44',
           !imageSrc && placeholderClass
         )}
       >
@@ -52,7 +52,7 @@ export function CTASection({
             sizes="100vw"
           />
         )}
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/20" />
         <div className="relative z-10 container-max text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -60,7 +60,7 @@ export function CTASection({
             transition={{ duration: 0.8 }}
             className="max-w-2xl mx-auto"
           >
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-white font-medium mb-4">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-white font-medium mb-4 bg-primary-gold/90 inline-block px-6 py-4">
               {title}
             </h2>
             {description && (
@@ -71,7 +71,7 @@ export function CTASection({
                 {ctaText}
               </Button>
               {secondaryCtaText && secondaryCtaHref && (
-                <Button href={secondaryCtaHref} variant="outline" size="lg">
+                <Button href={secondaryCtaHref} variant="outline-light" size="lg">
                   {secondaryCtaText}
                 </Button>
               )}
@@ -99,8 +99,7 @@ export function CTASection({
         >
           <h2
             className={cn(
-              'font-heading text-3xl md:text-4xl font-medium mb-4',
-              background === 'gold' ? 'text-primary-dark' : 'text-white'
+              'font-heading text-3xl md:text-4xl font-medium mb-4 text-white bg-primary-gold/90 inline-block px-6 py-4'
             )}
           >
             {title}
@@ -126,7 +125,7 @@ export function CTASection({
             {secondaryCtaText && secondaryCtaHref && (
               <Button
                 href={secondaryCtaHref}
-                variant={background === 'gold' ? 'ghost' : 'outline'}
+                variant={background === 'gold' ? 'ghost' : 'outline-light'}
                 size="lg"
               >
                 {secondaryCtaText}

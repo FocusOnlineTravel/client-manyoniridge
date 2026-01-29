@@ -4,7 +4,7 @@ import { Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'outline-light' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   isLoading?: boolean;
@@ -16,11 +16,13 @@ const buttonVariants = {
   primary:
     'bg-primary-gold text-primary-dark hover:bg-primary-gold/90 shadow-sm hover:shadow-gold',
   secondary:
-    'bg-primary-dark text-white hover:bg-gray-dark',
+    'bg-primary-dark !text-white hover:bg-gray-dark',
   outline:
     'border-2 border-primary-gold text-primary-gold hover:bg-primary-gold hover:text-primary-dark',
+  'outline-light':
+    'border-2 border-primary-gold !text-white hover:bg-primary-gold hover:text-primary-dark',
   ghost:
-    'text-primary-dark hover:bg-gray-light',
+    'border-2 border-white !text-white hover:bg-white hover:!text-primary-dark',
 };
 
 const buttonSizes = {
