@@ -64,7 +64,7 @@ export function Footer() {
 
           {/* Experience Links */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 text-white uppercase tracking-wider">
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white' }}>
               Experience
             </h3>
             <ul className="space-y-3">
@@ -83,7 +83,7 @@ export function Footer() {
 
           {/* Discover Links */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 text-white uppercase tracking-wider">
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white' }}>
               Discover
             </h3>
             <ul className="space-y-3">
@@ -102,7 +102,7 @@ export function Footer() {
 
           {/* Plan Links */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 text-white uppercase tracking-wider">
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white' }}>
               Plan
             </h3>
             <ul className="space-y-3">
@@ -121,7 +121,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 text-white uppercase tracking-wider">
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider" style={{ color: 'white' }}>
               Contact
             </h3>
             <ul className="space-y-3">
