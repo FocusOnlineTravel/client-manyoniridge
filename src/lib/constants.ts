@@ -23,6 +23,7 @@ export const SOCIAL_LINKS = {
 export const NAV_LINKS = [
   { href: '/accommodations', label: 'Accommodation' },
   { href: '/activities', label: 'Experiences' },
+  { href: '/main-lodge', label: 'Facilities' },
   { href: '/reserve', label: 'Reserve' },
 ] as const;
 
@@ -30,6 +31,7 @@ export const MOBILE_NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/accommodations', label: 'Accommodation' },
   { href: '/activities', label: 'Experiences' },
+  { href: '/main-lodge', label: 'Facilities' },
   { href: '/reserve', label: 'Reserve' },
   { href: '/dining', label: 'Dining' },
   { href: '/gallery', label: 'Gallery' },
@@ -41,6 +43,7 @@ export const FOOTER_LINKS = {
   explore: [
     { href: '/accommodations', label: 'Accommodations' },
     { href: '/activities', label: 'Activities' },
+    { href: '/main-lodge', label: 'Main Lodge' },
     { href: '/reserve', label: 'The Reserve' },
     { href: '/dining', label: 'Dining' },
     { href: '/gallery', label: 'Gallery' },

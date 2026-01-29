@@ -28,7 +28,7 @@ export const homePage: PageDefinition = {
         secondaryCtaText: 'Explore',
         secondaryCtaHref: '/accommodations',
         scrollToId: 'intro',
-        videoSrc: '/videos/renders.mp4',
+        videoSrc: '/videos/manynoi.mp4',
         verticalAlign: 'bottom',
         textBackground: true,
       },
