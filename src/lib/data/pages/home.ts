@@ -164,7 +164,7 @@ export const homePage: PageDefinition = {
         secondaryCtaText: 'View FAQ',
         secondaryCtaHref: '/faq',
         background: 'image',
-        imageSrc: '/images/Birds and Wildlife/DSC00631.jpeg',
+        imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 22.jpg',
       },
     },
   ],
