@@ -39,7 +39,7 @@ export function CTASection({
       <section
         ref={ref}
         className={cn(
-          'relative py-20 md:py-32',
+          'relative py-28 md:py-44',
           !imageSrc && placeholderClass
         )}
       >
