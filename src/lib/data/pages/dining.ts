@@ -20,7 +20,7 @@ export const diningPage: PageDefinition = {
         description:
           'Savor exceptional cuisine crafted from fresh, local ingredients, enjoyed in unforgettable settings from our elegant dining room to intimate bush dinners.',
         size: 'large',
-        imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 11.jpg',
+        imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS dark.jpg',
         showScrollIndicator: false,
       },
     },
