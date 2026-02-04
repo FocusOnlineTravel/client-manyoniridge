@@ -1,0 +1,1518 @@
+{
+  "key": "group_page_sections",
+  "title": "Page Sections",
+  "fields": [
+    {
+      "key": "field_sections",
+      "label": "Sections",
+      "name": "sections",
+      "type": "flexible_content",
+      "button_label": "Add Section",
+      "layouts": [
+        {
+          "key": "layout_hero_image",
+          "name": "hero_image",
+          "label": "Hero Image",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_hero_title",
+              "label": "Title",
+              "name": "title",
+              "type": "text",
+              "required": 1
+            },
+            {
+              "key": "field_hero_subtitle",
+              "label": "Subtitle",
+              "name": "subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_hero_description",
+              "label": "Description",
+              "name": "description",
+              "type": "textarea",
+              "required": 0
+            },
+            {
+              "key": "field_hero_cta_text",
+              "label": "CTA Text",
+              "name": "ctaText",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_hero_cta_href",
+              "label": "CTA Link",
+              "name": "ctaHref",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_hero_secondary_cta_text",
+              "label": "Secondary CTA Text",
+              "name": "secondaryCtaText",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_hero_secondary_cta_href",
+              "label": "Secondary CTA Link",
+              "name": "secondaryCtaHref",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_hero_scroll_to_id",
+              "label": "Scroll To ID",
+              "name": "scrollToId",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_hero_image_src",
+              "label": "Image",
+              "name": "imageSrc",
+              "type": "image",
+              "return_format": "url",
+              "required": 0
+            },
+            {
+              "key": "field_hero_video_src",
+              "label": "Video URL",
+              "name": "videoSrc",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_hero_size",
+              "label": "Size",
+              "name": "size",
+              "type": "select",
+              "choices": {
+                "medium": "Medium",
+                "large": "Large"
+              },
+              "default_value": "large",
+              "required": 0
+            },
+            {
+              "key": "field_hero_vertical_align",
+              "label": "Vertical Alignment",
+              "name": "verticalAlign",
+              "type": "select",
+              "choices": {
+                "center": "Center",
+                "bottom": "Bottom"
+              },
+              "default_value": "center",
+              "required": 0
+            },
+            {
+              "key": "field_hero_text_background",
+              "label": "Text Background",
+              "name": "textBackground",
+              "type": "true_false",
+              "default_value": 0,
+              "required": 0
+            },
+            {
+              "key": "field_hero_show_scroll_indicator",
+              "label": "Show Scroll Indicator",
+              "name": "showScrollIndicator",
+              "type": "true_false",
+              "default_value": 0,
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_text_block",
+          "name": "text_block",
+          "label": "Text Block",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_text_block_title",
+              "label": "Title",
+              "name": "title",
+              "type": "text",
+              "required": 1
+            },
+            {
+              "key": "field_text_block_subtitle",
+              "label": "Subtitle",
+              "name": "subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_text_block_description",
+              "label": "Description",
+              "name": "description",
+              "type": "wysiwyg",
+              "required": 1
+            },
+            {
+              "key": "field_text_block_cta_text",
+              "label": "CTA Text",
+              "name": "ctaText",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_text_block_cta_href",
+              "label": "CTA Link",
+              "name": "ctaHref",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_text_block_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            },
+            {
+              "key": "field_text_block_id",
+              "label": "Section ID",
+              "name": "id",
+              "type": "text",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_split_content",
+          "name": "split_content",
+          "label": "Split Content",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_split_subtitle",
+              "label": "Subtitle",
+              "name": "subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_split_title",
+              "label": "Title",
+              "name": "title",
+              "type": "text",
+              "required": 1
+            },
+            {
+              "key": "field_split_description",
+              "label": "Description",
+              "name": "description",
+              "type": "wysiwyg",
+              "required": 1
+            },
+            {
+              "key": "field_split_features",
+              "label": "Features",
+              "name": "features",
+              "type": "repeater",
+              "layout": "table",
+              "button_label": "Add Feature",
+              "required": 0,
+              "sub_fields": [
+                {
+                  "key": "field_split_feature_text",
+                  "label": "Feature",
+                  "name": "text",
+                  "type": "text",
+                  "required": 1
+                }
+              ]
+            },
+            {
+              "key": "field_split_cta_text",
+              "label": "CTA Text",
+              "name": "ctaText",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_split_cta_href",
+              "label": "CTA Link",
+              "name": "ctaHref",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_split_image_src",
+              "label": "Image",
+              "name": "imageSrc",
+              "type": "image",
+              "return_format": "url",
+              "required": 0
+            },
+            {
+              "key": "field_split_image_placeholder",
+              "label": "Image Placeholder Class",
+              "name": "imagePlaceholder",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_split_image_position",
+              "label": "Image Position",
+              "name": "imagePosition",
+              "type": "select",
+              "choices": {
+                "left": "Left",
+                "right": "Right"
+              },
+              "default_value": "right",
+              "required": 0
+            },
+            {
+              "key": "field_split_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_cta_section",
+          "name": "cta_section",
+          "label": "CTA Section",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_cta_title",
+              "label": "Title",
+              "name": "title",
+              "type": "text",
+              "required": 1
+            },
+            {
+              "key": "field_cta_description",
+              "label": "Description",
+              "name": "description",
+              "type": "textarea",
+              "required": 1
+            },
+            {
+              "key": "field_cta_cta_text",
+              "label": "CTA Text",
+              "name": "ctaText",
+              "type": "text",
+              "required": 1
+            },
+            {
+              "key": "field_cta_cta_href",
+              "label": "CTA Link",
+              "name": "ctaHref",
+              "type": "text",
+              "required": 1
+            },
+            {
+              "key": "field_cta_secondary_cta_text",
+              "label": "Secondary CTA Text",
+              "name": "secondaryCtaText",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_cta_secondary_cta_href",
+              "label": "Secondary CTA Link",
+              "name": "secondaryCtaHref",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_cta_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "gold",
+              "required": 1
+            },
+            {
+              "key": "field_cta_image_src",
+              "label": "Background Image",
+              "name": "imageSrc",
+              "type": "image",
+              "return_format": "url",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_newsletter_section",
+          "name": "newsletter_section",
+          "label": "Newsletter Section",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_newsletter_title",
+              "label": "Title",
+              "name": "title",
+              "type": "text",
+              "required": 1
+            },
+            {
+              "key": "field_newsletter_description",
+              "label": "Description",
+              "name": "description",
+              "type": "textarea",
+              "required": 1
+            },
+            {
+              "key": "field_newsletter_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "cream",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_room_cards_section",
+          "name": "room_cards_section",
+          "label": "Room Cards Section",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_room_cards_slugs",
+              "label": "Room Slugs",
+              "name": "roomSlugs",
+              "type": "repeater",
+              "layout": "table",
+              "button_label": "Add Room",
+              "required": 1,
+              "sub_fields": [
+                {
+                  "key": "field_room_slug",
+                  "label": "Room Slug",
+                  "name": "slug",
+                  "type": "text",
+                  "required": 1,
+                  "instructions": "e.g., one-bedroom-suite, two-bedroom-suite"
+                }
+              ]
+            },
+            {
+              "key": "field_room_cards_variant",
+              "label": "Variant",
+              "name": "variant",
+              "type": "select",
+              "choices": {
+                "default": "Default",
+                "featured": "Featured"
+              },
+              "default_value": "default",
+              "required": 0
+            },
+            {
+              "key": "field_room_cards_heading_title",
+              "label": "Heading Title",
+              "name": "heading_title",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_room_cards_heading_subtitle",
+              "label": "Heading Subtitle",
+              "name": "heading_subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_room_cards_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            },
+            {
+              "key": "field_room_cards_show_view_all",
+              "label": "Show View All Link",
+              "name": "showViewAllLink",
+              "type": "true_false",
+              "default_value": 0,
+              "required": 0
+            },
+            {
+              "key": "field_room_cards_layout",
+              "label": "Layout",
+              "name": "layout",
+              "type": "select",
+              "choices": {
+                "grid": "Grid",
+                "stack": "Stack"
+              },
+              "default_value": "grid",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_activity_cards_section",
+          "name": "activity_cards_section",
+          "label": "Activity Cards Section",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_activity_cards_slugs",
+              "label": "Activity Slugs",
+              "name": "activitySlugs",
+              "type": "repeater",
+              "layout": "table",
+              "button_label": "Add Activity",
+              "required": 1,
+              "sub_fields": [
+                {
+                  "key": "field_activity_slug",
+                  "label": "Activity Slug",
+                  "name": "slug",
+                  "type": "text",
+                  "required": 1,
+                  "instructions": "e.g., game-drives, rhino-conservation"
+                }
+              ]
+            },
+            {
+              "key": "field_activity_cards_variant",
+              "label": "Variant",
+              "name": "variant",
+              "type": "select",
+              "choices": {
+                "default": "Default",
+                "featured": "Featured"
+              },
+              "default_value": "default",
+              "required": 0
+            },
+            {
+              "key": "field_activity_cards_heading_title",
+              "label": "Heading Title",
+              "name": "heading_title",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_activity_cards_heading_subtitle",
+              "label": "Heading Subtitle",
+              "name": "heading_subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_activity_cards_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            },
+            {
+              "key": "field_activity_cards_show_view_all",
+              "label": "Show View All Link",
+              "name": "showViewAllLink",
+              "type": "true_false",
+              "default_value": 0,
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_stats_strip",
+          "name": "stats_strip",
+          "label": "Stats Strip",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_stats_items",
+              "label": "Stats",
+              "name": "stats",
+              "type": "repeater",
+              "layout": "table",
+              "button_label": "Add Stat",
+              "required": 1,
+              "sub_fields": [
+                {
+                  "key": "field_stat_value",
+                  "label": "Value",
+                  "name": "value",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_stat_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text",
+                  "required": 1
+                }
+              ]
+            },
+            {
+              "key": "field_stats_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "cream",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_features_grid",
+          "name": "features_grid",
+          "label": "Features Grid",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_features_heading_title",
+              "label": "Heading Title",
+              "name": "heading_title",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_features_heading_subtitle",
+              "label": "Heading Subtitle",
+              "name": "heading_subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_features_items",
+              "label": "Features",
+              "name": "features",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Feature",
+              "required": 1,
+              "sub_fields": [
+                {
+                  "key": "field_feature_title",
+                  "label": "Title",
+                  "name": "title",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_feature_description",
+                  "label": "Description",
+                  "name": "description",
+                  "type": "textarea",
+                  "required": 1
+                }
+              ]
+            },
+            {
+              "key": "field_features_columns",
+              "label": "Columns",
+              "name": "columns",
+              "type": "select",
+              "choices": {
+                "2": "2 Columns",
+                "3": "3 Columns",
+                "4": "4 Columns"
+              },
+              "default_value": "3",
+              "required": 0
+            },
+            {
+              "key": "field_features_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_values_list",
+          "name": "values_list",
+          "label": "Values List",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_values_heading_title",
+              "label": "Heading Title",
+              "name": "heading_title",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_values_heading_subtitle",
+              "label": "Heading Subtitle",
+              "name": "heading_subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_values_items",
+              "label": "Values",
+              "name": "values",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Value",
+              "required": 1,
+              "sub_fields": [
+                {
+                  "key": "field_value_title",
+                  "label": "Title",
+                  "name": "title",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_value_description",
+                  "label": "Description",
+                  "name": "description",
+                  "type": "textarea",
+                  "required": 1
+                }
+              ]
+            },
+            {
+              "key": "field_values_columns",
+              "label": "Columns",
+              "name": "columns",
+              "type": "select",
+              "choices": {
+                "2": "2 Columns",
+                "3": "3 Columns",
+                "4": "4 Columns"
+              },
+              "default_value": "2",
+              "required": 0
+            },
+            {
+              "key": "field_values_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_daily_schedule",
+          "name": "daily_schedule",
+          "label": "Daily Schedule",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_schedule_heading_title",
+              "label": "Heading Title",
+              "name": "heading_title",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_schedule_heading_subtitle",
+              "label": "Heading Subtitle",
+              "name": "heading_subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_schedule_items",
+              "label": "Schedule Items",
+              "name": "schedule",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Schedule Item",
+              "required": 1,
+              "sub_fields": [
+                {
+                  "key": "field_schedule_time",
+                  "label": "Time",
+                  "name": "time",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_schedule_title",
+                  "label": "Title",
+                  "name": "title",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_schedule_description",
+                  "label": "Description",
+                  "name": "description",
+                  "type": "textarea",
+                  "required": 1
+                }
+              ]
+            },
+            {
+              "key": "field_schedule_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_gallery",
+          "name": "gallery",
+          "label": "Gallery",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_gallery_heading_title",
+              "label": "Heading Title",
+              "name": "heading_title",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_gallery_heading_subtitle",
+              "label": "Heading Subtitle",
+              "name": "heading_subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_gallery_items",
+              "label": "Gallery Items",
+              "name": "items",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Image",
+              "required": 1,
+              "sub_fields": [
+                {
+                  "key": "field_gallery_item_id",
+                  "label": "ID",
+                  "name": "id",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_gallery_item_category",
+                  "label": "Category",
+                  "name": "category",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_gallery_item_image",
+                  "label": "Image",
+                  "name": "image",
+                  "type": "image",
+                  "return_format": "url",
+                  "required": 1
+                },
+                {
+                  "key": "field_gallery_item_alt",
+                  "label": "Alt Text",
+                  "name": "alt",
+                  "type": "text",
+                  "required": 1
+                }
+              ]
+            },
+            {
+              "key": "field_gallery_categories",
+              "label": "Categories",
+              "name": "categories",
+              "type": "repeater",
+              "layout": "table",
+              "button_label": "Add Category",
+              "required": 0,
+              "sub_fields": [
+                {
+                  "key": "field_gallery_category_id",
+                  "label": "ID",
+                  "name": "id",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_gallery_category_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text",
+                  "required": 1
+                }
+              ]
+            },
+            {
+              "key": "field_gallery_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_offers_list",
+          "name": "offers_list",
+          "label": "Offers List",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_offers_items",
+              "label": "Offers",
+              "name": "offers",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Offer",
+              "required": 1,
+              "sub_fields": [
+                {
+                  "key": "field_offer_title",
+                  "label": "Title",
+                  "name": "title",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_offer_subtitle",
+                  "label": "Subtitle",
+                  "name": "subtitle",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_offer_description",
+                  "label": "Description",
+                  "name": "description",
+                  "type": "textarea",
+                  "required": 1
+                },
+                {
+                  "key": "field_offer_highlights",
+                  "label": "Highlights",
+                  "name": "highlights",
+                  "type": "repeater",
+                  "layout": "table",
+                  "button_label": "Add Highlight",
+                  "required": 1,
+                  "sub_fields": [
+                    {
+                      "key": "field_offer_highlight_text",
+                      "label": "Highlight",
+                      "name": "text",
+                      "type": "text",
+                      "required": 1
+                    }
+                  ]
+                },
+                {
+                  "key": "field_offer_valid_until",
+                  "label": "Valid Until",
+                  "name": "validUntil",
+                  "type": "date_picker",
+                  "return_format": "Y-m-d",
+                  "required": 1
+                },
+                {
+                  "key": "field_offer_image_src",
+                  "label": "Image",
+                  "name": "imageSrc",
+                  "type": "image",
+                  "return_format": "url",
+                  "required": 1
+                }
+              ]
+            },
+            {
+              "key": "field_offers_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_wildlife_grid",
+          "name": "wildlife_grid",
+          "label": "Wildlife Grid",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_wildlife_heading_title",
+              "label": "Heading Title",
+              "name": "heading_title",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_wildlife_heading_subtitle",
+              "label": "Heading Subtitle",
+              "name": "heading_subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_wildlife_items",
+              "label": "Wildlife",
+              "name": "wildlife",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Wildlife",
+              "required": 1,
+              "sub_fields": [
+                {
+                  "key": "field_wildlife_name",
+                  "label": "Name",
+                  "name": "name",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_wildlife_description",
+                  "label": "Description",
+                  "name": "description",
+                  "type": "textarea",
+                  "required": 1
+                }
+              ]
+            },
+            {
+              "key": "field_wildlife_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_contact_info",
+          "name": "contact_info",
+          "label": "Contact Info",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_contact_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0,
+              "instructions": "This section displays hardcoded contact information"
+            }
+          ]
+        },
+        {
+          "key": "layout_getting_here",
+          "name": "getting_here",
+          "label": "Getting Here",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_getting_here_heading_title",
+              "label": "Heading Title",
+              "name": "heading_title",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_getting_here_heading_subtitle",
+              "label": "Heading Subtitle",
+              "name": "heading_subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_getting_here_directions",
+              "label": "Directions",
+              "name": "directions",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Direction",
+              "required": 1,
+              "sub_fields": [
+                {
+                  "key": "field_direction_title",
+                  "label": "Title",
+                  "name": "title",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_direction_description",
+                  "label": "Description",
+                  "name": "description",
+                  "type": "textarea",
+                  "required": 1
+                }
+              ]
+            },
+            {
+              "key": "field_getting_here_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_faq_accordion",
+          "name": "faq_accordion",
+          "label": "FAQ Accordion",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_faq_categories",
+              "label": "FAQ Categories",
+              "name": "categories",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Category",
+              "required": 1,
+              "sub_fields": [
+                {
+                  "key": "field_faq_category_title",
+                  "label": "Category Title",
+                  "name": "title",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_faq_category_items",
+                  "label": "Questions",
+                  "name": "items",
+                  "type": "repeater",
+                  "layout": "block",
+                  "button_label": "Add Question",
+                  "required": 1,
+                  "sub_fields": [
+                    {
+                      "key": "field_faq_question",
+                      "label": "Question",
+                      "name": "question",
+                      "type": "text",
+                      "required": 1
+                    },
+                    {
+                      "key": "field_faq_answer",
+                      "label": "Answer",
+                      "name": "answer",
+                      "type": "textarea",
+                      "required": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "field_faq_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_dining_experiences",
+          "name": "dining_experiences",
+          "label": "Dining Experiences",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_dining_heading_title",
+              "label": "Heading Title",
+              "name": "heading_title",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_dining_heading_subtitle",
+              "label": "Heading Subtitle",
+              "name": "heading_subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_dining_experiences",
+              "label": "Experiences",
+              "name": "experiences",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add Experience",
+              "required": 1,
+              "sub_fields": [
+                {
+                  "key": "field_dining_experience_title",
+                  "label": "Title",
+                  "name": "title",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_dining_experience_description",
+                  "label": "Description",
+                  "name": "description",
+                  "type": "textarea",
+                  "required": 1
+                },
+                {
+                  "key": "field_dining_experience_placeholder",
+                  "label": "Placeholder Class",
+                  "name": "placeholder",
+                  "type": "text",
+                  "required": 0
+                }
+              ]
+            },
+            {
+              "key": "field_dining_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_dietary_options",
+          "name": "dietary_options",
+          "label": "Dietary Options",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_dietary_heading_title",
+              "label": "Heading Title",
+              "name": "heading_title",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_dietary_heading_subtitle",
+              "label": "Heading Subtitle",
+              "name": "heading_subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_dietary_description",
+              "label": "Description",
+              "name": "description",
+              "type": "textarea",
+              "required": 0
+            },
+            {
+              "key": "field_dietary_options",
+              "label": "Options",
+              "name": "options",
+              "type": "repeater",
+              "layout": "table",
+              "button_label": "Add Option",
+              "required": 1,
+              "sub_fields": [
+                {
+                  "key": "field_dietary_option_text",
+                  "label": "Option",
+                  "name": "text",
+                  "type": "text",
+                  "required": 1
+                }
+              ]
+            },
+            {
+              "key": "field_dietary_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_opening_info",
+          "name": "opening_info",
+          "label": "Opening Info",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_opening_subtitle",
+              "label": "Subtitle",
+              "name": "subtitle",
+              "type": "text",
+              "required": 1
+            },
+            {
+              "key": "field_opening_title",
+              "label": "Title",
+              "name": "title",
+              "type": "text",
+              "required": 1
+            },
+            {
+              "key": "field_opening_description",
+              "label": "Description",
+              "name": "description",
+              "type": "wysiwyg",
+              "required": 1
+            },
+            {
+              "key": "field_opening_image_src",
+              "label": "Image",
+              "name": "imageSrc",
+              "type": "image",
+              "return_format": "url",
+              "required": 1
+            },
+            {
+              "key": "field_opening_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            }
+          ]
+        },
+        {
+          "key": "layout_content_section",
+          "name": "content_section",
+          "label": "Content Section",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_content_heading_title",
+              "label": "Heading Title",
+              "name": "heading_title",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_content_heading_subtitle",
+              "label": "Heading Subtitle",
+              "name": "heading_subtitle",
+              "type": "text",
+              "required": 0
+            },
+            {
+              "key": "field_content_content",
+              "label": "Content",
+              "name": "content",
+              "type": "wysiwyg",
+              "required": 1,
+              "instructions": "HTML or markdown content"
+            },
+            {
+              "key": "field_content_centered",
+              "label": "Centered",
+              "name": "centered",
+              "type": "true_false",
+              "default_value": 0,
+              "required": 0
+            },
+            {
+              "key": "field_content_background",
+              "label": "Background",
+              "name": "background",
+              "type": "select",
+              "choices": {
+                "white": "White",
+                "cream": "Cream",
+                "off-white": "Off White",
+                "primary-dark": "Primary Dark",
+                "gold": "Gold",
+                "image": "Image"
+              },
+              "default_value": "white",
+              "required": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "page"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Page builder sections for Manyoni Ridge Safari Lodge. This field group enables you to build pages using flexible content sections.",
+  "show_in_rest": 1
+}
