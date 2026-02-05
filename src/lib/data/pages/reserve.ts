@@ -48,7 +48,7 @@ export const reservePage: PageDefinition = {
           'Manyoni is one of the few Big 5 reserves in KwaZulu-Natal, offering exceptional opportunities to encounter lion, leopard, elephant, rhino, and buffalo in their natural habitat. Our expert guides and trackers ensure unforgettable wildlife encounters on every game drive.',
         features: [
           'All Big 5 species present',
-          'Cheetah and wild dog populations',
+          'Cheetah populations',
           'Over 400 bird species recorded',
           'Diverse habitats and ecosystems',
         ],
@@ -92,10 +92,6 @@ export const reservePage: PageDefinition = {
           {
             name: 'Cheetah',
             description: 'The fastest land animal, thriving in the open savanna.',
-          },
-          {
-            name: 'Wild Dog',
-            description: 'Endangered painted wolves hunt in coordinated packs.',
           },
           {
             name: 'Pangolin',

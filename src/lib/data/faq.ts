@@ -61,7 +61,7 @@ export const faqCategories: FAQCategory[] = [
     items: [
       {
         question: 'What wildlife can we expect to see?',
-        answer: 'Manyoni Private Game Reserve is home to the Big 5 (lion, leopard, elephant, rhino, and buffalo), as well as cheetah, wild dog, giraffe, zebra, hippo, and numerous antelope species. Over 400 bird species have been recorded.',
+        answer: 'Manyoni Private Game Reserve is home to the Big 5 (lion, leopard, elephant, rhino, and buffalo), as well as cheetah, giraffe, zebra, hippo, and numerous antelope species. Over 400 bird species have been recorded.',
       },
       {
         question: 'How many game drives are included?',

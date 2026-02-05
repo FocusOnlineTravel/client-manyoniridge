@@ -504,7 +504,7 @@ const pages = [
         description: 'Manyoni is one of the few Big 5 reserves in KwaZulu-Natal, offering exceptional opportunities to encounter lion, leopard, elephant, rhino, and buffalo in their natural habitat. Our expert guides and trackers ensure unforgettable wildlife encounters on every game drive.',
         features: [
           { text: 'All Big 5 species present' },
-          { text: 'Cheetah and wild dog populations' },
+          { text: 'Cheetah populations' },
           { text: 'Over 400 bird species recorded' },
           { text: 'Diverse habitats and ecosystems' },
         ],
@@ -524,7 +524,6 @@ const pages = [
           { name: 'Rhino', description: 'Both black and white rhino, central to conservation efforts.' },
           { name: 'Buffalo', description: 'Large herds graze the open plains and woodlands.' },
           { name: 'Cheetah', description: 'The fastest land animal, thriving in the open savanna.' },
-          { name: 'Wild Dog', description: 'Endangered painted wolves hunt in coordinated packs.' },
           { name: 'Pangolin', description: "One of the world's most elusive and endangered mammals." },
         ],
         background: 'white',
@@ -718,7 +717,7 @@ const pages = [
           {
             title: 'Wildlife & Safari',
             items: [
-              { question: 'What wildlife can we expect to see?', answer: 'Manyoni Private Game Reserve is home to the Big 5 (lion, leopard, elephant, rhino, and buffalo), as well as cheetah, wild dog, giraffe, zebra, hippo, and numerous antelope species. Over 400 bird species have been recorded.' },
+              { question: 'What wildlife can we expect to see?', answer: 'Manyoni Private Game Reserve is home to the Big 5 (lion, leopard, elephant, rhino, and buffalo), as well as cheetah, giraffe, zebra, hippo, and numerous antelope species. Over 400 bird species have been recorded.' },
               { question: 'How many game drives are included?', answer: 'Two game drives are included daily: a morning drive departing at sunrise and an afternoon drive returning after sunset. Each drive lasts approximately 3-4 hours. Additional drives can be arranged at extra cost.' },
               { question: 'What should I wear on game drives?', answer: 'Neutral-colored clothing (khaki, olive, brown) is recommended. Layers are essential as mornings can be cool. Closed shoes, a hat, and sunglasses are advisable. We provide blankets, ponchos, and binoculars.' },
             ],
