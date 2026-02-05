@@ -161,7 +161,9 @@ function transformSection(wpSection: any): Section | null {
           title: wpSection.title || '',
           subtitle: wpSection.subtitle,
           description: wpSection.description || '',
-          features: wpSection.features?.map((f: any) => f.text) || wpSection.features,
+          features: Array.isArray(wpSection.features)
+            ? wpSection.features.map((f: any) => f.text || f)
+            : wpSection.features,
           ctaText: wpSection.ctaText,
           ctaHref: wpSection.ctaHref,
           imageSrc: wpSection.imageSrc,
