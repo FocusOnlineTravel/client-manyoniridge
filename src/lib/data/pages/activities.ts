@@ -50,7 +50,7 @@ export const activitiesPage: PageDefinition = {
           'pangolin-experiences',
           'k9-unit-training',
           'spa-services',
-          'family-experiences',
+          'walking-safaris',
         ],
         background: 'white',
       },
@@ -68,7 +68,7 @@ export const activitiesPage: PageDefinition = {
           {
             time: '05:30',
             title: 'Wake Up Call',
-            description: 'Rise with the sun and enjoy tea or coffee in your suite.',
+            description: 'Rise with the sun and enjoy tea or coffee in your villa.',
           },
           {
             time: '06:00',

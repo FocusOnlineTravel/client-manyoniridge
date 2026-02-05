@@ -8,7 +8,7 @@ export const accommodationsPage: PageDefinition = {
     title: 'Accommodations',
     slug: 'accommodations',
     description:
-      'Discover our luxurious one and two bedroom suites at Manyoni Ridge Safari Lodge. Each suite offers private pools, stunning bush views, and exceptional comfort.',
+      'Discover our luxurious one and two bedroom villas at Manyoni Ridge Safari Lodge. Each villa offers private swimming areas, stunning bush views, and exceptional comfort.',
   },
   sections: [
     // Hero Section
@@ -16,9 +16,9 @@ export const accommodationsPage: PageDefinition = {
       type: 'hero_image',
       props: {
         subtitle: 'Accommodations',
-        title: 'Suites in the Heart of the Bush',
+        title: 'Villas in the Heart of the Bush',
         description:
-          'Experience unparalleled comfort in our intimate collection of suites, each offering private pools, breathtaking views, and seamless harmony with the African wilderness.',
+          'Experience unparalleled comfort in our intimate collection of villas, each offering private swimming areas, breathtaking views, and seamless harmony with the African wilderness.',
         size: 'large',
         imageSrc: '/images/2-bed 1.jpg',
         showScrollIndicator: false,
@@ -34,7 +34,7 @@ export const accommodationsPage: PageDefinition = {
           title: 'Your Private Sanctuary',
         },
         content:
-          'Manyoni Ridge offers just nine exclusive suites, ensuring an intimate and personalized experience. Choose between our romantic one bedroom suites or spacious two bedroom family suites, each thoughtfully designed to immerse you in luxury while celebrating the natural beauty that surrounds you.',
+          'Manyoni Ridge offers just nine exclusive villas, ensuring an intimate and personalized experience. Choose between our romantic one bedroom villas or spacious two bedroom family villas, each thoughtfully designed to immerse you in luxury while celebrating the natural beauty that surrounds you.',
         centered: true,
         background: 'cream',
       },
@@ -44,7 +44,7 @@ export const accommodationsPage: PageDefinition = {
     {
       type: 'room_cards_section',
       props: {
-        roomSlugs: ['one-bedroom-suite', 'two-bedroom-suite'],
+        roomSlugs: ['one-bedroom-villa', 'two-bedroom-villa'],
         variant: 'featured',
         background: 'white',
         layout: 'stack',
@@ -56,14 +56,14 @@ export const accommodationsPage: PageDefinition = {
       type: 'features_grid',
       props: {
         heading: {
-          title: 'Suite Features',
-          subtitle: 'Every suite at Manyoni Ridge comes with exceptional amenities and services.',
+          title: 'Villa Features',
+          subtitle: 'Every villa at Manyoni Ridge comes with exceptional amenities and services.',
         },
         features: [
           {
-            title: 'Private Plunge Pool',
+            title: 'Private Swimming Area',
             description:
-              'Each suite features a private pool where you can cool off while watching wildlife pass by.',
+              'Each villa features a personal swimming area where you can cool off while watching wildlife pass by.',
           },
           {
             title: 'Indoor & Outdoor Showers',
@@ -73,7 +73,7 @@ export const accommodationsPage: PageDefinition = {
           {
             title: 'Expansive Decks',
             description:
-              'Generous private decks offer the perfect vantage point for game viewing from the comfort of your suite.',
+              'Generous private decks offer the perfect vantage point for game viewing from the comfort of your villa.',
           },
           {
             title: 'King-Size Beds',
@@ -83,12 +83,12 @@ export const accommodationsPage: PageDefinition = {
           {
             title: 'Climate Control',
             description:
-              'Stay comfortable year-round with air conditioning and ceiling fans in every suite.',
+              'Stay comfortable year-round with air conditioning and ceiling fans in every villa.',
           },
           {
             title: 'Complimentary Amenities',
             description:
-              'Mini bar, coffee station, safe, Wi-Fi, bathrobes, and slippers included in every suite.',
+              'Mini bar, coffee station, safe, Wi-Fi, bathrobes, and slippers included in every villa.',
           },
         ],
         columns: 3,

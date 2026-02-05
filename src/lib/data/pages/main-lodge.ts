@@ -52,7 +52,7 @@ export const mainLodgePage: PageDefinition = {
           'Comfortable seating areas',
           'Fireplace for cool evenings',
           'Panoramic bush views',
-          'Curated book library',
+          'Wildlife-focused library',
           'Wi-Fi available',
         ],
         imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 1.jpg',
@@ -68,7 +68,7 @@ export const mainLodgePage: PageDefinition = {
         subtitle: 'Craft Cocktails & Fine Wines',
         title: 'The Bar',
         description:
-          'Our well-stocked bar features an impressive selection of South African wines, premium spirits, and craft beers. Our experienced bartenders are ready to mix your favorite cocktail or recommend a local wine to perfectly complement your sundowner experience. Enjoy your drink on the deck or by the fire.',
+          'Our well-stocked bar features an impressive selection of South African wines, premium spirits, and craft beers. Our experienced bartenders are ready to mix your favorite cocktail or recommend a local wine to perfectly complement your sundowner experience. Enjoy your drink on the deck or by the fire or on the Starlight terrace.',
         features: [
           'Premium South African wines',
           'Top-shelf spirits',
@@ -90,13 +90,13 @@ export const mainLodgePage: PageDefinition = {
         subtitle: 'Culinary Excellence',
         title: 'Dining Area',
         description:
-          'Our elegant dining area seats all guests comfortably at one long communal table, fostering a sense of camaraderie and shared experience. The open kitchen allows you to watch our talented chefs at work, while the surrounding windows ensure you never miss a moment of the bush spectacle, even during meals.',
+          'Our elegant dining area offers intimate seating at separate tables, with the option of a long communal table for larger groups. Choose to dine on the Starlight Terrace, in the boma, on the deck, or inside the main lodge. The surrounding windows ensure you never miss a moment of the bush spectacle, even during meals.',
         features: [
-          'Communal dining experience',
-          'Open-plan kitchen',
+          'Intimate separate seating',
+          'Long table option for groups',
           'Bush views while dining',
           'Seasonal menus',
-          'Indoor and outdoor options',
+          'Multiple dining venues',
           'Special dietary accommodations',
         ],
         imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 2.jpg',
@@ -105,21 +105,22 @@ export const mainLodgePage: PageDefinition = {
       },
     },
 
-    // Viewing Deck
+    // Starlight Terrace
     {
       type: 'split_content',
       props: {
         subtitle: 'Front Row to the Wilderness',
-        title: 'Viewing Deck',
+        title: 'Starlight Terrace',
         description:
-          'Extending out into the landscape, our expansive viewing deck offers uninterrupted views across the reserve. Furnished with comfortable seating and shaded areas, it\'s the perfect spot for game viewing, bird watching, or simply soaking in the African atmosphere. A waterhole located nearby attracts regular wildlife visitors.',
+          'Extending out into the landscape, our expansive Starlight Terrace offers uninterrupted views across the reserve. Furnished with comfortable seating and shaded areas, it\'s the perfect spot for game viewing, bird watching, or simply soaking in the African atmosphere. For evening dinners or colder sundowners, fireplaces provide warmth and ambiance. A waterhole located nearby attracts regular wildlife visitors.',
         features: [
-          'Expansive deck area',
+          'Expansive terrace area',
           'Comfortable seating',
           'Shaded and sun areas',
+          'Fireplaces for warmth',
           'Waterhole views',
           'Binoculars provided',
-          'Perfect for sundowners',
+          'Perfect for sundowners and dining',
         ],
         imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 4.jpg',
         imagePosition: 'left',
@@ -134,13 +135,13 @@ export const mainLodgePage: PageDefinition = {
         subtitle: 'Entertainment & Leisure',
         title: 'Games Room',
         description:
-          'For moments of indoor leisure, our games room provides entertainment for all ages. Challenge fellow guests to a game of pool, browse through wildlife guides, or enjoy board games. It\'s a wonderful space for families and a great way to unwind between safari activities.',
+          'For moments of indoor leisure, our games room provides entertainment for all ages. Challenge fellow guests to a game of pool, darts, or table tennis. Watch your favorite sports on the TV, making it a wonderful space for families and a great way to unwind between safari activities.',
         features: [
           'Pool table',
-          'Board games',
-          'Wildlife reference library',
+          'Darts',
+          'Table tennis',
+          'TV for sports viewing',
           'Comfortable seating',
-          'Air-conditioned',
           'Perfect for families',
         ],
         imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 3.jpg',
@@ -185,12 +186,12 @@ export const mainLodgePage: PageDefinition = {
             description: 'Stay connected with high-speed internet throughout the Main Lodge.',
           },
           {
-            title: 'Air Conditioning',
-            description: 'Climate-controlled comfort in all indoor spaces.',
+            title: 'Ceiling Fans',
+            description: 'Air circulation to keep you comfortable in all indoor spaces.',
           },
           {
-            title: 'Curated Library',
-            description: 'Wildlife guides, fiction, and non-fiction for all interests.',
+            title: 'Wildlife Library',
+            description: 'Curated collection of wildlife guides and reference materials.',
           },
           {
             title: 'Daily Housekeeping',

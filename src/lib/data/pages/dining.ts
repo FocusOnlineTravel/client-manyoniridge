@@ -47,12 +47,13 @@ export const diningPage: PageDefinition = {
         subtitle: 'Main Lodge',
         title: 'Elegant Dining with Bush Views',
         description:
-          'Our main dining area offers a sophisticated setting where you can enjoy breakfast, lunch, and dinner while overlooking the African bush. Floor-to-ceiling windows ensure uninterrupted views, while the open-plan kitchen allows you to watch our chefs at work.',
+          'Our main dining area offers a sophisticated setting where guests are seated at separate tables, creating an intimate dining experience. For larger groups, we offer the option of a long communal table. Choose to dine on the Starlight Terrace, in the boma, on the deck, or inside the main lodge, all while enjoying panoramic views of the African bush.',
         features: [
           'Seasonal menus featuring local ingredients',
           'Extensive wine selection from South African estates',
           'Accommodations for all dietary requirements',
-          'À la carte and set menu options',
+          'Multiple dining venues: Starlight Terrace, boma, deck, or inside',
+          'Special wine cellar dinners available (advance booking required)',
         ],
         imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 32.jpg',
         imagePosition: 'left',
@@ -75,9 +76,9 @@ export const diningPage: PageDefinition = {
             placeholder: 'placeholder-nature',
           },
           {
-            title: 'Sundowner Drinks',
+            title: 'Starlight Terrace Dining',
             description:
-              'Pause during your afternoon drive to toast the African sunset with drinks and canapés.',
+              'Dine on our elevated Starlight Terrace with panoramic views. For cooler evenings, warm fireplaces create an intimate atmosphere.',
             placeholder: 'placeholder-gold',
           },
           {
@@ -87,14 +88,15 @@ export const diningPage: PageDefinition = {
             placeholder: 'placeholder-safari',
           },
           {
-            title: 'Private Dining',
+            title: 'Wine Cellar Dinner',
             description:
-              'Celebrate special occasions with a private dinner on your suite deck or a secluded bush location.',
-            placeholder: 'placeholder-room',
+              'Enjoy a special dinner experience in our curated wine cellar. Advance booking required.',
+            placeholder: 'placeholder-gold',
           },
           {
-            title: 'Pool Deck Lunch',
-            description: 'Enjoy a light lunch by the pool during the heat of the day.',
+            title: 'Private Dining',
+            description:
+              'Celebrate special occasions with a private dinner on your villa deck or a secluded bush location.',
             placeholder: 'placeholder-room',
           },
         ],
