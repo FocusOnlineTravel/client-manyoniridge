@@ -261,7 +261,7 @@ function transformSection(wpSection: any): Section | null {
             subtitle: wpSection.heading_subtitle,
           } : undefined,
           values: wpSection.values || [],
-          columns: wpSection.columns ? parseInt(wpSection.columns) : 2,
+          columns: wpSection.columns ? (parseInt(wpSection.columns) as 2 | 3 | 4) : 2,
           background: wpSection.background || 'white',
         },
       };
