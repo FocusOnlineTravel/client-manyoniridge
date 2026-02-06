@@ -132,7 +132,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Getting Here */}
-      <Section background="cream">
+      <Section background="cream" id="directions">
         <Heading
           as="h2"
           subtitle="Manyoni Ridge is accessible by road from Durban or Richards Bay, or via charter flight."
