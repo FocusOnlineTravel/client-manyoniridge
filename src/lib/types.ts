@@ -399,6 +399,7 @@ export interface DiningExperiencesSectionProps {
     title: string;
     description: string;
     placeholder?: string;
+    imageSrc?: string;
   }>;
   background?: SectionBackground;
 }

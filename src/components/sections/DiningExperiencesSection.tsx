@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
 import { DiningExperiencesSectionProps } from '@/lib/types';
@@ -28,9 +29,21 @@ export function DiningExperiencesSection({
       <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${heading ? 'mt-12' : ''}`}>
         {experiences.map((experience, index) => (
           <div key={index} className="text-center">
-            <div
-              className={`h-48 mb-4 rounded-lg ${experience.placeholder || 'bg-gray-200'}`}
-            />
+            {experience.imageSrc ? (
+              <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src={experience.imageSrc}
+                  alt={experience.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+            ) : (
+              <div
+                className={`h-48 mb-4 rounded-lg ${experience.placeholder || 'bg-gray-200'}`}
+              />
+            )}
             <h3 className="font-heading text-xl text-primary-dark font-medium mb-2">
               {experience.title}
             </h3>
