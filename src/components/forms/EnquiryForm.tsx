@@ -15,13 +15,25 @@ const enquirySchema = z.object({
   name: z.string().min(2, 'Name is required'),
   email: z.string().email('Please enter a valid email address'),
   phone: z.string().optional(),
+  nationality: z.string().min(2, 'Nationality is required'),
   arrivalDate: z.string().min(1, 'Arrival date is required'),
   departureDate: z.string().min(1, 'Departure date is required'),
   adults: z.string().min(1, 'Number of adults is required'),
   children: z.string(),
   roomPreference: z.string().optional(),
   specialRequests: z.string().optional(),
-});
+}).refine(
+  (data) => {
+    if (!data.arrivalDate || !data.departureDate) return true;
+    const arrival = new Date(data.arrivalDate);
+    const departure = new Date(data.departureDate);
+    return departure > arrival;
+  },
+  {
+    message: 'Departure date must be after arrival date',
+    path: ['departureDate'],
+  }
+);
 
 type EnquiryFormData = z.infer<typeof enquirySchema>;
 
@@ -60,6 +72,7 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    watch,
   } = useForm<EnquiryFormData>({
     resolver: zodResolver(enquirySchema),
     defaultValues: {
@@ -67,6 +80,16 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
       children: '0',
     },
   });
+
+  const arrivalDate = watch('arrivalDate');
+
+  // Calculate minimum departure date (1 day after arrival)
+  const getMinDepartureDate = () => {
+    if (!arrivalDate) return undefined;
+    const arrival = new Date(arrivalDate);
+    arrival.setDate(arrival.getDate() + 1);
+    return arrival.toISOString().split('T')[0];
+  };
 
   const onSubmit = async (data: EnquiryFormData) => {
     console.log('Booking enquiry:', data);
@@ -112,6 +135,13 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
           error={errors.email?.message}
           required
         />
+        <Input
+          label="Nationality"
+          placeholder="Your nationality"
+          {...register('nationality')}
+          error={errors.nationality?.message}
+          required
+        />
         <div className="grid grid-cols-2 gap-4">
           <Input
             type="date"
@@ -125,6 +155,7 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
             label="Departure"
             {...register('departureDate')}
             error={errors.departureDate?.message}
+            min={getMinDepartureDate()}
             required
           />
         </div>
@@ -169,13 +200,22 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
         />
       </div>
 
-      <Input
-        type="tel"
-        label="Phone Number"
-        placeholder="+27 82 123 4567"
-        {...register('phone')}
-        error={errors.phone?.message}
-      />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Input
+          type="tel"
+          label="Phone Number"
+          placeholder="+27 82 123 4567"
+          {...register('phone')}
+          error={errors.phone?.message}
+        />
+        <Input
+          label="Nationality"
+          placeholder="Your nationality"
+          {...register('nationality')}
+          error={errors.nationality?.message}
+          required
+        />
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Input
@@ -190,6 +230,7 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
           label="Departure Date"
           {...register('departureDate')}
           error={errors.departureDate?.message}
+          min={getMinDepartureDate()}
           required
         />
       </div>

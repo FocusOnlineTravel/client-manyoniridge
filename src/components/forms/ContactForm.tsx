@@ -16,6 +16,7 @@ const contactSchema = z.object({
   lastName: z.string().min(2, 'Last name is required'),
   email: z.string().email('Please enter a valid email address'),
   phone: z.string().optional(),
+  nationality: z.string().min(2, 'Nationality is required'),
   subject: z.string().min(1, 'Please select a subject'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
 });
@@ -113,6 +114,14 @@ export function ContactForm({ className }: ContactFormProps) {
           error={errors.phone?.message}
         />
       </div>
+
+      <Input
+        label="Nationality"
+        placeholder="Your nationality"
+        {...register('nationality')}
+        error={errors.nationality?.message}
+        required
+      />
 
       <Select
         label="Subject"
