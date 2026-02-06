@@ -422,7 +422,7 @@ const pages = [
           },
           {
             title: 'Boma Dinner',
-            description: 'Dine around the fire in our traditional boma, under a canopy of stars.',
+            description: 'Dine around the fire in our boma, under a canopy of stars.',
             placeholder: 'placeholder-safari',
           },
           {
