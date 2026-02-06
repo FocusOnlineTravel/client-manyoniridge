@@ -61,7 +61,6 @@ Learn about the challenges facing rhinos today and the innovative approaches bei
     ],
     images: [
       '/images/rhino-1.JPG',
-      '/images/rhino-2.JPG',
       '/images/rhino-3.JPG',
       '/images/rhino-4.JPG',
       '/images/rhino-5.JPG',
