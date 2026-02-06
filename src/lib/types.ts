@@ -37,6 +37,8 @@ export interface Activity {
   images: string[];
   icon: string;
   placeholderClass: string;
+  heroImage?: string;
+  ctaImage?: string;
 }
 
 export interface FAQItem {

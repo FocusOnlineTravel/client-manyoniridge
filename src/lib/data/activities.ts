@@ -33,6 +33,8 @@ Travel in specially designed 4x4 vehicles with elevated seating ensuring unobstr
     ],
     icon: 'Binoculars',
     placeholderClass: 'placeholder-nature',
+    heroImage: '/images/game drives banner.jpg',
+    ctaImage: '/images/game drives CTA.jpg',
   },
   {
     slug: 'rhino-conservation',
@@ -65,6 +67,8 @@ Learn about the challenges facing rhinos today and the innovative approaches bei
     ],
     icon: 'Shield',
     placeholderClass: 'placeholder-nature',
+    heroImage: '/images/rhino conservation banner.jpg',
+    ctaImage: '/images/rhino conservation CTA.jpg',
   },
   {
     slug: 'pangolin-experiences',
@@ -98,6 +102,8 @@ This seasonal experience allows you to accompany a pangolin on its journey throu
     ],
     icon: 'Search',
     placeholderClass: 'placeholder-nature',
+    heroImage: '/images/pangolin experiences banner.jpg',
+    ctaImage: '/images/pangolin experience CTA.jpg',
   },
   {
     slug: 'k9-unit-training',

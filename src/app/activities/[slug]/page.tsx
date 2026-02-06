@@ -54,8 +54,10 @@ export default async function ActivityDetailPage({ params }: PageProps) {
         subtitle={activity.subtitle}
         title={activity.title}
         size="large"
+        imageSrc={activity.heroImage}
         placeholderClass={activity.placeholderClass}
         showScrollIndicator={false}
+        verticalAlign="bottom"
       />
 
       {/* Back Link */}
@@ -200,7 +202,8 @@ export default async function ActivityDetailPage({ params }: PageProps) {
         description="Ready to experience the magic of Manyoni Ridge? Get in touch to start planning."
         ctaText="Make an Enquiry"
         ctaHref="/contact"
-        background="gold"
+        background={activity.ctaImage ? 'image' : 'gold'}
+        imageSrc={activity.ctaImage}
       />
     </>
   );
