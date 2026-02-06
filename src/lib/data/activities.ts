@@ -137,6 +137,7 @@ Watch training demonstrations, learn about the specialized skills these remarkab
     ],
     icon: 'Dog',
     placeholderClass: 'placeholder-safari',
+    heroImage: '/images/k9.jpg',
   },
   {
     slug: 'spa-services',
