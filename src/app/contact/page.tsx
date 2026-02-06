@@ -36,9 +36,10 @@ export default function ContactPage() {
         subtitle="Contact"
         title="Get in Touch"
         description="We'd love to hear from you. Reach out to start planning your safari adventure."
-        size="medium"
+        size="large"
         imageSrc="/images/2-bed 8.jpg"
         showScrollIndicator={false}
+        verticalAlign="bottom"
       />
 
       {/* Contact Section */}
