@@ -59,6 +59,7 @@ export default function GalleryPage() {
         size="large"
         imageSrc="/images/gallery-banner.jpg"
         showScrollIndicator={false}
+        verticalAlign="bottom"
       />
 
       {/* Gallery Section */}
