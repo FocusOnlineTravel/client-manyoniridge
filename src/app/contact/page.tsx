@@ -37,7 +37,7 @@ export default function ContactPage() {
         title="Get in Touch"
         description="We'd love to hear from you. Reach out to start planning your safari adventure."
         size="large"
-        imageSrc="/images/2-bed 8.jpg"
+        imageSrc="/images/MANYONI RIDGE CLUBHOUSE RENDERS 12.jpg"
         showScrollIndicator={false}
         verticalAlign="bottom"
       />
