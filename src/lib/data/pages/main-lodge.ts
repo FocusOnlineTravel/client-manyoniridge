@@ -122,7 +122,7 @@ export const mainLodgePage: PageDefinition = {
           'Binoculars provided',
           'Perfect for sundowners and dining',
         ],
-        imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 4.jpg',
+        imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 3.jpg',
         imagePosition: 'left',
         background: 'cream',
       },
