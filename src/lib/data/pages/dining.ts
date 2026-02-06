@@ -85,7 +85,7 @@ export const diningPage: PageDefinition = {
             title: 'Boma Dinner',
             description:
               'Dine around the fire in our boma, under a canopy of stars.',
-            placeholder: 'placeholder-safari',
+            imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 23.jpg',
           },
           {
             title: 'Wine Cellar Dinner',
