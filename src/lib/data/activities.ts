@@ -67,7 +67,7 @@ Learn about the challenges facing rhinos today and the innovative approaches bei
     ],
     icon: 'Shield',
     placeholderClass: 'placeholder-nature',
-    heroImage: '/images/rhino conservation banner.jpg',
+    heroImage: '/images/rhino.jpg',
     ctaImage: '/images/rhino conservation CTA.jpg',
   },
   {
@@ -102,7 +102,7 @@ This seasonal experience allows you to accompany a pangolin on its journey throu
     ],
     icon: 'Search',
     placeholderClass: 'placeholder-nature',
-    heroImage: '/images/pangolin experiences banner.jpg',
+    heroImage: '/images/pangolin.jpg',
     ctaImage: '/images/pangolin experience CTA.jpg',
   },
   {
