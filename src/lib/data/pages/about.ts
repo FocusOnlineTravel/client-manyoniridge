@@ -20,7 +20,7 @@ export const aboutPage: PageDefinition = {
         description:
           "A vision born from a passion for Africa's wilderness and a commitment to sharing its magic.",
         size: 'large',
-        imageSrc: '/images/Birds and Wildlife/DSC00748.jpeg',
+        imageSrc: '/images/about-us-banner.jpeg',
         showScrollIndicator: false,
         verticalAlign: 'bottom',
       },
@@ -101,7 +101,7 @@ export const aboutPage: PageDefinition = {
           'Dedicated conservation team',
           'Professional hospitality training',
         ],
-        imageSrc: '/images/Birds and Wildlife/Secretarybird Kgalagadi Transfrontier NP SA AR-061 Edited.jpg',
+        imageSrc: '/images/about-us-block-1-expert-guides.jpeg',
         imagePosition: 'right',
         background: 'cream',
       },

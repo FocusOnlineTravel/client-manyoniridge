@@ -19,8 +19,7 @@ export const offersPage: PageDefinition = {
         title: 'Exclusive Packages & Offers',
         description: 'Discover our special packages designed to enhance your Manyoni Ridge experience.',
         size: 'medium',
-        imageSrc:
-          '/images/Birds and Wildlife/Sunbird, Scarlet-chested Cape Vidal SA AR-2 Edited.jpg',
+        imageSrc: '/images/offers-banner.jpg',
         showScrollIndicator: false,
         verticalAlign: 'bottom',
       },

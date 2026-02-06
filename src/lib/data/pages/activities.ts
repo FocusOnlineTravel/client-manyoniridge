@@ -20,7 +20,7 @@ export const activitiesPage: PageDefinition = {
         description:
           'From thrilling game drives to meaningful conservation encounters, discover the many ways to connect with the African wilderness at Manyoni Ridge.',
         size: 'large',
-        imageSrc: '/images/Birds and Wildlife/DSC00631.jpeg',
+        imageSrc: '/images/activities-banner.jpg',
         showScrollIndicator: false,
         verticalAlign: 'bottom',
       },
@@ -124,8 +124,7 @@ export const activitiesPage: PageDefinition = {
         secondaryCtaText: 'View Accommodations',
         secondaryCtaHref: '/accommodations',
         background: 'image',
-        imageSrc:
-          '/images/Birds and Wildlife/Roller, Lilac-breasted Kruger SA AR-042 Edited.jpg',
+        imageSrc: '/images/activities-cta.jpg',
       },
     },
   ],

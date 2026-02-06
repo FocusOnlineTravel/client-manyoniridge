@@ -36,7 +36,7 @@ Travel in open 4x4 vehicles specifically designed for wildlife viewing, with ele
   },
   {
     slug: 'rhino-conservation',
-    title: 'Rhino Conservation',
+    title: 'Rhino Orphanage',
     subtitle: 'Protecting a species',
     description: `Join us for a meaningful experience that goes beyond typical safari activities. Our Rhino Conservation Experience offers an intimate look at the critical work being done to protect one of Africa's most endangered species.
 
