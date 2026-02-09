@@ -26,6 +26,13 @@ export default function RoomDetailPage({ params }: PageProps) {
     params.then((p) => setSlug(p.slug));
   }, [params]);
 
+  // Scroll to top when slug changes
+  useEffect(() => {
+    if (slug) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [slug]);
+
   const room = slug ? getRoomBySlug(slug) : null;
 
   // Show loading state while slug is being set
