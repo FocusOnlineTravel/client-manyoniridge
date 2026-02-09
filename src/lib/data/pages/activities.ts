@@ -49,7 +49,6 @@ export const activitiesPage: PageDefinition = {
           'rhino-conservation',
           'pangolin-experiences',
           'k9-unit-training',
-          'spa-services',
           'walking-safaris',
         ],
         background: 'white',

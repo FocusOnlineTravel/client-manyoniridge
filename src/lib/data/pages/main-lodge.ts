@@ -172,6 +172,28 @@ export const mainLodgePage: PageDefinition = {
       },
     },
 
+    // Spa Services
+    {
+      type: 'split_content',
+      props: {
+        subtitle: 'Wellness in the Wild',
+        title: 'Spa Services',
+        description:
+          'Indulge in restorative treatments that draw inspiration from the African landscape. Our spa services offer a sanctuary of calm where you can unwind after exhilarating game drives and reconnect with your inner peace. Choose from a menu of massages and body treatments using natural, locally-sourced ingredients. Treatments can be enjoyed in the privacy of your villa or at our dedicated spa facility, always with the sounds and scents of the bush as your backdrop.',
+        features: [
+          'African-inspired treatments',
+          'Massages & body treatments',
+          'Natural ingredients',
+          'In-villa options available',
+          'Couples treatments',
+          'Professional therapists',
+        ],
+        imageSrc: '/images/Birds and Wildlife/Sunbird, Scarlet-chested Cape Vidal SA AR-2 Edited.jpg',
+        imagePosition: 'right',
+        background: 'white',
+      },
+    },
+
     // Lodge Features Grid
     {
       type: 'features_grid',
@@ -220,7 +242,7 @@ export const mainLodgePage: PageDefinition = {
           'Book your stay at Manyoni Ridge and discover the perfect blend of luxury and wilderness.',
         ctaText: 'Make an Enquiry',
         ctaHref: '/contact',
-        secondaryCtaText: 'View Accommodations',
+        secondaryCtaText: 'View Accommodation',
         secondaryCtaHref: '/accommodations',
         background: 'image',
         imageSrc: '/images/main-lodge-cta.jpeg',
