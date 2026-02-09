@@ -155,11 +155,6 @@ export const reservePage: PageDefinition = {
               'Manyoni connects to other reserves, allowing wildlife to roam freely across vast landscapes.',
           },
           {
-            title: 'Zero Single-Use Plastic',
-            description:
-              'We have eliminated single-use plastics throughout the lodge and on game drives.',
-          },
-          {
             title: 'Carbon Footprint',
             description:
               'We offset our carbon emissions and encourage guests to participate in conservation contributions.',
