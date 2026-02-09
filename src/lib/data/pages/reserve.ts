@@ -125,12 +125,12 @@ export const reservePage: PageDefinition = {
       },
     },
 
-    // Sustainability
+    // Our Commitment
     {
       type: 'features_grid',
       props: {
         heading: {
-          title: 'Sustainability',
+          title: 'Our Commitment',
           subtitle: 'Our commitment to preserving this wilderness for future generations.',
         },
         features: [

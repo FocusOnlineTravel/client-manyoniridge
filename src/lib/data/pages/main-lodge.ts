@@ -10,7 +10,7 @@ export const mainLodgePage: PageDefinition = {
     title: 'Main Lodge',
     slug: 'main-lodge',
     description:
-      'Discover the heart of Manyoni Ridge Safari Lodge. Our Main Lodge offers elegant shared spaces including a lounge, bar, dining area, viewing deck, and games room.',
+      'Discover the heart of Manyoni Ridge Safari Lodge. Our Main Lodge offers elegant shared spaces including a lounge, bar, dining area, viewing deck, and secluded entertainment area.',
   },
   sections: [
     // Hero Section
@@ -128,14 +128,14 @@ export const mainLodgePage: PageDefinition = {
       },
     },
 
-    // Games Room
+    // Secluded Entertainment Area
     {
       type: 'split_content',
       props: {
         subtitle: 'Entertainment & Leisure',
-        title: 'Games Room',
+        title: 'Secluded Entertainment Area',
         description:
-          'For moments of indoor leisure, our games room provides entertainment for all ages. Challenge fellow guests to a game of pool, darts, or table tennis. Watch your favorite sports on the TV, making it a wonderful space for families and a great way to unwind between safari activities.',
+          'For moments of indoor leisure, our secluded entertainment area provides entertainment for all ages. Challenge fellow guests to a game of pool, darts, or table tennis. Watch your favorite sports on the TV, making it a wonderful space for families and a great way to unwind between safari activities.',
         features: [
           'Pool table',
           'Darts',

@@ -36,6 +36,7 @@ export const MOBILE_NAV_LINKS = [
   { href: '/dining', label: 'Dining' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/about', label: 'About' },
+  { href: '/faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
 ] as const;
 

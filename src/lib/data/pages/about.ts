@@ -91,13 +91,12 @@ export const aboutPage: PageDefinition = {
       type: 'split_content',
       props: {
         subtitle: 'Our People',
-        title: 'Expert Guides & Dedicated Team',
+        title: 'Knowledgeable Guides & Dedicated Team',
         description:
           "Behind every exceptional safari experience is a team of passionate professionals. Our guides are among the most experienced in KwaZulu-Natal, with deep knowledge of the bush and its inhabitants. Our hospitality team brings warmth and attention to detail that transforms a stay into a cherished memory.",
         features: [
           'FGASA qualified field guides',
           'Multi-lingual staff',
-          'Expert trackers',
           'Dedicated conservation team',
           'Professional hospitality training',
         ],
