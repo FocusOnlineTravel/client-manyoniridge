@@ -9,4 +9,6 @@ Add your tasks here using the format:
 
 <!-- Add new tasks below this line -->
 
+- [ ] Rewrite "Your Day at Manyoni Ridge" intro to indicate it is just an example
+
 
