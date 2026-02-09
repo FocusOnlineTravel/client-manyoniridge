@@ -1,11 +1,11 @@
 import { PageDefinition } from '@/lib/types';
 
 /**
- * Accommodations page content definition
+ * Accommodation page content definition
  */
 export const accommodationsPage: PageDefinition = {
   meta: {
-    title: 'Accommodations',
+    title: 'Accommodation',
     slug: 'accommodations',
     description:
       'Discover our luxurious one and two bedroom villas at Manyoni Ridge Safari Lodge. Each villa offers private swimming areas, stunning bush views, and exceptional comfort.',
@@ -15,7 +15,7 @@ export const accommodationsPage: PageDefinition = {
     {
       type: 'hero_image',
       props: {
-        subtitle: 'Accommodations',
+        subtitle: 'Accommodation',
         title: 'Villas in the Heart of the Bush',
         description:
           'Experience unparalleled comfort in our intimate collection of villas, each offering private swimming areas, breathtaking views, and seamless harmony with the African wilderness.',
@@ -76,9 +76,9 @@ export const accommodationsPage: PageDefinition = {
               'Generous private decks offer the perfect vantage point for game viewing from the comfort of your villa.',
           },
           {
-            title: 'King-Size Beds',
+            title: 'Extra Length King-Size Beds',
             description:
-              'Sink into premium linens and enjoy restful sleep in our handcrafted king-size beds.',
+              'Sink into premium linens and enjoy restful sleep in our extra length king-size beds.',
           },
           {
             title: 'Climate Control',
@@ -88,7 +88,7 @@ export const accommodationsPage: PageDefinition = {
           {
             title: 'Complimentary Amenities',
             description:
-              'Mini bar, coffee station, safe, Wi-Fi, bathrobes, and slippers included in every villa.',
+              'Mini bar, coffee station, safe, and Wi-Fi included in every villa.',
           },
         ],
         columns: 3,

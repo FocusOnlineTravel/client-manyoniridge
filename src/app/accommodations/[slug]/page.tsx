@@ -66,7 +66,7 @@ export default function RoomDetailPage({ params }: PageProps) {
           className="inline-flex items-center gap-2 text-sm text-gray-medium hover:text-primary-dark transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back to All Accommodations
+          Back to All Accommodation
         </Link>
       </Section>
 
@@ -76,7 +76,7 @@ export default function RoomDetailPage({ params }: PageProps) {
           {/* Main Content */}
           <div className="lg:col-span-2">
             <h2 className="font-heading text-3xl md:text-4xl font-medium text-primary-dark mb-6">
-              About This Suite
+              About This Villa
             </h2>
             <div className="prose prose-lg text-gray-medium max-w-none">
               {room.description.split('\n\n').map((paragraph, index) => (
@@ -89,7 +89,7 @@ export default function RoomDetailPage({ params }: PageProps) {
             {/* Features */}
             <div className="mt-10">
               <h3 className="font-heading text-2xl font-medium text-primary-dark mb-4">
-                Suite Features
+                Villa Features
               </h3>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {room.features.map((feature, index) => (
@@ -160,7 +160,7 @@ export default function RoomDetailPage({ params }: PageProps) {
 
             {/* CTA */}
             <Button href="/contact" className="w-full">
-              Enquire About This Suite
+              Enquire About This Villa
             </Button>
           </div>
         </div>
@@ -210,7 +210,7 @@ export default function RoomDetailPage({ params }: PageProps) {
       {otherRooms.length > 0 && (
         <Section background="white">
           <h2 className="font-heading text-3xl font-medium text-primary-dark mb-8 text-center">
-            Explore Other Suites
+            Explore Other Villas
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {otherRooms.map((otherRoom) => (

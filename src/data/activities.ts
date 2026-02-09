@@ -50,7 +50,6 @@ Learn about the challenges facing rhinos today and the innovative approaches bei
       'Conservation guide',
       'Educational materials',
       'Refreshments',
-      'Conservation contribution',
     ],
     highlights: [
       'Meet conservation team',

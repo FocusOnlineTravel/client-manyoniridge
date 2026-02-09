@@ -125,12 +125,12 @@ export const reservePage: PageDefinition = {
       },
     },
 
-    // Sustainability
+    // Our Commitment
     {
       type: 'features_grid',
       props: {
         heading: {
-          title: 'Sustainability',
+          title: 'Our Commitment',
           subtitle: 'Our commitment to preserving this wilderness for future generations.',
         },
         features: [
@@ -155,11 +155,6 @@ export const reservePage: PageDefinition = {
               'Manyoni connects to other reserves, allowing wildlife to roam freely across vast landscapes.',
           },
           {
-            title: 'Zero Single-Use Plastic',
-            description:
-              'We have eliminated single-use plastics throughout the lodge and on game drives.',
-          },
-          {
             title: 'Carbon Footprint',
             description:
               'We offset our carbon emissions and encourage guests to participate in conservation contributions.',
@@ -178,7 +173,7 @@ export const reservePage: PageDefinition = {
         description: 'Discover the magic of Manyoni Private Game Reserve.',
         ctaText: 'Plan Your Safari',
         ctaHref: '/contact',
-        secondaryCtaText: 'View Accommodations',
+        secondaryCtaText: 'View Accommodation',
         secondaryCtaHref: '/accommodations',
         background: 'image',
         imageSrc: '/images/reserve-cta.jpg',

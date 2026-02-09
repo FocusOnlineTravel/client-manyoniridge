@@ -10,7 +10,7 @@ export const mainLodgePage: PageDefinition = {
     title: 'Main Lodge',
     slug: 'main-lodge',
     description:
-      'Discover the heart of Manyoni Ridge Safari Lodge. Our Main Lodge offers elegant shared spaces including a lounge, bar, dining area, viewing deck, and games room.',
+      'Discover the heart of Manyoni Ridge Safari Lodge. Our Main Lodge offers elegant shared spaces including a lounge, bar, dining area, viewing deck, and secluded entertainment area.',
   },
   sections: [
     // Hero Section
@@ -128,14 +128,14 @@ export const mainLodgePage: PageDefinition = {
       },
     },
 
-    // Games Room
+    // Secluded Entertainment Area
     {
       type: 'split_content',
       props: {
         subtitle: 'Entertainment & Leisure',
-        title: 'Games Room',
+        title: 'Secluded Entertainment Area',
         description:
-          'For moments of indoor leisure, our games room provides entertainment for all ages. Challenge fellow guests to a game of pool, darts, or table tennis. Watch your favorite sports on the TV, making it a wonderful space for families and a great way to unwind between safari activities.',
+          'For moments of indoor leisure, our secluded entertainment area provides entertainment for all ages. Challenge fellow guests to a game of pool, darts, or table tennis. Watch your favorite sports on the TV, making it a wonderful space for families and a great way to unwind between safari activities.',
         features: [
           'Pool table',
           'Darts',
@@ -169,6 +169,28 @@ export const mainLodgePage: PageDefinition = {
         imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 33.jpg',
         imagePosition: 'left',
         background: 'cream',
+      },
+    },
+
+    // Spa Services
+    {
+      type: 'split_content',
+      props: {
+        subtitle: 'Wellness in the Wild',
+        title: 'Spa Services',
+        description:
+          'Indulge in restorative treatments that draw inspiration from the African landscape. Our spa services offer a sanctuary of calm where you can unwind after exhilarating game drives and reconnect with your inner peace. Choose from a menu of massages and body treatments using natural, locally-sourced ingredients. Treatments can be enjoyed in the privacy of your villa or at our dedicated spa facility, always with the sounds and scents of the bush as your backdrop.',
+        features: [
+          'African-inspired treatments',
+          'Massages & body treatments',
+          'Natural ingredients',
+          'In-villa options available',
+          'Couples treatments',
+          'Professional therapists',
+        ],
+        imageSrc: '/images/Birds and Wildlife/Sunbird, Scarlet-chested Cape Vidal SA AR-2 Edited.jpg',
+        imagePosition: 'right',
+        background: 'white',
       },
     },
 
@@ -220,7 +242,7 @@ export const mainLodgePage: PageDefinition = {
           'Book your stay at Manyoni Ridge and discover the perfect blend of luxury and wilderness.',
         ctaText: 'Make an Enquiry',
         ctaHref: '/contact',
-        secondaryCtaText: 'View Accommodations',
+        secondaryCtaText: 'View Accommodation',
         secondaryCtaHref: '/accommodations',
         background: 'image',
         imageSrc: '/images/main-lodge-cta.jpeg',
