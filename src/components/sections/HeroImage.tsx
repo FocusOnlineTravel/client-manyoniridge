@@ -153,7 +153,7 @@ export function HeroImage({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-8"
+              className="hidden md:block text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-8"
             >
               {description}
             </motion.p>
@@ -175,7 +175,7 @@ export function HeroImage({
                 </Button>
               )}
               {secondaryCtaText && secondaryCtaHref && (
-                <Button href={secondaryCtaHref} variant="outline" size="lg">
+                <Button href={secondaryCtaHref} variant="outline" size="lg" className="hidden md:inline-flex">
                   {secondaryCtaText}
                 </Button>
               )}
