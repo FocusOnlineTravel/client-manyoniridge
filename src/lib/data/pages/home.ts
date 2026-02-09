@@ -63,7 +63,7 @@ export const homePage: PageDefinition = {
           'Expert guides and trackers',
           'Conservation-focused activities',
         ],
-        ctaText: 'View Accommodations',
+        ctaText: 'View Accommodation',
         ctaHref: '/accommodations',
         imageSrc: '/images/Birds and Wildlife/DSC00844.jpeg',
         imagePosition: 'left',

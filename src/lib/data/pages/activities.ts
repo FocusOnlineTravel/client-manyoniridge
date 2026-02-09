@@ -120,7 +120,7 @@ export const activitiesPage: PageDefinition = {
         description: 'Contact us to learn more about our activities and start planning your safari.',
         ctaText: 'Make an Enquiry',
         ctaHref: '/contact',
-        secondaryCtaText: 'View Accommodations',
+        secondaryCtaText: 'View Accommodation',
         secondaryCtaHref: '/accommodations',
         background: 'image',
         imageSrc: '/images/activities-cta.jpg',

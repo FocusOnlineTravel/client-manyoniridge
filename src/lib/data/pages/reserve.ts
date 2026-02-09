@@ -178,7 +178,7 @@ export const reservePage: PageDefinition = {
         description: 'Discover the magic of Manyoni Private Game Reserve.',
         ctaText: 'Plan Your Safari',
         ctaHref: '/contact',
-        secondaryCtaText: 'View Accommodations',
+        secondaryCtaText: 'View Accommodation',
         secondaryCtaHref: '/accommodations',
         background: 'image',
         imageSrc: '/images/reserve-cta.jpg',
