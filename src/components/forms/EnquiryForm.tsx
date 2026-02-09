@@ -15,12 +15,13 @@ const enquirySchema = z.object({
   name: z.string().min(2, 'Name is required'),
   email: z.string().email('Please enter a valid email address'),
   phone: z.string().optional(),
-  nationality: z.string().min(2, 'Nationality is required'),
+  nationality: z.string().min(1, 'Nationality is required'),
   arrivalDate: z.string().min(1, 'Arrival date is required'),
   departureDate: z.string().min(1, 'Departure date is required'),
   adults: z.string().min(1, 'Number of adults is required'),
   children: z.string(),
   roomPreference: z.string().optional(),
+  referralSource: z.string().optional(),
   specialRequests: z.string().optional(),
 }).refine(
   (data) => {
@@ -57,6 +58,41 @@ const roomOptions = [
   { value: '', label: 'No Preference' },
   { value: 'one-bedroom', label: 'One Bedroom Suite' },
   { value: 'two-bedroom', label: 'Two Bedroom Suite' },
+];
+
+const nationalityOptions = [
+  { value: 'South African', label: 'South African' },
+  { value: 'American', label: 'American' },
+  { value: 'British', label: 'British' },
+  { value: 'Australian', label: 'Australian' },
+  { value: 'Canadian', label: 'Canadian' },
+  { value: 'German', label: 'German' },
+  { value: 'French', label: 'French' },
+  { value: 'Italian', label: 'Italian' },
+  { value: 'Spanish', label: 'Spanish' },
+  { value: 'Dutch', label: 'Dutch' },
+  { value: 'Swiss', label: 'Swiss' },
+  { value: 'Belgian', label: 'Belgian' },
+  { value: 'Irish', label: 'Irish' },
+  { value: 'New Zealand', label: 'New Zealand' },
+  { value: 'Indian', label: 'Indian' },
+  { value: 'Chinese', label: 'Chinese' },
+  { value: 'Japanese', label: 'Japanese' },
+  { value: 'Brazilian', label: 'Brazilian' },
+  { value: 'Argentine', label: 'Argentine' },
+  { value: 'Other', label: 'Other' },
+];
+
+const referralSourceOptions = [
+  { value: '', label: 'Select...' },
+  { value: 'google', label: 'Google Search' },
+  { value: 'social-media', label: 'Social Media' },
+  { value: 'travel-agent', label: 'Travel Agent' },
+  { value: 'friend-family', label: 'Friend or Family' },
+  { value: 'previous-guest', label: 'Previous Guest' },
+  { value: 'magazine', label: 'Magazine or Publication' },
+  { value: 'website', label: 'Travel Website' },
+  { value: 'other', label: 'Other' },
 ];
 
 interface EnquiryFormProps {
@@ -135,9 +171,10 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
           error={errors.email?.message}
           required
         />
-        <Input
+        <Select
           label="Nationality"
-          placeholder="Your nationality"
+          placeholder="Select your nationality"
+          options={nationalityOptions}
           {...register('nationality')}
           error={errors.nationality?.message}
           required
@@ -208,9 +245,10 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
           {...register('phone')}
           error={errors.phone?.message}
         />
-        <Input
+        <Select
           label="Nationality"
-          placeholder="Your nationality"
+          placeholder="Select your nationality"
+          options={nationalityOptions}
           {...register('nationality')}
           error={errors.nationality?.message}
           required
@@ -254,6 +292,13 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
           {...register('roomPreference')}
         />
       </div>
+
+      <Select
+        label="How did you hear about us?"
+        placeholder="Please select"
+        options={referralSourceOptions}
+        {...register('referralSource')}
+      />
 
       <Textarea
         label="Special Requests"

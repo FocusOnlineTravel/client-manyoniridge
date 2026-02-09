@@ -16,8 +16,9 @@ const contactSchema = z.object({
   lastName: z.string().min(2, 'Last name is required'),
   email: z.string().email('Please enter a valid email address'),
   phone: z.string().optional(),
-  nationality: z.string().min(2, 'Nationality is required'),
+  nationality: z.string().min(1, 'Nationality is required'),
   subject: z.string().min(1, 'Please select a subject'),
+  referralSource: z.string().optional(),
   message: z.string().min(10, 'Message must be at least 10 characters'),
 });
 
@@ -29,6 +30,41 @@ const subjectOptions = [
   { value: 'group', label: 'Group Booking' },
   { value: 'special', label: 'Special Occasion' },
   { value: 'press', label: 'Press & Media' },
+  { value: 'other', label: 'Other' },
+];
+
+const nationalityOptions = [
+  { value: 'South African', label: 'South African' },
+  { value: 'American', label: 'American' },
+  { value: 'British', label: 'British' },
+  { value: 'Australian', label: 'Australian' },
+  { value: 'Canadian', label: 'Canadian' },
+  { value: 'German', label: 'German' },
+  { value: 'French', label: 'French' },
+  { value: 'Italian', label: 'Italian' },
+  { value: 'Spanish', label: 'Spanish' },
+  { value: 'Dutch', label: 'Dutch' },
+  { value: 'Swiss', label: 'Swiss' },
+  { value: 'Belgian', label: 'Belgian' },
+  { value: 'Irish', label: 'Irish' },
+  { value: 'New Zealand', label: 'New Zealand' },
+  { value: 'Indian', label: 'Indian' },
+  { value: 'Chinese', label: 'Chinese' },
+  { value: 'Japanese', label: 'Japanese' },
+  { value: 'Brazilian', label: 'Brazilian' },
+  { value: 'Argentine', label: 'Argentine' },
+  { value: 'Other', label: 'Other' },
+];
+
+const referralSourceOptions = [
+  { value: '', label: 'Select...' },
+  { value: 'google', label: 'Google Search' },
+  { value: 'social-media', label: 'Social Media' },
+  { value: 'travel-agent', label: 'Travel Agent' },
+  { value: 'friend-family', label: 'Friend or Family' },
+  { value: 'previous-guest', label: 'Previous Guest' },
+  { value: 'magazine', label: 'Magazine or Publication' },
+  { value: 'website', label: 'Travel Website' },
   { value: 'other', label: 'Other' },
 ];
 
@@ -115,21 +151,30 @@ export function ContactForm({ className }: ContactFormProps) {
         />
       </div>
 
-      <Input
-        label="Nationality"
-        placeholder="Your nationality"
-        {...register('nationality')}
-        error={errors.nationality?.message}
-        required
-      />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Select
+          label="Nationality"
+          placeholder="Select your nationality"
+          options={nationalityOptions}
+          {...register('nationality')}
+          error={errors.nationality?.message}
+          required
+        />
+        <Select
+          label="Subject"
+          placeholder="Select a subject"
+          options={subjectOptions}
+          {...register('subject')}
+          error={errors.subject?.message}
+          required
+        />
+      </div>
 
       <Select
-        label="Subject"
-        placeholder="Select a subject"
-        options={subjectOptions}
-        {...register('subject')}
-        error={errors.subject?.message}
-        required
+        label="How did you hear about us?"
+        placeholder="Please select"
+        options={referralSourceOptions}
+        {...register('referralSource')}
       />
 
       <Textarea
