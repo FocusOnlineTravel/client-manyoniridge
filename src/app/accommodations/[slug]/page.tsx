@@ -1,3 +1,6 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -7,35 +10,23 @@ import { HeroImage } from '@/components/sections/HeroImage';
 import { CTASection } from '@/components/sections/CTASection';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { ImageLightbox } from '@/components/ui/ImageLightbox';
 import { rooms, getRoomBySlug, getAllRoomSlugs } from '@/lib/data/rooms';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return getAllRoomSlugs().map((slug) => ({ slug }));
-}
+export default function RoomDetailPage({ params }: PageProps) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [slug, setSlug] = useState<string>('');
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const room = getRoomBySlug(slug);
+  useEffect(() => {
+    params.then((p) => setSlug(p.slug));
+  }, [params]);
 
-  if (!room) {
-    return {
-      title: 'Room Not Found',
-    };
-  }
-
-  return {
-    title: room.title,
-    description: room.shortDescription,
-  };
-}
-
-export default async function RoomDetailPage({ params }: PageProps) {
-  const { slug } = await params;
-  const room = getRoomBySlug(slug);
+  const room = slug ? getRoomBySlug(slug) : null;
 
   if (!room) {
     notFound();
@@ -165,27 +156,42 @@ export default async function RoomDetailPage({ params }: PageProps) {
 
       {/* Image Gallery */}
       {room.images && room.images.length > 0 && (
-        <Section background="off-white">
-          <h2 className="font-heading text-3xl font-medium text-primary-dark mb-8 text-center">
-            Gallery
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {room.images.slice(0, 8).map((image, i) => (
-              <div
-                key={i}
-                className="aspect-square relative overflow-hidden"
-              >
-                <Image
-                  src={image}
-                  alt={`${room.title} gallery image ${i + 1}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-              </div>
-            ))}
-          </div>
-        </Section>
+        <>
+          <Section background="off-white">
+            <h2 className="font-heading text-3xl font-medium text-primary-dark mb-8 text-center">
+              Gallery
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {room.images.slice(0, 8).map((image, i) => (
+                <button
+                  key={i}
+                  onClick={() => {
+                    setLightboxIndex(i);
+                    setLightboxOpen(true);
+                  }}
+                  className="aspect-square relative overflow-hidden cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-gold"
+                >
+                  <Image
+                    src={image}
+                    alt={`${room.title} gallery image ${i + 1}`}
+                    fill
+                    className="object-cover transition-transform group-hover:scale-110"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                </button>
+              ))}
+            </div>
+          </Section>
+
+          <ImageLightbox
+            images={room.images}
+            initialIndex={lightboxIndex}
+            isOpen={lightboxOpen}
+            onClose={() => setLightboxOpen(false)}
+            alt={room.title}
+          />
+        </>
       )}
 
       {/* Other Rooms */}

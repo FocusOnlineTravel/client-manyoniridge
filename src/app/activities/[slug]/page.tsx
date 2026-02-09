@@ -1,3 +1,6 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -8,35 +11,23 @@ import { ActivityCard } from '@/components/sections/ActivityCard';
 import { CTASection } from '@/components/sections/CTASection';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { ImageLightbox } from '@/components/ui/ImageLightbox';
 import { activities, getActivityBySlug, getAllActivitySlugs } from '@/data/activities';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return getAllActivitySlugs().map((slug) => ({ slug }));
-}
+export default function ActivityDetailPage({ params }: PageProps) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [slug, setSlug] = useState<string>('');
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const activity = getActivityBySlug(slug);
+  useEffect(() => {
+    params.then((p) => setSlug(p.slug));
+  }, [params]);
 
-  if (!activity) {
-    return {
-      title: 'Activity Not Found',
-    };
-  }
-
-  return {
-    title: activity.title,
-    description: activity.shortDescription,
-  };
-}
-
-export default async function ActivityDetailPage({ params }: PageProps) {
-  const { slug } = await params;
-  const activity = getActivityBySlug(slug);
+  const activity = slug ? getActivityBySlug(slug) : null;
 
   if (!activity) {
     notFound();
@@ -155,27 +146,42 @@ export default async function ActivityDetailPage({ params }: PageProps) {
 
       {/* Image Gallery */}
       {activity.images && activity.images.length > 0 && (
-        <Section background="off-white">
-          <h2 className="font-heading text-3xl font-medium text-primary-dark mb-8 text-center">
-            Gallery
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {activity.images.map((image, i) => (
-              <div
-                key={i}
-                className="aspect-square relative overflow-hidden"
-              >
-                <Image
-                  src={image}
-                  alt={`${activity.title} gallery image ${i + 1}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-              </div>
-            ))}
-          </div>
-        </Section>
+        <>
+          <Section background="off-white">
+            <h2 className="font-heading text-3xl font-medium text-primary-dark mb-8 text-center">
+              Gallery
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {activity.images.map((image, i) => (
+                <button
+                  key={i}
+                  onClick={() => {
+                    setLightboxIndex(i);
+                    setLightboxOpen(true);
+                  }}
+                  className="aspect-square relative overflow-hidden cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-gold"
+                >
+                  <Image
+                    src={image}
+                    alt={`${activity.title} gallery image ${i + 1}`}
+                    fill
+                    className="object-cover transition-transform group-hover:scale-110"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                </button>
+              ))}
+            </div>
+          </Section>
+
+          <ImageLightbox
+            images={activity.images}
+            initialIndex={lightboxIndex}
+            isOpen={lightboxOpen}
+            onClose={() => setLightboxOpen(false)}
+            alt={activity.title}
+          />
+        </>
       )}
 
       {/* Other Activities */}

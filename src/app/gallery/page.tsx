@@ -6,6 +6,7 @@ import { HeroImage } from '@/components/sections/HeroImage';
 import { CTASection } from '@/components/sections/CTASection';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
+import { ImageLightbox } from '@/components/ui/ImageLightbox';
 import { cn } from '@/lib/utils';
 
 const categories = [
@@ -43,6 +44,8 @@ const galleryItems = [
 
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const filteredItems =
     activeCategory === 'all'
@@ -92,17 +95,21 @@ export default function GalleryPage() {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {filteredItems.map((item) => (
+          {filteredItems.map((item, index) => (
             <button
               key={item.id}
-              className="aspect-square overflow-hidden group relative"
+              onClick={() => {
+                setLightboxIndex(index);
+                setLightboxOpen(true);
+              }}
+              className="aspect-square overflow-hidden group relative focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-gold"
               aria-label={`View ${item.alt}`}
             >
               <Image
                 src={item.image}
                 alt={item.alt}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform group-hover:scale-110"
                 sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -113,6 +120,14 @@ export default function GalleryPage() {
             </button>
           ))}
         </div>
+
+        <ImageLightbox
+          images={filteredItems.map((item) => item.image)}
+          initialIndex={lightboxIndex}
+          isOpen={lightboxOpen}
+          onClose={() => setLightboxOpen(false)}
+          alt="Gallery"
+        />
 
         {filteredItems.length === 0 && (
           <p className="text-center text-gray-medium py-12">
