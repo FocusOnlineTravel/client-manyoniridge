@@ -29,6 +29,11 @@ export default function ActivityDetailPage({ params }: PageProps) {
 
   const activity = slug ? getActivityBySlug(slug) : null;
 
+  // Show loading state while slug is being set
+  if (!slug) {
+    return null;
+  }
+
   if (!activity) {
     notFound();
   }

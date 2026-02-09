@@ -28,6 +28,11 @@ export default function RoomDetailPage({ params }: PageProps) {
 
   const room = slug ? getRoomBySlug(slug) : null;
 
+  // Show loading state while slug is being set
+  if (!slug) {
+    return null;
+  }
+
   if (!room) {
     notFound();
   }
