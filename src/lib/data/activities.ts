@@ -7,7 +7,7 @@ export const activities: Activity[] = [
     subtitle: 'Discover the Big 5',
     description: `Embark on an unforgettable journey through Manyoni Private Game Reserve with our expert guides. Our morning and afternoon game drives offer the best opportunities to witness the Big 5 and countless other species in their natural habitat.
 
-Travel in specially designed 4x4 vehicles with elevated seating ensuring unobstructed views and incredible photographic opportunities. Choose between open or covered game viewers based on your preference and weather conditions. Our experienced guides share their deep knowledge of the bush, tracking animals and interpreting the subtle signs of the wilderness.`,
+Travel in specially designed 4x4 vehicles with elevated seating ensuring unobstructed views and incredible photographic opportunities. Choose between open or covered game viewers based on your preference and weather conditions. Our knowledgeable guides share their deep understanding of the bush, tracking animals and interpreting the subtle signs of the wilderness.`,
     shortDescription: 'Experience thrilling Big 5 encounters on morning and afternoon safari drives.',
     duration: '3-4 hours',
     difficulty: 'Easy',
@@ -21,7 +21,6 @@ Travel in specially designed 4x4 vehicles with elevated seating ensuring unobstr
     highlights: [
       'Big 5 game viewing',
       'Sunrise & sunset drives',
-      'Expert tracking',
       'Bird watching',
       'Photography opportunities',
     ],
@@ -50,7 +49,6 @@ Learn about the challenges facing rhinos today and the innovative approaches bei
       'Conservation guide',
       'Educational materials',
       'Refreshments',
-      'Conservation contribution',
     ],
     highlights: [
       'Meet conservation team',
@@ -92,7 +90,7 @@ This seasonal experience allows you to accompany a pangolin on its journey throu
       'Late afternoon experience',
       'Seasonal activity',
       'Conservation education',
-      'Expert interpretation',
+      'Knowledgeable interpretation',
     ],
     images: [
       '/images/pangolin.jpg',
