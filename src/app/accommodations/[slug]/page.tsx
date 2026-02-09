@@ -7,7 +7,7 @@ import { HeroImage } from '@/components/sections/HeroImage';
 import { CTASection } from '@/components/sections/CTASection';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
-import { rooms, getRoomBySlug, getAllRoomSlugs } from '@/data/rooms';
+import { rooms, getRoomBySlug, getAllRoomSlugs } from '@/lib/data/rooms';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
