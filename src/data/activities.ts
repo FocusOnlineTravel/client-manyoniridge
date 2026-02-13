@@ -70,6 +70,41 @@ Learn about the challenges facing rhinos today and the innovative approaches bei
     ctaImage: '/images/rhino conservation CTA.jpg',
   },
   {
+    slug: 'rhino-horn-trimming',
+    title: 'Rhino Horn Trimming',
+    subtitle: 'Witness vital conservation work',
+    description: `Experience a rare and meaningful conservation activity by observing the process of rhino horn trimming. This important anti-poaching initiative helps protect rhinos by removing the incentive for poachers, while causing no harm to the animals.
+
+Join our conservation team during this carefully managed procedure and learn about the science behind horn trimming, the sedation process, and how this proactive measure contributes to rhino protection. This is a unique opportunity to witness hands-on conservation work and understand the lengths we go to in safeguarding these magnificent creatures.`,
+    shortDescription: 'Observe important anti-poaching conservation work in action.',
+    duration: '2-3 hours',
+    difficulty: 'Easy',
+    includes: [
+      'Conservation guide',
+      'Educational briefing',
+      'Refreshments',
+      'Photography opportunities',
+    ],
+    highlights: [
+      'Witness conservation procedure',
+      'Learn about anti-poaching efforts',
+      'Meet the conservation team',
+      'Educational experience',
+      'Rare opportunity',
+      'Support rhino protection',
+    ],
+    images: [
+      '/images/rhino-1.JPG',
+      '/images/rhino-3.JPG',
+      '/images/rhino-4.JPG',
+      '/images/rhino-5.JPG',
+    ],
+    icon: 'Shield',
+    placeholderClass: 'placeholder-nature',
+    heroImage: '/images/rhino-1.JPG',
+    ctaImage: '/images/rhino conservation CTA.jpg',
+  },
+  {
     slug: 'pangolin-experiences',
     title: 'Pangolin Experiences',
     subtitle: 'Meet the elusive pangolin',
