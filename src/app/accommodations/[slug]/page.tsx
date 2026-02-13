@@ -116,7 +116,7 @@ export default function RoomDetailPage({ params }: PageProps) {
                 <li className="flex items-center gap-3 text-gray-medium">
                   <Users className="w-5 h-5 text-primary-gold" />
                   <span>
-                    {room.capacity.adults} Adults
+                    {room.capacity.adults} {room.slug === 'two-bedroom-villa' ? 'Pax' : 'Adults'}
                     {room.capacity.children > 0 &&
                       `, ${room.capacity.children} Children`}
                   </span>

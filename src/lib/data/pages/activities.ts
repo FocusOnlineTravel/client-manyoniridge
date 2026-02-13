@@ -47,6 +47,7 @@ export const activitiesPage: PageDefinition = {
         activitySlugs: [
           'game-drives',
           'rhino-conservation',
+          'rhino-horn-trimming',
           'pangolin-experiences',
           'k9-unit-training',
           'walking-safaris',
@@ -61,7 +62,7 @@ export const activitiesPage: PageDefinition = {
       props: {
         heading: {
           title: 'Your Day at Manyoni Ridge',
-          subtitle: 'A typical day at Manyoni Ridge is filled with adventure and relaxation.',
+          subtitle: "Here's what a day at Manyoni Ridge might look like - though of course, it's your bush escape, so feel free to dip in and out as you please.",
         },
         schedule: [
           {
@@ -89,7 +90,7 @@ export const activitiesPage: PageDefinition = {
           {
             time: '13:00',
             title: 'Lunch',
-            description: 'Enjoy a light lunch at the main lodge or your private deck.',
+            description: 'Enjoy lunch at the main lodge or your private deck.',
           },
           {
             time: '15:30',

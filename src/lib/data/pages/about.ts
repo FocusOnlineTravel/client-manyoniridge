@@ -71,9 +71,9 @@ export const aboutPage: PageDefinition = {
               'Active participation in protecting wildlife and their habitats for future generations.',
           },
           {
-            title: 'Excellence',
+            title: 'Memorable',
             description:
-              'Uncompromising commitment to quality in every detail of your experience.',
+              "Where every detail is designed to create experiences you'll carry with you long after you leave the bush.",
           },
           {
             title: 'Community',

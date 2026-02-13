@@ -61,9 +61,9 @@ export const accommodationsPage: PageDefinition = {
         },
         features: [
           {
-            title: 'Private Swimming Area',
+            title: 'Private Tubs & Plunge Pools',
             description:
-              'Each villa features a personal swimming area where you can cool off while watching wildlife pass by.',
+              'Each villa features its own private outdoor retreat, a soaking tub for our one-bedroom villas or a heated plunge pool for our two-bedroom villas.',
           },
           {
             title: 'Indoor & Outdoor Showers',

@@ -73,7 +73,7 @@ export function RoomCard({ room, index = 0, variant = 'default' }: RoomCardProps
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-medium mb-4">
             <span className="flex items-center gap-1.5">
               <Users className="w-4 h-4" />
-              {room.capacity.adults} Adults
+              {room.capacity.adults} {room.slug === 'two-bedroom-villa' ? 'Pax' : 'Adults'}
               {room.capacity.children > 0 && `, ${room.capacity.children} Children`}
             </span>
             <span className="flex items-center gap-1.5">
