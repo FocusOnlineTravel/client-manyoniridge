@@ -63,7 +63,7 @@ export const accommodationsPage: PageDefinition = {
           {
             title: 'Private Tubs & Plunge Pools',
             description:
-              'Each villa features its own private outdoor retreat, a soaking tub for our one-bedroom villas or a heated plunge pool for our two-bedroom villas.',
+              'Each villa features its own private outdoor retreat, an AmiPod for our one-bedroom villas or a heated plunge pool for our two-bedroom villas.',
           },
           {
             title: 'Indoor & Outdoor Showers',

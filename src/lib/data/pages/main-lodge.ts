@@ -194,6 +194,50 @@ export const mainLodgePage: PageDefinition = {
       },
     },
 
+    // Fitness Centre
+    {
+      type: 'split_content',
+      props: {
+        subtitle: 'Stay Active',
+        title: 'Fitness Centre',
+        description:
+          'Maintain your wellness routine in our well-equipped fitness centre. Whether you prefer cardio, strength training, or yoga, our gym provides everything you need to stay active during your safari. Enjoy your workout with inspiring bush views, then cool down and recover at your own pace.',
+        features: [
+          'Treadmills for cardio',
+          'Stationary bike',
+          'Free weights',
+          'Yoga mats',
+          'Bush views',
+          'Open daily',
+        ],
+        imageSrc: '/images/Birds and Wildlife/Sunbird, Scarlet-chested Cape Vidal SA AR-2 Edited.jpg',
+        imagePosition: 'left',
+        background: 'cream',
+      },
+    },
+
+    // Sauna & Cold Plunge
+    {
+      type: 'split_content',
+      props: {
+        subtitle: 'Contrast Therapy',
+        title: 'Sauna & Cold Plunge',
+        description:
+          'Experience the rejuvenating benefits of our sauna and cold plunge facilities. This traditional wellness practice promotes circulation, aids muscle recovery, and provides a deeply relaxing experience. Perfect for unwinding after game drives or complementing your spa treatments.',
+        features: [
+          'Dry sauna',
+          'Cold plunge pool',
+          'Contrast therapy benefits',
+          'Muscle recovery',
+          'Relaxation & wellness',
+          'Private sessions available',
+        ],
+        imageSrc: '/images/Birds and Wildlife/Sunbird, Scarlet-chested Cape Vidal SA AR-2 Edited.jpg',
+        imagePosition: 'right',
+        background: 'white',
+      },
+    },
+
     // Lodge Features Grid
     {
       type: 'features_grid',

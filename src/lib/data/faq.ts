@@ -9,10 +9,6 @@ export const faqCategories: FAQCategory[] = [
         answer: 'Our all-inclusive rates cover accommodation, all meals, selected beverages (house wines, local beers, spirits, and soft drinks), two game drives daily, and Wi-Fi. Premium beverages and spa treatments are available at additional cost.',
       },
       {
-        question: 'Are there different rates for children?',
-        answer: 'Yes, we offer reduced rates for children. Children under 6 stay free when sharing with parents. Children 6-12 receive a 50% discount. Please note that children under 6 are only permitted in the Two Bedroom Suites.',
-      },
-      {
         question: 'Is there a minimum stay requirement?',
         answer: 'We recommend a minimum stay of 2 nights to fully experience Manyoni Ridge and the reserve. During peak seasons, a 3-night minimum may apply.',
       },

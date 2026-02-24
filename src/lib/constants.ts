@@ -25,6 +25,7 @@ export const NAV_LINKS = [
   { href: '/activities', label: 'Experiences' },
   { href: '/main-lodge', label: 'Facilities' },
   { href: '/reserve', label: 'Reserve' },
+  { href: '/rates', label: 'Rates' },
 ] as const;
 
 export const MOBILE_NAV_LINKS = [
@@ -34,6 +35,7 @@ export const MOBILE_NAV_LINKS = [
   { href: '/main-lodge', label: 'Facilities' },
   { href: '/reserve', label: 'Reserve' },
   { href: '/dining', label: 'Dining' },
+  { href: '/rates', label: 'Rates' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/about', label: 'About' },
   { href: '/faq', label: 'FAQ' },
@@ -56,8 +58,8 @@ export const FOOTER_LINKS = {
   ],
   plan: [
     { href: '/contact', label: 'Contact Us' },
-    { href: '/contact#rates', label: 'Rates & Packages' },
-    { href: '/contact#bookings', label: 'Bookings' },
+    { href: '/rates', label: 'Rates & Packages' },
+    { href: '/contact', label: 'Bookings' },
     { href: '/contact#directions', label: 'Getting Here' },
   ],
   legal: [

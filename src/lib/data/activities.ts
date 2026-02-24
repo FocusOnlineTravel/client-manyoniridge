@@ -117,7 +117,6 @@ This seasonal experience allows you to accompany a pangolin on its journey throu
     includes: [
       'Specialist tracking guide',
       'Refreshments',
-      'Conservation contribution',
     ],
     highlights: [
       'Rare wildlife encounter',

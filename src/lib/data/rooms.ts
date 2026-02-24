@@ -7,8 +7,8 @@ export const rooms: Room[] = [
     subtitle: 'Intimate luxury for two',
     description: `Experience the epitome of intimate luxury in our One Bedroom Villas. Each villa offers a private sanctuary where contemporary elegance meets the raw beauty of the African bush. Wake to the sounds of the wilderness and watch the sun rise over the reserve from your private deck.
 
-The spacious bedroom features an extra length king-size bed dressed in premium linens, positioned to maximize the breathtaking views. The en-suite bathroom includes both indoor and outdoor showers, allowing you to connect with nature while enjoying modern comforts. A private hot tub (hot/cold) invites you to relax while watching wildlife pass by.`,
-    shortDescription: 'Intimate villas perfect for couples, featuring private hot tubs and stunning bush views.',
+The spacious bedroom features an extra length king-size bed dressed in premium linens, positioned to maximize the breathtaking views. The en-suite bathroom includes both indoor and outdoor showers, allowing you to connect with nature while enjoying modern comforts. A private AmiPod invites you to relax while watching wildlife pass by.`,
+    shortDescription: 'Intimate villas perfect for couples, featuring private AmiPods and stunning bush views.',
     capacity: {
       adults: 2,
       children: 0,
@@ -18,7 +18,7 @@ The spacious bedroom features an extra length king-size bed dressed in premium l
     bathrooms: 1,
     amenities: [
       'Extra length king-size bed',
-      'Private hot tub (hot/cold)',
+      'Private AmiPod',
       'Indoor & outdoor shower',
       'Air conditioning',
       'Mini bar',

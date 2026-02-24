@@ -62,7 +62,7 @@ export const activitiesPage: PageDefinition = {
       props: {
         heading: {
           title: 'Your Day at Manyoni Ridge',
-          subtitle: "Here's what a day at Manyoni Ridge might look like - though of course, it's your bush escape, so feel free to dip in and out as you please.",
+          subtitle: "Here's what a day at Manyoni Ridge might look like, though times may shift with the seasons, and the day is yours to enjoy at your own pace.",
         },
         schedule: [
           {
