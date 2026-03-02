@@ -23,8 +23,7 @@ export const galleryPage: PageDefinition = {
         description:
           'Explore the beauty of Manyoni Ridge through our collection of images showcasing wildlife, accommodation, and unforgettable moments.',
         size: 'large',
-        imageSrc:
-          '/images/Birds and Wildlife/Roller, Lilac-breasted Kruger SA AR-016 Edited.jpg',
+        imageSrc: '/images/game-drive-gal-DAP05803.jpg',
         showScrollIndicator: false,
         verticalAlign: 'bottom',
       },
@@ -66,13 +65,6 @@ export const galleryPage: PageDefinition = {
             alt: 'One bedroom suite interior',
           },
           {
-            id: 4,
-            category: 'activities',
-            image:
-              '/images/Birds and Wildlife/Secretarybird Kgalagadi Transfrontier NP SA AR-061 Edited.jpg',
-            alt: 'Secretarybird on safari',
-          },
-          {
             id: 5,
             category: 'landscape',
             image: '/images/Birds and Wildlife/DSC00748.jpeg',
@@ -97,23 +89,10 @@ export const galleryPage: PageDefinition = {
             alt: 'Private suite with plunge pool',
           },
           {
-            id: 9,
-            category: 'activities',
-            image:
-              '/images/Birds and Wildlife/Roller, Lilac-breasted Kruger SA AR-016 Edited.jpg',
-            alt: 'Lilac-breasted Roller',
-          },
-          {
             id: 10,
             category: 'landscape',
             image: '/images/Birds and Wildlife/DSC00595.jpeg',
             alt: 'African landscape',
-          },
-          {
-            id: 11,
-            category: 'wildlife',
-            image: '/images/Birds and Wildlife/Leopard Kruger SA AR-072 Edited.jpg',
-            alt: 'Leopard resting',
           },
           {
             id: 12,
@@ -122,35 +101,16 @@ export const galleryPage: PageDefinition = {
             alt: 'Lodge interior',
           },
           {
-            id: 13,
-            category: 'wildlife',
-            image: '/images/Birds and Wildlife/Eagle, Martial Kruger SA AR-010 Edited.jpg',
-            alt: 'Martial Eagle',
-          },
-          {
             id: 14,
             category: 'suites',
             image: '/images/2-bed 2.jpg',
             alt: 'Two bedroom suite',
           },
           {
-            id: 15,
-            category: 'wildlife',
-            image:
-              '/images/Birds and Wildlife/Sunbird, Scarlet-chested Cape Vidal SA AR-2 Edited.jpg',
-            alt: 'Scarlet-chested Sunbird',
-          },
-          {
             id: 16,
             category: 'landscape',
             image: '/images/Birds and Wildlife/DSC00631.jpeg',
             alt: 'African bush landscape',
-          },
-          {
-            id: 17,
-            category: 'wildlife',
-            image: '/images/Birds and Wildlife/Kingfisher, Malachite Midmar SA AR-001 Edited.jpg',
-            alt: 'Malachite Kingfisher',
           },
           {
             id: 18,
@@ -180,7 +140,7 @@ export const galleryPage: PageDefinition = {
       type: 'content_section',
       props: {
         content:
-          'Discover the incredible wildlife and luxury accommodations at Manyoni Ridge Safari Lodge. For media inquiries or high-resolution images, please contact us.',
+          'Discover the incredible wildlife and luxury accommodation at Manyoni Ridge Safari Lodge. For media inquiries or high-resolution images, please contact us.',
         centered: true,
         background: 'cream',
       },

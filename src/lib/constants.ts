@@ -53,7 +53,6 @@ export const FOOTER_LINKS = {
   discover: [
     { href: '/about', label: 'About Us' },
     { href: '/gallery', label: 'Gallery' },
-    { href: '/offers', label: 'Special Offers' },
     { href: '/faq', label: 'FAQ' },
   ],
   plan: [

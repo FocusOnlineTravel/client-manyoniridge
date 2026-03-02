@@ -60,7 +60,7 @@ export default function ActivityDetailPage({ params }: PageProps) {
         imageSrc={activity.heroImage}
         placeholderClass={activity.placeholderClass}
         showScrollIndicator={false}
-        verticalAlign="bottom"
+        verticalAlign={activity.heroImageAlign || "bottom"}
       />
 
       {/* Back Link */}

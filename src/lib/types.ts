@@ -38,6 +38,7 @@ export interface Activity {
   icon: string;
   placeholderClass: string;
   heroImage?: string;
+  heroImageAlign?: 'top' | 'center' | 'bottom';
   ctaImage?: string;
 }
 

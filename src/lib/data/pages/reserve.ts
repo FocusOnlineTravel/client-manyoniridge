@@ -54,7 +54,7 @@ export const reservePage: PageDefinition = {
         ],
         ctaText: 'View Activities',
         ctaHref: '/activities',
-        imageSrc: '/images/Birds and Wildlife/Leopard Kruger SA AR-072 Edited.jpg',
+        imageSrc: '/images/game-drive-gal-DAP05883.jpg',
         imagePosition: 'left',
       },
     },

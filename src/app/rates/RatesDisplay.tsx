@@ -42,6 +42,12 @@ export function RatesDisplay() {
 
   return (
     <div className="space-y-12">
+      {/* Opening Special Banner */}
+      <div className="bg-gradient-to-r from-primary-gold to-yellow-600 text-white rounded-lg p-6 text-center shadow-lg">
+        <h2 className="font-heading text-3xl md:text-4xl mb-2">Opening Special Rates</h2>
+        <p className="text-lg opacity-90">Limited time offer for our grand opening</p>
+      </div>
+
       {/* Villa Rates */}
       <div>
         <h2 className="font-heading text-3xl text-primary-dark mb-8 text-center">

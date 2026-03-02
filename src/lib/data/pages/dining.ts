@@ -73,31 +73,26 @@ export const diningPage: PageDefinition = {
             title: 'Bush Breakfast',
             description:
               'After your morning game drive, enjoy a hearty breakfast served in a scenic location in the bush.',
-            placeholder: 'placeholder-nature',
           },
           {
             title: 'Starlight Terrace Dining',
             description:
               'Dine on our elevated Starlight Terrace with panoramic views. For cooler evenings, warm fireplaces create an intimate atmosphere.',
-            placeholder: 'placeholder-gold',
           },
           {
             title: 'Boma Dinner',
             description:
               'Dine around the fire in our boma, under a canopy of stars.',
-            imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 23.jpg',
           },
           {
             title: 'Wine Cellar Dinner',
             description:
               'Enjoy a special dinner experience in our curated wine cellar. Advance booking required.',
-            placeholder: 'placeholder-gold',
           },
           {
             title: 'Private Dining',
             description:
               'Celebrate special occasions with a private dinner on your villa deck or a secluded bush location.',
-            placeholder: 'placeholder-room',
           },
         ],
         background: 'white',
@@ -119,7 +114,7 @@ export const diningPage: PageDefinition = {
           'Signature safari cocktails',
           'Expertly paired wine dinners available',
         ],
-        imagePlaceholder: 'placeholder-gold',
+        imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 32.jpg',
         imagePosition: 'right',
         background: 'cream',
       },

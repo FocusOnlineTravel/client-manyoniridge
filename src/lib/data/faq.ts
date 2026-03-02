@@ -44,7 +44,7 @@ export const faqCategories: FAQCategory[] = [
       },
       {
         question: 'What age restrictions apply to activities?',
-        answer: 'Children of all ages can enjoy game drives in the Two Bedroom Suites\' private vehicle. The Pangolin Experience has a minimum age of 12. Walking safaris require guests to be at least 16. Our family experiences are designed for children 4 and above.',
+        answer: 'Children under 6 are permitted on private vehicles only (rates available on request). Children 6 and older can enjoy all standard game drives. The Pangolin Experience has a minimum age of 12. Walking safaris require guests to be at least 16. Our family experiences are designed for children 4 and above.',
       },
       {
         question: 'Is babysitting available?',
