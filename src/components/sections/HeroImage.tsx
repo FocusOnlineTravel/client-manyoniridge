@@ -22,7 +22,7 @@ interface HeroImageProps {
   size?: 'full' | 'large' | 'medium';
   overlay?: 'dark' | 'light' | 'gradient';
   textAlign?: 'center' | 'left';
-  verticalAlign?: 'center' | 'bottom';
+  verticalAlign?: 'top' | 'center' | 'bottom';
   textBackground?: boolean;
 }
 
@@ -70,7 +70,9 @@ export function HeroImage({
     <section
       className={cn(
         'relative flex overflow-hidden',
-        verticalAlign === 'center' ? 'items-center' : 'items-end',
+        verticalAlign === 'center' && 'items-center',
+        verticalAlign === 'bottom' && 'items-end',
+        verticalAlign === 'top' && 'items-start',
         'justify-center',
         sizeStyles[size],
         !videoSrc && !imageSrc && placeholderClass
@@ -108,7 +110,8 @@ export function HeroImage({
       <div
         className={cn(
           'relative z-10 w-full py-20',
-          verticalAlign === 'bottom' && 'mb-0'
+          verticalAlign === 'bottom' && 'mb-0',
+          verticalAlign === 'top' && 'mt-0'
         )}
       >
         <div
