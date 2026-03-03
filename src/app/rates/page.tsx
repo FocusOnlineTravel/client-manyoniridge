@@ -5,9 +5,9 @@ import { Heading } from '@/components/ui/Heading';
 import { RatesDisplay } from './RatesDisplay';
 
 export const metadata: Metadata = {
-  title: 'Rates',
+  title: 'Rates & Pricing - Luxury Safari Lodge Packages',
   description:
-    'View rates for Manyoni Ridge Safari Lodge. All-inclusive safari accommodation with villa and exclusive use options.',
+    'Discover our all-inclusive safari rates at Manyoni Ridge. Luxury Big 5 accommodation with villa and exclusive lodge use options in KwaZulu-Natal, South Africa.',
 };
 
 export default function RatesPage() {

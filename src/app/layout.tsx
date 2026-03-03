@@ -28,40 +28,71 @@ const italiana = Italiana({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: `${SITE_CONFIG.name} | Luxury Safari Lodge in Big 5 Reserve`,
+    default: `${SITE_CONFIG.name} | Luxury Safari Lodge in Big 5 Reserve | KwaZulu-Natal`,
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
   keywords: [
-    'safari lodge',
-    'Big 5',
-    'luxury accommodation',
-    'Manyoni',
-    'KwaZulu-Natal',
-    'game reserve',
-    'South Africa safari',
-    'wildlife',
-    'conservation',
+    'safari lodge South Africa',
+    'Big 5 safari',
+    'luxury safari accommodation',
+    'Manyoni Private Game Reserve',
+    'KwaZulu-Natal safari',
+    'Zululand safari',
+    'game reserve lodging',
+    'wildlife safari',
+    'conservation safari',
+    'exclusive safari experience',
+    'boutique safari lodge',
+    'Hluhluwe safari',
   ],
   authors: [{ name: SITE_CONFIG.name }],
   creator: SITE_CONFIG.name,
+  publisher: SITE_CONFIG.name,
   openGraph: {
     type: 'website',
     locale: 'en_ZA',
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
-    title: `${SITE_CONFIG.name} | ${SITE_CONFIG.tagline}`,
+    title: `${SITE_CONFIG.name} | Luxury Big 5 Safari Lodge`,
     description: SITE_CONFIG.description,
+    images: [
+      {
+        url: '/images/manyoni-logo-dark.png',
+        width: 1200,
+        height: 630,
+        alt: `${SITE_CONFIG.name} Logo`,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_CONFIG.name} | ${SITE_CONFIG.tagline}`,
+    title: `${SITE_CONFIG.name} | Luxury Big 5 Safari Lodge`,
     description: SITE_CONFIG.description,
+    images: ['/images/manyoni-logo-dark.png'],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: '/images/manyoni-ridge-logo-head-white.png',
+    shortcut: '/images/manyoni-ridge-logo-head-white.png',
+    apple: '/images/manyoni-ridge-logo-head-white.png',
+  },
+  verification: {
+    // Add your verification codes when available
+    // google: 'your-google-verification-code',
+    // yandex: 'your-yandex-verification-code',
   },
 };
 
