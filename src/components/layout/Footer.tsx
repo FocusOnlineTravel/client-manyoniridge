@@ -32,11 +32,11 @@ export function Footer() {
               className="inline-block mb-6"
             >
               <Image
-                src="/images/manyoni-logo-dark.png"
+                src="/images/manyoni-ridge-logo-full-white.png"
                 alt={SITE_CONFIG.name}
                 width={280}
                 height={93}
-                className="w-auto h-24 brightness-0 invert"
+                className="w-auto h-24"
               />
             </Link>
             {/* Social Links */}

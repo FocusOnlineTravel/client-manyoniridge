@@ -56,12 +56,12 @@ export function Header() {
               className="transition-all duration-300 hover:opacity-80"
             >
               <Image
-                src={isScrolled ? "/images/manyoni-logo-dark-icon.png" : "/images/manyoni-logo-dark.png"}
+                src={isScrolled ? "/images/manyoni-ridge-logo-head-white.png" : "/images/manyoni-ridge-logo-full-white.png"}
                 alt="Manyoni Ridge Safari Lodge"
                 width={540}
                 height={180}
                 className={cn(
-                  "w-auto brightness-0 invert transition-all duration-300",
+                  "w-auto transition-all duration-300",
                   isScrolled ? "h-12 md:h-14" : "h-36 md:h-42"
                 )}
                 priority
