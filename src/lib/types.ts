@@ -155,6 +155,7 @@ export interface HeroImageSectionProps {
   videoSrc?: string;
   size?: HeroSize;
   verticalAlign?: HeroVerticalAlign;
+  imageAlign?: 'top' | 'center' | 'bottom';
   textBackground?: boolean;
   showScrollIndicator?: boolean;
 }

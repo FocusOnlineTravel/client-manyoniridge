@@ -35,35 +35,5 @@ export const contactPage: PageDefinition = {
         background: 'white',
       },
     },
-
-    // Getting Here
-    {
-      type: 'getting_here',
-      props: {
-        heading: {
-          title: 'Getting Here',
-          subtitle:
-            'Manyoni Ridge is accessible by road from Durban or Richards Bay, or via charter flight.',
-        },
-        directions: [
-          {
-            title: 'From Durban',
-            description:
-              'Approximately 3 hours by road from King Shaka International Airport. Self-drive or private transfer available.',
-          },
-          {
-            title: 'From Richards Bay',
-            description:
-              'Approximately 1.5 hours by road. The closest commercial airport. Private transfers can be arranged.',
-          },
-          {
-            title: 'Charter Flight',
-            description:
-              'Charter flights can be arranged to nearby airstrips. Please contact us for recommendations and arrangements.',
-          },
-        ],
-        background: 'cream',
-      },
-    },
   ],
 };
