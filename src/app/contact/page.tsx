@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { HeroImage } from '@/components/sections/HeroImage';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
-import { ContactForm } from '@/components/forms/ContactForm';
+import { GravityFormRenderer } from '@/components/forms/GravityFormRenderer';
 import { EnquiryForm } from '@/components/forms/EnquiryForm';
 import { Tabs } from '@/components/ui/Tabs';
 import { CONTACT } from '@/lib/constants';
@@ -25,7 +25,7 @@ export default function ContactPage() {
     {
       id: 'contact',
       label: 'General Contact',
-      content: <ContactForm />,
+      content: <GravityFormRenderer formId={1} />,
     },
   ];
 
