@@ -6,8 +6,12 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 
 export const metadata: Metadata = {
-  title: 'Thank You',
-  description: 'Thank you for contacting Manyoni Ridge Safari Lodge.',
+  title: 'Thank You - Message Received',
+  description: 'Thank you for contacting Manyoni Ridge Safari Lodge. We will respond to your enquiry within 24-48 hours.',
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function ThankYouPage() {

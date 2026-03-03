@@ -9,9 +9,9 @@ import { Tabs } from '@/components/ui/Tabs';
 import { CONTACT } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
+  title: 'Contact Us - Book Your Safari Experience',
   description:
-    'Get in touch with Manyoni Ridge Safari Lodge. Make a booking enquiry or contact our team for more information.',
+    'Contact Manyoni Ridge Safari Lodge to book your luxury Big 5 safari experience in KwaZulu-Natal. Get in touch for enquiries, bookings, and safari planning assistance.',
 };
 
 export default function ContactPage() {
