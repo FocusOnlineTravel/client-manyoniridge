@@ -9,9 +9,9 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { formId: string } }
+  { params }: { params: Promise<{ formId: string }> }
 ) {
-  const { formId } = params;
+  const { formId } = await params;
 
   const wordpressUrl = process.env.WORDPRESS_API_URL || process.env.NEXT_PUBLIC_WORDPRESS_URL;
 
@@ -34,6 +34,9 @@ export async function GET(
     const username = process.env.WORDPRESS_USER;
     const password = process.env.WORDPRESS_APP_PASSWORD;
 
+    console.log('Fetching form from:', apiUrl);
+    console.log('Has auth credentials:', !!(username && password));
+
     if (username && password) {
       const auth = Buffer.from(`${username}:${password}`).toString('base64');
       headers['Authorization'] = `Basic ${auth}`;
@@ -44,8 +47,12 @@ export async function GET(
       cache: 'no-store',
     });
 
+    console.log('Response status:', response.status);
+
     if (!response.ok) {
-      throw new Error(`WordPress API returned ${response.status}: ${response.statusText}`);
+      const errorText = await response.text();
+      console.error('WordPress API error:', errorText);
+      throw new Error(`WordPress API returned ${response.status}: ${response.statusText} - ${errorText}`);
     }
 
     const formData = await response.json();
