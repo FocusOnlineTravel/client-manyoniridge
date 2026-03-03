@@ -194,10 +194,25 @@ export function GravityFormRenderer({
     return '';
   };
 
+  // Helper function to determine if field should be required
+  const shouldBeRequired = (field: GravityFormField): boolean => {
+    if (field.isRequired) return true;
+
+    const label = field.label.toLowerCase();
+
+    // Make these important fields required
+    if (label.includes('name') && !label.includes('surname')) return true;
+    if (label.includes('email')) return true;
+    if (label.includes('arrival') || label.includes('check-in')) return true;
+    if (label.includes('departure') || label.includes('check-out')) return true;
+
+    return false;
+  };
+
   // Render field based on type
   const renderField = (field: GravityFormField) => {
     const fieldName = `input_${field.id}`;
-    const isRequired = field.isRequired;
+    const isRequired = shouldBeRequired(field);
 
     switch (field.type) {
       case 'text':
@@ -212,6 +227,12 @@ export function GravityFormRenderer({
             placeholder={getPlaceholder(field)}
             {...register(fieldName, {
               required: isRequired ? `${field.label} is required` : false,
+              ...(field.type === 'email' && {
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: 'Invalid email address',
+                },
+              }),
             })}
             error={errors[fieldName]?.message as string}
             required={isRequired}
@@ -243,7 +264,7 @@ export function GravityFormRenderer({
               label: choice.text,
             })) || []}
             {...register(fieldName, {
-              required: isRequired ? `${field.label} is required` : false,
+              required: isRequired ? `Please select ${field.label.toLowerCase()}` : false,
             })}
             error={errors[fieldName]?.message as string}
             required={isRequired}
