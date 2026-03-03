@@ -1,11 +1,19 @@
+'use client';
+
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 
 export default function NotFound() {
+  useEffect(() => {
+    // Scroll slightly to trigger the scrolled header state
+    window.scrollTo(0, 100);
+  }, []);
+
   return (
     <div className="min-h-screen bg-cream">
-      {/* Dark header area for navigation visibility */}
-      <div className="h-32 bg-primary-dark"></div>
+      {/* Spacer for header */}
+      <div className="h-24"></div>
 
       <div className="flex items-center justify-center px-4 py-16">
         <div className="max-w-2xl mx-auto text-center">
