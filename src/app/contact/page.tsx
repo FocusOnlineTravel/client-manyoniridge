@@ -104,24 +104,6 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-
-            {/* Map Placeholder */}
-            <div className="mt-8">
-              <div
-                className="aspect-video relative overflow-hidden"
-              >
-                <Image
-                  src="/images/Birds and Wildlife/DSC00595.jpeg"
-                  alt="Location map"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                />
-              </div>
-              <p className="text-sm text-gray-medium mt-2">
-                Detailed directions will be provided upon booking confirmation.
-              </p>
-            </div>
           </div>
 
           {/* Forms */}
