@@ -70,29 +70,22 @@ export const diningPage: PageDefinition = {
         },
         experiences: [
           {
-            title: 'Bush Breakfast',
-            description:
-              'After your morning game drive, enjoy a hearty breakfast served in a scenic location in the bush.',
-          },
-          {
-            title: 'Starlight Terrace Dining',
-            description:
-              'Dine on our elevated Starlight Terrace with panoramic views. For cooler evenings, warm fireplaces create an intimate atmosphere.',
-          },
-          {
-            title: 'Boma Dinner',
+            title: 'Boma Dining',
             description:
               'Dine around the fire in our boma, under a canopy of stars.',
+            imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 24.jpg',
           },
           {
-            title: 'Wine Cellar Dinner',
+            title: 'Starlight Terrace',
             description:
-              'Enjoy a special dinner experience in our curated wine cellar. Advance booking required.',
+              'Dine on our elevated Starlight Terrace with panoramic views. For cooler evenings, warm fireplaces create an intimate atmosphere.',
+            imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 2.jpg',
           },
           {
             title: 'Private Dining',
             description:
               'Celebrate special occasions with a private dinner on your villa deck or a secluded bush location.',
+            imageSrc: '/images/2-bed 1.jpg',
           },
         ],
         background: 'white',
@@ -117,29 +110,6 @@ export const diningPage: PageDefinition = {
         imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 32.jpg',
         imagePosition: 'right',
         background: 'cream',
-      },
-    },
-
-    // Dietary Requirements
-    {
-      type: 'dietary_options',
-      props: {
-        heading: {
-          title: 'Dietary Accommodations',
-        },
-        description:
-          'We understand that every guest has unique dietary needs and preferences. Please inform us in advance of any allergies, intolerances, or dietary requirements, and our chefs will ensure your meals are prepared with the utmost care.',
-        options: [
-          'Vegetarian',
-          'Vegan',
-          'Gluten-Free',
-          'Halal',
-          'Kosher',
-          'Low-Sodium',
-          'Dairy-Free',
-          'Nut-Free',
-        ],
-        background: 'white',
       },
     },
 

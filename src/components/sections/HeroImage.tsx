@@ -23,6 +23,7 @@ interface HeroImageProps {
   overlay?: 'dark' | 'light' | 'gradient';
   textAlign?: 'center' | 'left';
   verticalAlign?: 'top' | 'center' | 'bottom';
+  imageAlign?: 'top' | 'center' | 'bottom';
   textBackground?: boolean;
 }
 
@@ -55,6 +56,7 @@ export function HeroImage({
   overlay = 'gradient',
   textAlign = 'center',
   verticalAlign = 'center',
+  imageAlign = 'center',
   textBackground = false,
 }: HeroImageProps) {
   const handleScrollClick = () => {
@@ -84,7 +86,11 @@ export function HeroImage({
           src={imageSrc}
           alt={title}
           fill
-          className="object-cover"
+          className={cn(
+            'object-cover',
+            imageAlign === 'top' && 'object-top',
+            imageAlign === 'bottom' && 'object-bottom'
+          )}
           sizes="100vw"
           priority
         />

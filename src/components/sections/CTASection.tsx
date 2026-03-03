@@ -48,7 +48,7 @@ export function CTASection({
             src={imageSrc}
             alt={title}
             fill
-            className="object-cover"
+            className="object-cover object-top"
             sizes="100vw"
           />
         )}
