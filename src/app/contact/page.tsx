@@ -4,8 +4,7 @@ import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { HeroImage } from '@/components/sections/HeroImage';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
-import { ContactForm } from '@/components/forms/ContactForm';
-import { EnquiryForm } from '@/components/forms/EnquiryForm';
+import { GravityFormRenderer } from '@/components/forms/GravityFormRenderer';
 import { Tabs } from '@/components/ui/Tabs';
 import { CONTACT } from '@/lib/constants';
 
@@ -20,12 +19,12 @@ export default function ContactPage() {
     {
       id: 'enquiry',
       label: 'Booking Enquiry',
-      content: <EnquiryForm />,
+      content: <GravityFormRenderer formId={2} />,
     },
     {
       id: 'contact',
       label: 'General Contact',
-      content: <ContactForm />,
+      content: <GravityFormRenderer formId={1} />,
     },
   ];
 
@@ -103,24 +102,6 @@ export default function ContactPage() {
                   </p>
                 </div>
               </div>
-            </div>
-
-            {/* Map Placeholder */}
-            <div className="mt-8">
-              <div
-                className="aspect-video relative overflow-hidden"
-              >
-                <Image
-                  src="/images/Birds and Wildlife/DSC00595.jpeg"
-                  alt="Location map"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                />
-              </div>
-              <p className="text-sm text-gray-medium mt-2">
-                Detailed directions will be provided upon booking confirmation.
-              </p>
             </div>
           </div>
 
