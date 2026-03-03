@@ -9,7 +9,7 @@ import { SITE_CONFIG } from '@/lib/constants';
  */
 export const homePage: PageDefinition = {
   meta: {
-    title: 'Home',
+    title: 'Luxury Big 5 Safari Lodge in KwaZulu-Natal',
     slug: 'home',
     description:
       'Experience the magic of the African bush at our boutique safari lodge in Manyoni Private Game Reserve. Big 5 encounters, exceptional service, and unforgettable moments await.',
