@@ -64,6 +64,7 @@ export function GravityFormRenderer({
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    watch,
   } = useForm();
 
   // Fetch form structure from WordPress
@@ -119,6 +120,11 @@ export function GravityFormRenderer({
 
       reset();
       onSuccess?.(result);
+
+      // Redirect to thank you page after a short delay
+      setTimeout(() => {
+        window.location.href = '/thank-you';
+      }, 1500);
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Submission failed';
       setError(errorMessage);
@@ -168,6 +174,26 @@ export function GravityFormRenderer({
     );
   }
 
+  // Helper function to generate smart placeholders
+  const getPlaceholder = (field: GravityFormField): string => {
+    if (field.placeholder) return field.placeholder;
+
+    const label = field.label.toLowerCase();
+
+    if (label.includes('name') && !label.includes('full')) return 'Enter your name';
+    if (label.includes('full name')) return 'e.g., John Smith';
+    if (label.includes('email')) return 'example@email.com';
+    if (label.includes('phone')) return '+27 00 000 0000';
+    if (label.includes('message')) return 'Tell us about your enquiry...';
+    if (label.includes('nationality')) return 'Select your nationality';
+    if (label.includes('subject')) return 'Select a subject';
+    if (label.includes('adults')) return 'Number of adults';
+    if (label.includes('children')) return 'Number of children';
+    if (label.includes('special') || label.includes('request')) return 'Any special requests or requirements...';
+
+    return '';
+  };
+
   // Render field based on type
   const renderField = (field: GravityFormField) => {
     const fieldName = `input_${field.id}`;
@@ -183,7 +209,7 @@ export function GravityFormRenderer({
             key={field.id}
             type={field.type}
             label={field.label}
-            placeholder={field.placeholder}
+            placeholder={getPlaceholder(field)}
             {...register(fieldName, {
               required: isRequired ? `${field.label} is required` : false,
             })}
@@ -197,7 +223,7 @@ export function GravityFormRenderer({
           <Textarea
             key={field.id}
             label={field.label}
-            placeholder={field.placeholder}
+            placeholder={getPlaceholder(field)}
             {...register(fieldName, {
               required: isRequired ? `${field.label} is required` : false,
             })}
@@ -211,7 +237,7 @@ export function GravityFormRenderer({
           <Select
             key={field.id}
             label={field.label}
-            placeholder={field.placeholder || 'Select...'}
+            placeholder={getPlaceholder(field) || 'Select...'}
             options={field.choices?.map(choice => ({
               value: choice.value,
               label: choice.text,
@@ -225,6 +251,23 @@ export function GravityFormRenderer({
         );
 
       case 'checkbox':
+        // Special handling for newsletter checkbox
+        const isNewsletterField = field.label.toLowerCase().includes('newsletter');
+
+        if (isNewsletterField) {
+          return (
+            <div key={field.id} className="space-y-2">
+              <Checkbox
+                label="Yes, I'd like to receive updates and special offers from Manyoni Ridge"
+                {...register(`${fieldName}.0`)}
+              />
+              {errors[fieldName] && (
+                <p className="text-red-600 text-sm">{errors[fieldName]?.message as string}</p>
+              )}
+            </div>
+          );
+        }
+
         return (
           <div key={field.id} className="space-y-2">
             <label className="text-sm font-medium text-gray-700 block">
@@ -262,13 +305,36 @@ export function GravityFormRenderer({
         );
 
       case 'date':
+        const isDepartureDate = field.label.toLowerCase().includes('departure') ||
+                                field.label.toLowerCase().includes('check-out') ||
+                                field.label.toLowerCase().includes('checkout');
+        const isArrivalDate = field.label.toLowerCase().includes('arrival') ||
+                              field.label.toLowerCase().includes('check-in') ||
+                              field.label.toLowerCase().includes('checkin');
+
+        // Get the arrival date value for validation
+        const arrivalFieldId = formData?.fields.find(f =>
+          f.label.toLowerCase().includes('arrival') ||
+          f.label.toLowerCase().includes('check-in')
+        )?.id;
+        const arrivalDate = arrivalFieldId ? watch(`input_${arrivalFieldId}`) : null;
+
+        // Set min date for today
+        const today = new Date().toISOString().split('T')[0];
+
         return (
           <Input
             key={field.id}
             type="date"
             label={field.label}
+            min={isDepartureDate && arrivalDate ? arrivalDate : today}
             {...register(fieldName, {
               required: isRequired ? `${field.label} is required` : false,
+              validate: isDepartureDate ? (value) => {
+                if (!arrivalDate || !value) return true;
+                return new Date(value) > new Date(arrivalDate) ||
+                       'Departure date must be after arrival date';
+              } : undefined,
             })}
             error={errors[fieldName]?.message as string}
             required={isRequired}
@@ -280,13 +346,60 @@ export function GravityFormRenderer({
     }
   };
 
+  // Group fields into rows for better layout
+  const groupFields = (fields: GravityFormField[]) => {
+    const rows: GravityFormField[][] = [];
+    let currentRow: GravityFormField[] = [];
+
+    fields.forEach((field, index) => {
+      const isShortField = ['text', 'email', 'phone', 'number', 'select'].includes(field.type);
+      const nextField = fields[index + 1];
+      const isNextShortField = nextField && ['text', 'email', 'phone', 'number', 'select'].includes(nextField.type);
+
+      if (isShortField && isNextShortField && currentRow.length === 0) {
+        // Start a new row with two fields
+        currentRow.push(field);
+      } else if (currentRow.length === 1) {
+        // Complete the row with second field
+        currentRow.push(field);
+        rows.push([...currentRow]);
+        currentRow = [];
+      } else {
+        // Full width field
+        if (currentRow.length > 0) {
+          rows.push([...currentRow]);
+          currentRow = [];
+        }
+        rows.push([field]);
+      }
+    });
+
+    if (currentRow.length > 0) {
+      rows.push(currentRow);
+    }
+
+    return rows;
+  };
+
+  const fieldRows = groupFields(formData.fields);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={cn('space-y-6', className)}>
       {formData.description && (
         <div className="text-gray-600 mb-6">{formData.description}</div>
       )}
 
-      {formData.fields.map(field => renderField(field))}
+      {fieldRows.map((row, rowIndex) => (
+        <div
+          key={rowIndex}
+          className={cn(
+            'grid gap-6',
+            row.length === 2 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'
+          )}
+        >
+          {row.map(field => renderField(field))}
+        </div>
+      ))}
 
       <Button type="submit" isLoading={isSubmitting} className="w-full md:w-auto">
         {formData.button?.text || 'Submit'}

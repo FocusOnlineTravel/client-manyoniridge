@@ -24,7 +24,7 @@ export async function POST(
   try {
     const body = await request.json();
 
-    // Transform frontend field names (input_1) to Gravity Forms format
+    // Gravity Forms expects input_ prefix for all fields
     const transformedData: any = {};
 
     Object.keys(body).forEach(key => {
@@ -33,12 +33,19 @@ export async function POST(
       if (match) {
         const fieldId = match[1];
         const subField = match[2];
+        const value = body[key];
 
+        // Keep the input_ prefix as Gravity Forms expects it
         if (subField) {
           // Handle complex fields like name (input_1_3, input_1_6)
-          transformedData[`${fieldId}.${subField}`] = body[key];
+          transformedData[key] = value;
         } else {
-          transformedData[fieldId] = body[key];
+          // Handle checkboxes - convert [true] to {"10.1": "Yes"}
+          if (Array.isArray(value) && value.length > 0) {
+            transformedData[`input_${fieldId}_1`] = value[0] ? 'Yes' : '';
+          } else {
+            transformedData[key] = value;
+          }
         }
       }
     });
@@ -59,14 +66,26 @@ export async function POST(
       headers['Authorization'] = `Basic ${auth}`;
     }
 
+    console.log('Submitting to:', apiUrl);
+    console.log('Form data:', transformedData);
+
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers,
       body: JSON.stringify(transformedData),
     });
 
+    console.log('Submission response status:', response.status);
+
     if (!response.ok) {
-      const errorData = await response.json();
+      const errorText = await response.text();
+      console.error('WordPress submission error:', errorText);
+      let errorData;
+      try {
+        errorData = JSON.parse(errorText);
+      } catch {
+        errorData = { message: errorText };
+      }
       throw new Error(errorData.message || `Submission failed: ${response.statusText}`);
     }
 

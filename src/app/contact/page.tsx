@@ -5,7 +5,6 @@ import { HeroImage } from '@/components/sections/HeroImage';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
 import { GravityFormRenderer } from '@/components/forms/GravityFormRenderer';
-import { EnquiryForm } from '@/components/forms/EnquiryForm';
 import { Tabs } from '@/components/ui/Tabs';
 import { CONTACT } from '@/lib/constants';
 
@@ -20,7 +19,7 @@ export default function ContactPage() {
     {
       id: 'enquiry',
       label: 'Booking Enquiry',
-      content: <EnquiryForm />,
+      content: <GravityFormRenderer formId={2} />,
     },
     {
       id: 'contact',
