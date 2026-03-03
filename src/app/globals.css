@@ -260,3 +260,54 @@ a {
 .animate-fade-out {
   animation: fadeOut var(--transition-base) ease forwards;
 }
+
+/* Gravity Forms Styling */
+.gravity-form-container .gform_wrapper {
+  max-width: 100%;
+}
+
+.gravity-form-container .gfield_label {
+  @apply text-sm font-medium text-gray-700 mb-2 block;
+}
+
+.gravity-form-container input[type="text"],
+.gravity-form-container input[type="email"],
+.gravity-form-container input[type="tel"],
+.gravity-form-container input[type="date"],
+.gravity-form-container input[type="number"],
+.gravity-form-container select,
+.gravity-form-container textarea {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-none;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-gold focus:border-transparent;
+  @apply transition-all duration-200;
+}
+
+.gravity-form-container .gform_button,
+.gravity-form-container input[type="submit"] {
+  @apply inline-flex items-center justify-center px-6 py-3;
+  @apply bg-primary-gold text-primary-dark font-medium;
+  @apply hover:bg-primary-gold/90 transition-colors;
+  @apply rounded-none cursor-pointer border-0;
+}
+
+.gravity-form-container .validation_error {
+  @apply bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4;
+}
+
+.gravity-form-container .gfield_error input,
+.gravity-form-container .gfield_error select,
+.gravity-form-container .gfield_error textarea {
+  @apply border-red-500;
+}
+
+.gravity-form-container .validation_message {
+  @apply text-red-600 text-sm mt-1;
+}
+
+.gravity-form-container .gform_confirmation_message {
+  @apply bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded;
+}
+
+.gravity-form-container .gfield_required {
+  @apply text-red-500;
+}
