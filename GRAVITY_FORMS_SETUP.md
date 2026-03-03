@@ -1,12 +1,21 @@
 # Gravity Forms Integration Guide
 
-This guide explains how to integrate Gravity Forms from WordPress into your Next.js frontend.
+This guide explains how to integrate Gravity Forms from WordPress into your Next.js frontend while maintaining full control over styling.
+
+## Overview
+
+This integration fetches form structure (fields, validation rules) from WordPress Gravity Forms but renders them using your own React components. This gives you:
+
+- ✅ Full control over form styling and appearance
+- ✅ Gravity Forms backend for data handling and notifications
+- ✅ Your existing Input, Select, Textarea components
+- ✅ Form validation managed by WordPress
 
 ## Prerequisites
 
 1. WordPress installation with Gravity Forms plugin installed and activated
 2. Gravity Forms REST API enabled
-3. WordPress REST API accessible
+3. WordPress REST API accessible with Basic Auth
 
 ## Setup Steps
 
@@ -20,33 +29,9 @@ Add this to your WordPress theme's `functions.php` or a custom plugin:
 <?php
 // Enable Gravity Forms REST API
 add_filter('gform_rest_api_enabled', '__return_true');
-
-// Create custom endpoint to render forms
-add_action('rest_api_init', function() {
-  register_rest_route('custom/v1', '/render-form/(?P<id>\\d+)', array(
-    'methods' => 'GET',
-    'callback' => 'render_gravity_form_callback',
-    'permission_callback' => '__return_true'
-  ));
-});
-
-function render_gravity_form_callback($request) {
-  $form_id = $request['id'];
-
-  if (!class_exists('GFForms')) {
-    return new WP_Error('no_gravity_forms', 'Gravity Forms is not installed', array('status' => 404));
-  }
-
-  ob_start();
-  gravity_form($form_id, false, false, false, '', true, 1);
-  $html = ob_get_clean();
-
-  return array(
-    'html' => $html,
-    'form_id' => $form_id
-  );
-}
 ```
+
+That's it! The Gravity Forms REST API v2 handles everything else.
 
 #### Configure CORS (if WordPress is on a different domain)
 
@@ -72,27 +57,37 @@ Add these to your `.env.local` file:
 
 ```bash
 # WordPress API Configuration
-WORDPRESS_API_URL=https://your-wordpress-site.com
-NEXT_PUBLIC_WORDPRESS_URL=https://your-wordpress-site.com
+WORDPRESS_API_URL=https://backend-manyoni.focusonlinetravel.co.za
+NEXT_PUBLIC_WORDPRESS_URL=https://backend-manyoni.focusonlinetravel.co.za
 
-# Optional: For authenticated requests
-WORDPRESS_API_KEY=your_api_key_here
+# WordPress Authentication (Required for Gravity Forms API)
+WORDPRESS_USER=your_wordpress_username
+WORDPRESS_APP_PASSWORD=your_application_password
 ```
+
+**Creating an Application Password:**
+1. Go to WordPress Admin → Users → Your Profile
+2. Scroll to "Application Passwords"
+3. Enter name (e.g., "Next.js Frontend")
+4. Click "Add New Application Password"
+5. Copy the password and add to `.env.local`
 
 ### 3. Usage in Next.js
 
-#### Using the GravityForm Component
+#### Using the GravityFormRenderer Component (Recommended)
+
+This component fetches the form structure from WordPress but renders it using your styled components:
 
 ```tsx
-import { GravityForm } from '@/components/forms/GravityForm';
+import { GravityFormRenderer } from '@/components/forms/GravityFormRenderer';
 
 export default function ContactPage() {
   return (
     <div>
       <h1>Contact Us</h1>
-      <GravityForm
+      <GravityFormRenderer
         formId={1}
-        onSuccess={() => console.log('Form submitted successfully!')}
+        onSuccess={(data) => console.log('Form submitted!', data)}
         onError={(error) => console.error('Form error:', error)}
       />
     </div>
@@ -102,7 +97,7 @@ export default function ContactPage() {
 
 #### Replace Existing Forms
 
-To replace the existing contact form with a Gravity Form:
+To replace the existing contact form:
 
 **Before:**
 ```tsx
@@ -111,8 +106,10 @@ To replace the existing contact form with a Gravity Form:
 
 **After:**
 ```tsx
-<GravityForm formId={1} />
+<GravityFormRenderer formId={1} />
 ```
+
+The form will use your existing Input, Select, Textarea, and Button components automatically!
 
 ## Form IDs
 
