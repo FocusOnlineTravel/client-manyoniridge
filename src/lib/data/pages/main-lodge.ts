@@ -289,7 +289,7 @@ export const mainLodgePage: PageDefinition = {
         secondaryCtaText: 'View Accommodation',
         secondaryCtaHref: '/accommodations',
         background: 'image',
-        imageSrc: '/images/main-lodge-cta.jpeg',
+        imageSrc: '/images/main-lodge-cta - Copy 1.png',
       },
     },
   ],
