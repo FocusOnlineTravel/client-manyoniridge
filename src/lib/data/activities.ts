@@ -128,9 +128,7 @@ This seasonal experience allows you to accompany a pangolin on its journey throu
       'Conservation education',
       'Knowledgeable interpretation',
     ],
-    images: [
-      '/images/pangolin.png',
-    ],
+    images: [],
     icon: 'Search',
     placeholderClass: 'placeholder-nature',
     heroImage: '/images/pangolin.png',
@@ -159,9 +157,7 @@ Watch training demonstrations, learn about the specialized skills these remarkab
       'Support anti-poaching',
       'Unique experience',
     ],
-    images: [
-      '/images/k9.jpg',
-    ],
+    images: [],
     icon: 'Dog',
     placeholderClass: 'placeholder-safari',
     heroImage: '/images/k9.jpg',

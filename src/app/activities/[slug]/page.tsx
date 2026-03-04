@@ -60,7 +60,8 @@ export default function ActivityDetailPage({ params }: PageProps) {
         imageSrc={activity.heroImage}
         placeholderClass={activity.placeholderClass}
         showScrollIndicator={false}
-        verticalAlign={activity.heroImageAlign || "bottom"}
+        verticalAlign="bottom"
+        imageAlign={activity.heroImageAlign || "center"}
       />
 
       {/* Back Link */}
