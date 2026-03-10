@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { X, Phone, Mail, Instagram, Facebook } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MOBILE_NAV_LINKS, CONTACT, SOCIAL_LINKS, SITE_CONFIG } from '@/lib/constants';
@@ -54,12 +55,18 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <div className="flex flex-col min-h-full p-6">
               {/* Header */}
               <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
-                <span className="font-heading text-xl lg:text-2xl text-white font-semibold">
-                  {SITE_CONFIG.name}
-                </span>
+                <Link href="/" onClick={onClose}>
+                  <Image
+                    src="/images/manyoni-ridge-logo-full-white.png"
+                    alt={SITE_CONFIG.name}
+                    width={280}
+                    height={93}
+                    className="w-auto h-16"
+                  />
+                </Link>
                 <button
                   onClick={onClose}
-                  className="p-2 -m-2 text-white hover:text-primary-gold transition-colors"
+                  className="p-2 -m-2 text-white hover:text-primary-gold transition-colors cursor-pointer"
                   aria-label="Close menu"
                 >
                   <X className="w-6 h-6" />
