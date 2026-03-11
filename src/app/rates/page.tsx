@@ -2,7 +2,27 @@ import type { Metadata } from 'next';
 import { HeroImage } from '@/components/sections/HeroImage';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
+import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
 import { RatesDisplay } from './RatesDisplay';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.manyoniridge.co.za"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Rates",
+      "item": "https://www.manyoniridge.co.za/rates"
+    }
+  ]
+};
 
 export const metadata: Metadata = {
   title: 'Rates & Pricing - Luxury Safari Lodge Packages',
@@ -13,6 +33,7 @@ export const metadata: Metadata = {
 export default function RatesPage() {
   return (
     <>
+      <SchemaMarkup data={breadcrumbSchema} />
       {/* Hero Section */}
       <HeroImage
         subtitle="Rates"

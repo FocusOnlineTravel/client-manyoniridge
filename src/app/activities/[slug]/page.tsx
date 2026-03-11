@@ -12,7 +12,33 @@ import { CTASection } from '@/components/sections/CTASection';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { ImageLightbox } from '@/components/ui/ImageLightbox';
+import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
 import { activities, getActivityBySlug, getAllActivitySlugs } from '@/data/activities';
+
+const generateBreadcrumbSchema = (activityTitle: string, activitySlug: string) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.manyoniridge.co.za"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Activities",
+      "item": "https://www.manyoniridge.co.za/activities"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": activityTitle,
+      "item": `https://www.manyoniridge.co.za/activities/${activitySlug}`
+    }
+  ]
+});
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -52,6 +78,7 @@ export default function ActivityDetailPage({ params }: PageProps) {
 
   return (
     <>
+      <SchemaMarkup data={generateBreadcrumbSchema(activity.title, activity.slug)} />
       {/* Hero Section */}
       <HeroImage
         subtitle={activity.subtitle}
