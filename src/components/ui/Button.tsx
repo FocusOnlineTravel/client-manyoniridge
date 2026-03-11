@@ -48,7 +48,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles = cn(
-      'inline-flex items-center justify-center font-semibold uppercase tracking-wider',
+      'inline-flex items-center justify-center font-semibold uppercase tracking-wider cursor-pointer',
       'transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-gold focus-visible:ring-offset-2',
       'disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none',
       buttonVariants[variant],

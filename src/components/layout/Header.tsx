@@ -99,7 +99,7 @@ export function Header() {
               {/* Menu Button - Always visible */}
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="p-2 -m-2 transition-colors hover:text-primary-gold"
+                className="p-2 -m-2 transition-colors hover:text-primary-gold cursor-pointer"
                 style={{ color: 'white' }}
                 aria-label="Open menu"
               >

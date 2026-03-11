@@ -8,12 +8,12 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary-dark text-white">
+    <footer className="bg-primary-dark !text-white">
       {/* Newsletter Section */}
       <div className="border-b border-white/10">
         <div className="w-full px-6 md:px-12 lg:px-16 py-12">
           <div className="max-w-2xl mx-auto text-center">
-            <h3 className="font-heading text-2xl font-semibold mb-3 text-white">Stay Updated</h3>
+            <h3 className="font-heading text-2xl font-semibold mb-3 !text-white">Stay Updated</h3>
             <p className="text-gray-400 text-sm mb-6">
               Subscribe to receive exclusive offers, news from the bush, and updates on our opening.
             </p>
@@ -64,12 +64,12 @@ export function Footer() {
 
           {/* Experience Links */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider text-white">
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
               Experience
             </h3>
             <ul className="space-y-3">
               {FOOTER_LINKS.experience.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-gray-400 text-sm hover:text-primary-gold transition-colors"
@@ -83,12 +83,12 @@ export function Footer() {
 
           {/* Discover Links */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider text-white">
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
               Discover
             </h3>
             <ul className="space-y-3">
               {FOOTER_LINKS.discover.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-gray-400 text-sm hover:text-primary-gold transition-colors"
@@ -102,12 +102,12 @@ export function Footer() {
 
           {/* Plan Links */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider text-white">
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
               Plan
             </h3>
             <ul className="space-y-3">
               {FOOTER_LINKS.plan.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-gray-400 text-sm hover:text-primary-gold transition-colors"
@@ -121,7 +121,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider text-white">
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
               Contact
             </h3>
             <ul className="space-y-3">
@@ -165,7 +165,7 @@ export function Footer() {
               <p className="text-gray-500 text-xs">
                 Website by{' '}
                 <a
-                  href="https://focusonlinetravel.com"
+                  href="https://www.focusonline.co.za/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary-gold transition-colors"
@@ -177,7 +177,7 @@ export function Footer() {
             <div className="flex items-center gap-6">
               {FOOTER_LINKS.legal.map((link) => (
                 <Link
-                  key={link.href}
+                  key={link.label}
                   href={link.href}
                   className="text-gray-400 text-sm hover:text-primary-gold transition-colors"
                 >

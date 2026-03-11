@@ -38,6 +38,7 @@ export const homePage: PageDefinition = {
     {
       type: 'text_block',
       props: {
+        id: 'intro',
         title: 'Welcome to Manyoni Ridge',
         subtitle: 'Your Safari Awaits',
         description:

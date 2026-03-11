@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 
 interface TextBlockProps {
+  id?: string;
   title: string;
   subtitle?: string;
   description: string;
@@ -25,6 +26,7 @@ const backgroundStyles = {
 };
 
 export function TextBlock({
+  id,
   title,
   subtitle,
   description,
@@ -43,6 +45,7 @@ export function TextBlock({
 
   return (
     <section
+      id={id}
       ref={ref}
       className={cn('section-padding', backgroundStyles[background])}
     >
