@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { cn, stripHtml } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 
 interface SplitContentProps {
@@ -90,7 +90,7 @@ export function SplitContent({
           background === 'dark' ? 'text-gray-300' : 'text-gray-medium'
         )}
       >
-        {description}
+        {stripHtml(description)}
       </p>
 
       {features && features.length > 0 && (

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn, stripHtml } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 
 interface HeroImageProps {
@@ -173,7 +173,7 @@ export function HeroImage({
               transition={{ duration: 0.6, delay: 0.5 }}
               className="hidden md:block text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-8"
             >
-              {description}
+              {stripHtml(description)}
             </motion.p>
           )}
 

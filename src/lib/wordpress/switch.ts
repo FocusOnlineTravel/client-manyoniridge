@@ -1,4 +1,4 @@
-import { PageDefinition } from '@/lib/types';
+import { PageDefinition, Section } from '@/lib/types';
 import { getLocalPageData, getLocalPageSlugs } from './local';
 import { getWordPressPageData, getWordPressSlugs } from './client';
 
@@ -16,6 +16,113 @@ import { getWordPressPageData, getWordPressSlugs } from './client';
  * Check if WordPress mode is enabled
  */
 const USE_WORDPRESS = process.env.NEXT_PUBLIC_USE_WORDPRESS === 'true';
+
+/**
+ * Merge WordPress section with local fallback for missing media
+ *
+ * This ensures that when WordPress data is missing images/videos,
+ * we fall back to the local data's images.
+ */
+function mergeSectionWithFallback(wpSection: Section, localSection?: Section): Section {
+  if (!localSection || wpSection.type !== localSection.type) {
+    return wpSection;
+  }
+
+  const wpProps = wpSection.props as Record<string, unknown>;
+  const localProps = localSection.props as Record<string, unknown>;
+
+  // Fields to fallback from local data if missing/empty in WordPress
+  const fallbackFields = [
+    // Media
+    'imageSrc',
+    'videoSrc',
+    'placeholderClass',
+    'imagePlaceholder',
+    // Content
+    'title',
+    'subtitle',
+    'description',
+    'content',
+    'ctaText',
+    'ctaHref',
+    'secondaryCtaText',
+    'secondaryCtaHref',
+    // Data arrays
+    'features',
+    'stats',
+    'values',
+    'schedule',
+    'items',
+    'categories',
+    'offers',
+    'wildlife',
+    'directions',
+    'experiences',
+    'options',
+    // Headings
+    'heading',
+    'headingTitle',
+    'headingSubtitle',
+    // Slugs for dynamic sections
+    'roomSlugs',
+    'activitySlugs',
+  ];
+
+  // Fields to always prefer from local data (override WordPress)
+  // roomSlugs/activitySlugs override because WP may use different slug naming
+  // heading override because WP may have null headingTitle/headingSubtitle
+  const overrideFields = ['size', 'showScrollIndicator', 'scrollToId', 'id', 'roomSlugs', 'activitySlugs', 'heading', 'features', 'variant', 'layout'];
+
+  const mergedProps = { ...wpProps };
+
+  for (const field of fallbackFields) {
+    const wpValue = wpProps[field];
+    const localValue = localProps[field];
+    // Use local data if WordPress value is missing, empty string, or empty array
+    const isEmpty = wpValue === undefined || wpValue === null || wpValue === '' ||
+      (Array.isArray(wpValue) && wpValue.length === 0);
+    if (isEmpty && localValue !== undefined) {
+      mergedProps[field] = localValue;
+    }
+  }
+
+  for (const field of overrideFields) {
+    if (localProps[field] !== undefined) {
+      mergedProps[field] = localProps[field];
+    }
+  }
+
+  return {
+    ...wpSection,
+    props: mergedProps,
+  } as Section;
+}
+
+/**
+ * Merge WordPress page data with local fallbacks for missing media
+ */
+function mergePageWithFallbacks(
+  wpPage: PageDefinition,
+  localPage: PageDefinition | null
+): PageDefinition {
+  if (!localPage) {
+    return wpPage;
+  }
+
+  const mergedSections = wpPage.sections.map((wpSection, index) => {
+    // Try to find matching section in local data by type and index
+    const localSection = localPage.sections.find(
+      (local, localIndex) => local.type === wpSection.type && localIndex === index
+    ) || localPage.sections.find((local) => local.type === wpSection.type);
+
+    return mergeSectionWithFallback(wpSection, localSection);
+  });
+
+  return {
+    ...wpPage,
+    sections: mergedSections,
+  };
+}
 
 /**
  * Get page data from the configured data source
@@ -50,7 +157,11 @@ export async function getPageData(slug: string): Promise<PageDefinition | null> 
       return getLocalPageData(slug);
     }
 
-    return wpData;
+    // Get local data for fallback media (images/videos)
+    const localData = getLocalPageData(slug);
+
+    // Merge WordPress data with local fallbacks for missing media
+    return mergePageWithFallbacks(wpData, localData);
   }
 
   console.log(`[Data Source] Using local data for '${slug}'`);

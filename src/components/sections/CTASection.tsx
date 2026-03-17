@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { cn, stripHtml } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 
 interface CTASectionProps {
@@ -64,7 +64,7 @@ export function CTASection({
               {title}
             </h2>
             {description && (
-              <p className="text-white/90 text-lg mb-8">{description}</p>
+              <p className="text-white/90 text-lg mb-8">{stripHtml(description)}</p>
             )}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button href={ctaHref} size="lg">
@@ -99,7 +99,8 @@ export function CTASection({
         >
           <h2
             className={cn(
-              'font-heading text-3xl md:text-4xl font-medium mb-4 text-white bg-primary-gold/90 inline-block px-6 py-4'
+              'font-heading text-3xl md:text-4xl lg:text-5xl font-medium mb-4',
+              background === 'gold' ? 'text-primary-dark' : 'text-white'
             )}
           >
             {title}
@@ -111,7 +112,7 @@ export function CTASection({
                 background === 'gold' ? 'text-primary-dark/80' : 'text-gray-300'
               )}
             >
-              {description}
+              {stripHtml(description)}
             </p>
           )}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

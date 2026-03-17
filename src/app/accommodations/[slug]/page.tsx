@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,7 +10,8 @@ import { CTASection } from '@/components/sections/CTASection';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { ImageLightbox } from '@/components/ui/ImageLightbox';
-import { rooms, getRoomBySlug, getAllRoomSlugs } from '@/lib/data/rooms';
+import { rooms, getRoomBySlug } from '@/lib/data/rooms';
+import { Room } from '@/lib/types';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -21,31 +21,45 @@ export default function RoomDetailPage({ params }: PageProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [slug, setSlug] = useState<string>('');
+  const [room, setRoom] = useState<Room | null>(null);
+  const [otherRooms, setOtherRooms] = useState<Room[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     params.then((p) => setSlug(p.slug));
   }, [params]);
 
-  // Scroll to top when slug changes
+  // Fetch room data
   useEffect(() => {
-    if (slug) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (!slug) return;
+
+    async function fetchRoom() {
+      try {
+        // For now, use local data - WordPress fetch can be added later
+        const roomData = getRoomBySlug(slug);
+        if (roomData) {
+          setRoom(roomData);
+          setOtherRooms(rooms.filter((r) => r.slug !== slug));
+        }
+      } catch (error) {
+        console.error('Error fetching room:', error);
+      } finally {
+        setLoading(false);
+      }
     }
+
+    fetchRoom();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [slug]);
 
-  const room = slug ? getRoomBySlug(slug) : null;
-
-  // Show loading state while slug is being set
-  if (!slug) {
+  // Show loading state
+  if (!slug || loading) {
     return null;
   }
 
   if (!room) {
     notFound();
   }
-
-  // Get other rooms for cross-sell
-  const otherRooms = rooms.filter((r) => r.slug !== room.slug);
 
   return (
     <>

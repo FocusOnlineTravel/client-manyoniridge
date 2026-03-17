@@ -29,8 +29,10 @@ export const homePage: PageDefinition = {
         secondaryCtaHref: '/accommodations',
         scrollToId: 'intro',
         videoSrc: '/videos/manynoi.mp4',
+        size: 'full',
         verticalAlign: 'bottom',
         textBackground: true,
+        showScrollIndicator: true,
       },
     },
 
