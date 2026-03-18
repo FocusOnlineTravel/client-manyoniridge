@@ -36,8 +36,11 @@ async function fetchGraphQL<T>(query: string, variables?: Record<string, unknown
   const json = await response.json();
 
   if (json.errors) {
-    console.error('GraphQL errors:', json.errors);
-    throw new Error('GraphQL query failed');
+    // Log specific error messages for debugging
+    const errorMessages = json.errors.map((e: { message: string }) => e.message).join('; ');
+    console.warn(`[WordPress GraphQL] Query warning: ${errorMessages}`);
+    // Return null data to trigger fallback instead of throwing
+    return { page: null } as T;
   }
 
   return json.data;

@@ -10,7 +10,6 @@ import { CTASection } from '@/components/sections/CTASection';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { ImageLightbox } from '@/components/ui/ImageLightbox';
-import { rooms, getRoomBySlug } from '@/lib/data/rooms';
 import { Room } from '@/lib/types';
 
 interface PageProps {
@@ -29,17 +28,26 @@ export default function RoomDetailPage({ params }: PageProps) {
     params.then((p) => setSlug(p.slug));
   }, [params]);
 
-  // Fetch room data
+  // Fetch room data from WordPress API
   useEffect(() => {
     if (!slug) return;
 
     async function fetchRoom() {
       try {
-        // For now, use local data - WordPress fetch can be added later
-        const roomData = getRoomBySlug(slug);
-        if (roomData) {
+        // Fetch current room and all rooms in parallel
+        const [roomRes, allRoomsRes] = await Promise.all([
+          fetch(`/api/rooms/${slug}`),
+          fetch('/api/rooms'),
+        ]);
+
+        if (roomRes.ok) {
+          const roomData = await roomRes.json();
           setRoom(roomData);
-          setOtherRooms(rooms.filter((r) => r.slug !== slug));
+        }
+
+        if (allRoomsRes.ok) {
+          const allRooms = await allRoomsRes.json();
+          setOtherRooms(allRooms.filter((r: Room) => r.slug !== slug));
         }
       } catch (error) {
         console.error('Error fetching room:', error);
@@ -92,13 +100,10 @@ export default function RoomDetailPage({ params }: PageProps) {
             <h2 className="font-heading text-3xl md:text-4xl font-medium text-primary-dark mb-6">
               About This Villa
             </h2>
-            <div className="prose prose-lg text-gray-medium max-w-none">
-              {room.description.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="mb-4 leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+            <div
+              className="prose prose-lg text-gray-medium max-w-none"
+              dangerouslySetInnerHTML={{ __html: room.description }}
+            />
 
             {/* Features */}
             <div className="mt-10">

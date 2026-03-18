@@ -1,6 +1,6 @@
 import { PageDefinition, Section } from '@/lib/types';
 import { getLocalPageData, getLocalPageSlugs } from './local';
-import { getWordPressPageData, getWordPressSlugs } from './client';
+import { getWordPressPageDataRest, getWordPressPageSlugsRest } from './rest-client';
 
 /**
  * Data source switch
@@ -146,15 +146,23 @@ function mergePageWithFallbacks(
  */
 export async function getPageData(slug: string): Promise<PageDefinition | null> {
   if (USE_WORDPRESS) {
-    console.log(`[Data Source] Fetching '${slug}' from WordPress`);
-    const wpData = await getWordPressPageData(slug);
+    console.log(`[Data Source] Fetching '${slug}' from WordPress REST API`);
+    const wpData = await getWordPressPageDataRest(slug);
 
-    // Fallback to local data if WordPress fetch fails
-    if (!wpData) {
-      console.warn(
-        `[Data Source] WordPress fetch failed for '${slug}', falling back to local data`
-      );
-      return getLocalPageData(slug);
+    // Fallback to local data if WordPress fetch fails or returns no sections
+    if (!wpData || wpData.sections.length === 0) {
+      const localData = getLocalPageData(slug);
+      if (localData) {
+        console.log(`[Data Source] Using local data for '${slug}' (WordPress had no sections)`);
+        return localData;
+      }
+      // If no local data either, return whatever WordPress gave us (might have meta)
+      if (wpData) {
+        console.log(`[Data Source] Using WordPress data for '${slug}' (no local fallback)`);
+        return wpData;
+      }
+      console.warn(`[Data Source] No data found for '${slug}'`);
+      return null;
     }
 
     // Get local data for fallback media (images/videos)
@@ -175,7 +183,7 @@ export async function getPageData(slug: string): Promise<PageDefinition | null> 
  */
 export async function getAllPageSlugs(): Promise<string[]> {
   if (USE_WORDPRESS) {
-    const wpSlugs = await getWordPressSlugs();
+    const wpSlugs = await getWordPressPageSlugsRest();
 
     // Fallback to local slugs if WordPress fetch fails
     if (wpSlugs.length === 0) {
@@ -183,7 +191,10 @@ export async function getAllPageSlugs(): Promise<string[]> {
       return getLocalPageSlugs();
     }
 
-    return wpSlugs;
+    // Combine WordPress slugs with local slugs to ensure all pages are available
+    const localSlugs = getLocalPageSlugs();
+    const allSlugs = [...new Set([...wpSlugs, ...localSlugs])];
+    return allSlugs;
   }
 
   return getLocalPageSlugs();

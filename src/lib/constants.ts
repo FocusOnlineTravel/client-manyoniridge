@@ -62,7 +62,7 @@ export const FOOTER_LINKS = {
     { href: '/contact#directions', label: 'Getting Here' },
   ],
   legal: [
-    { href: '/privacy', label: 'Privacy Policy' },
-    { href: '/terms', label: 'Terms & Conditions' },
+    { href: '/privacy-policy', label: 'Privacy Policy' },
+    { href: '/terms-and-conditions', label: 'Terms & Conditions' },
   ],
 } as const;
