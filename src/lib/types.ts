@@ -127,7 +127,7 @@ export type ImagePosition = 'left' | 'right';
 /**
  * Hero image size variants
  */
-export type HeroSize = 'medium' | 'large';
+export type HeroSize = 'medium' | 'large' | 'full';
 
 /**
  * Hero image vertical alignment
