@@ -38,7 +38,7 @@ Travel in specially designed 4x4 vehicles with elevated seating ensuring unobstr
     ctaImage: '/images/game drives CTA.jpg',
   },
   {
-    slug: 'rhino-conservation',
+    slug: 'rhino-orphanage',
     title: 'Rhino Orphanage',
     subtitle: 'Protecting a species',
     description: `Join us for a meaningful experience that goes beyond typical safari activities. Our Rhino Orphanage Experience offers an intimate look at the critical work being done to protect one of Africa's most endangered species.

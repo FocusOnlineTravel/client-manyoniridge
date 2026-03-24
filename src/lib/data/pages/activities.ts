@@ -46,7 +46,7 @@ export const activitiesPage: PageDefinition = {
       props: {
         activitySlugs: [
           'game-drives',
-          'rhino-conservation',
+          'rhino-orphanage',
           'rhino-horn-trimming',
           'pangolin-experiences',
           'k9-unit-training',

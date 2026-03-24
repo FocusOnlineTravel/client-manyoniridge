@@ -118,7 +118,7 @@ export const reservePage: PageDefinition = {
           'Community development initiatives',
         ],
         ctaText: 'Conservation Experiences',
-        ctaHref: '/activities/rhino-conservation',
+        ctaHref: '/activities/rhino-orphanage',
         imageSrc: '/images/reserve-leopard.jpg',
         imagePosition: 'right',
         background: 'cream',
