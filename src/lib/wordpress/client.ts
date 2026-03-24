@@ -406,10 +406,10 @@ function getImageAlt(image: any): string {
  * Helper to extract value from field that might be array or string
  * ACF checkbox/select fields often return arrays
  */
-function getFieldValue(field: any, defaultValue: string = ''): string {
+function getFieldValue<T extends string>(field: any, defaultValue: T): T {
   if (!field) return defaultValue;
-  if (Array.isArray(field)) return field[0] || defaultValue;
-  return field;
+  if (Array.isArray(field)) return (field[0] || defaultValue) as T;
+  return field as T;
 }
 
 /**

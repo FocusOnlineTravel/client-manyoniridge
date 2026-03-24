@@ -105,6 +105,35 @@ function getAcfImageUrl(image: unknown): string | undefined {
 }
 
 /**
+ * Transform array items, handling nested {text: "..."} objects and nested arrays
+ */
+function transformArray(arr: unknown[]): unknown[] {
+  return arr.map((item) => {
+    if (typeof item === 'object' && item !== null) {
+      const keys = Object.keys(item);
+      // Handle simple {text: "..."} objects from ACF repeaters - extract just the text
+      if (keys.length === 1 && keys[0] === 'text') {
+        return (item as Record<string, unknown>).text;
+      }
+      // Handle nested objects (may contain images or nested arrays)
+      const transformed: Record<string, unknown> = {};
+      for (const [k, v] of Object.entries(item as Record<string, unknown>)) {
+        if (k === 'image' || k === 'imageSrc' || k.endsWith('Image')) {
+          transformed[k === 'image' ? 'imageSrc' : k] = getAcfImageUrl(v);
+        } else if (Array.isArray(v)) {
+          // Recursively transform nested arrays
+          transformed[k] = transformArray(v);
+        } else {
+          transformed[k] = v;
+        }
+      }
+      return transformed;
+    }
+    return item;
+  });
+}
+
+/**
  * Transform ACF section to our Section type
  */
 function transformAcfSection(acfSection: WPAcfSection): Section | null {
@@ -156,21 +185,7 @@ function transformAcfSection(acfSection: WPAcfSection): Section | null {
 
     // Handle arrays (features, stats, etc.)
     if (Array.isArray(value)) {
-      props[key] = value.map((item) => {
-        if (typeof item === 'object' && item !== null) {
-          // Handle nested images in arrays
-          const transformed: Record<string, unknown> = {};
-          for (const [k, v] of Object.entries(item)) {
-            if (k === 'image' || k === 'imageSrc' || k.endsWith('Image')) {
-              transformed[k === 'image' ? 'imageSrc' : k] = getAcfImageUrl(v);
-            } else {
-              transformed[k] = v;
-            }
-          }
-          return transformed;
-        }
-        return item;
-      });
+      props[key] = transformArray(value);
       continue;
     }
 
