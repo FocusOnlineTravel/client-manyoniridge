@@ -7,13 +7,17 @@ import { X, Phone, Mail, Instagram, Facebook } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MOBILE_NAV_LINKS, CONTACT, SOCIAL_LINKS, SITE_CONFIG } from '@/lib/constants';
 import { Button } from '@/components/ui/Button';
+import { NavLink } from '@/lib/types';
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  navLinks?: readonly NavLink[] | NavLink[];
 }
 
-export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
+  // Use WordPress menu if provided, otherwise fallback to constants
+  const menuLinks = navLinks && navLinks.length > 0 ? navLinks : MOBILE_NAV_LINKS;
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -76,7 +80,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               {/* Navigation */}
               <nav className="flex-1 overflow-y-auto">
                 <ul className="space-y-1">
-                  {MOBILE_NAV_LINKS.map((link, index) => (
+                  {menuLinks.map((link, index) => (
                     <motion.li
                       key={link.href}
                       initial={{ opacity: 0, x: -20 }}

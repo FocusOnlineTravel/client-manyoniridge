@@ -2,7 +2,7 @@
 
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { cn, stripHtml } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 
 interface TextBlockProps {
@@ -93,7 +93,7 @@ export function TextBlock({
               background === 'dark' ? 'text-gray-300' : 'text-gray-medium'
             )}
           >
-            {description}
+            {stripHtml(description)}
           </motion.p>
 
           {(ctaText || secondaryCtaText) && (

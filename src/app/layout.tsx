@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Montserrat, Italiana } from 'next/font/google';
 import './globals.css';
-import { Header } from '@/components/layout/Header';
+import { HeaderWrapper } from '@/components/layout/HeaderWrapper';
 import { Footer } from '@/components/layout/Footer';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -106,7 +106,7 @@ export default function RootLayout({
       <body
         className={`${cormorantGaramond.variable} ${montserrat.variable} ${italiana.variable} antialiased`}
       >
-        <Header />
+        <HeaderWrapper />
         <main className="min-h-screen">{children}</main>
         <Footer />
       </body>

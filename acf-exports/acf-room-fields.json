@@ -1,0 +1,213 @@
+[
+  {
+    "key": "group_room_details",
+    "title": "Room Details",
+    "fields": [
+      {
+        "key": "field_room_subtitle",
+        "label": "Subtitle",
+        "name": "subtitle",
+        "type": "text",
+        "instructions": "Short tagline for the room (e.g., 'Intimate luxury for two')",
+        "required": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        }
+      },
+      {
+        "key": "field_room_short_description",
+        "label": "Short Description",
+        "name": "shortDescription",
+        "type": "text",
+        "instructions": "Brief description for room cards",
+        "required": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        }
+      },
+      {
+        "key": "field_room_description",
+        "label": "Full Description",
+        "name": "description",
+        "type": "textarea",
+        "instructions": "Full room description. Use double line breaks for paragraphs.",
+        "required": 0,
+        "rows": 6,
+        "new_lines": ""
+      },
+      {
+        "key": "field_room_hero_image",
+        "label": "Hero Image",
+        "name": "heroImage",
+        "type": "image",
+        "instructions": "Main hero image for the room page",
+        "required": 0,
+        "return_format": "url",
+        "preview_size": "medium",
+        "library": "all"
+      },
+      {
+        "key": "field_room_gallery",
+        "label": "Gallery Images",
+        "name": "images",
+        "type": "gallery",
+        "instructions": "Room gallery images",
+        "required": 0,
+        "return_format": "url",
+        "preview_size": "medium",
+        "library": "all",
+        "min": 0,
+        "max": 20
+      },
+      {
+        "key": "field_room_capacity_tab",
+        "label": "Capacity & Specs",
+        "name": "",
+        "type": "tab",
+        "placement": "top"
+      },
+      {
+        "key": "field_room_adults",
+        "label": "Adults",
+        "name": "capacityAdults",
+        "type": "number",
+        "instructions": "Maximum number of adults",
+        "required": 0,
+        "default_value": 2,
+        "min": 1,
+        "max": 10,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        }
+      },
+      {
+        "key": "field_room_children",
+        "label": "Children",
+        "name": "capacityChildren",
+        "type": "number",
+        "instructions": "Maximum number of children",
+        "required": 0,
+        "default_value": 0,
+        "min": 0,
+        "max": 10,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        }
+      },
+      {
+        "key": "field_room_bedrooms",
+        "label": "Bedrooms",
+        "name": "bedrooms",
+        "type": "number",
+        "instructions": "Number of bedrooms",
+        "required": 0,
+        "default_value": 1,
+        "min": 1,
+        "max": 10,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        }
+      },
+      {
+        "key": "field_room_bathrooms",
+        "label": "Bathrooms",
+        "name": "bathrooms",
+        "type": "number",
+        "instructions": "Number of bathrooms",
+        "required": 0,
+        "default_value": 1,
+        "min": 1,
+        "max": 10,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        }
+      },
+      {
+        "key": "field_room_size",
+        "label": "Size",
+        "name": "size",
+        "type": "text",
+        "instructions": "Room size (e.g., '150 sqm total')",
+        "required": 0
+      },
+      {
+        "key": "field_room_amenities_tab",
+        "label": "Amenities & Features",
+        "name": "",
+        "type": "tab",
+        "placement": "top"
+      },
+      {
+        "key": "field_room_amenities",
+        "label": "Amenities",
+        "name": "amenities",
+        "type": "repeater",
+        "instructions": "List of room amenities",
+        "required": 0,
+        "min": 0,
+        "max": 20,
+        "layout": "table",
+        "button_label": "Add Amenity",
+        "sub_fields": [
+          {
+            "key": "field_room_amenity_text",
+            "label": "Amenity",
+            "name": "text",
+            "type": "text",
+            "required": 0
+          }
+        ]
+      },
+      {
+        "key": "field_room_features",
+        "label": "Features",
+        "name": "features",
+        "type": "repeater",
+        "instructions": "List of room features",
+        "required": 0,
+        "min": 0,
+        "max": 20,
+        "layout": "table",
+        "button_label": "Add Feature",
+        "sub_fields": [
+          {
+            "key": "field_room_feature_text",
+            "label": "Feature",
+            "name": "text",
+            "type": "text",
+            "required": 0
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_parent",
+          "operator": "==",
+          "value": "accommodations"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for room pages (children of Accommodations page)"
+  }
+]

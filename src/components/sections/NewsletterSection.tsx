@@ -2,7 +2,7 @@
 
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { cn, stripHtml } from '@/lib/utils';
 import { NewsletterForm } from '@/components/forms/NewsletterForm';
 
 interface NewsletterSectionProps {
@@ -49,7 +49,7 @@ export function NewsletterSection({
               background === 'dark' ? 'text-gray-300' : 'text-gray-medium'
             )}
           >
-            {description}
+            {stripHtml(description)}
           </p>
 
           <div className="max-w-md mx-auto">

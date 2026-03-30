@@ -77,12 +77,12 @@ export function ActivityCard({ activity, index = 0, variant = 'default' }: Activ
         <div
           className={cn(
             'relative aspect-square overflow-hidden',
-            !activity.images || activity.images.length === 0 ? activity.placeholderClass : ''
+            !activity.images?.length && !activity.heroImage && !activity.ctaImage ? activity.placeholderClass : ''
           )}
         >
-          {activity.images && activity.images.length > 0 && (
+          {(activity.images?.[0] || activity.heroImage || activity.ctaImage) && (
             <Image
-              src={activity.images[0]}
+              src={activity.images?.[0] || activity.heroImage || activity.ctaImage || ''}
               alt={activity.title}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
