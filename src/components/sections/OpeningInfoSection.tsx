@@ -27,7 +27,10 @@ export function OpeningInfoSection({
           <Heading as="h2" subtitle={subtitle}>
             {title}
           </Heading>
-          <p className="text-gray-600 leading-relaxed mt-6">{description}</p>
+          <div
+            className="text-gray-600 leading-relaxed mt-6 prose prose-lg max-w-none"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
         </div>
         <div className="relative h-96 rounded-lg overflow-hidden">
           <Image

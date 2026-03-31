@@ -42,7 +42,7 @@ export default function NotFound() {
             <p className="text-gray-600 mb-4">Looking for something specific?</p>
             <div className="flex flex-wrap gap-4 justify-center text-sm">
               <Link href="/accommodations" className="text-primary-dark hover:text-primary-gold transition-colors">
-                Accommodations
+                Accommodation
               </Link>
               <Link href="/activities" className="text-primary-dark hover:text-primary-gold transition-colors">
                 Activities

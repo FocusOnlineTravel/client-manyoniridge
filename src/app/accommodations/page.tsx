@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!page) {
     return {
-      title: 'Accommodations | Manyoni Ridge Safari Lodge',
+      title: 'Accommodation | Manyoni Ridge Safari Lodge',
     };
   }
 

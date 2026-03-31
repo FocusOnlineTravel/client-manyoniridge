@@ -59,7 +59,7 @@ export async function RoomCardsSection({
             href="/accommodations"
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary-gold uppercase tracking-wider hover:gap-3 transition-all"
           >
-            View All Accommodations
+            View All Accommodation
             <svg
               className="w-4 h-4"
               fill="none"
