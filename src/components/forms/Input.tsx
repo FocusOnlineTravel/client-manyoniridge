@@ -39,6 +39,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <div
           onClick={handleContainerClick}
           className={cn(type === 'date' && 'cursor-pointer')}
+          suppressHydrationWarning
         >
           <input
             ref={inputRef}
