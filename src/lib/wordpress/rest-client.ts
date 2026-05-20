@@ -43,7 +43,7 @@ async function fetchPageBySlug(slug: string): Promise<WPRestPage | null> {
     const querySlug = slug === '/' || slug === 'home' ? 'home' : slug;
 
     const response = await fetch(`${WP_API_URL}/pages?slug=${querySlug}&_fields=id,slug,title,content,excerpt,acf,yoast_head_json`, {
-      next: { revalidate: 60 },
+      cache: 'no-store',
     });
 
     if (!response.ok) {
@@ -71,7 +71,7 @@ async function fetchPageBySlug(slug: string): Promise<WPRestPage | null> {
 export async function getWordPressPageSlugsRest(): Promise<string[]> {
   try {
     const response = await fetch(`${WP_API_URL}/pages?per_page=100&_fields=slug`, {
-      next: { revalidate: 60 },
+      cache: 'no-store',
     });
 
     if (!response.ok) {
