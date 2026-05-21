@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn, stripHtml } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 
 interface HeroImageProps {
@@ -62,7 +62,16 @@ export function HeroImage({
   const handleScrollClick = () => {
     if (scrollToId) {
       const element = document.getElementById(scrollToId);
-      element?.scrollIntoView({ behavior: 'smooth' });
+      if (element) {
+        const headerOffset = 80; // Header height with padding
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
     } else {
       window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
     }
@@ -164,7 +173,7 @@ export function HeroImage({
               transition={{ duration: 0.6, delay: 0.5 }}
               className="hidden md:block text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-8"
             >
-              {description}
+              {stripHtml(description)}
             </motion.p>
           )}
 
@@ -184,7 +193,7 @@ export function HeroImage({
                 </Button>
               )}
               {secondaryCtaText && secondaryCtaHref && (
-                <Button href={secondaryCtaHref} variant="outline" size="lg" className="hidden md:inline-flex">
+                <Button href={secondaryCtaHref} variant="outline" size="lg" className="hidden md:inline-flex !text-primary-gold hover:!text-[#263938]">
                   {secondaryCtaText}
                 </Button>
               )}
@@ -201,7 +210,7 @@ export function HeroImage({
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1 }}
           onClick={handleScrollClick}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white hover:text-primary-gold transition-colors z-10"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white hover:text-primary-gold transition-colors z-10 cursor-pointer"
           aria-label="Scroll down"
         >
           <motion.div

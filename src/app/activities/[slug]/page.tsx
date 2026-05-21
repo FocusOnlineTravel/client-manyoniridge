@@ -1,9 +1,4 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Users, Check } from 'lucide-react';
 import { HeroImage } from '@/components/sections/HeroImage';
@@ -14,6 +9,8 @@ import { Button } from '@/components/ui/Button';
 import { ImageLightbox } from '@/components/ui/ImageLightbox';
 import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
 import { activities, getActivityBySlug, getAllActivitySlugs } from '@/data/activities';
+import { ActivityGallery } from './ActivityGallery';
+import { getActivityBySlug, getAllActivities } from '@/lib/wordpress/activities';
 
 const generateBreadcrumbSchema = (activityTitle: string, activitySlug: string) => ({
   "@context": "https://schema.org",
@@ -44,35 +41,20 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export default function ActivityDetailPage({ params }: PageProps) {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
-  const [slug, setSlug] = useState<string>('');
+export default async function ActivityDetailPage({ params }: PageProps) {
+  const { slug } = await params;
 
-  useEffect(() => {
-    params.then((p) => setSlug(p.slug));
-  }, [params]);
-
-  // Scroll to top when slug changes
-  useEffect(() => {
-    if (slug) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }, [slug]);
-
-  const activity = slug ? getActivityBySlug(slug) : null;
-
-  // Show loading state while slug is being set
-  if (!slug) {
-    return null;
-  }
+  const [activity, allActivities] = await Promise.all([
+    getActivityBySlug(slug),
+    getAllActivities(),
+  ]);
 
   if (!activity) {
     notFound();
   }
 
   // Get other activities for cross-sell
-  const otherActivities = activities
+  const otherActivities = allActivities
     .filter((a) => a.slug !== activity.slug)
     .slice(0, 3);
 
@@ -110,13 +92,20 @@ export default function ActivityDetailPage({ params }: PageProps) {
             <h2 className="font-heading text-3xl md:text-4xl font-medium text-primary-dark mb-6">
               About This Experience
             </h2>
-            <div className="prose prose-lg text-gray-medium max-w-none">
-              {activity.description.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="mb-4 leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+            {activity.description.includes('<p>') ? (
+              <div
+                className="prose prose-lg text-gray-medium max-w-none [&>p]:mb-4 [&>p]:leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: activity.description }}
+              />
+            ) : (
+              <div className="prose prose-lg text-gray-medium max-w-none">
+                {activity.description.split('\n\n').map((paragraph, index) => (
+                  <p key={index} className="mb-4 leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            )}
 
             {/* Highlights */}
             <div className="mt-10">
@@ -186,42 +175,7 @@ export default function ActivityDetailPage({ params }: PageProps) {
 
       {/* Image Gallery */}
       {activity.images && activity.images.length > 0 && (
-        <>
-          <Section background="off-white">
-            <h2 className="font-heading text-3xl font-medium text-primary-dark mb-8 text-center">
-              Gallery
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {activity.images.map((image, i) => (
-                <button
-                  key={i}
-                  onClick={() => {
-                    setLightboxIndex(i);
-                    setLightboxOpen(true);
-                  }}
-                  className="aspect-square relative overflow-hidden cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-gold"
-                >
-                  <Image
-                    src={image}
-                    alt={`${activity.title} gallery image ${i + 1}`}
-                    fill
-                    className="object-cover transition-transform group-hover:scale-110"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-                </button>
-              ))}
-            </div>
-          </Section>
-
-          <ImageLightbox
-            images={activity.images}
-            initialIndex={lightboxIndex}
-            isOpen={lightboxOpen}
-            onClose={() => setLightboxOpen(false)}
-            alt={activity.title}
-          />
-        </>
+        <ActivityGallery images={activity.images} title={activity.title} />
       )}
 
       {/* Other Activities */}

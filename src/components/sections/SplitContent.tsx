@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { cn, stripHtml } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 
 interface SplitContentProps {
@@ -15,7 +15,7 @@ interface SplitContentProps {
   imagePlaceholder?: string;
   imageSrc?: string;
   imagePosition?: 'left' | 'right';
-  background?: 'white' | 'cream' | 'dark';
+  background?: 'white' | 'cream' | 'dark' | 'gold';
   features?: string[];
 }
 
@@ -23,6 +23,7 @@ const backgroundStyles = {
   white: 'bg-white',
   cream: 'bg-primary-cream',
   dark: 'bg-primary-dark text-white',
+  gold: 'bg-primary-gold',
 };
 
 export function SplitContent({
@@ -90,7 +91,7 @@ export function SplitContent({
           background === 'dark' ? 'text-gray-300' : 'text-gray-medium'
         )}
       >
-        {description}
+        {stripHtml(description)}
       </p>
 
       {features && features.length > 0 && (

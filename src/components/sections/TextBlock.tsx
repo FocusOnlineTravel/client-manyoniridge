@@ -2,10 +2,11 @@
 
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { cn, stripHtml } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 
 interface TextBlockProps {
+  id?: string;
   title: string;
   subtitle?: string;
   description: string;
@@ -25,6 +26,7 @@ const backgroundStyles = {
 };
 
 export function TextBlock({
+  id,
   title,
   subtitle,
   description,
@@ -43,6 +45,7 @@ export function TextBlock({
 
   return (
     <section
+      id={id}
       ref={ref}
       className={cn('section-padding', backgroundStyles[background])}
     >
@@ -90,7 +93,7 @@ export function TextBlock({
               background === 'dark' ? 'text-gray-300' : 'text-gray-medium'
             )}
           >
-            {description}
+            {stripHtml(description)}
           </motion.p>
 
           {(ctaText || secondaryCtaText) && (

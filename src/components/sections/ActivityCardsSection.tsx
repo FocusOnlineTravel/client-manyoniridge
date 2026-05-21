@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
 import { ActivityCard } from '@/components/sections/ActivityCard';
-import { activities } from '@/lib/data/activities';
+import { getAllActivities } from '@/lib/wordpress/activities';
 import { ActivityCardsSectionProps } from '@/lib/types';
 
 /**
@@ -12,13 +12,16 @@ import { ActivityCardsSectionProps } from '@/lib/types';
  * This component is used in the page section system to dynamically render
  * activity cards based on slug references rather than hardcoded data.
  */
-export function ActivityCardsSection({
+export async function ActivityCardsSection({
   activitySlugs,
   variant = 'default',
   heading,
   background = 'white',
   showViewAllLink = false,
 }: ActivityCardsSectionProps) {
+  // Fetch activities from WordPress (with local fallback)
+  const activities = await getAllActivities();
+
   // Filter activities based on provided slugs, maintaining order
   const selectedActivities = activitySlugs
     .map((slug) => activities.find((activity) => activity.slug === slug))

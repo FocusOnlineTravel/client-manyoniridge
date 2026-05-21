@@ -4,12 +4,21 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, Phone } from 'lucide-react';
-import { NAV_LINKS, CONTACT } from '@/lib/constants';
+import { NAV_LINKS, MOBILE_NAV_LINKS, CONTACT } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { MobileMenu } from './MobileMenu';
 import { Button } from '@/components/ui/Button';
+import { NavLink } from '@/lib/types';
 
-export function Header() {
+interface HeaderProps {
+  navLinks?: readonly NavLink[] | NavLink[];
+  mobileNavLinks?: readonly NavLink[] | NavLink[];
+}
+
+export function Header({ navLinks, mobileNavLinks }: HeaderProps) {
+  // Use WordPress menu if provided, otherwise fallback to constants
+  const menuLinks = navLinks && navLinks.length > 0 ? navLinks : NAV_LINKS;
+  const mobileMenuLinks = mobileNavLinks && mobileNavLinks.length > 0 ? mobileNavLinks : MOBILE_NAV_LINKS;
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -70,7 +79,7 @@ export function Header() {
 
             {/* Desktop Navigation - Center aligned */}
             <nav className="hidden lg:flex items-center justify-center gap-8 flex-1">
-              {NAV_LINKS.map((link) => (
+              {menuLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -99,7 +108,7 @@ export function Header() {
               {/* Menu Button - Always visible */}
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="p-2 -m-2 transition-colors hover:text-primary-gold"
+                className="p-2 -m-2 transition-colors hover:text-primary-gold cursor-pointer"
                 style={{ color: 'white' }}
                 aria-label="Open menu"
               >
@@ -114,6 +123,7 @@ export function Header() {
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
+        navLinks={mobileMenuLinks}
       />
     </>
   );

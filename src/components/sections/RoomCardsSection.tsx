@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
 import { RoomCard } from '@/components/sections/RoomCard';
-import { rooms } from '@/lib/data/rooms';
+import { getAllRooms } from '@/lib/wordpress/rooms';
 import { RoomCardsSectionProps } from '@/lib/types';
 
 /**
@@ -12,7 +12,7 @@ import { RoomCardsSectionProps } from '@/lib/types';
  * This component is used in the page section system to dynamically render
  * room cards based on slug references rather than hardcoded data.
  */
-export function RoomCardsSection({
+export async function RoomCardsSection({
   roomSlugs,
   variant = 'default',
   heading,
@@ -20,6 +20,9 @@ export function RoomCardsSection({
   showViewAllLink = false,
   layout = 'grid',
 }: RoomCardsSectionProps) {
+  // Fetch all rooms from WordPress (with local fallback)
+  const rooms = await getAllRooms();
+
   // Filter rooms based on provided slugs, maintaining order
   const selectedRooms = roomSlugs
     .map((slug) => rooms.find((room) => room.slug === slug))
@@ -56,7 +59,7 @@ export function RoomCardsSection({
             href="/accommodations"
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary-gold uppercase tracking-wider hover:gap-3 transition-all"
           >
-            View All Accommodations
+            View All Accommodation
             <svg
               className="w-4 h-4"
               fill="none"
