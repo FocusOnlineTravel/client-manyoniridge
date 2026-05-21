@@ -7,7 +7,27 @@ import { CTASection } from '@/components/sections/CTASection';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
 import { ImageLightbox } from '@/components/ui/ImageLightbox';
+import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
 import { cn } from '@/lib/utils';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.manyoniridge.co.za"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Gallery",
+      "item": "https://www.manyoniridge.co.za/gallery"
+    }
+  ]
+};
 
 const categories = [
   { id: 'all', label: 'All' },
@@ -50,6 +70,7 @@ export default function GalleryPage() {
 
   return (
     <>
+      <SchemaMarkup data={breadcrumbSchema} />
       {/* Hero Section */}
       <HeroImage
         subtitle="Gallery"

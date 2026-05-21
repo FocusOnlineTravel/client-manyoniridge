@@ -7,6 +7,26 @@ import { Heading } from '@/components/ui/Heading';
 import { GravityFormRenderer } from '@/components/forms/GravityFormRenderer';
 import { Tabs } from '@/components/ui/Tabs';
 import { CONTACT } from '@/lib/constants';
+import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.manyoniridge.co.za"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Contact",
+      "item": "https://www.manyoniridge.co.za/contact"
+    }
+  ]
+};
 
 export const metadata: Metadata = {
   title: 'Contact Us - Book Your Safari Experience',
@@ -30,6 +50,7 @@ export default function ContactPage() {
 
   return (
     <>
+      <SchemaMarkup data={breadcrumbSchema} />
       {/* Hero Section */}
       <HeroImage
         subtitle="Contact"

@@ -10,7 +10,34 @@ import { CTASection } from '@/components/sections/CTASection';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { ImageLightbox } from '@/components/ui/ImageLightbox';
+import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
+import { rooms, getRoomBySlug, getAllRoomSlugs } from '@/lib/data/rooms';
 import { Room } from '@/lib/types';
+
+const generateBreadcrumbSchema = (roomTitle: string, roomSlug: string) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.manyoniridge.co.za"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Accommodations",
+      "item": "https://www.manyoniridge.co.za/accommodations"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": roomTitle,
+      "item": `https://www.manyoniridge.co.za/accommodations/${roomSlug}`
+    }
+  ]
+});
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -71,6 +98,7 @@ export default function RoomDetailPage({ params }: PageProps) {
 
   return (
     <>
+      <SchemaMarkup data={generateBreadcrumbSchema(room.title, room.slug)} />
       {/* Hero Section */}
       <HeroImage
         subtitle={room.subtitle}
