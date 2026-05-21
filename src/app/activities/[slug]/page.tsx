@@ -8,7 +8,6 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { ImageLightbox } from '@/components/ui/ImageLightbox';
 import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
-import { activities, getActivityBySlug, getAllActivitySlugs } from '@/data/activities';
 import { ActivityGallery } from './ActivityGallery';
 import { getActivityBySlug, getAllActivities } from '@/lib/wordpress/activities';
 
