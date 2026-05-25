@@ -60,10 +60,10 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
     images: [
       {
-        url: '/images/manyoni-logo-dark.png',
+        url: '/images/og-clubhouse-render.jpg',
         width: 1200,
         height: 630,
-        alt: `${SITE_CONFIG.name} Logo`,
+        alt: `${SITE_CONFIG.name} Clubhouse`,
       },
     ],
   },
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${SITE_CONFIG.name} | Luxury Big 5 Safari Lodge`,
     description: SITE_CONFIG.description,
-    images: ['/images/manyoni-logo-dark.png'],
+    images: ['/images/og-clubhouse-render.jpg'],
   },
   robots: {
     index: true,

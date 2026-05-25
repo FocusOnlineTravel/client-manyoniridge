@@ -22,6 +22,7 @@ interface NewsletterFormProps {
 
 export function NewsletterForm({ variant = 'default', className }: NewsletterFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -33,14 +34,28 @@ export function NewsletterForm({ variant = 'default', className }: NewsletterFor
   });
 
   const onSubmit = async (data: NewsletterFormData) => {
-    // Simulate API call
-    console.log('Newsletter signup:', data);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitted(true);
-    reset();
+    setSubmitError(null);
 
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+    try {
+      const response = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        setSubmitError(result.error || 'Subscription failed. Please try again.');
+        return;
+      }
+
+      setIsSubmitted(true);
+      reset();
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch {
+      setSubmitError('Subscription failed. Please try again.');
+    }
   };
 
   if (variant === 'footer') {
@@ -76,6 +91,9 @@ export function NewsletterForm({ variant = 'default', className }: NewsletterFor
             {errors.email && (
               <p className="text-red-400 text-xs">{errors.email.message}</p>
             )}
+            {submitError && (
+              <p className="text-red-400 text-xs">{submitError}</p>
+            )}
           </>
         )}
       </form>
@@ -103,6 +121,9 @@ export function NewsletterForm({ variant = 'default', className }: NewsletterFor
               Subscribe
             </Button>
           </div>
+          {submitError && (
+            <p className="text-red-500 text-sm text-center sm:text-left">{submitError}</p>
+          )}
           <p className="text-gray-medium text-xs text-center sm:text-left">
             By subscribing, you agree to receive marketing emails. Unsubscribe anytime.
           </p>
