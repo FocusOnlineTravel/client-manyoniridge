@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { analytics } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
 import { Input } from './Input';
 import { Textarea } from './Textarea';
@@ -130,6 +131,11 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
   const onSubmit = async (data: EnquiryFormData) => {
     console.log('Booking enquiry:', data);
     await new Promise((resolve) => setTimeout(resolve, 1500));
+    analytics.formSubmit('enquiry_form', {
+      form_variant: variant,
+      referral_source: data.referralSource || undefined,
+      nationality: data.nationality,
+    });
     setIsSubmitted(true);
     reset();
   };

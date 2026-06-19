@@ -8,6 +8,7 @@ import { GravityFormRenderer } from '@/components/forms/GravityFormRenderer';
 import { Tabs } from '@/components/ui/Tabs';
 import { CONTACT } from '@/lib/constants';
 import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
+import { TrackedLink } from '@/components/analytics/TrackedLink';
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -78,12 +79,14 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-medium text-primary-dark mb-1">Phone</h3>
-                  <a
+                  <TrackedLink
+                    event="phone"
+                    location="contact_page"
                     href={CONTACT.phoneLink}
                     className="text-gray-medium hover:text-primary-gold transition-colors"
                   >
                     {CONTACT.phone}
-                  </a>
+                  </TrackedLink>
                 </div>
               </div>
 
@@ -93,12 +96,14 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-medium text-primary-dark mb-1">Email</h3>
-                  <a
+                  <TrackedLink
+                    event="email"
+                    location="contact_page"
                     href={CONTACT.emailLink}
                     className="text-gray-medium hover:text-primary-gold transition-colors"
                   >
                     {CONTACT.email}
-                  </a>
+                  </TrackedLink>
                 </div>
               </div>
 

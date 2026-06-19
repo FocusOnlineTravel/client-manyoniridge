@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { X, Phone, Mail, Instagram, Facebook } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MOBILE_NAV_LINKS, CONTACT, SOCIAL_LINKS, SITE_CONFIG } from '@/lib/constants';
+import { analytics } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
 import { NavLink } from '@/lib/types';
 
@@ -105,7 +106,14 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
                   transition={{ delay: 0.4 }}
                   className="mt-6"
                 >
-                  <Button href="/contact" onClick={onClose} className="w-full text-sm">
+                  <Button
+                    href="/contact"
+                    onClick={() => {
+                      analytics.reserveClick('mobile_menu');
+                      onClose();
+                    }}
+                    className="w-full text-sm"
+                  >
                     Enquire Now
                   </Button>
                 </motion.div>
@@ -121,6 +129,7 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
                 <div className="space-y-3 mb-6">
                   <a
                     href={CONTACT.phoneLink}
+                    onClick={() => analytics.phoneClick('mobile_menu')}
                     className="flex items-center gap-3 text-white hover:text-primary-gold transition-colors text-sm"
                   >
                     <Phone className="w-4 h-4 flex-shrink-0" style={{ color: 'white' }} />
@@ -128,6 +137,7 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
                   </a>
                   <a
                     href={CONTACT.emailLink}
+                    onClick={() => analytics.emailClick('mobile_menu')}
                     className="flex items-center gap-3 text-white hover:text-primary-gold transition-colors text-sm"
                   >
                     <Mail className="w-4 h-4 flex-shrink-0" style={{ color: 'white' }} />
@@ -143,6 +153,7 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
                   <div className="flex items-center gap-3">
                     <a
                       href={SOCIAL_LINKS.instagram}
+                      onClick={() => analytics.socialClick('instagram', 'mobile_menu')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 bg-white/10 rounded-full text-white hover:bg-primary-gold hover:text-primary-dark transition-all"
@@ -152,6 +163,7 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
                     </a>
                     <a
                       href={SOCIAL_LINKS.facebook}
+                      onClick={() => analytics.socialClick('facebook', 'mobile_menu')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 bg-white/10 rounded-full text-white hover:bg-primary-gold hover:text-primary-dark transition-all"

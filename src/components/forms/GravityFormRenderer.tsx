@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { cn } from '@/lib/utils';
+import { analytics } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
 import { Input } from './Input';
 import { Textarea } from './Textarea';
@@ -110,6 +111,11 @@ export function GravityFormRenderer({
       }
 
       const result = await response.json();
+
+      analytics.formSubmit('gravity_form', {
+        form_id: String(formId),
+        form_title: formData?.title,
+      });
 
       setIsSubmitted(true);
       setConfirmationMessage(

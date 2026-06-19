@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Send, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { analytics } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/forms/Input';
 
@@ -50,6 +51,7 @@ export function NewsletterForm({ variant = 'default', className }: NewsletterFor
         return;
       }
 
+      analytics.newsletterSignup(variant);
       setIsSubmitted(true);
       reset();
       setTimeout(() => setIsSubmitted(false), 5000);

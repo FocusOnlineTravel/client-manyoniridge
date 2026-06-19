@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react';
 import { SITE_CONFIG, CONTACT, SOCIAL_LINKS, FOOTER_LINKS } from '@/lib/constants';
 import { NewsletterForm } from '@/components/forms/NewsletterForm';
+import { TrackedLink } from '@/components/analytics/TrackedLink';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -41,7 +42,10 @@ export function Footer() {
             </Link>
             {/* Social Links */}
             <div className="flex items-center gap-4">
-              <a
+              <TrackedLink
+                event="social"
+                network="instagram"
+                location="footer"
                 href={SOCIAL_LINKS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -49,8 +53,11 @@ export function Footer() {
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a
+              </TrackedLink>
+              <TrackedLink
+                event="social"
+                network="facebook"
+                location="footer"
                 href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -58,7 +65,7 @@ export function Footer() {
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
-              </a>
+              </TrackedLink>
             </div>
           </div>
 
@@ -126,22 +133,26 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a
+                <TrackedLink
+                  event="phone"
+                  location="footer"
                   href={CONTACT.phoneLink}
                   className="flex items-start gap-3 text-gray-400 text-sm hover:text-primary-gold transition-colors"
                 >
                   <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
                   <span>{CONTACT.phone}</span>
-                </a>
+                </TrackedLink>
               </li>
               <li>
-                <a
+                <TrackedLink
+                  event="email"
+                  location="footer"
                   href={CONTACT.emailLink}
                   className="flex items-start gap-3 text-gray-400 text-sm hover:text-primary-gold transition-colors"
                 >
                   <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
                   <span>{CONTACT.email}</span>
-                </a>
+                </TrackedLink>
               </li>
               <li>
                 <div className="flex items-start gap-3 text-gray-400 text-sm">

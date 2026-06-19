@@ -2,6 +2,7 @@ import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { ContactInfoSectionProps } from '@/lib/types';
 import { CONTACT } from '@/lib/constants';
+import { TrackedLink } from '@/components/analytics/TrackedLink';
 
 /**
  * ContactInfoSection - Display contact information
@@ -22,9 +23,14 @@ export function ContactInfoSection({ background = 'white' }: ContactInfoSectionP
             <Phone className="w-6 h-6 text-primary-gold" />
           </div>
           <h3 className="font-heading text-lg font-medium text-primary-dark mb-2">Phone</h3>
-          <a href={`tel:${CONTACT.phone}`} className="text-gray-600 hover:text-primary-gold">
+          <TrackedLink
+            event="phone"
+            location="contact_info_section"
+            href={`tel:${CONTACT.phone}`}
+            className="text-gray-600 hover:text-primary-gold"
+          >
             {CONTACT.phone}
-          </a>
+          </TrackedLink>
         </div>
 
         <div className="text-center">
@@ -32,12 +38,14 @@ export function ContactInfoSection({ background = 'white' }: ContactInfoSectionP
             <Mail className="w-6 h-6 text-primary-gold" />
           </div>
           <h3 className="font-heading text-lg font-medium text-primary-dark mb-2">Email</h3>
-          <a
+          <TrackedLink
+            event="email"
+            location="contact_info_section"
             href={`mailto:${CONTACT.email}`}
             className="text-gray-600 hover:text-primary-gold"
           >
             {CONTACT.email}
-          </a>
+          </TrackedLink>
         </div>
 
         <div className="text-center">
