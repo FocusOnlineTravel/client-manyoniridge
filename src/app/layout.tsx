@@ -4,6 +4,7 @@ import './globals.css';
 import { HeaderWrapper } from '@/components/layout/HeaderWrapper';
 import { Footer } from '@/components/layout/Footer';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
+import { MicrosoftClarity } from '@/components/analytics/MicrosoftClarity';
 import { SITE_CONFIG } from '@/lib/constants';
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -108,6 +109,7 @@ export default function RootLayout({
         className={`${cormorantGaramond.variable} ${montserrat.variable} ${italiana.variable} antialiased`}
       >
         <GoogleAnalytics />
+        <MicrosoftClarity />
         <HeaderWrapper />
         <main className="min-h-screen">{children}</main>
         <Footer />
