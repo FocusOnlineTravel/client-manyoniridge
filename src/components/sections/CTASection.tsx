@@ -4,7 +4,14 @@ import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { cn, stripHtml } from '@/lib/utils';
+import { analytics } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
+
+function trackCta(href: string, label: string) {
+  if (href === '/contact' || href === '/reserve' || href.startsWith('/contact')) {
+    analytics.reserveClick(`cta_section:${label}`);
+  }
+}
 
 interface CTASectionProps {
   title: string;
@@ -67,11 +74,16 @@ export function CTASection({
               <p className="text-white/90 text-lg mb-8">{stripHtml(description)}</p>
             )}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href={ctaHref} size="lg">
+              <Button href={ctaHref} size="lg" onClick={() => trackCta(ctaHref, ctaText)}>
                 {ctaText}
               </Button>
               {secondaryCtaText && secondaryCtaHref && (
-                <Button href={secondaryCtaHref} variant="outline-light" size="lg">
+                <Button
+                  href={secondaryCtaHref}
+                  variant="outline-light"
+                  size="lg"
+                  onClick={() => trackCta(secondaryCtaHref, secondaryCtaText)}
+                >
                   {secondaryCtaText}
                 </Button>
               )}
@@ -120,6 +132,7 @@ export function CTASection({
               href={ctaHref}
               variant={background === 'gold' ? 'secondary' : 'primary'}
               size="lg"
+              onClick={() => trackCta(ctaHref, ctaText)}
             >
               {ctaText}
             </Button>
@@ -128,6 +141,7 @@ export function CTASection({
                 href={secondaryCtaHref}
                 variant={background === 'gold' ? 'ghost' : 'outline-light'}
                 size="lg"
+                onClick={() => trackCta(secondaryCtaHref, secondaryCtaText)}
               >
                 {secondaryCtaText}
               </Button>

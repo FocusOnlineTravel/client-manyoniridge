@@ -42,6 +42,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       leftIcon,
       rightIcon,
       disabled,
+      onClick,
       children,
       ...props
     },
@@ -67,7 +68,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     if (href && !disabled) {
       return (
-        <Link href={href} className={baseStyles}>
+        <Link
+          href={href}
+          className={baseStyles}
+          onClick={onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
+        >
           {content}
         </Link>
       );
@@ -78,6 +83,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={baseStyles}
         disabled={disabled || isLoading}
+        onClick={onClick}
         {...props}
       >
         {content}

@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { analytics } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
 import { Input } from './Input';
 import { Textarea } from './Textarea';
@@ -91,6 +92,11 @@ export function ContactForm({ className }: ContactFormProps) {
     // Simulate API call
     console.log('Contact form submission:', data);
     await new Promise((resolve) => setTimeout(resolve, 1500));
+    analytics.formSubmit('contact_form', {
+      subject: data.subject,
+      referral_source: data.referralSource || undefined,
+      nationality: data.nationality,
+    });
     setIsSubmitted(true);
     reset();
   };

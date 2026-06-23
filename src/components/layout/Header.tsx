@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Menu, Phone } from 'lucide-react';
 import { NAV_LINKS, MOBILE_NAV_LINKS, CONTACT } from '@/lib/constants';
 import { cn } from '@/lib/utils';
+import { analytics } from '@/lib/analytics';
 import { MobileMenu } from './MobileMenu';
 import { Button } from '@/components/ui/Button';
 import { NavLink } from '@/lib/types';
@@ -95,13 +96,19 @@ export function Header({ navLinks, mobileNavLinks }: HeaderProps) {
             <div className="flex items-center gap-6">
               <a
                 href={CONTACT.phoneLink}
+                onClick={() => analytics.phoneClick('header')}
                 className="hidden lg:flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary-gold"
                 style={{ color: 'white' }}
               >
                 <Phone className="w-4 h-4" />
                 <span className="hidden xl:inline">{CONTACT.phone}</span>
               </a>
-              <Button href="/contact" size="sm" className="hidden lg:inline-flex">
+              <Button
+                href="/contact"
+                size="sm"
+                className="hidden lg:inline-flex"
+                onClick={() => analytics.reserveClick('header')}
+              >
                 Enquire Now
               </Button>
 
