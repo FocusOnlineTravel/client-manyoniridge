@@ -1,53 +1,11 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import { detectUserRegion, type UserRegion } from '@/lib/geo';
-import { getRatesForRegion, calculateSingleRate, type RateData } from '@/lib/data/rates';
+import { rates, calculateSingleRate } from '@/lib/data/rates';
 import { Check } from 'lucide-react';
 
 export function RatesDisplay() {
-  const [region, setRegion] = useState<UserRegion | null>(null);
-  const [rates, setRates] = useState<RateData | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function loadRates() {
-      try {
-        const detectedRegion = await detectUserRegion();
-        setRegion(detectedRegion);
-        setRates(getRatesForRegion(detectedRegion));
-      } catch (error) {
-        console.error('Error loading rates:', error);
-        // Default to INTERNATIONAL if detection fails
-        const defaultRegion: UserRegion = 'INTERNATIONAL';
-        setRegion(defaultRegion);
-        setRates(getRatesForRegion(defaultRegion));
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadRates();
-  }, []);
-
-  if (loading || !rates) {
-    return (
-      <div className="flex items-center justify-center py-12">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-gold"></div>
-      </div>
-    );
-  }
-
   const singleRate = calculateSingleRate(rates);
 
   return (
     <div className="space-y-12">
-      {/* Opening Special Banner */}
-      <div className="bg-gradient-to-r from-primary-gold to-yellow-600 text-white rounded-lg p-6 text-center shadow-lg">
-        <h2 className="font-heading text-3xl md:text-4xl mb-2">Opening Special Rates</h2>
-        <p className="text-lg opacity-90">Limited time offer for our grand opening</p>
-      </div>
-
       {/* Villa Rates */}
       <div>
         <h2 className="font-heading text-3xl text-primary-dark mb-8 text-center">
@@ -177,6 +135,22 @@ export function RatesDisplay() {
               </li>
             ))}
           </ul>
+        </div>
+      </div>
+
+      {/* SADC Enquiry Note */}
+      <div className="max-w-2xl mx-auto text-center">
+        <div className="bg-primary-cream/60 border border-primary-gold/20 rounded-lg p-6">
+          <p className="text-primary-dark font-medium mb-2">SADC Residents</p>
+          <p className="text-sm text-gray-medium mb-4">
+            Special rates are available for residents of SADC countries.
+          </p>
+          <a
+            href="/contact"
+            className="inline-block text-primary-gold text-sm font-medium hover:underline"
+          >
+            Enquire for SADC rates →
+          </a>
         </div>
       </div>
 
