@@ -22,19 +22,19 @@ const generateBreadcrumbSchema = (roomTitle: string, roomSlug: string) => ({
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.manyoniridge.co.za"
+      "item": "https://www.manyoniridge.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Accommodations",
-      "item": "https://www.manyoniridge.co.za/accommodations"
+      "item": "https://www.manyoniridge.com/accommodations"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": roomTitle,
-      "item": `https://www.manyoniridge.co.za/accommodations/${roomSlug}`
+      "item": `https://www.manyoniridge.com/accommodations/${roomSlug}`
     }
   ]
 });

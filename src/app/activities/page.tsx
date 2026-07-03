@@ -12,13 +12,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.manyoniridge.co.za"
+      "item": "https://www.manyoniridge.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Activities",
-      "item": "https://www.manyoniridge.co.za/activities"
+      "item": "https://www.manyoniridge.com/activities"
     }
   ]
 };
@@ -28,7 +28,7 @@ const activitiesSchema = {
   "@type": "TouristAttraction",
   "name": "Manyoni Ridge Safari Lodge",
   "description": "A luxury Big 5 safari lodge offering intimate wildlife experiences in Manyoni Private Game Reserve, KwaZulu-Natal, South Africa. Home to rhino, elephant, lion, leopard, and buffalo across 23,000 hectares.",
-  "url": "https://www.manyoniridge.co.za/activities",
+  "url": "https://www.manyoniridge.com/activities",
   "touristType": ["Wildlife Enthusiasts", "Luxury Travellers", "Conservation Tourists"],
   "availableLanguage": ["English"],
   "address": {
@@ -37,7 +37,7 @@ const activitiesSchema = {
     "addressCountry": "ZA"
   },
   "isAccessibleForFree": false,
-  "hasMap": "https://www.manyoniridge.co.za/contact#directions"
+  "hasMap": "https://www.manyoniridge.com/contact#directions"
 };
 
 export async function generateMetadata(): Promise<Metadata> {

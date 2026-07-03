@@ -12,13 +12,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.manyoniridge.co.za"
+      "item": "https://www.manyoniridge.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "About",
-      "item": "https://www.manyoniridge.co.za/about"
+      "item": "https://www.manyoniridge.com/about"
     }
   ]
 };
@@ -44,12 +44,12 @@ const openingEventSchema = {
   "organizer": {
     "@type": "Organization",
     "name": "Manyoni Ridge",
-    "url": "https://www.manyoniridge.co.za"
+    "url": "https://www.manyoniridge.com"
   },
-  "url": "https://www.manyoniridge.co.za/contact",
+  "url": "https://www.manyoniridge.com/contact",
   "offers": {
     "@type": "Offer",
-    "url": "https://www.manyoniridge.co.za/rates",
+    "url": "https://www.manyoniridge.com/rates",
     "availability": "https://schema.org/PreOrder",
     "validFrom": "2025-01-01"
   }

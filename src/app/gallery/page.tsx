@@ -18,13 +18,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.manyoniridge.co.za"
+      "item": "https://www.manyoniridge.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Gallery",
-      "item": "https://www.manyoniridge.co.za/gallery"
+      "item": "https://www.manyoniridge.com/gallery"
     }
   ]
 };

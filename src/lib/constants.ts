@@ -3,14 +3,14 @@ export const SITE_CONFIG = {
   tagline: 'Intimate Luxury in the Wild',
   description: 'Experience intimate luxury at Manyoni Ridge Safari Lodge. Boutique accommodation in the heart of Manyoni Private Game Reserve, KwaZulu-Natal. Opening November 2026.',
   opening: 'November 2026',
-  url: 'https://www.manyoniridge.co.za',
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.manyoniridge.com',
 } as const;
 
 export const CONTACT = {
   phone: '+27 (0)82 892 0598',
   phoneLink: 'tel:+27828920598',
-  email: 'enquiries@manyoniridge.co.za',
-  emailLink: 'mailto:enquiries@manyoniridge.co.za',
+  email: 'enquiries@manyoniridge.com',
+  emailLink: 'mailto:enquiries@manyoniridge.com',
   location: 'Manyoni Private Game Reserve, North-Eastern KwaZulu-Natal, South Africa',
 } as const;
 
