@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
+  alternates: {
+    canonical: '/',
+  },
   keywords: [
     'safari lodge South Africa',
     'Big 5 safari',
@@ -85,11 +88,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  icons: {
-    icon: '/images/manyoni-ridge-logo-head-white.png',
-    shortcut: '/images/manyoni-ridge-logo-head-white.png',
-    apple: '/images/manyoni-ridge-logo-head-white.png',
   },
   verification: {
     // Add your verification codes when available

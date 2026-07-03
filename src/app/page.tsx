@@ -10,11 +10,11 @@ const homeSchema = {
   "name": "Manyoni Ridge Safari Lodge",
   "alternateName": "Manyoni Ridge",
   "description": "Boutique luxury safari lodge in Manyoni Private Game Reserve, KwaZulu-Natal. Offering Big 5 game drives, 9 exclusive suites, all-inclusive luxury experiences, and conservation-focused activities. Opening November 2026.",
-  "url": "https://www.manyoniridge.co.za",
+  "url": "https://www.manyoniridge.com",
   "telephone": "+27828920598",
   "email": "enquiries@manyoniridge.com",
-  "logo": "https://www.manyoniridge.co.za/images/manyoni-ridge-logo-full-white.png",
-  "image": "https://www.manyoniridge.co.za/images/manyoni-ridge-main.jpg",
+  "logo": "https://www.manyoniridge.com/images/manyoni-ridge-logo-full-white.png",
+  "image": "https://www.manyoniridge.com/images/manyoni-ridge-main.jpg",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Manyoni Private Game Reserve",
@@ -67,7 +67,7 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.manyoniridge.co.za"
+      "item": "https://www.manyoniridge.com"
     }
   ]
 };
@@ -93,12 +93,12 @@ const openingEventSchema = {
   "organizer": {
     "@type": "Organization",
     "name": "Manyoni Ridge",
-    "url": "https://www.manyoniridge.co.za"
+    "url": "https://www.manyoniridge.com"
   },
-  "url": "https://www.manyoniridge.co.za/contact",
+  "url": "https://www.manyoniridge.com/contact",
   "offers": {
     "@type": "Offer",
-    "url": "https://www.manyoniridge.co.za/rates",
+    "url": "https://www.manyoniridge.com/rates",
     "availability": "https://schema.org/PreOrder",
     "validFrom": "2025-01-01"
   }

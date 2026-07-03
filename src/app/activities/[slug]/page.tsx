@@ -19,19 +19,19 @@ const generateBreadcrumbSchema = (activityTitle: string, activitySlug: string) =
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.manyoniridge.co.za"
+      "item": "https://www.manyoniridge.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Activities",
-      "item": "https://www.manyoniridge.co.za/activities"
+      "item": "https://www.manyoniridge.com/activities"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": activityTitle,
-      "item": `https://www.manyoniridge.co.za/activities/${activitySlug}`
+      "item": `https://www.manyoniridge.com/activities/${activitySlug}`
     }
   ]
 });

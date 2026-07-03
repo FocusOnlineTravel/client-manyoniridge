@@ -12,13 +12,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.manyoniridge.co.za"
+      "item": "https://www.manyoniridge.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Accommodations",
-      "item": "https://www.manyoniridge.co.za/accommodations"
+      "item": "https://www.manyoniridge.com/accommodations"
     }
   ]
 };
@@ -28,11 +28,11 @@ const accommodationsSchema = {
   "@type": "Suite",
   "name": "Manyoni Ridge Luxury Suite",
   "description": "Exclusive luxury suite at Manyoni Ridge Safari Lodge, featuring a private plunge pool overlooking Manyoni Private Game Reserve. All-inclusive accommodation with expert guided Big 5 game drives.",
-  "url": "https://www.manyoniridge.co.za/accommodations",
+  "url": "https://www.manyoniridge.com/accommodations",
   "containedInPlace": {
     "@type": "LodgingBusiness",
     "name": "Manyoni Ridge Safari Lodge",
-    "url": "https://www.manyoniridge.co.za"
+    "url": "https://www.manyoniridge.com"
   },
   "amenityFeature": [
     { "@type": "LocationFeatureSpecification", "name": "Private Plunge Pool", "value": true },
