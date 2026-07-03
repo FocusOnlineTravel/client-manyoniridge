@@ -1015,7 +1015,7 @@ The frontend uses **21 different section types**. Below is the comprehensive map
 - Terms & Conditions (if applicable)
 
 **Column 4: Contact**
-- Email: info@manyoniridge.co.za
+- Email: info@manyoniridge.com
 - Phone: +27 (0)XX XXX XXXX (check)
 - Address: Manyoni Private Game Reserve, KwaZulu-Natal, South Africa
 
@@ -1034,7 +1034,7 @@ export const SITE_CONFIG = {
   name: 'Manyoni Ridge Safari Lodge',
   tagline: 'Intimate Luxury in the Wild',
   opening: 'September 2026',
-  email: 'info@manyoniridge.co.za',
+  email: 'info@manyoniridge.com',
   // Add phone, address, social media as needed
 }
 ```

@@ -113,8 +113,8 @@ export default function TermsPage() {
           <div className="mt-12 pt-8 border-t border-gray-300">
             <p className="text-gray-600">
               For questions about these terms and conditions, please contact us at{' '}
-              <a href="mailto:info@manyoniridge.co.za" className="text-primary-gold hover:text-primary-dark transition-colors">
-                info@manyoniridge.co.za
+              <a href="mailto:info@manyoniridge.com" className="text-primary-gold hover:text-primary-dark transition-colors">
+                info@manyoniridge.com
               </a>
             </p>
           </div>

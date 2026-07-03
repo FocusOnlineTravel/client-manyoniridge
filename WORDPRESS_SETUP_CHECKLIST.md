@@ -164,7 +164,7 @@
 - [ ] site_name (Text) - "Manyoni Ridge Safari Lodge"
 - [ ] tagline (Text) - "Intimate Luxury in the Wild"
 - [ ] opening_date (Text) - "September 2026"
-- [ ] contact_email (Email) - "info@manyoniridge.co.za"
+- [ ] contact_email (Email) - "info@manyoniridge.com"
 - [ ] contact_phone (Text)
 - [ ] address (Textarea)
 - [ ] social_media (Repeater)

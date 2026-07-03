@@ -147,8 +147,8 @@ export default function PrivacyPage() {
           <div className="bg-cream p-6 rounded-lg">
             <p className="text-gray-700 mb-2">
               <strong>Email:</strong>{' '}
-              <a href="mailto:info@manyoniridge.co.za" className="text-primary-gold hover:text-primary-dark transition-colors">
-                info@manyoniridge.co.za
+              <a href="mailto:info@manyoniridge.com" className="text-primary-gold hover:text-primary-dark transition-colors">
+                info@manyoniridge.com
               </a>
             </p>
             <p className="text-gray-700">

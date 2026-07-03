@@ -12,7 +12,7 @@ const homeSchema = {
   "description": "Boutique luxury safari lodge in Manyoni Private Game Reserve, KwaZulu-Natal. Offering Big 5 game drives, 9 exclusive suites, all-inclusive luxury experiences, and conservation-focused activities. Opening November 2026.",
   "url": "https://www.manyoniridge.co.za",
   "telephone": "+27828920598",
-  "email": "enquiries@manyoniridge.co.za",
+  "email": "enquiries@manyoniridge.com",
   "logo": "https://www.manyoniridge.co.za/images/manyoni-ridge-logo-full-white.png",
   "image": "https://www.manyoniridge.co.za/images/manyoni-ridge-main.jpg",
   "address": {

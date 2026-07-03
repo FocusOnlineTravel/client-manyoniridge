@@ -9,8 +9,8 @@ export const SITE_CONFIG = {
 export const CONTACT = {
   phone: '+27 (0)82 892 0598',
   phoneLink: 'tel:+27828920598',
-  email: 'enquiries@manyoniridge.co.za',
-  emailLink: 'mailto:enquiries@manyoniridge.co.za',
+  email: 'enquiries@manyoniridge.com',
+  emailLink: 'mailto:enquiries@manyoniridge.com',
   location: 'Manyoni Private Game Reserve, North-Eastern KwaZulu-Natal, South Africa',
 } as const;
 

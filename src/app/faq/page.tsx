@@ -72,7 +72,7 @@ const faqSchema = {
       "name": "How do I make a booking or enquiry at Manyoni Ridge?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can contact Manyoni Ridge by calling +27 (0)82 892 0598, emailing enquiries@manyoniridge.co.za, or using the enquiry form at https://www.manyoniridge.co.za/contact"
+        "text": "You can contact Manyoni Ridge by calling +27 (0)82 892 0598, emailing enquiries@manyoniridge.com, or using the enquiry form at https://www.manyoniridge.co.za/contact"
       }
     }
   ]
