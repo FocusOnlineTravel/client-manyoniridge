@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import { Section } from '@/components/ui/Section';
+import { buildStaticMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildStaticMetadata({
   title: 'Terms & Conditions | Manyoni Ridge Safari Lodge',
   description: 'Terms and conditions for booking and staying at Manyoni Ridge Safari Lodge.',
-};
+  slug: 'terms',
+});
 
 export default function TermsPage() {
   return (

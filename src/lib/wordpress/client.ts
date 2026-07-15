@@ -436,11 +436,19 @@ function transformWordPressPage(wpPage: any): PageDefinition {
     }
   }
 
+  const seo = wpPage.seo;
   return {
     meta: {
-      title: wpPage.seo?.title || wpPage.title || 'Untitled',
+      title: seo?.title || wpPage.title || 'Untitled',
       slug: wpPage.slug,
-      description: wpPage.seo?.metaDesc || '',
+      description: seo?.metaDesc || '',
+      canonical: seo?.canonical || undefined,
+      ogTitle: seo?.opengraphTitle || undefined,
+      ogDescription: seo?.opengraphDescription || undefined,
+      ogImage: seo?.opengraphImage?.sourceUrl || undefined,
+      twitterTitle: seo?.twitterTitle || undefined,
+      twitterDescription: seo?.twitterDescription || undefined,
+      twitterImage: seo?.twitterImage?.sourceUrl || undefined,
     },
     sections,
   };

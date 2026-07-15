@@ -504,6 +504,13 @@ export interface PageMeta {
   title: string;
   slug: string;
   description: string;
+  canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  twitterImage?: string;
 }
 
 /**
