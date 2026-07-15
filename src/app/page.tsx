@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getPageData } from '@/lib/data';
 import { renderSections } from '@/lib/renderSections';
 import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
+import { buildMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 
 const homeSchema = {
@@ -110,13 +111,11 @@ export async function generateMetadata(): Promise<Metadata> {
   if (!page) {
     return {
       title: 'Manyoni Ridge Safari Lodge',
+      alternates: { canonical: '/' },
     };
   }
 
-  return {
-    title: page.meta.title,
-    description: page.meta.description,
-  };
+  return buildMetadata(page.meta, '/');
 }
 
 export default async function HomePage() {

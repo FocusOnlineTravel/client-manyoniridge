@@ -4,10 +4,14 @@ import { CheckCircle } from 'lucide-react';
 import { HeroImage } from '@/components/sections/HeroImage';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { buildStaticMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = {
-  title: 'Thank You - Message Received',
-  description: 'Thank you for contacting Manyoni Ridge Safari Lodge. We will respond to your enquiry within 24-48 hours.',
+  ...buildStaticMetadata({
+    title: 'Thank You - Message Received',
+    description: 'Thank you for contacting Manyoni Ridge Safari Lodge. We will respond to your enquiry within 24-48 hours.',
+    slug: 'thank-you',
+  }),
   robots: {
     index: false,
     follow: true,

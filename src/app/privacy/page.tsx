@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import { Section } from '@/components/ui/Section';
+import { buildStaticMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildStaticMetadata({
   title: 'Privacy Policy | Manyoni Ridge Safari Lodge',
   description: 'Privacy policy for Manyoni Ridge Safari Lodge - how we collect, use, and protect your personal information.',
-};
+  slug: 'privacy',
+});
 
 export default function PrivacyPage() {
   return (

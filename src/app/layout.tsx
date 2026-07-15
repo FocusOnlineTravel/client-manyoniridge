@@ -36,9 +36,6 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
-  alternates: {
-    canonical: '/',
-  },
   keywords: [
     'safari lodge South Africa',
     'Big 5 safari',

@@ -8,6 +8,7 @@ import { GravityFormRenderer } from '@/components/forms/GravityFormRenderer';
 import { Tabs } from '@/components/ui/Tabs';
 import { CONTACT } from '@/lib/constants';
 import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
+import { buildStaticMetadata } from '@/lib/metadata';
 import { TrackedLink } from '@/components/analytics/TrackedLink';
 
 const breadcrumbSchema = {
@@ -29,11 +30,12 @@ const breadcrumbSchema = {
   ]
 };
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildStaticMetadata({
   title: 'Contact Us - Book Your Safari Experience',
   description:
     'Contact Manyoni Ridge Safari Lodge to book your luxury Big 5 safari experience in KwaZulu-Natal. Get in touch for enquiries, bookings, and safari planning assistance.',
-};
+  slug: 'contact',
+});
 
 export default function ContactPage() {
   const tabs = [

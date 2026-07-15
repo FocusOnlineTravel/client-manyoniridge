@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getPageData } from '@/lib/data';
 import { renderSections } from '@/lib/renderSections';
 import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
+import { buildMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 
 const breadcrumbSchema = {
@@ -84,13 +85,11 @@ export async function generateMetadata(): Promise<Metadata> {
   if (!page) {
     return {
       title: 'FAQ | Manyoni Ridge Safari Lodge',
+      alternates: { canonical: '/faq' },
     };
   }
 
-  return {
-    title: page.meta.title,
-    description: page.meta.description,
-  };
+  return buildMetadata(page.meta, '/faq');
 }
 
 export default async function FAQPage() {

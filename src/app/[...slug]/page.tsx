@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getPageData, getAllPageSlugs } from '@/lib/data';
 import { renderSections } from '@/lib/renderSections';
+import { buildMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 
 /**
@@ -64,10 +65,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  return {
-    title: page.meta.title,
-    description: page.meta.description,
-  };
+  return buildMetadata(page.meta, `/${slug}`);
 }
 
 /**

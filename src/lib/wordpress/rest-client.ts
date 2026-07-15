@@ -24,8 +24,13 @@ interface WPRestPage {
   yoast_head_json?: {
     title?: string;
     description?: string;
+    canonical?: string;
     og_title?: string;
     og_description?: string;
+    og_image?: Array<{ url?: string; width?: number; height?: number; type?: string }>;
+    twitter_title?: string;
+    twitter_description?: string;
+    twitter_image?: string;
   };
 }
 
@@ -237,10 +242,18 @@ export async function getWordPressPageDataRest(slug: string): Promise<PageDefini
   }
 
   // Get meta from Yoast or fallback to title
+  const yoast = page.yoast_head_json;
   const meta = {
-    title: page.yoast_head_json?.title || page.title.rendered || 'Untitled',
+    title: yoast?.title || page.title.rendered || 'Untitled',
     slug: page.slug,
-    description: page.yoast_head_json?.description || page.excerpt?.rendered?.replace(/<[^>]*>/g, '') || '',
+    description: yoast?.description || page.excerpt?.rendered?.replace(/<[^>]*>/g, '') || '',
+    canonical: yoast?.canonical || undefined,
+    ogTitle: yoast?.og_title || undefined,
+    ogDescription: yoast?.og_description || undefined,
+    ogImage: yoast?.og_image?.[0]?.url || undefined,
+    twitterTitle: yoast?.twitter_title || undefined,
+    twitterDescription: yoast?.twitter_description || undefined,
+    twitterImage: yoast?.twitter_image || undefined,
   };
 
   return {
