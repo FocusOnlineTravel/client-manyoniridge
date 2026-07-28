@@ -3,9 +3,11 @@ import { Cormorant_Garamond, Montserrat, Italiana } from 'next/font/google';
 import './globals.css';
 import { HeaderWrapper } from '@/components/layout/HeaderWrapper';
 import { Footer } from '@/components/layout/Footer';
-import { GoogleTagManager, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager';
+import { GoogleTagManager } from '@next/third-parties/google';
 import { MicrosoftClarity } from '@/components/analytics/MicrosoftClarity';
 import { SITE_CONFIG } from '@/lib/constants';
+
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ['latin'],
@@ -103,8 +105,7 @@ export default function RootLayout({
       <body
         className={`${cormorantGaramond.variable} ${montserrat.variable} ${italiana.variable} antialiased`}
       >
-        <GoogleTagManager />
-        <GoogleTagManagerNoScript />
+        {gtmId && <GoogleTagManager gtmId={gtmId} />}
         <MicrosoftClarity />
         <HeaderWrapper />
         <main className="min-h-screen">{children}</main>
