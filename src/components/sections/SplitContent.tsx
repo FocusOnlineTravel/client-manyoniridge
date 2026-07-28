@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { cn, stripHtml } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 
@@ -44,7 +44,7 @@ export function SplitContent({
   });
 
   const imageContent = (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, x: imagePosition === 'left' ? -50 : 50 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.8 }}
@@ -62,11 +62,11 @@ export function SplitContent({
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
       )}
-    </motion.div>
+    </m.div>
   );
 
   const textContent = (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: 0.2 }}
@@ -119,7 +119,7 @@ export function SplitContent({
           {ctaText}
         </Button>
       )}
-    </motion.div>
+    </m.div>
   );
 
   return (

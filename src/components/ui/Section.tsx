@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface SectionProps {
@@ -36,7 +36,7 @@ export function Section({
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <motion.section
+    <m.section
       ref={ref}
       id={id}
       initial={animate ? { opacity: 0, y: 40 } : false}
@@ -58,6 +58,6 @@ export function Section({
       >
         {children}
       </div>
-    </motion.section>
+    </m.section>
   );
 }

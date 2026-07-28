@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { cn, stripHtml } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
@@ -162,24 +162,24 @@ export function HeroImage({
             textAlign === 'left' && 'text-left'
           )}
         >
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className={cn(textAlign === 'center' && 'max-w-5xl mx-auto')}
         >
           {subtitle && (
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-primary-gold text-sm md:text-base uppercase tracking-[0.2em] mb-4 font-medium"
             >
               {subtitle}
-            </motion.p>
+            </m.p>
           )}
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -190,21 +190,21 @@ export function HeroImage({
             style={{ color: 'white' }}
           >
             {title}
-          </motion.h1>
+          </m.h1>
 
           {description && (
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               className="hidden md:block text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-8"
             >
               {stripHtml(description)}
-            </motion.p>
+            </m.p>
           )}
 
           {(ctaText || secondaryCtaText) && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -223,15 +223,15 @@ export function HeroImage({
                   {secondaryCtaText}
                 </Button>
               )}
-            </motion.div>
+            </m.div>
           )}
-        </motion.div>
+        </m.div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
       {showScrollIndicator && (
-        <motion.button
+        <m.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1 }}
@@ -239,13 +239,13 @@ export function HeroImage({
           className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white hover:text-primary-gold transition-colors z-10 cursor-pointer"
           aria-label="Scroll down"
         >
-          <motion.div
+          <m.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
             <ChevronDown className="w-8 h-8" />
-          </motion.div>
-        </motion.button>
+          </m.div>
+        </m.button>
       )}
     </section>
   );
