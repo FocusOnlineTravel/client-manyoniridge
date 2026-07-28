@@ -28,7 +28,7 @@ export const homePage: PageDefinition = {
         secondaryCtaText: 'Explore',
         secondaryCtaHref: '/accommodations',
         scrollToId: 'intro',
-        videoSrc: '/videos/manynoi.mp4',
+        videoSrc: '/videos/manyoni-ridge.mp4',
         size: 'full',
         verticalAlign: 'bottom',
         textBackground: true,
