@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom';
 import { notFound } from 'next/navigation';
 import { getPageData } from '@/lib/data';
 import { renderSections } from '@/lib/renderSections';
@@ -124,6 +125,11 @@ export default async function HomePage() {
   if (!page) {
     notFound();
   }
+
+  ReactDOM.preload('/videos/manyoni-ridge-poster.webp', {
+    as: 'image',
+    fetchPriority: 'high',
+  });
 
   return (
     <>
