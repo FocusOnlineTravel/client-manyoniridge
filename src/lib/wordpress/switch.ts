@@ -36,6 +36,7 @@ function mergeSectionWithFallback(wpSection: Section, localSection?: Section): S
     // Media
     'imageSrc',
     'videoSrc',
+    'posterSrc',
     'placeholderClass',
     'imagePlaceholder',
     // Content

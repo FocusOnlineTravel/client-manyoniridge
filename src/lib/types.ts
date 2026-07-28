@@ -153,6 +153,7 @@ export interface HeroImageSectionProps {
   scrollToId?: string;
   imageSrc?: string;
   videoSrc?: string;
+  posterSrc?: string;
   size?: HeroSize;
   verticalAlign?: HeroVerticalAlign;
   imageAlign?: 'top' | 'center' | 'bottom';

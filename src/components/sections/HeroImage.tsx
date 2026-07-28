@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -16,6 +17,7 @@ interface HeroImageProps {
   secondaryCtaHref?: string;
   placeholderClass?: string;
   videoSrc?: string;
+  posterSrc?: string;
   imageSrc?: string;
   showScrollIndicator?: boolean;
   scrollToId?: string;
@@ -49,6 +51,7 @@ export function HeroImage({
   secondaryCtaHref,
   placeholderClass = 'placeholder-hero',
   videoSrc,
+  posterSrc,
   imageSrc,
   showScrollIndicator = true,
   scrollToId,
@@ -59,6 +62,25 @@ export function HeroImage({
   imageAlign = 'center',
   textBackground = false,
 }: HeroImageProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (!videoSrc) return;
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const apply = () => {
+      const video = videoRef.current;
+      if (!video) return;
+      if (mediaQuery.matches) {
+        video.pause();
+      } else {
+        video.play().catch(() => {});
+      }
+    };
+    apply();
+    mediaQuery.addEventListener('change', apply);
+    return () => mediaQuery.removeEventListener('change', apply);
+  }, [videoSrc]);
+
   const handleScrollClick = () => {
     if (scrollToId) {
       const element = document.getElementById(scrollToId);
@@ -108,10 +130,14 @@ export function HeroImage({
       {/* Video Background */}
       {videoSrc && (
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
+          preload="metadata"
+          poster={posterSrc ?? imageSrc}
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src={videoSrc} type="video/mp4" />

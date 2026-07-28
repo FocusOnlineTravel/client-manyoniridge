@@ -29,6 +29,8 @@ export const homePage: PageDefinition = {
         secondaryCtaHref: '/accommodations',
         scrollToId: 'intro',
         videoSrc: '/videos/manyoni-ridge.mp4',
+        posterSrc: '/videos/manyoni-ridge-poster.webp',
+        imageSrc: '/images/MANYONI RIDGE CLUBHOUSE RENDERS 7.jpg',
         size: 'full',
         verticalAlign: 'bottom',
         textBackground: true,
