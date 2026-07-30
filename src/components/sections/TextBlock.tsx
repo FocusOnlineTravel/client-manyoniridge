@@ -1,7 +1,7 @@
 'use client';
 
 import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { cn, stripHtml } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 
@@ -55,24 +55,24 @@ export function TextBlock({
           centered && 'text-center'
         )}
       >
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className={cn(centered && 'max-w-3xl mx-auto')}
         >
           {subtitle && (
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-primary-gold text-sm uppercase tracking-[0.2em] mb-4 font-medium"
             >
               {subtitle}
-            </motion.p>
+            </m.p>
           )}
 
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -82,9 +82,9 @@ export function TextBlock({
             )}
           >
             {title}
-          </motion.h2>
+          </m.h2>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -94,10 +94,10 @@ export function TextBlock({
             )}
           >
             {stripHtml(description)}
-          </motion.p>
+          </m.p>
 
           {(ctaText || secondaryCtaText) && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -117,9 +117,9 @@ export function TextBlock({
                   {secondaryCtaText}
                 </Button>
               )}
-            </motion.div>
+            </m.div>
           )}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

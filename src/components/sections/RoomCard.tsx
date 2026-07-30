@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Users, ArrowRight, Bed, Bath } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -21,7 +21,7 @@ export function RoomCard({ room, index = 0, variant = 'default' }: RoomCardProps
   });
 
   return (
-    <motion.article
+    <m.article
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -93,6 +93,6 @@ export function RoomCard({ room, index = 0, variant = 'default' }: RoomCardProps
           </span>
         </div>
       </Link>
-    </motion.article>
+    </m.article>
   );
 }

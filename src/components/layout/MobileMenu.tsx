@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { X, Phone, Mail, Instagram, Facebook } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { MOBILE_NAV_LINKS, CONTACT, SOCIAL_LINKS, SITE_CONFIG } from '@/lib/constants';
 import { analytics } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
@@ -40,7 +40,7 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
       {isOpen && (
         <>
           {/* Backdrop */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -50,7 +50,7 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
           />
 
           {/* Menu Panel */}
-          <motion.div
+          <m.div
             initial={{ x: '-100%' }}
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
@@ -82,7 +82,7 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
               <nav className="flex-1 overflow-y-auto">
                 <ul className="space-y-1">
                   {menuLinks.map((link, index) => (
-                    <motion.li
+                    <m.li
                       key={link.href}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -96,11 +96,11 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
                       >
                         {link.label}
                       </Link>
-                    </motion.li>
+                    </m.li>
                   ))}
                 </ul>
 
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 }}
@@ -116,11 +116,11 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
                   >
                     Enquire Now
                   </Button>
-                </motion.div>
+                </m.div>
               </nav>
 
               {/* Contact Info */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
@@ -173,9 +173,9 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
                     </a>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
+          </m.div>
         </>
       )}
     </AnimatePresence>

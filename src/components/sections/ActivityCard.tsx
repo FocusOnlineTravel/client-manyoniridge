@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ArrowRight, Clock, Binoculars, Shield, Search, Sparkles, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -34,7 +34,7 @@ export function ActivityCard({ activity, index = 0, variant = 'default' }: Activ
 
   if (variant === 'compact') {
     return (
-      <motion.article
+      <m.article
         ref={ref}
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -57,12 +57,12 @@ export function ActivityCard({ activity, index = 0, variant = 'default' }: Activ
             <ArrowRight className="w-5 h-5 text-gray-light group-hover:text-primary-gold group-hover:translate-x-1 transition-all" />
           </div>
         </Link>
-      </motion.article>
+      </m.article>
     );
   }
 
   return (
-    <motion.article
+    <m.article
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -122,6 +122,6 @@ export function ActivityCard({ activity, index = 0, variant = 'default' }: Activ
           </div>
         </div>
       </Link>
-    </motion.article>
+    </m.article>
   );
 }
