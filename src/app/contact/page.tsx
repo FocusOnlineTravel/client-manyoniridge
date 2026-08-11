@@ -135,6 +135,14 @@ export default function ContactPage() {
 
           {/* Forms */}
           <div className="lg:col-span-2">
+            <div className="mb-6 border-l-4 border-primary-gold bg-primary-cream/60 px-4 py-3 flex items-baseline gap-3 flex-wrap">
+              <span className="text-xs uppercase tracking-widest text-primary-gold font-semibold">
+                Opening
+              </span>
+              <span className="text-sm text-primary-dark">
+                Manyoni Ridge welcomes its first guests in February 2027.
+              </span>
+            </div>
             <Tabs tabs={tabs} />
           </div>
         </div>

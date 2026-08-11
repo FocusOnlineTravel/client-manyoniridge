@@ -376,39 +376,50 @@ export function GravityFormRenderer({
   // Group fields into rows for better layout
   const groupFields = (fields: GravityFormField[]) => {
     const rows: GravityFormField[][] = [];
-    let currentRow: GravityFormField[] = [];
+    const shortTypes = ['text', 'email', 'phone', 'number', 'select'];
+    const canPair = (a: GravityFormField, b: GravityFormField) => {
+      if (shortTypes.includes(a.type) && shortTypes.includes(b.type)) return true;
+      // Pair consecutive date fields (e.g. Arrival + Departure)
+      if (a.type === 'date' && b.type === 'date') return true;
+      return false;
+    };
 
-    fields.forEach((field, index) => {
-      const isShortField = ['text', 'email', 'phone', 'number', 'select'].includes(field.type);
-      const nextField = fields[index + 1];
-      const isNextShortField = nextField && ['text', 'email', 'phone', 'number', 'select'].includes(nextField.type);
-
-      if (isShortField && isNextShortField && currentRow.length === 0) {
-        // Start a new row with two fields
-        currentRow.push(field);
-      } else if (currentRow.length === 1) {
-        // Complete the row with second field
-        currentRow.push(field);
-        rows.push([...currentRow]);
-        currentRow = [];
+    let i = 0;
+    while (i < fields.length) {
+      const current = fields[i];
+      const next = fields[i + 1];
+      if (next && canPair(current, next)) {
+        rows.push([current, next]);
+        i += 2;
       } else {
-        // Full width field
-        if (currentRow.length > 0) {
-          rows.push([...currentRow]);
-          currentRow = [];
-        }
-        rows.push([field]);
+        rows.push([current]);
+        i += 1;
       }
-    });
-
-    if (currentRow.length > 0) {
-      rows.push(currentRow);
     }
 
     return rows;
   };
 
-  const fieldRows = groupFields(formData.fields);
+  // Conditionally hide the "Ages of Children" field unless Children > 1
+  const childrenField = formData.fields.find((f) => {
+    const l = f.label.toLowerCase();
+    return l.includes('children') && !l.includes('ages');
+  });
+  const agesField = formData.fields.find((f) =>
+    f.label.toLowerCase().includes('ages')
+  );
+  const childrenValue = watch(
+    childrenField ? `input_${childrenField.id}` : ''
+  );
+  const childrenCount = Number(childrenValue) || 0;
+  const showAgesField = childrenCount > 1;
+
+  const visibleFields =
+    agesField && !showAgesField
+      ? formData.fields.filter((f) => f.id !== agesField.id)
+      : formData.fields;
+
+  const fieldRows = groupFields(visibleFields);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={cn('space-y-6', className)}>

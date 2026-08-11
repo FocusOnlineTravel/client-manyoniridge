@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
-import { Check, X, Users, Sparkles } from 'lucide-react';
+import { Check, X, Sparkles } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
 import { Button } from '@/components/ui/Button';
@@ -53,96 +54,30 @@ export default async function RatesDemoPage({
         Client demo · not for public distribution
       </div>
 
-      {/* Intro band */}
-      <Section background="cream" size="narrow">
-        <div className="text-center">
+      {/* Intro banner */}
+      <section className="relative w-full h-[55vh] min-h-[420px] max-h-[640px] flex items-end">
+        <Image
+          src="/images/offers-banner.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/85 via-primary-dark/45 to-primary-dark/20" />
+        <div className="relative z-10 w-full container-narrow pb-16 md:pb-20 text-center text-white">
           <p className="text-xs uppercase tracking-widest text-primary-gold mb-3">
             Rates &amp; Specials
           </p>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-medium text-primary-dark tracking-tight">
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight">
             Safari Rates
           </h1>
-          <p className="mt-6 text-lg text-gray-medium max-w-2xl mx-auto">
+          <p className="mt-6 text-lg text-white/85 max-w-2xl mx-auto">
             An intimate 9-villa lodge in Manyoni Private Game Reserve, KZN.
             All-inclusive luxury from February 2027.
           </p>
         </div>
-      </Section>
-
-      {/* Villa cards */}
-      <Section background="white">
-        <Heading
-          as="h2"
-          subtitle="Nine villas across three layouts. Every stay is fully inclusive."
-          centered
-        >
-          The Villas
-        </Heading>
-
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
-          {ratesDemo.villas.map((villa) => (
-            <div
-              key={villa.slug}
-              className="bg-white border border-gray-light flex flex-col"
-            >
-              {/* 3-slot image gallery */}
-              <div className="grid grid-cols-3 gap-1">
-                {villa.imageSlots.map((slot, i) => (
-                  <div
-                    key={i}
-                    className={cn(
-                      'aspect-[3/4] relative flex items-end justify-center p-2 text-center overflow-hidden',
-                      villa.placeholderClass,
-                      slot.isAmipod && 'ring-2 ring-primary-gold ring-inset'
-                    )}
-                    role="img"
-                    aria-label={slot.label}
-                  >
-                    <span className="text-[10px] leading-tight uppercase tracking-wider font-semibold text-primary-dark/70 bg-white/70 backdrop-blur-sm px-2 py-1 rounded">
-                      {slot.isAmipod && (
-                        <span className="block text-primary-gold text-[9px] mb-0.5">
-                          AMIPOD
-                        </span>
-                      )}
-                      {slot.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="p-6 flex flex-col flex-1">
-                <div className="flex items-baseline justify-between gap-3 mb-1">
-                  <h3 className="font-heading text-xl md:text-2xl font-medium text-primary-dark">
-                    {villa.title}
-                  </h3>
-                  <span className="text-xs uppercase tracking-wider text-primary-gold font-semibold shrink-0">
-                    {villa.count}
-                  </span>
-                </div>
-                <p className="flex items-center gap-1.5 text-sm text-gray-medium mb-4">
-                  <Users className="w-4 h-4" aria-hidden />
-                  {villa.capacity}
-                </p>
-                <ul className="text-sm text-gray-dark space-y-1.5 mt-auto">
-                  {villa.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2">
-                      <span
-                        className="mt-1.5 h-1 w-1 rounded-full bg-primary-gold shrink-0"
-                        aria-hidden
-                      />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <p className="text-center text-sm text-gray-medium mt-8 italic">
-          {ratesDemo.villasFootnote}
-        </p>
-      </Section>
+      </section>
 
       {/* Rates + Specials */}
       <Section background="cream" id="rates">
@@ -216,9 +151,22 @@ export default async function RatesDemoPage({
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <div
+              className={cn(
+                active.specials.length === 1
+                  ? 'flex justify-center'
+                  : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6'
+              )}
+            >
               {active.specials.map((s) => (
-                <Card key={s.headline} hover={false} className="border border-primary-gold/40 h-full">
+                <Card
+                  key={s.headline}
+                  hover={false}
+                  className={cn(
+                    'border border-primary-gold/40 h-full',
+                    active.specials.length === 1 && 'w-full max-w-md'
+                  )}
+                >
                   <CardContent className="flex flex-col h-full">
                     <span className="inline-flex items-center self-start bg-primary-gold text-primary-dark text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded mb-4">
                       Launch Special
@@ -355,20 +303,30 @@ export default async function RatesDemoPage({
       </Section>
 
       {/* Inline enquire CTA */}
-      <Section background="dark">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-medium mb-4">
-            Ready to plan your stay?
-          </h2>
-          <p className="text-white/80 mb-8">
-            Send us the dates you have in mind and we&apos;ll come back with
-            availability, a quote, and any tailoring we can offer.
-          </p>
-          <Button href="/contact" variant="primary" size="lg">
-            Make an Enquiry
-          </Button>
+      <section className="relative section-padding text-white overflow-hidden">
+        <Image
+          src="/images/reserve-cta.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-primary-dark/75" />
+        <div className="relative z-10 container-max">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="font-heading text-3xl md:text-4xl font-medium mb-4">
+              Ready to plan your stay?
+            </h2>
+            <p className="text-white/85 mb-8">
+              Send us the dates you have in mind and we&apos;ll come back with
+              availability, a quote, and any tailoring we can offer.
+            </p>
+            <Button href="/contact" variant="primary" size="lg">
+              Make an Enquiry
+            </Button>
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* Sticky mobile enquire bar */}
       <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-primary-dark/95 backdrop-blur border-t border-primary-gold/40 p-3 shadow-[0_-4px_16px_rgba(0,0,0,0.15)]">
