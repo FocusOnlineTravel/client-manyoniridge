@@ -181,7 +181,7 @@ export function RatesDisplay() {
         <div className="bg-primary-cream/60 border border-primary-gold/20 rounded-lg p-6">
           <p className="text-primary-dark font-medium mb-2">SADC Residents</p>
           <p className="text-sm text-gray-medium mb-4">
-            Special rates and a Stay 2 Nights, Pay for 1 offer are available for SADC residents (valid ID/passport required).
+            Special rates are available for residents of SADC countries.
           </p>
           <a
             href="/contact"
