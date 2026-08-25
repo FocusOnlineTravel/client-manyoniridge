@@ -1,8 +1,9 @@
 'use client';
 
 import Image from 'next/image';
+import { useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { m } from 'framer-motion';
+import { m, useScroll, useTransform } from 'framer-motion';
 import { cn, stripHtml } from '@/lib/utils';
 import { analytics } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
@@ -36,30 +37,46 @@ export function CTASection({
   placeholderClass = 'placeholder-safari',
   imageSrc,
 }: CTASectionProps) {
-  const { ref, inView } = useInView({
+  const { ref: inViewRef, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
   });
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const setSectionRef = (el: HTMLElement | null) => {
+    sectionRef.current = el;
+    inViewRef(el);
+  };
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  const parallaxY = useTransform(scrollYProgress, [0, 1], ['-12%', '12%']);
 
   if (background === 'image') {
     return (
       <section
-        ref={ref}
+        ref={setSectionRef}
         className={cn(
-          'relative py-28 md:py-44',
+          'relative overflow-hidden py-36 md:py-56',
           !imageSrc && placeholderClass
         )}
       >
         {imageSrc && (
-          <Image
-            src={imageSrc}
-            alt={title}
-            fill
-            className="object-cover object-top"
-            sizes="100vw"
-          />
+          <m.div
+            style={{ y: parallaxY }}
+            className="absolute inset-x-0 -top-[15%] -bottom-[15%] will-change-transform"
+            aria-hidden
+          >
+            <Image
+              src={imageSrc}
+              alt={title}
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+          </m.div>
         )}
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-black/25" />
         <div className="relative z-10 container-max text-center">
           <m.div
             initial={{ opacity: 0, y: 30 }}
@@ -96,7 +113,7 @@ export function CTASection({
 
   return (
     <section
-      ref={ref}
+      ref={setSectionRef}
       className={cn(
         'section-padding',
         background === 'gold' ? 'bg-primary-gold' : 'bg-primary-dark'

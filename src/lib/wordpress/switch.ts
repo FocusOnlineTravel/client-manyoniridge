@@ -72,7 +72,7 @@ function mergeSectionWithFallback(wpSection: Section, localSection?: Section): S
   // Fields to always prefer from local data (override WordPress)
   // roomSlugs/activitySlugs override because WP may use different slug naming
   // heading override because WP may have null headingTitle/headingSubtitle
-  const overrideFields = ['size', 'showScrollIndicator', 'scrollToId', 'id', 'roomSlugs', 'activitySlugs', 'heading', 'features', 'variant', 'layout'];
+  const overrideFields = ['size', 'showScrollIndicator', 'scrollToId', 'id', 'roomSlugs', 'activitySlugs', 'heading', 'variant', 'layout'];
 
   const mergedProps = { ...wpProps };
 

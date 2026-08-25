@@ -1,9 +1,18 @@
 export interface RateData {
   currency: string;
   currencySymbol: string;
-  perPersonSharing: number;
-  singleSupplement: number; // percentage
-  luxVillaUnit: number;
+  oneBedroom: {
+    perPersonSharing: number;
+    singleSupplement: number;
+  };
+  twoBedroom: {
+    perPerson: number;
+    minAdults: number;
+  };
+  honeymoon: {
+    perPersonSharing: number;
+    singleSupplement: number;
+  };
   exclusiveUse: {
     rate: number;
     capacity: number;
@@ -14,22 +23,29 @@ export interface RateData {
 export const rates: RateData = {
   currency: 'ZAR',
   currencySymbol: 'R',
-  perPersonSharing: 15000,
-  singleSupplement: 50,
-  luxVillaUnit: 55000,
+  oneBedroom: {
+    perPersonSharing: 11500,
+    singleSupplement: 17250,
+  },
+  twoBedroom: {
+    perPerson: 11500,
+    minAdults: 3,
+  },
+  honeymoon: {
+    perPersonSharing: 12500,
+    singleSupplement: 18750,
+  },
   exclusiveUse: {
-    rate: 300000,
+    rate: 210000,
     capacity: 24,
   },
   notes: [
-    'All rates are per night',
-    'All inclusive (accommodation, meals, selected beverages, two game drives daily)',
-    'Premium alcohol excluded',
-    'Children under 6 permitted on a private vehicle only. (Private vehicle rates on request)',
-    'Exclusive use rate applies to corporate bookings',
+    'All rates are per night, quoted in ZAR and include 15% VAT',
+    'Based on a minimum stay of two consecutive nights',
+    'All-inclusive: accommodation, meals, selected beverages, two daily game drives',
+    'Two-Bedroom Villa: minimum charge of 3 adults per villa; up to 2 additional children at 50%',
+    'Children up to 5 stay free · ages 6–11 pay 50% · 12 and older pay the full adult rate',
+    'Conservation levy: R200 per adult per night, R100 per child (under 13) per night',
+    'Excludes premium beverages, road transfers, spa treatments, and gratuities',
   ],
 };
-
-export function calculateSingleRate(rate: RateData): number {
-  return Math.round(rate.perPersonSharing * (1 + rate.singleSupplement / 100));
-}
