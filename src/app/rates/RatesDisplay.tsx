@@ -1,9 +1,11 @@
-import { rates, calculateSingleRate } from '@/lib/data/rates';
+import { rates } from '@/lib/data/rates';
 import { Check } from 'lucide-react';
 
-export function RatesDisplay() {
-  const singleRate = calculateSingleRate(rates);
+function formatZAR(amount: number): string {
+  return `${rates.currencySymbol}${amount.toLocaleString('en-ZA').replace(/,/g, ' ')}`;
+}
 
+export function RatesDisplay() {
   return (
     <div className="space-y-12">
       {/* Villa Rates */}
@@ -12,31 +14,33 @@ export function RatesDisplay() {
           Villa Rates
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* One Bedroom Villa */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {/* One-Bedroom Luxury Villa */}
           <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
-            <h3 className="font-heading text-2xl text-primary-dark mb-2">Villa</h3>
-            <p className="text-gray-medium text-sm mb-6">One Bedroom</p>
+            <h3 className="font-heading text-2xl text-primary-dark mb-2">
+              One-Bedroom Luxury Villa
+            </h3>
+            <p className="text-gray-medium text-sm mb-6">Up to 2 adults + 1 child</p>
 
             <div className="mb-6">
               <div className="flex items-baseline gap-2 mb-2">
                 <span className="text-4xl font-heading text-primary-gold">
-                  {rates.currencySymbol}{rates.perPersonSharing.toLocaleString()}
+                  {formatZAR(rates.oneBedroom.perPersonSharing)}
                 </span>
                 <span className="text-gray-medium text-sm">per person sharing</span>
               </div>
               <div className="flex items-baseline gap-2">
                 <span className="text-2xl font-heading text-primary-dark">
-                  {rates.currencySymbol}{singleRate.toLocaleString()}
+                  {formatZAR(rates.oneBedroom.singleSupplement)}
                 </span>
-                <span className="text-gray-medium text-sm">single occupancy</span>
+                <span className="text-gray-medium text-sm">single supplement</span>
               </div>
             </div>
 
             <div className="space-y-2 text-sm text-gray-medium">
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-primary-gold flex-shrink-0" />
-                <span>All inclusive</span>
+                <span>All-inclusive</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-primary-gold flex-shrink-0" />
@@ -44,50 +48,84 @@ export function RatesDisplay() {
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-primary-gold flex-shrink-0" />
-                <span>All meals included</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-primary-gold flex-shrink-0" />
-                <span>Selected beverages</span>
+                <span>Private outdoor hot tub</span>
               </div>
             </div>
           </div>
 
-          {/* Two Bedroom Lux Villa */}
+          {/* Two-Bedroom Luxury Villa */}
           <div className="bg-white border-2 border-primary-gold rounded-lg p-8 shadow-md relative">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary-gold text-white px-4 py-1 rounded-full text-sm font-medium">
               Family Choice
             </div>
 
-            <h3 className="font-heading text-2xl text-primary-dark mb-2">Lux Villa</h3>
-            <p className="text-gray-medium text-sm mb-6">Two Bedroom</p>
+            <h3 className="font-heading text-2xl text-primary-dark mb-2">
+              Two-Bedroom Luxury Villa
+            </h3>
+            <p className="text-gray-medium text-sm mb-6">Up to 4 adults + 2 children</p>
 
             <div className="mb-6">
               <div className="flex items-baseline gap-2 mb-2">
                 <span className="text-4xl font-heading text-primary-gold">
-                  {rates.currencySymbol}{rates.luxVillaUnit.toLocaleString()}
+                  {formatZAR(rates.twoBedroom.perPerson)}
                 </span>
-                <span className="text-gray-medium text-sm">per unit</span>
+                <span className="text-gray-medium text-sm">per person</span>
               </div>
-              <p className="text-sm text-gray-medium">Sleeps up to 4 guests</p>
+              <p className="text-sm text-gray-medium">
+                Minimum {rates.twoBedroom.minAdults} adults per villa · children at 50%
+              </p>
             </div>
 
             <div className="space-y-2 text-sm text-gray-medium">
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-primary-gold flex-shrink-0" />
-                <span>All inclusive</span>
+                <span>All-inclusive</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-primary-gold flex-shrink-0" />
-                <span>Two game drives daily</span>
+                <span>Two king en-suite bedrooms</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-primary-gold flex-shrink-0" />
-                <span>All meals included</span>
+                <span>Heated private plunge pool</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Honeymoon Villa */}
+          <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
+            <h3 className="font-heading text-2xl text-primary-dark mb-2">
+              Honeymoon Villa
+            </h3>
+            <p className="text-gray-medium text-sm mb-6">Up to 2 adults + 1 child</p>
+
+            <div className="mb-6">
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-4xl font-heading text-primary-gold">
+                  {formatZAR(rates.honeymoon.perPersonSharing)}
+                </span>
+                <span className="text-gray-medium text-sm">per person sharing</span>
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl font-heading text-primary-dark">
+                  {formatZAR(rates.honeymoon.singleSupplement)}
+                </span>
+                <span className="text-gray-medium text-sm">single supplement</span>
+              </div>
+            </div>
+
+            <div className="space-y-2 text-sm text-gray-medium">
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary-gold flex-shrink-0" />
+                <span>Premium waterhole views</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-primary-gold flex-shrink-0" />
-                <span>Private heated plunge pool</span>
+                <span>Private outdoor hot tub &amp; spa bath</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary-gold flex-shrink-0" />
+                <span>All-inclusive</span>
               </div>
             </div>
           </div>
@@ -107,12 +145,12 @@ export function RatesDisplay() {
           <div className="text-center mb-6">
             <div className="flex items-baseline justify-center gap-2 mb-2">
               <span className="text-5xl font-heading text-primary-gold">
-                {rates.currencySymbol}{rates.exclusiveUse.rate.toLocaleString()}
+                {formatZAR(rates.exclusiveUse.rate)}
               </span>
               <span className="text-gray-medium">per night</span>
             </div>
             <p className="text-sm text-gray-medium">
-              Accommodates up to {rates.exclusiveUse.capacity} guests
+              Up to {rates.exclusiveUse.capacity} guests sharing
             </p>
           </div>
 
@@ -143,7 +181,7 @@ export function RatesDisplay() {
         <div className="bg-primary-cream/60 border border-primary-gold/20 rounded-lg p-6">
           <p className="text-primary-dark font-medium mb-2">SADC Residents</p>
           <p className="text-sm text-gray-medium mb-4">
-            Special rates are available for residents of SADC countries.
+            Special rates and a Stay 2 Nights, Pay for 1 offer are available for SADC residents (valid ID/passport required).
           </p>
           <a
             href="/contact"

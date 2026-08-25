@@ -71,39 +71,41 @@ export function TierYearToggle({ tier, year }: TierYearToggleProps) {
         })}
       </div>
 
-      {/* Year selector */}
-      <div className="flex items-center gap-2">
-        <span className="text-xs uppercase tracking-wider text-gray-medium mr-1 hidden sm:inline">
-          Year
-        </span>
-        <div
-          role="tablist"
-          aria-label="Rate year"
-          className="inline-flex border border-primary-dark/15 rounded-full overflow-hidden"
-        >
-          {RATES_YEARS.map((y) => {
-            const active = year === y;
-            return (
-              <button
-                key={y}
-                type="button"
-                role="tab"
-                aria-selected={active}
-                onClick={() => update({ year: y })}
-                className={cn(
-                  'px-5 sm:px-6 py-2 text-sm font-semibold tracking-wide transition-colors duration-200 cursor-pointer',
-                  'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-gold focus-visible:ring-inset',
-                  active
-                    ? 'bg-primary-gold text-primary-dark'
-                    : 'bg-white text-primary-dark hover:bg-primary-cream/40'
-                )}
-              >
-                {y}
-              </button>
-            );
-          })}
+      {/* Year selector — hidden while only a single year is published */}
+      {RATES_YEARS.length > 1 && (
+        <div className="flex items-center gap-2">
+          <span className="text-xs uppercase tracking-wider text-gray-medium mr-1 hidden sm:inline">
+            Year
+          </span>
+          <div
+            role="tablist"
+            aria-label="Rate year"
+            className="inline-flex border border-primary-dark/15 rounded-full overflow-hidden"
+          >
+            {RATES_YEARS.map((y) => {
+              const active = year === y;
+              return (
+                <button
+                  key={y}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => update({ year: y })}
+                  className={cn(
+                    'px-5 sm:px-6 py-2 text-sm font-semibold tracking-wide transition-colors duration-200 cursor-pointer',
+                    'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-gold focus-visible:ring-inset',
+                    active
+                      ? 'bg-primary-gold text-primary-dark'
+                      : 'bg-white text-primary-dark hover:bg-primary-cream/40'
+                  )}
+                >
+                  {y}
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
