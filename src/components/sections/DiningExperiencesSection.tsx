@@ -26,10 +26,13 @@ export function DiningExperiencesSection({
         </Heading>
       )}
 
-      <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${heading ? 'mt-12' : ''}`}>
+      <div className={`flex flex-wrap justify-center gap-8 ${heading ? 'mt-12' : ''}`}>
         {experiences.map((experience, index) => (
-          <div key={index} className="text-center">
-            {experience.imageSrc ? (
+          <div
+            key={index}
+            className="text-center w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)]"
+          >
+            {experience.imageSrc && (
               <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
                 <Image
                   src={experience.imageSrc}
@@ -39,10 +42,6 @@ export function DiningExperiencesSection({
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-            ) : (
-              <div
-                className={`h-48 mb-4 rounded-lg ${experience.placeholder || 'bg-gray-200'}`}
-              />
             )}
             <h3 className="font-heading text-xl text-primary-dark font-medium mb-2">
               {experience.title}
