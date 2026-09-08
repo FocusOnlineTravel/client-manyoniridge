@@ -196,10 +196,13 @@ export default function RoomDetailPage({ params }: PageProps) {
                 {room.amenities.map((amenity, index) => (
                   <li
                     key={index}
-                    className="flex items-center gap-2 text-sm text-gray-medium"
+                    className="flex items-start gap-2 text-sm text-gray-medium"
                   >
-                    <span className="w-1.5 h-1.5 bg-primary-gold rounded-full" />
-                    {amenity}
+                    <span className="mt-1.5 w-1.5 h-1.5 bg-primary-gold rounded-full flex-shrink-0" />
+                    <span
+                      className="[&_a]:text-primary-gold [&_a]:underline hover:[&_a]:text-primary-dark"
+                      dangerouslySetInnerHTML={{ __html: amenity }}
+                    />
                   </li>
                 ))}
               </ul>

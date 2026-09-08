@@ -113,16 +113,28 @@ export function Footer() {
               Plan
             </h3>
             <ul className="space-y-3">
-              {FOOTER_LINKS.plan.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 text-sm hover:text-primary-gold transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {FOOTER_LINKS.plan.map((link) => {
+                const isExternal = link.href.startsWith('http');
+                const className = 'text-gray-400 text-sm hover:text-primary-gold transition-colors';
+                return (
+                  <li key={link.label}>
+                    {isExternal ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={className}
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link href={link.href} className={className}>
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

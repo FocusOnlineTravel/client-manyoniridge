@@ -7,9 +7,17 @@ import { m, useScroll, useTransform } from 'framer-motion';
 import { cn, stripHtml } from '@/lib/utils';
 import { analytics } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
+import { BOOKING_ENGINE_URL } from '@/lib/constants';
 
 function trackCta(href: string, label: string) {
-  if (href === '/contact' || href === '/reserve' || href.startsWith('/contact')) {
+  const isBookingEngine =
+    href === BOOKING_ENGINE_URL || href.startsWith('https://services.semper.co.za/BookingEngine');
+  if (
+    href === '/contact' ||
+    href === '/reserve' ||
+    href.startsWith('/contact') ||
+    isBookingEngine
+  ) {
     analytics.reserveClick(`cta_section:${label}`);
   }
 }

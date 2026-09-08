@@ -140,7 +140,7 @@ export default function ContactPage() {
                 Opening
               </span>
               <span className="text-sm text-primary-dark">
-                Manyoni Ridge welcomes its first guests in February 2027.
+                Manyoni Ridge welcomes its first guests in March 2027.
               </span>
             </div>
             <Tabs tabs={tabs} />

@@ -19,6 +19,7 @@ export function RoomCard({ room, index = 0, variant = 'default' }: RoomCardProps
     threshold: 0.1,
     triggerOnce: true,
   });
+  const cardImage = room.heroImage || room.images?.[0];
 
   return (
     <m.article
@@ -41,12 +42,12 @@ export function RoomCard({ room, index = 0, variant = 'default' }: RoomCardProps
           className={cn(
             'relative overflow-hidden',
             variant === 'default' ? 'aspect-[4/3]' : 'aspect-[4/3] lg:aspect-auto lg:min-h-[400px]',
-            !room.images || room.images.length === 0 ? room.placeholderClass : ''
+            !cardImage ? room.placeholderClass : ''
           )}
         >
-          {room.images && room.images.length > 0 && (
+          {cardImage && (
             <Image
-              src={room.images[0]}
+              src={cardImage}
               alt={room.title}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"

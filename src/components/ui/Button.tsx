@@ -7,6 +7,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'outline-light' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
+  target?: React.HTMLAttributeAnchorTarget;
+  rel?: string;
   isLoading?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
@@ -38,6 +40,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       variant = 'primary',
       size = 'md',
       href,
+      target,
+      rel,
       isLoading,
       leftIcon,
       rightIcon,
@@ -67,9 +71,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     );
 
     if (href && !disabled) {
+      const resolvedRel =
+        rel ?? (target === '_blank' ? 'noopener noreferrer' : undefined);
       return (
         <Link
           href={href}
+          target={target}
+          rel={resolvedRel}
           className={baseStyles}
           onClick={onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
         >
