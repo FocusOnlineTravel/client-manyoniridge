@@ -14,6 +14,10 @@ export const CONTACT = {
   location: 'Manyoni Private Game Reserve, North-Eastern KwaZulu-Natal, South Africa',
 } as const;
 
+export const BOOKING_ENGINE_URL =
+  process.env.NEXT_PUBLIC_BOOKING_ENGINE_URL ??
+  'https://services.semper.co.za/BookingEngine/full-layout/date-selection?VenueID=10362&ChannelID=1';
+
 export const SOCIAL_LINKS = {
   instagram: 'https://instagram.com/manyoniridge',
   facebook: 'https://facebook.com/manyoniridge',
@@ -58,7 +62,7 @@ export const FOOTER_LINKS = {
   plan: [
     { href: '/contact', label: 'Contact Us' },
     { href: '/rates', label: 'Rates & Packages' },
-    { href: '/contact', label: 'Bookings' },
+    { href: BOOKING_ENGINE_URL, label: 'Bookings' },
     { href: '/contact#directions', label: 'Getting Here' },
   ],
   legal: [

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { X, Phone, Mail, Instagram, Facebook } from 'lucide-react';
 import { m, AnimatePresence } from 'framer-motion';
-import { MOBILE_NAV_LINKS, CONTACT, SOCIAL_LINKS, SITE_CONFIG } from '@/lib/constants';
+import { MOBILE_NAV_LINKS, CONTACT, SOCIAL_LINKS, SITE_CONFIG, BOOKING_ENGINE_URL } from '@/lib/constants';
 import { analytics } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
 import { NavLink } from '@/lib/types';
@@ -104,17 +104,26 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="mt-6"
+                  className="mt-6 flex flex-col gap-3"
                 >
                   <Button
-                    href="/contact"
+                    href={BOOKING_ENGINE_URL}
+                    target="_blank"
                     onClick={() => {
                       analytics.reserveClick('mobile_menu');
                       onClose();
                     }}
                     className="w-full text-sm"
                   >
-                    Enquire Now
+                    Book Now
+                  </Button>
+                  <Button
+                    href="/contact"
+                    variant="outline-light"
+                    onClick={onClose}
+                    className="w-full text-sm"
+                  >
+                    Enquire
                   </Button>
                 </m.div>
               </nav>

@@ -286,6 +286,7 @@ export function GravityFormRenderer({
             <div key={field.id} className="space-y-2">
               <Checkbox
                 label="Yes, I'd like to receive updates and special offers from Manyoni Ridge"
+                defaultChecked
                 {...register(`${fieldName}.0`)}
               />
               {errors[fieldName] && (

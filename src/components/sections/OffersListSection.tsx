@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { BOOKING_ENGINE_URL } from '@/lib/constants';
 import { OffersListSectionProps } from '@/lib/types';
 
 /**
@@ -54,7 +55,7 @@ export function OffersListSection({ offers, background = 'white' }: OffersListSe
 
               <p className="text-sm text-gray-500 mb-4">Valid until: {offer.validUntil}</p>
 
-              <Button href="/contact">Book This Offer</Button>
+              <Button href={BOOKING_ENGINE_URL} target="_blank">Book This Offer</Button>
             </div>
 
             <div className={`relative h-96 rounded-lg overflow-hidden ${index % 2 === 1 ? 'lg:order-1' : ''}`}>

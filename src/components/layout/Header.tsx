@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, Phone } from 'lucide-react';
-import { NAV_LINKS, MOBILE_NAV_LINKS, CONTACT } from '@/lib/constants';
+import { NAV_LINKS, MOBILE_NAV_LINKS, CONTACT, BOOKING_ENGINE_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { analytics } from '@/lib/analytics';
 import { MobileMenu } from './MobileMenu';
@@ -104,12 +104,21 @@ export function Header({ navLinks, mobileNavLinks }: HeaderProps) {
                 <span className="hidden xl:inline">{CONTACT.phone}</span>
               </a>
               <Button
-                href="/contact"
+                href={BOOKING_ENGINE_URL}
+                target="_blank"
                 size="sm"
                 className="hidden lg:inline-flex"
                 onClick={() => analytics.reserveClick('header')}
               >
-                Enquire Now
+                Book Now
+              </Button>
+              <Button
+                href="/contact"
+                variant="outline-light"
+                size="sm"
+                className="hidden lg:inline-flex"
+              >
+                Enquire
               </Button>
 
               {/* Menu Button - Always visible */}
