@@ -18,6 +18,12 @@ export const BOOKING_ENGINE_URL =
   process.env.NEXT_PUBLIC_BOOKING_ENGINE_URL ??
   'https://services.semper.co.za/BookingEngine/full-layout/date-selection?VenueID=10362&ChannelID=1&Day=01&Month=03&Year=2027';
 
+export const DOWNLOADS = {
+  brochure: { href: '/pdfs/manyoni-brochure.pdf', label: 'Brochure' },
+  factSheet: { href: '/pdfs/manyoni-fact-sheet.pdf', label: 'Fact Sheet' },
+  rateSheet: { href: '/pdfs/manyoni-rate-sheet-2027.pdf', label: '2027 Rate Sheet' },
+} as const;
+
 export const SOCIAL_LINKS = {
   instagram: 'https://instagram.com/manyoniridge',
   facebook: 'https://facebook.com/manyoniridge',
@@ -64,6 +70,11 @@ export const FOOTER_LINKS = {
     { href: '/rates', label: 'Rates & Packages' },
     { href: BOOKING_ENGINE_URL, label: 'Bookings' },
     { href: '/contact#directions', label: 'Getting Here' },
+  ],
+  downloads: [
+    DOWNLOADS.brochure,
+    DOWNLOADS.factSheet,
+    DOWNLOADS.rateSheet,
   ],
   legal: [
     { href: '/privacy-policy', label: 'Privacy Policy' },
