@@ -4,12 +4,10 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
+import { ImageLightbox } from '@/components/ui/ImageLightbox';
 import { GallerySectionProps } from '@/lib/types';
 import { cn } from '@/lib/utils';
 
-/**
- * GallerySection - Display filterable image gallery
- */
 export function GallerySection({
   heading,
   items,
@@ -17,6 +15,8 @@ export function GallerySection({
   background = 'white',
 }: GallerySectionProps) {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const sectionBackground =
     background === 'primary-dark'
@@ -25,10 +25,21 @@ export function GallerySection({
         ? 'white'
         : background;
 
+  // Filter out any editor-supplied "all" entry — the All button is rendered here.
+  const definedCategories = (categories ?? []).filter((c) => c.id !== 'all');
+
   const filteredItems =
     selectedCategory === 'all'
       ? items
       : items.filter((item) => item.category === selectedCategory);
+
+  const buttonClasses = (isActive: boolean) =>
+    cn(
+      'px-4 py-2 text-sm font-medium uppercase tracking-wider transition-colors',
+      isActive
+        ? 'bg-primary-gold text-primary-dark'
+        : 'bg-gray-light text-gray-medium hover:bg-primary-cream'
+    );
 
   return (
     <Section background={sectionBackground}>
@@ -38,29 +49,19 @@ export function GallerySection({
         </Heading>
       )}
 
-      {categories && categories.length > 0 && (
-        <div className={`flex flex-wrap justify-center gap-4 ${heading ? 'mt-8' : ''}`}>
+      {definedCategories.length > 0 && (
+        <div className={cn('flex flex-wrap justify-center gap-2 mb-12', heading ? 'mt-8' : '')}>
           <button
             onClick={() => setSelectedCategory('all')}
-            className={cn(
-              'px-6 py-2 rounded-full text-sm font-medium transition-colors',
-              selectedCategory === 'all'
-                ? 'bg-primary-gold text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-            )}
+            className={buttonClasses(selectedCategory === 'all')}
           >
             All
           </button>
-          {categories.map((category) => (
+          {definedCategories.map((category) => (
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={cn(
-                'px-6 py-2 rounded-full text-sm font-medium transition-colors',
-                selectedCategory === category.id
-                  ? 'bg-primary-gold text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              )}
+              className={buttonClasses(selectedCategory === category.id)}
             >
               {category.label}
             </button>
@@ -68,22 +69,46 @@ export function GallerySection({
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-        {filteredItems.map((item) => (
-          <div
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {filteredItems.map((item, index) => (
+          <button
             key={item.id}
-            className="relative aspect-[4/3] rounded-lg overflow-hidden group"
+            onClick={() => {
+              setLightboxIndex(index);
+              setLightboxOpen(true);
+            }}
+            className="aspect-square overflow-hidden group relative focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-gold"
+            aria-label={`View ${item.alt}`}
           >
             <Image
               src={item.image}
               alt={item.alt}
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover transition-transform group-hover:scale-110"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
-          </div>
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+              <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-sm font-medium">
+                View
+              </span>
+            </div>
+          </button>
         ))}
       </div>
+
+      {filteredItems.length === 0 && (
+        <p className="text-center text-gray-medium py-12">
+          No images found in this category.
+        </p>
+      )}
+
+      <ImageLightbox
+        images={filteredItems.map((item) => item.image)}
+        initialIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        alt="Gallery"
+      />
     </Section>
   );
 }

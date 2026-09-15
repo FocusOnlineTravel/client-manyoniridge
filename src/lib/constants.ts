@@ -16,7 +16,7 @@ export const CONTACT = {
 
 export const BOOKING_ENGINE_URL =
   process.env.NEXT_PUBLIC_BOOKING_ENGINE_URL ??
-  'https://services.semper.co.za/BookingEngine/full-layout/date-selection?VenueID=10362&ChannelID=1';
+  'https://services.semper.co.za/BookingEngine/full-layout/date-selection?VenueID=10362&ChannelID=1&Day=01&Month=03&Year=2027';
 
 export const SOCIAL_LINKS = {
   instagram: 'https://instagram.com/manyoniridge',
