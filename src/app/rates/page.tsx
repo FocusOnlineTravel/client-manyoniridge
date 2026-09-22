@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import { Download } from 'lucide-react';
 import { HeroImage } from '@/components/sections/HeroImage';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
 import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
 import { buildStaticMetadata } from '@/lib/metadata';
+import { DOWNLOADS } from '@/lib/constants';
 import { RatesDisplay } from './RatesDisplay';
 
 const breadcrumbSchema = {
@@ -56,6 +58,27 @@ export default function RatesPage() {
         >
           Our Rates
         </Heading>
+
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={DOWNLOADS.rateSheet.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-primary-gold text-white px-6 py-3 rounded hover:bg-primary-gold/90 transition-colors"
+          >
+            <Download className="w-4 h-4" />
+            Download {DOWNLOADS.rateSheet.label}
+          </a>
+          <a
+            href={DOWNLOADS.factSheet.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-white text-primary-gold border border-primary-gold px-6 py-3 rounded hover:bg-primary-gold/5 transition-colors"
+          >
+            <Download className="w-4 h-4" />
+            Download {DOWNLOADS.factSheet.label}
+          </a>
+        </div>
 
         <div className="mt-12">
           <RatesDisplay />

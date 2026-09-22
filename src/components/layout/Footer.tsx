@@ -25,7 +25,7 @@ export function Footer() {
 
       {/* Main Footer */}
       <div className="w-full px-6 md:px-12 lg:px-16 section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8">
           {/* Brand Column */}
           <div className="md:col-span-2 lg:col-span-1">
             <Link
@@ -135,6 +135,27 @@ export function Footer() {
                   </li>
                 );
               })}
+            </ul>
+          </div>
+
+          {/* Downloads */}
+          <div>
+            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
+              Downloads
+            </h3>
+            <ul className="space-y-3">
+              {FOOTER_LINKS.downloads.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 text-sm hover:text-primary-gold transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
