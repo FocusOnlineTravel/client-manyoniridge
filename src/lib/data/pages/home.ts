@@ -121,7 +121,7 @@ export const homePage: PageDefinition = {
     {
       type: 'activity_cards_section',
       props: {
-        activitySlugs: ['game-drives', 'rhino-orphanage', 'pangolin-experiences'],
+        activitySlugs: ['game-drives', 'rhino-orphanage', 'walking-safaris'],
         heading: {
           title: 'Safari Activities',
           subtitle:
