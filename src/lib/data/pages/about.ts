@@ -45,7 +45,7 @@ export const aboutPage: PageDefinition = {
         subtitle: 'The Beginning',
         title: 'A Dream Realized',
         description:
-          'Manyoni Ridge emerged from years of planning and a deep love for the African bush. Set within the renowned Manyoni Private Game Reserve, our lodge represents a new chapter in sustainable luxury tourism in KwaZulu-Natal. Every aspect of our design and operation reflects our commitment to conservation, community, and unforgettable guest experiences.',
+          'Manyoni Ridge emerged from years of planning and a deep love for the African bush. Set within the renowned Manyoni Private Game Reserve, our lodge represents a new chapter in luxury safari tourism in KwaZulu-Natal. Every aspect of our design and operation reflects our commitment to conservation, community, and unforgettable guest experiences.',
         imageSrc: '/images/2-bed 1.jpg',
         imagePosition: 'left',
       },
@@ -78,7 +78,7 @@ export const aboutPage: PageDefinition = {
           {
             title: 'Community',
             description:
-              'Supporting local communities through employment, education, and sustainable development.',
+              'Supporting local communities through employment, education, and community development.',
           },
         ],
         columns: 4,
@@ -111,9 +111,9 @@ export const aboutPage: PageDefinition = {
       type: 'opening_info',
       props: {
         subtitle: 'Coming Soon',
-        title: 'Opening November 2026',
+        title: 'Opening April 2027',
         description:
-          'Manyoni Ridge Safari Lodge is currently under construction and will welcome its first guests in November 2026. We invite you to register your interest and be among the first to experience our new lodge.',
+          'Manyoni Ridge Safari Lodge is currently under construction and will welcome its first guests in April 2027. We invite you to register your interest and be among the first to experience our new lodge.',
         imageSrc: '/images/2-bed 6.jpg',
         background: 'white',
       },

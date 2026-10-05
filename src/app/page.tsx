@@ -11,7 +11,7 @@ const homeSchema = {
   "@type": "LodgingBusiness",
   "name": "Manyoni Ridge Safari Lodge",
   "alternateName": "Manyoni Ridge",
-  "description": "Boutique luxury safari lodge in Manyoni Private Game Reserve, KwaZulu-Natal. Offering Big 5 game drives, 9 exclusive suites, all-inclusive luxury experiences, and conservation-focused activities. Opening November 2026.",
+  "description": "Boutique luxury safari lodge in Manyoni Private Game Reserve, KwaZulu-Natal. Offering Big 5 game drives, 9 exclusive suites, all-inclusive luxury experiences, and conservation-focused activities. Opening April 2027.",
   "url": "https://www.manyoniridge.com",
   "telephone": "+27828920598",
   "email": "enquiries@manyoniridge.com",
@@ -52,7 +52,7 @@ const homeSchema = {
   ],
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
-    "validFrom": "2026-11-01",
+    "validFrom": "2027-04-01",
     "opens": "00:00",
     "closes": "23:59",
     "dayOfWeek": [
@@ -74,13 +74,13 @@ const breadcrumbSchema = {
   ]
 };
 
-// TODO: Remove this schema when the lodge opens (November 2026)
+// TODO: Remove this schema when the lodge opens (April 2027)
 const openingEventSchema = {
   "@context": "https://schema.org",
   "@type": "Event",
   "name": "Manyoni Ridge Safari Lodge — Grand Opening",
   "description": "The grand opening of Manyoni Ridge, a boutique luxury Big 5 safari lodge in Manyoni Private Game Reserve, KwaZulu-Natal. 9 exclusive suites, all-inclusive luxury, expert guides, and unforgettable wildlife encounters.",
-  "startDate": "2026-11-01",
+  "startDate": "2027-04-01",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
