@@ -71,7 +71,7 @@ export function Footer() {
 
           {/* Experience Links */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
+            <h3 className="font-heading !text-[1.5rem] font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
               Experience
             </h3>
             <ul className="space-y-3">
@@ -90,7 +90,7 @@ export function Footer() {
 
           {/* Discover Links */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
+            <h3 className="font-heading !text-[1.5rem] font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
               Discover
             </h3>
             <ul className="space-y-3">
@@ -109,7 +109,7 @@ export function Footer() {
 
           {/* Plan Links */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
+            <h3 className="font-heading !text-[1.5rem] font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
               Plan
             </h3>
             <ul className="space-y-3">
@@ -140,7 +140,7 @@ export function Footer() {
 
           {/* Downloads */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
+            <h3 className="font-heading !text-[1.5rem] font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
               Downloads
             </h3>
             <ul className="space-y-3">
@@ -161,7 +161,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-heading text-base font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
+            <h3 className="font-heading !text-[1.5rem] font-semibold mb-4 pb-2 border-b border-primary-gold/30 uppercase tracking-wider !text-white">
               Contact
             </h3>
             <ul className="space-y-3">
