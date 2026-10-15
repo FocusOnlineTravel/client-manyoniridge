@@ -135,9 +135,9 @@ export const reservePage: PageDefinition = {
         },
         features: [
           {
-            title: 'Eco-Conscious Design',
+            title: 'Thoughtful Design',
             description:
-              'Our lodge is designed to minimize environmental impact, using sustainable materials and solar energy.',
+              'Our lodge is designed to minimize environmental impact, using locally-sourced materials and solar energy.',
           },
           {
             title: 'Water Conservation',
@@ -147,7 +147,7 @@ export const reservePage: PageDefinition = {
           {
             title: 'Community Partnership',
             description:
-              'We support local communities through employment, education, and sustainable development programs.',
+              'We support local communities through employment, education, and community development programmes.',
           },
           {
             title: 'Wildlife Corridors',

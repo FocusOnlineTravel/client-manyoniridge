@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
   name: 'Manyoni Ridge',
   tagline: 'Intimate Luxury in the Wild',
-  description: 'Experience intimate luxury at Manyoni Ridge Safari Lodge. Boutique accommodation in the heart of Manyoni Private Game Reserve, KwaZulu-Natal. Opening November 2026.',
-  opening: 'November 2026',
+  description: 'Experience intimate luxury at Manyoni Ridge Safari Lodge. Boutique accommodation in the heart of Manyoni Private Game Reserve, KwaZulu-Natal. Opening April 2027.',
+  opening: 'April 2027',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.manyoniridge.com',
 } as const;
 
@@ -21,7 +21,7 @@ export const BOOKING_ENGINE_URL =
 export const DOWNLOADS = {
   brochure: { href: '/pdfs/manyoni-brochure.pdf', label: 'Brochure' },
   factSheet: { href: '/pdfs/manyoni-fact-sheet.pdf', label: 'Fact Sheet' },
-  rateSheet: { href: '/pdfs/manyoni-rate-sheet-2027.pdf', label: '2027 Rate Sheet' },
+  rateSheet: { href: '/pdfs/manyoni-rate-sheet-2027-updated.pdf', label: '2027 Rate Sheet' },
 } as const;
 
 export const SOCIAL_LINKS = {

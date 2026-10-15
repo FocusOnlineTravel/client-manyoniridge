@@ -10,11 +10,11 @@ export const faqCategories: FAQCategory[] = [
       },
       {
         question: 'Is there a minimum stay requirement?',
-        answer: 'We recommend a minimum stay of 2 nights to fully experience Manyoni Ridge and the reserve. During peak seasons, a 3-night minimum may apply.',
+        answer: 'Yes, we require a minimum stay of 2 consecutive nights to fully experience Manyoni Ridge and the reserve.',
       },
       {
         question: 'What payment methods do you accept?',
-        answer: 'We accept all major credit cards (Visa, MasterCard, American Express), bank transfers, and cash in South African Rand. A 50% deposit is required to confirm your booking.',
+        answer: 'We accept all major credit cards (Visa, MasterCard, American Express), bank transfers, and PayFast. A 30% deposit is required to confirm your booking.',
       },
     ],
   },
@@ -23,15 +23,15 @@ export const faqCategories: FAQCategory[] = [
     items: [
       {
         question: 'What is your cancellation policy?',
-        answer: 'Cancellations made more than 30 days before arrival receive a full refund minus admin fees. Cancellations 15-30 days before arrival forfeit 50% of the deposit. Cancellations within 14 days of arrival forfeit the full deposit.',
+        answer: 'A non-refundable 30% deposit is required to secure your booking. Please refer to our full terms and conditions for complete cancellation details.',
       },
       {
         question: 'Can I reschedule my booking?',
-        answer: 'Yes, we understand plans can change. Rescheduling requests made more than 30 days before arrival are accommodated subject to availability at no additional charge. Requests within 30 days may incur a rebooking fee.',
+        answer: 'Rescheduling requests must be made in writing and will be considered on a case-by-case basis, subject to availability. Please contact our reservations team to discuss your requirements.',
       },
       {
-        question: 'Do you recommend travel insurance?',
-        answer: 'Yes, we strongly recommend comprehensive travel insurance that covers trip cancellation, medical expenses, and evacuation. Safari destinations can be remote, and insurance provides peace of mind.',
+        question: 'Is travel insurance required?',
+        answer: 'Yes, comprehensive travel insurance is compulsory for all guests. Your policy should cover trip cancellation, medical expenses, and emergency evacuation. Safari destinations can be remote, and adequate insurance is essential for your protection.',
       },
     ],
   },
@@ -40,15 +40,23 @@ export const faqCategories: FAQCategory[] = [
     items: [
       {
         question: 'Is Manyoni Ridge suitable for children?',
-        answer: 'Absolutely! Our Two Bedroom Suites are perfect for families. We offer dedicated family experiences, junior ranger programs, and child-friendly menus. Children must be supervised at all times due to the presence of wildlife.',
+        answer: 'Children of all ages are welcome at Manyoni Ridge. Our Two Bedroom Villas are perfect for families. We offer child-friendly menus and can arrange babysitting services with advance notice. Children must be supervised at all times due to the presence of wildlife.',
       },
       {
-        question: 'What age restrictions apply to activities?',
-        answer: 'Children under 6 are permitted on private vehicles only (rates available on request). Children 6 and older can enjoy all standard game drives. The Pangolin Experience has a minimum age of 12. Walking safaris require guests to be at least 16. Our family experiences are designed for children 4 and above.',
+        question: 'What age restrictions apply to game drives?',
+        answer: 'For safety reasons, children under 6 years are not permitted on standard game drives. Children aged 6-11 may join game drives at the discretion of lodge management and the assigned guide. For younger guests, we offer a child-friendly "Bumble" safari experience following the morning game drive, providing a fun and age-appropriate introduction to the bush.',
       },
       {
         question: 'Is babysitting available?',
-        answer: 'Yes, we can arrange qualified babysitting services with advance notice. This allows parents to enjoy activities unsuitable for younger children. Please inform us of your requirements when booking.',
+        answer: 'Yes, professional childcare services are available on request, subject to availability, should parents wish to enjoy activities independently. Please inform us of your requirements when booking.',
+      },
+      {
+        question: 'What are the supervision requirements for children?',
+        answer: 'All children under the age of 18 must be accompanied onto the lodge premises. Children under 14 must be supervised at all times while on site by a parent or guardian, unless a babysitter has been pre-arranged with the lodge.',
+      },
+      {
+        question: 'Are the pools safe for children?',
+        answer: 'Please note that our pools are unfenced and there is no lifeguard on duty. Extra caution must be taken by parents with children, and children may never swim alone. Parents and guardians are responsible for supervising children at all times around water.',
       },
     ],
   },
@@ -58,6 +66,18 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'What wildlife can we expect to see?',
         answer: 'Manyoni Private Game Reserve is home to the Big 5 (lion, leopard, elephant, rhino, and buffalo), as well as cheetah, giraffe, zebra, hippo, and numerous antelope species. Over 400 bird species have been recorded.',
+      },
+      {
+        question: 'Is the lodge fenced?',
+        answer: 'Yes, the lodge is fenced with an electric game fence. However, wild animals may still enter the property from time to time and roam the lodge grounds. Guests should always exercise caution when moving around the lodge premises, particularly at night.',
+      },
+      {
+        question: 'Can we interact with the wildlife?',
+        answer: 'No, all animals at Manyoni are wild and must never be touched or fed, whether encountered at the lodge or on the reserve. Please maintain a safe distance at all times and follow your guide\'s instructions during game activities.',
+      },
+      {
+        question: 'Are there snakes or other dangerous creatures?',
+        answer: 'As we are in the African bush, snakes and scorpions may be encountered. We recommend wearing long pants and closed shoes, especially at night and during safari activities. Always use a torch when walking at night and check your shoes before putting them on.',
       },
       {
         question: 'How many game drives are included?',
@@ -78,7 +98,7 @@ export const faqCategories: FAQCategory[] = [
       },
       {
         question: 'What is the weather like?',
-        answer: 'KwaZulu-Natal enjoys a subtropical climate. Summer temperatures range from 25-35°C with afternoon thunderstorms. Winter days are warm (20-28°C) but mornings and evenings can be cool (8-15°C). Pack layers year-round.',
+        answer: 'KwaZulu-Natal enjoys a subtropical climate. Summer temperatures range from 25-35°C with afternoon thunderstorms - we recommend applying sunscreen regularly, dressing appropriately for the heat, and staying well hydrated throughout your stay. Winter days are warm (20-28°C) but mornings and evenings can be cool (8-15°C). Pack layers year-round.',
       },
       {
         question: 'Is malaria a concern?',
