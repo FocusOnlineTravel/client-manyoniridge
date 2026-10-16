@@ -44,7 +44,7 @@ export const faqCategories: FAQCategory[] = [
       },
       {
         question: 'What age restrictions apply to game drives?',
-        answer: 'For safety reasons, children under 6 years are not permitted on standard game drives. Children aged 6-11 may join game drives at the discretion of lodge management and the assigned guide. For younger guests, we offer a child-friendly "Bumble" safari experience following the morning game drive, providing a fun and age-appropriate introduction to the bush.',
+        answer: 'For safety reasons, children under 6 years are not permitted on standard game drives. Children aged 6-11 may join game drives at the discretion of lodge management and the assigned guide. For children under 12, we offer a child-friendly "Bumble" safari experience after the game drive, providing a fun and age-appropriate introduction to the bush.',
       },
       {
         question: 'Is babysitting available?',
