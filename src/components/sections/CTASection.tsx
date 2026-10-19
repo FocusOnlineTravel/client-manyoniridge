@@ -11,7 +11,7 @@ import { BOOKING_ENGINE_URL } from '@/lib/constants';
 
 function trackCta(href: string, label: string) {
   const isBookingEngine =
-    href === BOOKING_ENGINE_URL || href.startsWith('https://services.semper.co.za/BookingEngine');
+    href === BOOKING_ENGINE_URL || href.startsWith('https://book.nightsbridge.com/');
   if (
     href === '/contact' ||
     href === '/reserve' ||
