@@ -50,7 +50,7 @@ export const galleryPage: PageDefinition = {
           { id: 6, category: 'wildlife', image: '/images/Birds and Wildlife/DSC00470.jpeg', alt: 'Wildlife on the reserve' },
           { id: 7, category: 'lodge', image: '/images/2-bed 5.jpg', alt: 'Dining area' },
           { id: 8, category: 'suites', image: '/images/1-bed 2.jpg', alt: 'Private suite with plunge pool' },
-          { id: 10, category: 'landscape', image: '/images/Birds and Wildlife/DSC00595.jpeg', alt: 'African landscape' },
+          { id: 10, category: 'landscape', image: '/images/Birds and Wildlife/DSC00595.png', alt: 'African landscape' },
           { id: 12, category: 'lodge', image: '/images/2-bed 8.jpg', alt: 'Lodge interior' },
           { id: 14, category: 'suites', image: '/images/2-bed 2.jpg', alt: 'Two bedroom suite' },
           { id: 16, category: 'landscape', image: '/images/Birds and Wildlife/DSC00631.jpeg', alt: 'African bush landscape' },

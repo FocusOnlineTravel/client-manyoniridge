@@ -124,7 +124,8 @@ function transformArray(arr: unknown[]): unknown[] {
       const transformed: Record<string, unknown> = {};
       for (const [k, v] of Object.entries(item as Record<string, unknown>)) {
         if (k === 'image' || k === 'imageSrc' || k.endsWith('Image')) {
-          transformed[k === 'image' ? 'imageSrc' : k] = getAcfImageUrl(v);
+          // Keep original key name - gallery items use 'image', other sections use 'imageSrc'
+          transformed[k] = getAcfImageUrl(v);
         } else if (Array.isArray(v)) {
           // Recursively transform nested arrays
           transformed[k] = transformArray(v);
