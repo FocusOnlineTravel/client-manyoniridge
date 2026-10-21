@@ -6,7 +6,7 @@ export const faqCategories: FAQCategory[] = [
     items: [
       {
         question: 'What is included in the rates?',
-        answer: 'Our all-inclusive rates cover accommodation, all meals, selected beverages (house wines, local beers, spirits, and soft drinks), two game drives daily, and Wi-Fi. Premium beverages and spa treatments are available at additional cost.',
+        answer: 'Our all-inclusive rates cover accommodation, all meals, selected beverages (house wines, local beers, spirits, and soft drinks), two game drives daily, and Wi-Fi.',
       },
       {
         question: 'Is there a minimum stay requirement?',
@@ -14,7 +14,7 @@ export const faqCategories: FAQCategory[] = [
       },
       {
         question: 'What payment methods do you accept?',
-        answer: 'We accept all major credit cards (Visa, MasterCard, American Express), bank transfers, and PayFast. A 30% deposit is required to confirm your booking.',
+        answer: 'We accept all major credit cards (Visa, MasterCard, American Express), bank transfers, and PayFast.',
       },
     ],
   },
@@ -23,7 +23,7 @@ export const faqCategories: FAQCategory[] = [
     items: [
       {
         question: 'What is your cancellation policy?',
-        answer: 'A non-refundable 30% deposit is required to secure your booking. Please refer to our full terms and conditions for complete cancellation details.',
+        answer: 'Please refer to our full terms and conditions for complete cancellation details.',
       },
       {
         question: 'Can I reschedule my booking?',
@@ -40,7 +40,7 @@ export const faqCategories: FAQCategory[] = [
     items: [
       {
         question: 'Is Manyoni Ridge suitable for children?',
-        answer: 'Children of all ages are welcome at Manyoni Ridge. Our Two Bedroom Villas are perfect for families. We offer child-friendly menus and can arrange babysitting services with advance notice. Children must be supervised at all times due to the presence of wildlife.',
+        answer: 'Our Two Bedroom Villas are perfect for families. We also offer babysitting services with advance notice. Children must be supervised at all times due to the presence of wildlife.',
       },
       {
         question: 'What age restrictions apply to game drives?',
@@ -81,11 +81,15 @@ export const faqCategories: FAQCategory[] = [
       },
       {
         question: 'How many game drives are included?',
-        answer: 'Two game drives are included daily: a morning drive departing at sunrise and an afternoon drive returning after sunset. Each drive lasts approximately 3-4 hours. Additional drives can be arranged at extra cost.',
+        answer: 'Two game drives are included daily: a morning drive departing at sunrise and an afternoon drive returning after sunset. Each drive lasts approximately 3-4 hours.',
       },
       {
         question: 'What should I wear on game drives?',
         answer: 'Neutral-colored clothing (khaki, olive, brown) is recommended. Layers are essential as mornings can be cool. Closed shoes, a hat, and sunglasses are advisable. We provide blankets, ponchos, and binoculars.',
+      },
+      {
+        question: 'Is the lodge fenced?',
+        answer: 'Yes, the lodge is fenced with an electric game fence. However, wild animals may still enter the property from time to time and roam the lodge grounds. Guests should always exercise caution when moving around the lodge premises, particularly at night.',
       },
     ],
   },
