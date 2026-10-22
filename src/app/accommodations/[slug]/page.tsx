@@ -210,7 +210,7 @@ export default function RoomDetailPage({ params }: PageProps) {
 
             {/* CTA */}
             <div className="flex gap-3">
-              <Button href="https://book.nightsbridge.com/40281" target="_blank" className="flex-1">
+              <Button href="https://book.nightsbridge.com/40281?startdate=2027-04-01" target="_blank" className="flex-1">
                 Book Now
               </Button>
               <Button href="/contact" variant="outline" className="flex-1">
