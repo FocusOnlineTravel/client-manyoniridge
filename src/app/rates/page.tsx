@@ -59,7 +59,7 @@ export default function RatesPage() {
           Our Rates
         </Heading>
 
-        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
           <a
             href={DOWNLOADS.rateSheet.href}
             target="_blank"
@@ -77,6 +77,15 @@ export default function RatesPage() {
           >
             <Download className="w-4 h-4" />
             Download {DOWNLOADS.factSheet.label}
+          </a>
+          <a
+            href={DOWNLOADS.termsAndConditions.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-white text-primary-gold border border-primary-gold px-6 py-3 rounded hover:bg-primary-gold/5 transition-colors"
+          >
+            <Download className="w-4 h-4" />
+            Download {DOWNLOADS.termsAndConditions.label}
           </a>
         </div>
 
