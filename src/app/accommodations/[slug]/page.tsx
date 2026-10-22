@@ -209,9 +209,14 @@ export default function RoomDetailPage({ params }: PageProps) {
             </div>
 
             {/* CTA */}
-            <Button href="/contact" className="w-full">
-              Enquire About This Villa
-            </Button>
+            <div className="flex gap-3">
+              <Button href="https://book.nightsbridge.com/40281" target="_blank" className="flex-1">
+                Book Now
+              </Button>
+              <Button href="/contact" variant="outline" className="flex-1">
+                Enquire
+              </Button>
+            </div>
           </div>
         </div>
       </Section>

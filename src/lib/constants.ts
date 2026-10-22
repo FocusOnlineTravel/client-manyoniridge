@@ -22,6 +22,7 @@ export const DOWNLOADS = {
   brochure: { href: '/pdfs/manyoni-brochure.pdf', label: 'Brochure' },
   factSheet: { href: '/pdfs/manyoni-fact-sheet.pdf', label: 'Fact Sheet' },
   rateSheet: { href: '/pdfs/manyoni-rate-sheet-2027-updated.pdf', label: '2027 Rate Sheet' },
+  termsAndConditions: { href: 'http://backend-manyoni.focusonlinetravel.co.za/wp-content/uploads/2026/10/Manyoni-Ridge-Safari-Lodage-TsCs.pdf', label: 'Terms & Conditions' },
 } as const;
 
 export const SOCIAL_LINKS = {
@@ -75,6 +76,7 @@ export const FOOTER_LINKS = {
     DOWNLOADS.brochure,
     DOWNLOADS.factSheet,
     DOWNLOADS.rateSheet,
+    DOWNLOADS.termsAndConditions,
   ],
   legal: [
     { href: '/privacy-policy', label: 'Privacy Policy' },
