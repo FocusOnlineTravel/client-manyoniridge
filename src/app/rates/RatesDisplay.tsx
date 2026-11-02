@@ -176,19 +176,16 @@ export function RatesDisplay() {
         </div>
       </div>
 
-      {/* SADC Enquiry Note */}
+      {/* Launch Special */}
       <div className="max-w-2xl mx-auto text-center">
         <div className="bg-primary-cream/60 border border-primary-gold/20 rounded-lg p-6">
-          <p className="text-primary-dark font-medium mb-2">SADC Residents</p>
+          <p className="text-primary-dark font-medium mb-2">Launch Offer</p>
           <p className="text-sm text-gray-medium mb-4">
-            Special rates are available for residents of SADC countries.
+            Stay 3 nights, pay for 2, plus a complimentary Rhino Orphanage visit (valued at R2,000 per guest, subject to availability).
           </p>
-          <a
-            href="/contact"
-            className="inline-block text-primary-gold text-sm font-medium hover:underline"
-          >
-            Enquire for SADC rates →
-          </a>
+          <p className="text-xs text-gray-medium">
+            Valid from opening to 29 February 2028.
+          </p>
         </div>
       </div>
 
