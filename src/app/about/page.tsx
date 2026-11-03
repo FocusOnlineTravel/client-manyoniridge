@@ -29,7 +29,7 @@ const openingEventSchema = {
   "@context": "https://schema.org",
   "@type": "Event",
   "name": "Manyoni Ridge Safari Lodge — Grand Opening",
-  "description": "The grand opening of Manyoni Ridge, a boutique luxury Big 5 safari lodge in Manyoni Private Game Reserve, KwaZulu-Natal. 9 exclusive suites, all-inclusive luxury, expert guides, and unforgettable wildlife encounters.",
+  "description": "The grand opening of Manyoni Ridge, a boutique luxury Big 5 safari lodge in Manyoni Private Game Reserve, KwaZulu-Natal. nine private villas, all-inclusive luxury, expert guides, and unforgettable wildlife encounters.",
   "startDate": "2027-04-01",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -61,7 +61,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!page) {
     return {
-      title: 'About Us | Manyoni Ridge Safari Lodge',
+      title: 'About Us',
       alternates: { canonical: '/about' },
     };
   }

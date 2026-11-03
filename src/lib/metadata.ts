@@ -2,6 +2,27 @@ import type { Metadata } from 'next';
 import type { PageMeta } from '@/lib/types';
 import { SITE_CONFIG } from '@/lib/constants';
 
+const BRAND_SUFFIX = new RegExp(
+  `(\\s*[|\\-–—]\\s*${SITE_CONFIG.name}(\\s+Safari\\s+Lodge)?)+\\s*$`,
+  'i'
+);
+
+/**
+ * Normalise a page title so the brand appears exactly once.
+ *
+ * The root layout's title template appends "| Manyoni Ridge", so titles coming
+ * from Yoast (which already end in the brand) would otherwise render as
+ * "FAQ | Manyoni Ridge | Manyoni Ridge". Trailing brand segments are stripped;
+ * if the brand still appears (e.g. the homepage "Manyoni Ridge | ..."), the
+ * title is returned as absolute so the template is skipped.
+ */
+export function pageTitle(title: string): NonNullable<Metadata['title']> {
+  const stripped = title.replace(BRAND_SUFFIX, '').trim() || title;
+  return stripped.toLowerCase().includes(SITE_CONFIG.name.toLowerCase())
+    ? { absolute: stripped }
+    : stripped;
+}
+
 /**
  * Build Next.js Metadata from a PageMeta (Yoast-sourced when available).
  *
@@ -10,7 +31,11 @@ import { SITE_CONFIG } from '@/lib/constants';
  * Site-wide OG fields (type, locale, siteName, default image) are always included
  * because Next.js replaces the entire `openGraph` object at each segment.
  */
-export function buildMetadata(meta: PageMeta, canonicalPath?: string): Metadata {
+export function buildMetadata(
+  meta: PageMeta,
+  canonicalPath?: string,
+  options: { isRoot?: boolean } = {}
+): Metadata {
   const canonical = meta.canonical || canonicalPath || `/${meta.slug}`;
 
   const ogTitle = meta.ogTitle || meta.title;
@@ -22,8 +47,16 @@ export function buildMetadata(meta: PageMeta, canonicalPath?: string): Metadata 
   const ogImage = meta.ogImage || '/images/og-clubhouse-render.jpg';
   const twitterImage = meta.twitterImage || ogImage;
 
+  // The layout's title template doesn't apply to the root page (same segment),
+  // so the homepage appends the brand itself.
+  const title = pageTitle(meta.title);
+  const resolvedTitle =
+    options.isRoot && typeof title === 'string'
+      ? { absolute: `${title} | ${SITE_CONFIG.name}` }
+      : title;
+
   return {
-    title: meta.title,
+    title: resolvedTitle,
     description: meta.description || undefined,
     alternates: { canonical },
     openGraph: {

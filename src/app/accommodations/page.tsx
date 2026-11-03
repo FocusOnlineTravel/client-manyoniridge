@@ -27,8 +27,8 @@ const breadcrumbSchema = {
 const accommodationsSchema = {
   "@context": "https://schema.org",
   "@type": "Suite",
-  "name": "Manyoni Ridge Luxury Suite",
-  "description": "Exclusive luxury suite at Manyoni Ridge Safari Lodge, featuring a private plunge pool overlooking Manyoni Private Game Reserve. All-inclusive accommodation with expert guided Big 5 game drives.",
+  "name": "Manyoni Ridge Luxury Villa",
+  "description": "Exclusive luxury villa at Manyoni Ridge Safari Lodge, featuring a private plunge pool overlooking Manyoni Private Game Reserve. All-inclusive accommodation with expert guided Big 5 game drives.",
   "url": "https://www.manyoniridge.com/accommodations",
   "containedInPlace": {
     "@type": "LodgingBusiness",
@@ -52,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!page) {
     return {
-      title: 'Accommodation | Manyoni Ridge Safari Lodge',
+      title: 'Accommodation',
       alternates: { canonical: '/accommodations' },
     };
   }

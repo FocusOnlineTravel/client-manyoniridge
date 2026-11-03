@@ -74,7 +74,7 @@ export default async function RatesDemoPage({
           </h1>
           <p className="mt-6 text-lg text-white/85 max-w-2xl mx-auto">
             An intimate 9-villa lodge in Manyoni Private Game Reserve, KZN.
-            All-inclusive luxury from February 2027.
+            All-inclusive luxury from April 2027.
           </p>
         </div>
       </section>

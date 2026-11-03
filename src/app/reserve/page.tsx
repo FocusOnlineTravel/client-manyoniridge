@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!page) {
     return {
-      title: 'The Reserve | Manyoni Ridge Safari Lodge',
+      title: 'The Reserve',
       alternates: { canonical: '/reserve' },
     };
   }
