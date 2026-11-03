@@ -38,7 +38,13 @@ export async function RoomCardsSection({
   return (
     <Section background={sectionBackground} id="accommodations">
       {heading && (
-        <Heading as="h2" subtitle={heading.subtitle} centered>
+        <Heading
+          as="h2"
+          subtitle={heading.subtitle}
+          centered
+          className={background === 'primary-dark' ? '!text-white' : undefined}
+          subtitleClassName={background === 'primary-dark' ? '!text-gray-300' : undefined}
+        >
           {heading.title}
         </Heading>
       )}
