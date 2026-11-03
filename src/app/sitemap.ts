@@ -1,9 +1,14 @@
 import type { MetadataRoute } from 'next';
-import { SITE_CONFIG } from '@/lib/constants';
-import { rooms } from '@/lib/data/rooms';
-import { activities } from '@/lib/data/activities';
+import { SITE_CONFIG, HIDDEN_ACTIVITY_SLUGS } from '@/lib/constants';
+import { getAllRooms } from '@/lib/wordpress/rooms';
+import { getAllActivities } from '@/lib/wordpress/activities';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+// Villas and experiences come from WordPress, so a page that is unpublished or
+// moved out of Accommodations/Activities there drops out of the sitemap too.
+export const revalidate = 3600;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [rooms, activities] = await Promise.all([getAllRooms(), getAllActivities()]);
   const base = SITE_CONFIG.url.replace(/\/$/, '');
   const now = new Date();
 
@@ -31,7 +36,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const activityRoutes = activities.map((activity) => ({
+  const activityRoutes = activities
+    .filter((activity) => !HIDDEN_ACTIVITY_SLUGS.includes(activity.slug))
+    .map((activity) => ({
     url: `${base}/activities/${activity.slug}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,

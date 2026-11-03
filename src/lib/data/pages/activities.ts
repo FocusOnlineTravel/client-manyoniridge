@@ -48,7 +48,6 @@ export const activitiesPage: PageDefinition = {
           'game-drives',
           'rhino-orphanage',
           'rhino-horn-trimming',
-          'pangolin-experiences',
           'k9-unit-training',
           'walking-safaris',
         ],
