@@ -1,17 +1,19 @@
 import { SITE_CONFIG, CONTACT, BOOKING_ENGINE_URL, DOWNLOADS } from '@/lib/constants';
-import { rooms } from '@/lib/data/rooms';
-import { activities } from '@/lib/data/activities';
+import { getAllRooms } from '@/lib/wordpress/rooms';
+import { getAllActivities } from '@/lib/wordpress/activities';
 import { ACTIVITY_SEO, ROOM_SEO } from '@/lib/seo';
 
 /**
  * /llms.txt — a short plain-text guide to the lodge for AI tools
- * (https://llmstxt.org). Facts come from the 2027 fact sheet and site data;
- * update them here if the fact sheet changes.
+ * (https://llmstxt.org). Villas and experiences come from WordPress (with the
+ * local data as fallback); the lodge facts below come from the 2027 fact sheet,
+ * so update them here if the fact sheet changes.
  */
-export const dynamic = 'force-static';
+export const revalidate = 3600;
 
-export function GET() {
+export async function GET() {
   const base = SITE_CONFIG.url.replace(/\/$/, '');
+  const [rooms, activities] = await Promise.all([getAllRooms(), getAllActivities()]);
 
   const villaLines = rooms.map(
     (room) =>

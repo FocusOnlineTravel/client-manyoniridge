@@ -6,9 +6,8 @@ import { ActivityCard } from '@/components/sections/ActivityCard';
 import { CTASection } from '@/components/sections/CTASection';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
-import { ImageLightbox } from '@/components/ui/ImageLightbox';
 import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
-import { ActivityGallery } from './ActivityGallery';
+import { DetailGallery } from '@/components/sections/DetailGallery';
 import { getActivityBySlug, getAllActivities } from '@/lib/wordpress/activities';
 import { buildStaticMetadata } from '@/lib/metadata';
 import { ACTIVITY_SEO } from '@/lib/seo';
@@ -189,7 +188,7 @@ export default async function ActivityDetailPage({ params }: PageProps) {
 
       {/* Image Gallery */}
       {activity.images && activity.images.length > 0 && (
-        <ActivityGallery images={activity.images} title={activity.title} />
+        <DetailGallery images={activity.images} title={activity.title} />
       )}
 
       {/* Other Activities */}
