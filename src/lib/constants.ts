@@ -14,6 +14,13 @@ export const CONTACT = {
   location: 'Manyoni Private Game Reserve, North-Eastern KwaZulu-Natal, South Africa',
 } as const;
 
+/**
+ * Experiences the lodge has chosen to hide. They are unpublished in WordPress;
+ * these slugs redirect to /activities (next.config.ts) and are kept out of the
+ * sitemap even when the bundled fallback data is used.
+ */
+export const HIDDEN_ACTIVITY_SLUGS = ['pangolin-experiences', 'spa-services'];
+
 export const BOOKING_ENGINE_URL =
   process.env.NEXT_PUBLIC_BOOKING_ENGINE_URL ??
   'https://book.nightsbridge.com/40281?startdate=2027-04-01';

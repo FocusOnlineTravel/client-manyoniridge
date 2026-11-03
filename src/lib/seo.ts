@@ -41,20 +41,10 @@ export const ACTIVITY_SEO: Record<string, SeoEntry> = {
     description:
       "Join Manyoni's conservation team as rhino horns are trimmed to deter poaching: a rare, hands-on conservation experience in KwaZulu-Natal. Minimum age 6.",
   },
-  'pangolin-experiences': {
-    title: 'Pangolin Walking Safari in KwaZulu-Natal',
-    description:
-      "Walk with a wild pangolin alongside Manyoni's Wildlife Management Team: a rare, seasonal late-afternoon experience in KwaZulu-Natal. Minimum age 12.",
-  },
   'k9-unit-training': {
     title: 'Anti-Poaching K9 Unit Experience in KwaZulu-Natal',
     description:
       "Meet the anti-poaching dogs and handlers protecting Manyoni's wildlife. Training demonstrations and tracking techniques, 1.5–2 hours.",
-  },
-  'spa-services': {
-    title: 'Safari Spa & Wellness in KwaZulu-Natal',
-    description:
-      'African-inspired massages and body treatments with natural ingredients, in the spa or your villa at Manyoni Ridge. Couples treatments available.',
   },
   'walking-safaris': {
     title: 'Guided Walking Safaris in Manyoni Private Game Reserve',

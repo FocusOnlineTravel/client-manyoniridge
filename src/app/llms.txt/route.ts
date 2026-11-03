@@ -1,4 +1,4 @@
-import { SITE_CONFIG, CONTACT, BOOKING_ENGINE_URL, DOWNLOADS } from '@/lib/constants';
+import { SITE_CONFIG, CONTACT, BOOKING_ENGINE_URL, DOWNLOADS, HIDDEN_ACTIVITY_SLUGS } from '@/lib/constants';
 import { getAllRooms } from '@/lib/wordpress/rooms';
 import { getAllActivities } from '@/lib/wordpress/activities';
 import { ACTIVITY_SEO, ROOM_SEO } from '@/lib/seo';
@@ -20,7 +20,9 @@ export async function GET() {
       `- [${room.title}](${base}/accommodations/${room.slug}): ${ROOM_SEO[room.slug]?.description ?? room.shortDescription}`
   );
 
-  const activityLines = activities.map(
+  const activityLines = activities
+    .filter((activity) => !HIDDEN_ACTIVITY_SLUGS.includes(activity.slug))
+    .map(
     (activity) =>
       `- [${activity.title}](${base}/activities/${activity.slug}): ${ACTIVITY_SEO[activity.slug]?.description ?? activity.shortDescription}`
   );
