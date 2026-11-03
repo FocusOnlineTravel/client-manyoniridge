@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!page) {
     return {
-      title: 'Page Not Found | Manyoni Ridge Safari Lodge',
+      title: 'Page Not Found',
     };
   }
 

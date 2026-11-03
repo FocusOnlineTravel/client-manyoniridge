@@ -57,8 +57,8 @@ const childrenOptions = [
 
 const roomOptions = [
   { value: '', label: 'No Preference' },
-  { value: 'one-bedroom', label: 'One Bedroom Suite' },
-  { value: 'two-bedroom', label: 'Two Bedroom Suite' },
+  { value: 'one-bedroom', label: 'One Bedroom Villa' },
+  { value: 'two-bedroom', label: 'Two Bedroom Villa' },
 ];
 
 const nationalityOptions = [

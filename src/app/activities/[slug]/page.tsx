@@ -6,10 +6,12 @@ import { ActivityCard } from '@/components/sections/ActivityCard';
 import { CTASection } from '@/components/sections/CTASection';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
-import { ImageLightbox } from '@/components/ui/ImageLightbox';
 import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
-import { ActivityGallery } from './ActivityGallery';
+import { DetailGallery } from '@/components/sections/DetailGallery';
 import { getActivityBySlug, getAllActivities } from '@/lib/wordpress/activities';
+import { buildStaticMetadata } from '@/lib/metadata';
+import { ACTIVITY_SEO } from '@/lib/seo';
+import type { Metadata } from 'next';
 
 const generateBreadcrumbSchema = (activityTitle: string, activitySlug: string) => ({
   "@context": "https://schema.org",
@@ -38,6 +40,18 @@ const generateBreadcrumbSchema = (activityTitle: string, activitySlug: string) =
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const seo = ACTIVITY_SEO[slug];
+  const activity = seo ? undefined : await getActivityBySlug(slug);
+
+  return buildStaticMetadata({
+    title: seo?.title ?? activity?.title ?? 'Safari Experience',
+    description: seo?.description ?? activity?.shortDescription,
+    slug: `activities/${slug}`,
+  });
 }
 
 export default async function ActivityDetailPage({ params }: PageProps) {
@@ -174,7 +188,7 @@ export default async function ActivityDetailPage({ params }: PageProps) {
 
       {/* Image Gallery */}
       {activity.images && activity.images.length > 0 && (
-        <ActivityGallery images={activity.images} title={activity.title} />
+        <DetailGallery images={activity.images} title={activity.title} />
       )}
 
       {/* Other Activities */}

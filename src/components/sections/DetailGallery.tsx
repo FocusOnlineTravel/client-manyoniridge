@@ -5,12 +5,15 @@ import Image from 'next/image';
 import { Section } from '@/components/ui/Section';
 import { ImageLightbox } from '@/components/ui/ImageLightbox';
 
-interface ActivityGalleryProps {
+interface DetailGalleryProps {
   images: string[];
   title: string;
+  /** Show at most this many thumbnails; the lightbox still pages through all images. */
+  maxThumbnails?: number;
 }
 
-export function ActivityGallery({ images, title }: ActivityGalleryProps) {
+/** Thumbnail grid + lightbox used on villa and activity detail pages. */
+export function DetailGallery({ images, title, maxThumbnails }: DetailGalleryProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
@@ -21,7 +24,7 @@ export function ActivityGallery({ images, title }: ActivityGalleryProps) {
           Gallery
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {images.map((image, i) => (
+          {images.slice(0, maxThumbnails ?? images.length).map((image, i) => (
             <button
               key={i}
               onClick={() => {

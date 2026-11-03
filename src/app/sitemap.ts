@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/about', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/accommodations', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/activities', priority: 0.9, changeFrequency: 'monthly' },
+    { path: '/main-lodge', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/dining', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/gallery', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/rates', priority: 0.9, changeFrequency: 'monthly' },
@@ -20,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/contact', priority: 0.7, changeFrequency: 'yearly' },
     { path: '/reserve', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
-    { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },
+    { path: '/terms-and-conditions', priority: 0.3, changeFrequency: 'yearly' },
   ];
 
   const roomRoutes = rooms.map((room) => ({

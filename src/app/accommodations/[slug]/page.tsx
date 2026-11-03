@@ -1,18 +1,18 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { ArrowLeft, Users, Bed, Bath, Maximize, Check } from 'lucide-react';
 import { HeroImage } from '@/components/sections/HeroImage';
 import { CTASection } from '@/components/sections/CTASection';
+import { DetailGallery } from '@/components/sections/DetailGallery';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
-import { ImageLightbox } from '@/components/ui/ImageLightbox';
 import { SchemaMarkup } from '@/components/ui/SchemaMarkup';
-import { rooms, getRoomBySlug, getAllRoomSlugs } from '@/lib/data/rooms';
-import { Room } from '@/lib/types';
+import { getRoomBySlug, getAllRooms } from '@/lib/wordpress/rooms';
+import { buildStaticMetadata } from '@/lib/metadata';
+import { ROOM_SEO } from '@/lib/seo';
+import { BOOKING_ENGINE_URL } from '@/lib/constants';
 
 const generateBreadcrumbSchema = (roomTitle: string, roomSlug: string) => ({
   "@context": "https://schema.org",
@@ -43,58 +43,32 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export default function RoomDetailPage({ params }: PageProps) {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
-  const [slug, setSlug] = useState<string>('');
-  const [room, setRoom] = useState<Room | null>(null);
-  const [otherRooms, setOtherRooms] = useState<Room[]>([]);
-  const [loading, setLoading] = useState(true);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const seo = ROOM_SEO[slug];
+  const room = seo ? undefined : await getRoomBySlug(slug);
 
-  useEffect(() => {
-    params.then((p) => setSlug(p.slug));
-  }, [params]);
+  return buildStaticMetadata({
+    title: seo?.title ?? room?.title ?? 'Accommodation',
+    description: seo?.description ?? room?.shortDescription,
+    slug: `accommodations/${slug}`,
+  });
+}
 
-  // Fetch room data from WordPress API
-  useEffect(() => {
-    if (!slug) return;
+/**
+ * Rendered on the server so the villa content is in the HTML. It used to be
+ * fetched client-side, which left crawlers and AI tools with an empty page.
+ */
+export default async function RoomDetailPage({ params }: PageProps) {
+  const { slug } = await params;
 
-    async function fetchRoom() {
-      try {
-        // Fetch current room and all rooms in parallel
-        const [roomRes, allRoomsRes] = await Promise.all([
-          fetch(`/api/rooms/${slug}`),
-          fetch('/api/rooms'),
-        ]);
-
-        if (roomRes.ok) {
-          const roomData = await roomRes.json();
-          setRoom(roomData);
-        }
-
-        if (allRoomsRes.ok) {
-          const allRooms = await allRoomsRes.json();
-          setOtherRooms(allRooms.filter((r: Room) => r.slug !== slug));
-        }
-      } catch (error) {
-        console.error('Error fetching room:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchRoom();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [slug]);
-
-  // Show loading state
-  if (!slug || loading) {
-    return null;
-  }
+  const [room, allRooms] = await Promise.all([getRoomBySlug(slug), getAllRooms()]);
 
   if (!room) {
     notFound();
   }
+
+  const otherRooms = allRooms.filter((r) => r.slug !== room.slug);
 
   return (
     <>
@@ -210,7 +184,7 @@ export default function RoomDetailPage({ params }: PageProps) {
 
             {/* CTA */}
             <div className="flex gap-3">
-              <Button href="https://book.nightsbridge.com/40281?startdate=2027-04-01" target="_blank" className="flex-1">
+              <Button href={BOOKING_ENGINE_URL} target="_blank" className="flex-1">
                 Book Now
               </Button>
               <Button href="/contact" variant="outline" className="flex-1">
@@ -223,42 +197,7 @@ export default function RoomDetailPage({ params }: PageProps) {
 
       {/* Image Gallery */}
       {room.images && room.images.length > 0 && (
-        <>
-          <Section background="off-white">
-            <h2 className="font-heading text-3xl font-medium text-primary-dark mb-8 text-center">
-              Gallery
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {room.images.slice(0, 8).map((image, i) => (
-                <button
-                  key={i}
-                  onClick={() => {
-                    setLightboxIndex(i);
-                    setLightboxOpen(true);
-                  }}
-                  className="aspect-square relative overflow-hidden cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-gold"
-                >
-                  <Image
-                    src={image}
-                    alt={`${room.title} gallery image ${i + 1}`}
-                    fill
-                    className="object-cover transition-transform group-hover:scale-110"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-                </button>
-              ))}
-            </div>
-          </Section>
-
-          <ImageLightbox
-            images={room.images}
-            initialIndex={lightboxIndex}
-            isOpen={lightboxOpen}
-            onClose={() => setLightboxOpen(false)}
-            alt={room.title}
-          />
-        </>
+        <DetailGallery images={room.images} title={room.title} maxThumbnails={8} />
       )}
 
       {/* Other Rooms */}

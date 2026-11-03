@@ -46,7 +46,7 @@ export const homePage: PageDefinition = {
         title: 'Welcome to Manyoni Ridge',
         subtitle: 'Your Safari Awaits',
         description:
-          "Nestled in the heart of Manyoni Private Game Reserve, Manyoni Ridge offers an intimate safari experience where luxury meets wilderness. With only nine exclusive suites, we provide personalized service and unforgettable encounters with Africa's most iconic wildlife.",
+          "Nestled in the heart of Manyoni Private Game Reserve, Manyoni Ridge offers an intimate safari experience where luxury meets wilderness. With only nine private villas, we provide personalized service and unforgettable encounters with Africa's most iconic wildlife.",
         ctaText: 'Discover Our Story',
         ctaHref: '/about',
         background: 'cream',
@@ -63,7 +63,7 @@ export const homePage: PageDefinition = {
           'Every detail at Manyoni Ridge has been carefully considered to create an experience that honors both the magnificence of the African bush and your desire for comfort. From your private plunge pool overlooking the reserve to our exceptional cuisine, every moment is crafted to exceed expectations.',
         features: [
           'Big 5 private game reserve',
-          'Only 9 intimate suites',
+          'Only 9 intimate villas',
           'All-inclusive luxury experience',
           'Expert guides and trackers',
           'Conservation-focused activities',
@@ -79,12 +79,12 @@ export const homePage: PageDefinition = {
     {
       type: 'room_cards_section',
       props: {
-        roomSlugs: ['one-bedroom-suite', 'two-bedroom-suite'],
+        roomSlugs: ['one-bedroom-villa', 'two-bedroom-villa'],
         variant: 'featured',
         heading: {
-          title: 'Our Suites',
+          title: 'Our Villas',
           subtitle:
-            'Choose from our luxurious one and two bedroom suites, each offering private pools, stunning views, and unparalleled comfort in the heart of the bush.',
+            'Choose from our luxurious one and two bedroom villas, each offering private pools, stunning views, and unparalleled comfort in the heart of the bush.',
         },
         background: 'off-white',
         layout: 'grid',
@@ -106,7 +106,7 @@ export const homePage: PageDefinition = {
           },
           {
             value: '9',
-            label: 'Exclusive Suites',
+            label: 'Exclusive Villas',
           },
           {
             value: '400+',
