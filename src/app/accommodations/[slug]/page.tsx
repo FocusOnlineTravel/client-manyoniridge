@@ -141,7 +141,7 @@ export default async function RoomDetailPage({ params }: PageProps) {
                 {room.capacity.children > 0 && (
                   <li className="flex items-center gap-3 text-gray-medium">
                     <Users className="w-5 h-5 text-primary-gold" />
-                    <span>+ {room.capacity.children} children on request</span>
+                    <span>+ {room.capacity.children} {room.capacity.children === 1 ? 'child' : 'children'} on request</span>
                   </li>
                 )}
                 <li className="flex items-center gap-3 text-gray-medium">
