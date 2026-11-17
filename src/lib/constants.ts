@@ -16,7 +16,7 @@ export const CONTACT = {
 
 export const BOOKING_ENGINE_URL =
   process.env.NEXT_PUBLIC_BOOKING_ENGINE_URL ??
-  'https://book.nightsbridge.com/40281?startdate=2027-04-01';
+  'https://book.nightsbridge.com/40281?startdate=2027-05-01';
 
 export const DOWNLOADS = {
   brochure: { href: '/pdfs/new/manyoni-brochure-2027.pdf', label: 'Brochure' },
