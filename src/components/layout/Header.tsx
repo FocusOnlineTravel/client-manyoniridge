@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, Phone } from 'lucide-react';
-import { NAV_LINKS, MOBILE_NAV_LINKS, CONTACT, BOOKING_ENGINE_URL } from '@/lib/constants';
+import { Menu } from 'lucide-react';
+import { NAV_LINKS, MOBILE_NAV_LINKS, BOOKING_ENGINE_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { analytics } from '@/lib/analytics';
 import { MobileMenu } from './MobileMenu';
@@ -94,15 +94,6 @@ export function Header({ navLinks, mobileNavLinks }: HeaderProps) {
 
             {/* Actions + Menu - Center aligned */}
             <div className="flex items-center gap-6">
-              <a
-                href={CONTACT.phoneLink}
-                onClick={() => analytics.phoneClick('header')}
-                className="hidden lg:flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary-gold"
-                style={{ color: 'white' }}
-              >
-                <Phone className="w-4 h-4" />
-                <span className="hidden xl:inline">{CONTACT.phone}</span>
-              </a>
               <Button
                 href={BOOKING_ENGINE_URL}
                 target="_blank"

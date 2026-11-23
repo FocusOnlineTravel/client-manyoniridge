@@ -104,13 +104,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${cormorantGaramond.variable} ${montserrat.variable} ${italiana.variable} antialiased`}
+        className={`${cormorantGaramond.variable} ${montserrat.variable} ${italiana.variable} antialiased overflow-x-hidden`}
       >
         {gtmId && <GoogleTagManager gtmId={gtmId} />}
         <MicrosoftClarity />
         <MotionProvider>
           <HeaderWrapper />
-          <main className="min-h-screen">{children}</main>
+          <main className="min-h-screen overflow-x-hidden">{children}</main>
           <Footer />
         </MotionProvider>
       </body>
