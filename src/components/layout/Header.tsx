@@ -10,6 +10,7 @@ import { analytics } from '@/lib/analytics';
 import { MobileMenu } from './MobileMenu';
 import { Button } from '@/components/ui/Button';
 import { NavLink } from '@/lib/types';
+import { useHeader } from './HeaderContext';
 
 interface HeaderProps {
   navLinks?: readonly NavLink[] | NavLink[];
@@ -20,13 +21,20 @@ export function Header({ navLinks, mobileNavLinks }: HeaderProps) {
   // Use WordPress menu if provided, otherwise fallback to constants
   const menuLinks = navLinks && navLinks.length > 0 ? navLinks : NAV_LINKS;
   const mobileMenuLinks = mobileNavLinks && mobileNavLinks.length > 0 ? mobileNavLinks : MOBILE_NAV_LINKS;
+  const { forceDark } = useHeader();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Use dark header when scrolled OR when forceDark is set
+  const showDarkHeader = isScrolled || forceDark;
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+
+    // Check initial scroll position on mount
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -49,7 +57,7 @@ export function Header({ navLinks, mobileNavLinks }: HeaderProps) {
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          isScrolled
+          showDarkHeader
             ? 'bg-primary-dark/95 backdrop-blur-md shadow-md py-3'
             : 'bg-transparent py-5'
         )}
@@ -58,7 +66,7 @@ export function Header({ navLinks, mobileNavLinks }: HeaderProps) {
           {/* Single Row: Logo, Navigation, and Actions */}
           <div className={cn(
             "flex items-center justify-between",
-            isScrolled ? "" : "pt-4"
+            showDarkHeader ? "" : "pt-4"
           )}>
             {/* Logo */}
             <Link
@@ -66,13 +74,13 @@ export function Header({ navLinks, mobileNavLinks }: HeaderProps) {
               className="transition-all duration-300 hover:opacity-80"
             >
               <Image
-                src={isScrolled ? "/images/manyoni-ridge-logo-head-white.png" : "/images/manyoni-ridge-logo-full-white.png"}
+                src={showDarkHeader ? "/images/manyoni-ridge-logo-head-white.png" : "/images/manyoni-ridge-logo-full-white.png"}
                 alt="Manyoni Ridge Safari Lodge"
                 width={540}
                 height={180}
                 className={cn(
                   "w-auto transition-all duration-300",
-                  isScrolled ? "h-12 md:h-14" : "h-[110px]"
+                  showDarkHeader ? "h-12 md:h-14" : "h-[110px]"
                 )}
                 priority
               />

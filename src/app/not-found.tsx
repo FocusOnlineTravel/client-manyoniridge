@@ -3,12 +3,16 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
+import { useHeader } from '@/components/layout/HeaderContext';
 
 export default function NotFound() {
+  const { setForceDark } = useHeader();
+
   useEffect(() => {
-    // Scroll slightly to trigger the scrolled header state
-    window.scrollTo(0, 100);
-  }, []);
+    // Force dark header on 404 page
+    setForceDark(true);
+    return () => setForceDark(false);
+  }, [setForceDark]);
 
   return (
     <div className="min-h-screen bg-cream">
