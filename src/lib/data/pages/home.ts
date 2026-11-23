@@ -23,8 +23,8 @@ export const homePage: PageDefinition = {
         title: 'Intimate Luxury in the Wild',
         description:
           'Experience the magic of the African bush at our boutique safari lodge in Manyoni Private Game Reserve. Big 5 encounters, exceptional service, and unforgettable moments await.',
-        ctaText: 'Enquire Now',
-        ctaHref: '/contact',
+        ctaText: 'View Villas',
+        ctaHref: '/accommodations',
         secondaryCtaText: 'Explore',
         secondaryCtaHref: '/accommodations',
         scrollToId: 'intro',
