@@ -183,10 +183,7 @@ export function HeroImage({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className={cn(
-              'font-heading font-medium leading-tight mb-6',
-              textBackground && 'bg-primary-gold/90 inline-block px-6 py-4'
-            )}
+            className="font-heading font-medium leading-tight mb-6"
             style={{ color: 'white', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
           >
             {title}

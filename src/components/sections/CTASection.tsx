@@ -92,7 +92,7 @@ export function CTASection({
             transition={{ duration: 0.8 }}
             className="max-w-2xl mx-auto"
           >
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-white font-medium mb-4 bg-primary-gold/90 inline-block px-6 py-4">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-white font-medium mb-4">
               {title}
             </h2>
             {description && (
@@ -135,10 +135,7 @@ export function CTASection({
           className="max-w-2xl mx-auto"
         >
           <h2
-            className={cn(
-              'font-heading text-3xl md:text-4xl lg:text-5xl font-medium mb-4',
-              background === 'gold' ? 'text-primary-dark' : 'text-white'
-            )}
+            className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium mb-4 text-white"
           >
             {title}
           </h2>

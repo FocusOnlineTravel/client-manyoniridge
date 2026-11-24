@@ -45,7 +45,7 @@ export const rates: RateData = {
     'All-inclusive: accommodation, meals, selected beverages, two daily game drives',
     'Two-Bedroom Villa: minimum charge of 3 adults per villa; up to 2 additional children at 50%',
     'Children up to 5 stay free · ages 6–11 pay 50% · 12 and older pay the full adult rate',
-    'Conservation levy: R200 per adult per night, R100 per child (under 13) per night',
+    'Conservation levy, R200 per adult each night and R100 per child under thirteen. It goes to Manyoni Private Game Reserve, and we publish the total every year.',
     'Excludes premium beverages, road transfers, spa treatments, and gratuities',
   ],
 };

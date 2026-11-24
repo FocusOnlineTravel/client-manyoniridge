@@ -11,6 +11,17 @@ import { Select } from './Select';
 import { Checkbox } from './Checkbox';
 import { Check } from 'lucide-react';
 
+interface ConditionalLogic {
+  enabled: boolean;
+  actionType: 'show' | 'hide';
+  logicType: 'all' | 'any';
+  rules: Array<{
+    fieldId: string;
+    operator: string;
+    value: string;
+  }>;
+}
+
 interface GravityFormField {
   id: number;
   type: string;
@@ -20,6 +31,7 @@ interface GravityFormField {
   description?: string;
   choices?: Array<{ text: string; value: string }>;
   inputs?: Array<{ id: string; label: string }>;
+  conditionalLogic?: ConditionalLogic | null;
 }
 
 interface GravityFormData {
@@ -186,8 +198,8 @@ export function GravityFormRenderer({
 
     const label = field.label.toLowerCase();
 
-    if (label.includes('name') && !label.includes('full')) return 'Enter your name';
-    if (label.includes('full name')) return 'e.g., John Smith';
+    if (label.includes('full name')) return 'e.g. John Smith';
+    if (label.includes('name')) return 'e.g. John Smith';
     if (label.includes('email')) return 'example@email.com';
     if (label.includes('phone')) return '+27 00 000 0000';
     if (label.includes('message')) return 'Tell us about your enquiry...';
@@ -347,15 +359,23 @@ export function GravityFormRenderer({
         )?.id;
         const arrivalDate = arrivalFieldId ? watch(`input_${arrivalFieldId}`) : null;
 
-        // Set min date for today
-        const today = new Date().toISOString().split('T')[0];
+        // Minimum booking date: 1 April 2027
+        const minBookingDate = '2027-04-01';
+
+        // For departure, use the later of: arrival date or min booking date
+        const getMinDate = () => {
+          if (isDepartureDate && arrivalDate) {
+            return arrivalDate > minBookingDate ? arrivalDate : minBookingDate;
+          }
+          return minBookingDate;
+        };
 
         return (
           <Input
             key={field.id}
             type="date"
             label={field.label}
-            min={isDepartureDate && arrivalDate ? arrivalDate : today}
+            min={getMinDate()}
             {...register(fieldName, {
               required: isRequired ? `${field.label} is required` : false,
               validate: isDepartureDate ? (value) => {
@@ -401,24 +421,43 @@ export function GravityFormRenderer({
     return rows;
   };
 
-  // Conditionally hide the "Ages of Children" field unless Children > 1
-  const childrenField = formData.fields.find((f) => {
-    const l = f.label.toLowerCase();
-    return l.includes('children') && !l.includes('ages');
-  });
-  const agesField = formData.fields.find((f) =>
-    f.label.toLowerCase().includes('ages')
-  );
-  const childrenValue = watch(
-    childrenField ? `input_${childrenField.id}` : ''
-  );
-  const childrenCount = Number(childrenValue) || 0;
-  const showAgesField = childrenCount > 1;
+  // Get all watched values for conditional logic
+  const watchedValues = watch();
 
-  const visibleFields =
-    agesField && !showAgesField
-      ? formData.fields.filter((f) => f.id !== agesField.id)
-      : formData.fields;
+  // Evaluate conditional logic for a field
+  const shouldShowField = (field: GravityFormField): boolean => {
+    const logic = field.conditionalLogic;
+
+    if (!logic || !logic.enabled || !logic.rules) return true;
+
+    const evaluateRule = (rule: { fieldId: string; operator: string; value: string }) => {
+      const fieldValue = watchedValues[`input_${rule.fieldId}`] || '';
+      switch (rule.operator) {
+        case 'is':
+          return fieldValue === rule.value;
+        case 'isnot':
+          return fieldValue !== rule.value;
+        case '>':
+          return Number(fieldValue) > Number(rule.value);
+        case '<':
+          return Number(fieldValue) < Number(rule.value);
+        case 'contains':
+          return String(fieldValue).includes(rule.value);
+        default:
+          return false;
+      }
+    };
+
+    const ruleResults = logic.rules.map(evaluateRule);
+    const conditionMet = logic.logicType === 'all'
+      ? ruleResults.every(Boolean)
+      : ruleResults.some(Boolean);
+
+    return logic.actionType === 'show' ? conditionMet : !conditionMet;
+  };
+
+  // Filter fields based on conditional logic
+  const visibleFields = formData.fields.filter(shouldShowField);
 
   const fieldRows = groupFields(visibleFields);
 

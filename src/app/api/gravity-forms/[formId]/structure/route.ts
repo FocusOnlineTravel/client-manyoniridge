@@ -72,6 +72,7 @@ export async function GET(
         choices: field.choices || [],
         inputs: field.inputs || [],
         defaultValue: field.defaultValue || '',
+        conditionalLogic: field.conditionalLogic || null,
       })),
       button: {
         text: formData.button?.text || 'Submit',

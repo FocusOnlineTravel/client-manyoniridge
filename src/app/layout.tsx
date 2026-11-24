@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Cormorant_Garamond, Montserrat, Italiana } from 'next/font/google';
 import './globals.css';
 import { HeaderWrapper } from '@/components/layout/HeaderWrapper';
+import { HeaderProvider } from '@/components/layout/HeaderContext';
 import { Footer } from '@/components/layout/Footer';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { MicrosoftClarity } from '@/components/analytics/MicrosoftClarity';
@@ -109,9 +110,11 @@ export default function RootLayout({
         {gtmId && <GoogleTagManager gtmId={gtmId} />}
         <MicrosoftClarity />
         <MotionProvider>
-          <HeaderWrapper />
-          <main className="min-h-screen overflow-x-hidden">{children}</main>
-          <Footer />
+          <HeaderProvider>
+            <HeaderWrapper />
+            <main className="min-h-screen overflow-x-hidden">{children}</main>
+            <Footer />
+          </HeaderProvider>
         </MotionProvider>
       </body>
     </html>
