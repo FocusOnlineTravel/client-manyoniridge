@@ -33,7 +33,7 @@ export function Footer() {
               className="inline-block mb-6"
             >
               <Image
-                src="/images/logo.png"
+                src="/images/logo.svg"
                 alt={SITE_CONFIG.name}
                 width={280}
                 height={93}

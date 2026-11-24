@@ -9,7 +9,7 @@ import { NAV_LINKS, MOBILE_NAV_LINKS } from '@/lib/constants';
 
 const GRAPHQL_ENDPOINT =
   process.env.NEXT_PUBLIC_WP_GRAPHQL_URL ||
-  'https://backend-manyoni.focusonlinetravel.co.za/graphql';
+  'https://content.manyoniridge.com/graphql';
 
 /**
  * GraphQL query to fetch a menu by location
