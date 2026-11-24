@@ -74,7 +74,7 @@ export function Header({ navLinks, mobileNavLinks }: HeaderProps) {
               className="transition-all duration-300 hover:opacity-80"
             >
               <Image
-                src={showDarkHeader ? "/images/manyoni-ridge-logo-head-white.png" : "/images/manyoni-ridge-logo-full-white.png"}
+                src="/images/logo.png"
                 alt="Manyoni Ridge Safari Lodge"
                 width={540}
                 height={180}

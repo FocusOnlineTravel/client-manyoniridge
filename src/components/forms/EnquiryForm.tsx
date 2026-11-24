@@ -21,6 +21,10 @@ const enquirySchema = z.object({
   departureDate: z.string().min(1, 'Departure date is required'),
   adults: z.string().min(1, 'Number of adults is required'),
   children: z.string(),
+  childAge1: z.string().optional(),
+  childAge2: z.string().optional(),
+  childAge3: z.string().optional(),
+  childAge4: z.string().optional(),
   roomPreference: z.string().optional(),
   referralSource: z.string().optional(),
   specialRequests: z.string().optional(),
@@ -96,6 +100,26 @@ const referralSourceOptions = [
   { value: 'other', label: 'Other' },
 ];
 
+const childAgeOptions = [
+  { value: '', label: 'Select age' },
+  { value: '0', label: 'Under 1' },
+  { value: '1', label: '1 year' },
+  { value: '2', label: '2 years' },
+  { value: '3', label: '3 years' },
+  { value: '4', label: '4 years' },
+  { value: '5', label: '5 years' },
+  { value: '6', label: '6 years' },
+  { value: '7', label: '7 years' },
+  { value: '8', label: '8 years' },
+  { value: '9', label: '9 years' },
+  { value: '10', label: '10 years' },
+  { value: '11', label: '11 years' },
+  { value: '12', label: '12 years' },
+];
+
+// Minimum booking date: 1 April 2027
+const MIN_BOOKING_DATE = '2027-04-01';
+
 interface EnquiryFormProps {
   className?: string;
   variant?: 'default' | 'compact';
@@ -119,13 +143,15 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
   });
 
   const arrivalDate = watch('arrivalDate');
+  const childrenCount = Number(watch('children')) || 0;
 
-  // Calculate minimum departure date (1 day after arrival)
+  // Calculate minimum departure date (1 day after arrival, but not before MIN_BOOKING_DATE)
   const getMinDepartureDate = () => {
-    if (!arrivalDate) return undefined;
+    if (!arrivalDate) return MIN_BOOKING_DATE;
     const arrival = new Date(arrivalDate);
     arrival.setDate(arrival.getDate() + 1);
-    return arrival.toISOString().split('T')[0];
+    const minDeparture = arrival.toISOString().split('T')[0];
+    return minDeparture > MIN_BOOKING_DATE ? minDeparture : MIN_BOOKING_DATE;
   };
 
   const onSubmit = async (data: EnquiryFormData) => {
@@ -164,7 +190,7 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
       <form onSubmit={handleSubmit(onSubmit)} className={cn('space-y-4', className)}>
         <Input
           label="Full Name"
-          placeholder="Your name"
+          placeholder="e.g. John Smith"
           {...register('name')}
           error={errors.name?.message}
           required
@@ -189,6 +215,7 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
           <Input
             type="date"
             label="Arrival"
+            min={MIN_BOOKING_DATE}
             {...register('arrivalDate')}
             error={errors.arrivalDate?.message}
             required
@@ -216,6 +243,38 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
             {...register('children')}
           />
         </div>
+        {childrenCount > 0 && (
+          <div className="grid grid-cols-2 gap-4">
+            {childrenCount >= 1 && (
+              <Select
+                label="Child 1 Age"
+                options={childAgeOptions}
+                {...register('childAge1')}
+              />
+            )}
+            {childrenCount >= 2 && (
+              <Select
+                label="Child 2 Age"
+                options={childAgeOptions}
+                {...register('childAge2')}
+              />
+            )}
+            {childrenCount >= 3 && (
+              <Select
+                label="Child 3 Age"
+                options={childAgeOptions}
+                {...register('childAge3')}
+              />
+            )}
+            {childrenCount >= 4 && (
+              <Select
+                label="Child 4 Age"
+                options={childAgeOptions}
+                {...register('childAge4')}
+              />
+            )}
+          </div>
+        )}
         <Button type="submit" isLoading={isSubmitting} className="w-full">
           Check Availability
         </Button>
@@ -228,7 +287,7 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Input
           label="Full Name"
-          placeholder="John Doe"
+          placeholder="e.g. John Smith"
           {...register('name')}
           error={errors.name?.message}
           required
@@ -265,6 +324,7 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
         <Input
           type="date"
           label="Arrival Date"
+          min={MIN_BOOKING_DATE}
           {...register('arrivalDate')}
           error={errors.arrivalDate?.message}
           required
@@ -298,6 +358,39 @@ export function EnquiryForm({ className, variant = 'default' }: EnquiryFormProps
           {...register('roomPreference')}
         />
       </div>
+
+      {childrenCount > 0 && (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {childrenCount >= 1 && (
+            <Select
+              label="Child 1 Age"
+              options={childAgeOptions}
+              {...register('childAge1')}
+            />
+          )}
+          {childrenCount >= 2 && (
+            <Select
+              label="Child 2 Age"
+              options={childAgeOptions}
+              {...register('childAge2')}
+            />
+          )}
+          {childrenCount >= 3 && (
+            <Select
+              label="Child 3 Age"
+              options={childAgeOptions}
+              {...register('childAge3')}
+            />
+          )}
+          {childrenCount >= 4 && (
+            <Select
+              label="Child 4 Age"
+              options={childAgeOptions}
+              {...register('childAge4')}
+            />
+          )}
+        </div>
+      )}
 
       <Select
         label="How did you hear about us?"

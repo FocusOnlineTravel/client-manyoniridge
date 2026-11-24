@@ -50,6 +50,10 @@ export function RatesDisplay() {
                 <Check className="w-4 h-4 text-primary-gold flex-shrink-0" />
                 <span>Private outdoor hot tub</span>
               </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary-gold flex-shrink-0" />
+                <span>Private terrace with fire pit</span>
+              </div>
             </div>
           </div>
 
@@ -138,9 +142,6 @@ export function RatesDisplay() {
           <h3 className="font-heading text-2xl text-primary-dark mb-4 text-center">
             Exclusive Use
           </h3>
-          <p className="text-gray-medium text-center mb-6">
-            Book the entire lodge for ultimate privacy
-          </p>
 
           <div className="text-center mb-6">
             <div className="flex items-baseline justify-center gap-2 mb-2">
@@ -149,15 +150,11 @@ export function RatesDisplay() {
               </span>
               <span className="text-gray-medium">per night</span>
             </div>
-            <p className="text-sm text-gray-medium">
-              Up to {rates.exclusiveUse.capacity} guests sharing
-            </p>
           </div>
 
-          <div className="bg-white rounded p-4 text-sm text-gray-medium text-center">
-            <p className="font-medium text-primary-dark mb-2">Perfect for:</p>
-            <p>Corporate retreats, family celebrations, private gatherings</p>
-          </div>
+          <p className="text-gray-medium text-center">
+            Gives you all nine villas and the main lodge, with nobody else on the property. Twenty-four people is close to the right size for a leadership team or a large extended family, and the full complement of staff and every vehicle comes with it.
+          </p>
         </div>
       </div>
 
