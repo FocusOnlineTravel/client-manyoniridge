@@ -62,7 +62,7 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
               <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
                 <Link href="/" onClick={onClose}>
                   <Image
-                    src="/images/logo.png"
+                    src="/images/logo.svg"
                     alt={SITE_CONFIG.name}
                     width={280}
                     height={93}

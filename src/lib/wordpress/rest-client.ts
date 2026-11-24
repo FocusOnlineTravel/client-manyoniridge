@@ -9,7 +9,7 @@ import { PageDefinition, Section } from '@/lib/types';
 
 const WP_API_URL =
   process.env.NEXT_PUBLIC_WP_API_URL ||
-  'https://backend-manyoni.focusonlinetravel.co.za/wp-json/wp/v2';
+  'https://content.manyoniridge.com/wp-json/wp/v2';
 
 interface WPRestPage {
   id: number;

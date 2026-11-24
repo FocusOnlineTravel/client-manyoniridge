@@ -11,7 +11,7 @@ import { PageDefinition, Section } from '@/lib/types';
  */
 const GRAPHQL_ENDPOINT =
   process.env.NEXT_PUBLIC_WP_GRAPHQL_URL ||
-  'https://backend-manyoni.focusonlinetravel.co.za/graphql';
+  'https://content.manyoniridge.com/graphql';
 
 /**
  * Execute a GraphQL query
