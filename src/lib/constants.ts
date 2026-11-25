@@ -55,7 +55,7 @@ export const MOBILE_NAV_LINKS = [
 
 export const FOOTER_LINKS = {
   experience: [
-    { href: '/accommodations', label: 'Accommodation' },
+    { href: '/accommodations', label: 'Villas' },
     { href: '/main-lodge', label: 'Main Lodge' },
     { href: '/activities', label: 'Experiences' },
     { href: '/dining', label: 'Dining' },
