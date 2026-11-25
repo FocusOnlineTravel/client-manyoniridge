@@ -55,7 +55,7 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed top-0 left-0 bottom-0 w-[75%] sm:w-[60%] md:w-[40%] lg:w-[25%] bg-primary-dark z-[101] overflow-y-auto shadow-2xl"
+            className="fixed top-0 left-0 bottom-0 w-[90%] sm:w-[60%] md:w-[40%] lg:w-[25%] bg-primary-dark z-[101] overflow-y-auto shadow-2xl"
           >
             <div className="flex flex-col min-h-full p-6">
               {/* Header */}

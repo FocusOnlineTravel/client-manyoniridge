@@ -41,15 +41,15 @@ export const NAV_LINKS = [
 
 export const MOBILE_NAV_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/accommodations', label: 'Accommodation' },
+  { href: '/about', label: 'About Us' },
+  { href: '/accommodations', label: 'Villas' },
+  { href: '/main-lodge', label: 'Main Lodge' },
   { href: '/activities', label: 'Experiences' },
-  { href: '/main-lodge', label: 'Facilities' },
-  { href: '/reserve', label: 'Reserve' },
+  { href: '/reserve', label: 'The Reserve' },
   { href: '/dining', label: 'Dining' },
-  { href: '/rates', label: 'Rates' },
   { href: '/gallery', label: 'Gallery' },
-  { href: '/about', label: 'About' },
-  { href: '/faq', label: 'FAQ' },
+  { href: '/rates', label: 'Rates' },
+  { href: '/faq', label: 'FAQs' },
   { href: '/contact', label: 'Contact' },
 ] as const;
 
