@@ -30,7 +30,7 @@ export function DiningExperiencesSection({
         {experiences.map((experience, index) => (
           <div
             key={index}
-            className="text-center w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)]"
+            className="text-center w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] p-8 bg-[#eddfc5]"
           >
             {experience.imageSrc && (
               <div className="relative h-48 mb-4 rounded-lg overflow-hidden">

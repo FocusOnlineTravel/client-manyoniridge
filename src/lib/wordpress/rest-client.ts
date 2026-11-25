@@ -201,15 +201,15 @@ function transformAcfSection(acfSection: WPAcfSection): Section | null {
       continue;
     }
 
-    // Handle headingTitle/headingSubtitle -> heading conversion
-    if (key === 'headingTitle' && value) {
+    // Handle headingTitle/headingSubtitle -> heading conversion (supports both camelCase and snake_case)
+    if ((key === 'headingTitle' || key === 'heading_title') && value) {
       props.heading = {
         title: value,
-        subtitle: acfSection.headingSubtitle || undefined,
+        subtitle: acfSection.headingSubtitle || acfSection.heading_subtitle || undefined,
       };
       continue;
     }
-    if (key === 'headingSubtitle') continue; // Handled with headingTitle
+    if (key === 'headingSubtitle' || key === 'heading_subtitle') continue; // Handled with headingTitle
 
     props[key] = value;
   }
