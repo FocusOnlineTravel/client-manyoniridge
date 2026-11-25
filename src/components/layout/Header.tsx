@@ -80,27 +80,13 @@ export function Header({ navLinks, mobileNavLinks }: HeaderProps) {
                 height={180}
                 className={cn(
                   "w-auto transition-all duration-300",
-                  showDarkHeader ? "h-12 md:h-14" : "h-[110px]"
+                  showDarkHeader ? "h-12 md:h-14" : "h-[75px] md:h-[110px]"
                 )}
                 priority
               />
             </Link>
 
-            {/* Desktop Navigation - Center aligned */}
-            <nav className="hidden lg:flex items-center justify-center gap-8 flex-1">
-              {menuLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium uppercase tracking-wider transition-colors hover:text-primary-gold"
-                  style={{ color: 'white' }}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-
-            {/* Actions + Menu - Center aligned */}
+            {/* Actions + Menu */}
             <div className="flex items-center gap-6">
               <Button
                 href={BOOKING_ENGINE_URL}
@@ -123,7 +109,7 @@ export function Header({ navLinks, mobileNavLinks }: HeaderProps) {
               {/* Menu Button - Always visible */}
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="p-2 -m-2 transition-colors hover:text-primary-gold cursor-pointer"
+                className="p-2 -m-2 ml-4 transition-colors hover:text-primary-gold cursor-pointer"
                 style={{ color: 'white' }}
                 aria-label="Open menu"
               >
